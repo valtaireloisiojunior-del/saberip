@@ -1,190 +1,167 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <title>Qual é meu IP? Descubra seu IP público agora</title>
+<meta charset="UTF-8">
+<title>Saber IP — Ferramentas Online Gratuitas</title>
+<meta name="description" content="Ferramentas online gratuitas: Meu IP, IPv4, IPv6, DNS, gerador de CPF, CNPJ, validador de CPF e muito mais.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta name="description" content="Veja seu IP público instantaneamente. Descubra IPv4, IPv6, localização, provedor e mais ferramentas online gratuitas.">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <style>
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #0b0b0b;
-      color: #ffffff;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-    }
-
-    .container {
-      width: 100%;
-      max-width: 900px;
-      padding: 20px;
-      text-align: center;
-    }
-
-    h1 {
-      font-size: 20px;
-      font-weight: normal;
-      color: #aaa;
-      margin-bottom: 10px;
-    }
-
-    .ip {
-      font-size: 42px;
-      font-weight: bold;
-      color: #00ff99;
-      margin: 10px 0;
-      word-break: break-all;
-    }
-
-    .geo {
-      font-size: 15px;
-      color: #bbb;
-      margin-bottom: 25px;
-    }
-
-    .actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      justify-content: center;
-      margin-bottom: 35px;
-    }
-
-    .btn {
-      background: #00ff99;
-      color: #000;
-      padding: 14px 22px;
-      border-radius: 10px;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 14px;
-      border: none;
-      cursor: pointer;
-      min-width: 160px;
-    }
-
-    .btn.secondary {
-      background: #1b1b1b;
-      color: #00ff99;
-      border: 1px solid #00ff99;
-    }
-
-    .btn:hover {
-      opacity: 0.85;
-    }
-
-    .tools {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 15px;
-    }
-
-    .tool {
-      background: #111;
-      padding: 18px;
-      border-radius: 12px;
-      text-decoration: none;
-      color: #fff;
-      border: 1px solid #1f1f1f;
-    }
-
-    .tool h3 {
-      margin: 0 0 6px 0;
-      color: #00ff99;
-      font-size: 16px;
-    }
-
-    .tool p {
-      margin: 0;
-      font-size: 13px;
-      color: #aaa;
-    }
-
-    footer {
-      margin-top: 30px;
-      font-size: 13px;
-      color: #666;
-    }
-
-    footer a {
-      color: #00ff99;
-      text-decoration: none;
-      margin: 0 6px;
-    }
-  </style>
+<style>
+body {
+  margin:0;
+  font-family:Arial, Helvetica, sans-serif;
+  background:#0d0d0d;
+  color:#eaeaea;
+}
+header {
+  text-align:center;
+  padding:40px 20px;
+}
+header h1 {
+  color:#00ff99;
+  font-size:40px;
+  margin-bottom:10px;
+}
+header p {
+  color:#ccc;
+  font-size:18px;
+}
+.section {
+  max-width:1100px;
+  margin:0 auto;
+  padding:20px;
+}
+.section h2 {
+  color:#00ff99;
+  margin-bottom:15px;
+  border-bottom:1px solid #222;
+  padding-bottom:5px;
+}
+.grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:15px;
+}
+.card {
+  background:#111;
+  border-radius:10px;
+  padding:20px;
+  text-align:center;
+  transition:.2s;
+}
+.card:hover {
+  transform:translateY(-3px);
+  background:#151515;
+}
+.card a {
+  text-decoration:none;
+  color:#eaeaea;
+  font-size:17px;
+  font-weight:bold;
+}
+.card span {
+  display:block;
+  margin-top:8px;
+  font-size:14px;
+  color:#aaa;
+}
+footer {
+  text-align:center;
+  padding:30px 15px;
+  font-size:13px;
+  color:#777;
+}
+footer a {
+  color:#00ff99;
+  text-decoration:none;
+  margin:0 8px;
+}
+</style>
 </head>
+
 <body>
 
-<div class="container">
+<header>
+  <h1>Saber IP</h1>
+  <p>Ferramentas online gratuitas para IP, rede, geradores e validadores</p>
+</header>
 
-  <h1>Seu IP público é:</h1>
-
-  <div class="ip" id="ip">Carregando...</div>
-
-  <div class="geo" id="geo">Obtendo localização...</div>
-
-  <div class="actions">
-    <button class="btn" onclick="copiarIP()">Copiar IP</button>
-    <a class="btn secondary" href="ip/ipv4.html">Ver IPv4</a>
-    <a class="btn secondary" href="ip/ipv6.html">Ver IPv6</a>
+<!-- IP & REDE -->
+<section class="section">
+  <h2>🌐 IP & Rede</h2>
+  <div class="grid">
+    <div class="card">
+      <a href="ip/meu-ip.html">Meu IP</a>
+      <span>Veja seu IP público</span>
+    </div>
+    <div class="card">
+      <a href="ip/ipv4.html">IPv4</a>
+      <span>Endereço IPv4</span>
+    </div>
+    <div class="card">
+      <a href="ip/ipv6.html">IPv6</a>
+      <span>Endereço IPv6</span>
+    </div>
+    <div class="card">
+      <a href="dns/meu-dns.html">Meu DNS</a>
+      <span>Servidores DNS</span>
+    </div>
   </div>
+</section>
 
-  <div class="tools">
-    <a class="tool" href="ip/dns.html">
-      <h3>Meu DNS</h3>
-      <p>Veja seus servidores DNS</p>
-    </a>
-
-    <a class="tool" href="geradores/senha.html">
-      <h3>Gerador de Senha</h3>
-      <p>Crie senhas seguras</p>
-    </a>
-
-    <a class="tool" href="geradores/uuid.html">
-      <h3>Gerador de UUID</h3>
-      <p>Identificadores únicos</p>
-    </a>
-
-    <a class="tool" href="calculadoras/porcentagem.html">
-      <h3>Calculadora</h3>
-      <p>Cálculo rápido de porcentagem</p>
-    </a>
+<!-- GERADORES -->
+<section class="section">
+  <h2>🛠️ Geradores</h2>
+  <div class="grid">
+    <div class="card">
+      <a href="geradores/cpf.html">Gerador de CPF</a>
+      <span>CPF válido para testes</span>
+    </div>
+    <div class="card">
+      <a href="geradores/cnpj.html">Gerador de CNPJ</a>
+      <span>CNPJ válido para testes</span>
+    </div>
+    <div class="card">
+      <a href="geradores/senha.html">Gerador de Senha</a>
+      <span>Senhas seguras</span>
+    </div>
+    <div class="card">
+      <a href="geradores/uuid.html">Gerador de UUID</a>
+      <span>Identificadores únicos</span>
+    </div>
   </div>
+</section>
 
-  <footer>
-    <p>
-      <a href="sobre.html">Sobre</a> |
-      <a href="privacidade.html">Privacidade</a> |
-      <a href="contato.html">Contato</a>
-    </p>
-  </footer>
+<!-- VALIDADORES -->
+<section class="section">
+  <h2>✔️ Validadores</h2>
+  <div class="grid">
+    <div class="card">
+      <a href="validadores/cpf.html">Validador de CPF</a>
+      <span>Verifique CPF</span>
+    </div>
+  </div>
+</section>
 
-</div>
+<!-- UTILITÁRIOS -->
+<section class="section">
+  <h2>📐 Utilidades</h2>
+  <div class="grid">
+    <div class="card">
+      <a href="calculadora/porcentagem.html">Calculadora</a>
+      <span>Cálculo de porcentagem</span>
+    </div>
+  </div>
+</section>
 
-<script>
-  fetch("https://ipapi.co/json/")
-    .then(res => res.json())
-    .then(data => {
-      document.getElementById("ip").innerText = data.ip;
-      document.getElementById("geo").innerText =
-        `${data.city} - ${data.region} - ${data.country_name} • ${data.org}`;
-    });
+<footer>
+  <a href="index.html">Início</a> |
+  <a href="sobre.html">Sobre</a> |
+  <a href="privacidade.html">Privacidade</a> |
+  <a href="contato.html">Contato</a>
+  <br><br>
+  © 2026 — Saber IP
+</footer>
 
-  function copiarIP() {
-    const ip = document.getElementById("ip").innerText;
-    navigator.clipboard.writeText(ip);
-    alert("IP copiado!");
-  }
-</script>
-<a href="/geradores/cpf.html">Gerador de CPF</a>
 </body>
 </html>
