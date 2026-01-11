@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Saber IP — Descubra seu IP agora</title>
+<meta name="description" content="Veja seu IP público automaticamente. Geradores e validadores online simples e rápidos.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #0d0d0d;
+  color: #ffffff;
+  text-align: center;
+}
+
+header {
+  padding: 50px 20px 20px;
+}
+
+h1 {
+  font-size: 42px;
+  color: #00ff99;
+  margin-bottom: 5px;
+}
+
+p {
+  font-size: 20px;
+  color: #ccc;
+}
+
+.ip-box {
+  margin: 30px auto;
+  background: #111;
+  max-width: 600px;
+  padding: 30px 20px;
+  border-radius: 16px;
+}
+
+.ip-label {
+  font-size: 20px;
+  color: #aaa;
+}
+
+.ip-value {
+  font-size: 40px;
+  font-weight: bold;
+  color: #00ff99;
+  margin: 15px 0;
+  word-break: break-all;
+}
+
+button {
+  background: #00ff99;
+  color: #000;
+  border: none;
+  padding: 15px 30px;
+  font-size: 20px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+.section {
+  max-width: 700px;
+  margin: 30px auto;
+  padding: 20px;
+}
+
+a.card {
+  display: block;
+  background: #111;
+  margin: 15px 0;
+  padding: 25px;
+  border-radius: 12px;
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+a.card:hover {
+  background: #00ff99;
+  color: #000;
+}
+
+span.desc {
+  display: block;
+  font-size: 16px;
+  font-weight: normal;
+  margin-top: 8px;
+}
+
+footer {
+  margin: 40px 0;
+  font-size: 14px;
+  color: #777;
+}
+
+footer a {
+  color: #00ff99;
+  text-decoration: none;
+  margin: 0 10px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>Saber IP</h1>
+  <p>Ferramentas online simples, rápidas e gratuitas</p>
+</header>
+
+<!-- IP EM DESTAQUE -->
+<div class="ip-box">
+  <div class="ip-label">Seu IP público é:</div>
+  <div class="ip-value" id="ip">Carregando...</div>
+  <button onclick="copiarIP()">📋 Copiar IP</button>
+</div>
+
+<!-- FERRAMENTAS -->
+<div class="section">
+
+  <!-- IP -->
+  <a class="card" href="ip/meu-ip.html" target="_blank">
+    Meu IP detalhado
+    <span class="desc">IP, localização e informações do navegador</span>
+  </a>
+
+  <a class="card" href="ip/geolocalizacao.html" target="_blank">
+    Geolocalização por IP
+    <span class="desc">Descubra a localização de um IP agora</span>
+  </a>
+
+  <!-- GERADORES -->
+  <a class="card" href="geradores/cpf.html" target="_blank">
+    Gerador de CPF
+    <span class="desc">CPF válido para testes e validações</span>
+  </a>
+
+  <a class="card" href="geradores/cnpj.html" target="_blank">
+    Gerador de CNPJ
+    <span class="desc">CNPJ válido para testes</span>
+  </a>
+
+  <a class="card" href="geradores/pessoas.html" target="_blank">
+    Gerador de Pessoas
+    <span class="desc">Dados fictícios completos</span>
+  </a>
+
+  <a class="card" href="geradores/empresas.html" target="_blank">
+    Gerador de Empresas
+    <span class="desc">Empresa fictícia com CNPJ</span>
+  </a>
+
+  <a class="card" href="geradores/cartao-credito.html" target="_blank">
+    Gerador de Cartão de Crédito
+    <span class="desc">Cartões válidos para testes</span>
+  </a>
+
+  <a class="card" href="geradores/cep.html" target="_blank">
+    Gerador de CEP
+    <span class="desc">CEP brasileiro aleatório</span>
+  </a>
+
+  <a class="card" href="geradores/renavam.html" target="_blank">
+    Gerador de RENAVAM
+    <span class="desc">RENAVAM fictício para testes</span>
+  </a>
+
+  <a class="card" href="geradores/qrcode.html" target="_blank">
+    Gerador de QR Code
+    <span class="desc">Crie e baixe QR Codes</span>
+  </a>
+
+  <!-- VALIDADORES -->
+  <a class="card" href="validadores/cpf.html" target="_blank">
+    Validador de CPF
+    <span class="desc">Verifique se um CPF é válido</span>
+  </a>
+
+  <a class="card" href="validadores/cnpj.html" target="_blank">
+    Validador de CNPJ
+    <span class="desc">Verifique se um CNPJ é válido</span>
+  </a>
+
+  <a class="card" href="validadores/cartao-credito.html" target="_blank">
+    Validador de Cartão de Crédito
+    <span class="desc">Validação pelo algoritmo Luhn</span>
+  </a>
+
+</div>
+
+<footer>
+  <a href="sobre.html">Sobre</a> |
+  <a href="privacidade.html">Privacidade</a> |
+  <a href="contato.html">Contato</a>
+  <br><br>
+  © 2026 — Saber IP
+</footer>
+
+<script>
+fetch("https://api.ipify.org?format=json")
+  .then(res => res.json())
+  .then(data => {
+    document.getElementById("ip").innerText = data.ip;
+  })
+  .catch(() => {
+    document.getElementById("ip").innerText = "Não foi possível carregar";
+  });
+
+function copiarIP() {
+  const ip = document.getElementById("ip").innerText;
+  navigator.clipboard.writeText(ip).then(() => {
+    alert("IP copiado: " + ip);
+  });
+}
+</script>
+
+</body>
+</html>

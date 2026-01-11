@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Gerador de Loterias | Saber IP</title>
+<meta name="description" content="Gere números para Mega-Sena, Lotofácil e mais grátis.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>/* Mesmo CSS do currículo acima */</style>
+</head>
+<body>
+<h1>🎰 Gerador de Loterias</h1>
+<div class="cv-box">
+<h2>Escolha a Loteria</h2>
+<select id="loteria" style="width:90%;padding:15px;margin:10px 0;border:2px solid #00ff99;border-radius:10px;background:#000;color:#fff;font-size:16px;">
+<option value="megasena">Mega-Sena (6 números)</option>
+<option value="lotofacil">Lotofácil (15 números)</option>
+<option value="quina">Quina (5 números)</option>
+</select>
+<button class="btn" onclick="gerarNumeros()">🎲 Gerar Números</button>
+<button class="btn" onclick="copiarNumeros()">📋 Copiar</button>
+<div id="numeros-output">Clique para gerar!</div>
+</div>
+<div class="tools">
+<a href="index.html">← Voltar ao Início</a>
+</div>
+<footer>/* Mesmo footer */</footer>
+<script>
+let numsTexto = "";
+function gerarNumeros() {
+  const tipo = document.getElementById('loteria').value;
+  let qtd = {megasena:6, lotofacil:15, quina:5}[tipo];
+  let max = {megasena:60, lotofacil:25, quina:80}[tipo];
+  const nums = [];
+  while(nums.length < qtd) {
+    const num = Math.floor(Math.random() * max) + 1;
+    if(!nums.includes(num)) nums.push(num);
+  }
+  nums.sort((a,b)=>a-b);
+  numsTexto = `${tipo.toUpperCase()}: ${nums.join(' - ')}`;
+  document.getElementById('numeros-output').innerText = numsTexto;
+}
+function copiarNumeros() {
+  if(!numsTexto) return alert("Gere os números primeiro!");
+  navigator.clipboard.writeText(numsTexto).then(() => alert("Números copiados!"));
+}
+</script>
+</body>
+</html>
