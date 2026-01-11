@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Despertador Online Avançado | SABER IP</title>
+    <meta name="description" content="Despertador online avançado com visor digital, alarme múltiplo, soneca, som customizável, histórico de horários e contagem de visitas.">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #0d0d0d;
+            color: #00ff99;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            min-height: 100vh;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        h1 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .card {
+            background-color: #111;
+            border-radius: 12px;
+            padding: 20px;
+            width: 100%;
+            max-width: 500px;
+            box-sizing: border-box;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        #clock {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        input[type="time"], select {
+            width: 100%;
+            padding: 12px;
+            font-size: 1.2rem;
+            border-radius: 8px;
+            border: none;
+            margin-bottom: 15px;
+            background-color: #0d0d0d;
+            color: #00ff99;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            font-size: 1.2rem;
+            margin: 5px 0;
+            border: none;
+            border-radius: 8px;
+            background-color: #00ff99;
+            color: #0d0d0d;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        button:hover {
+            background-color: #00cc7a;
+        }
+        #status, #history, #visits {
+            margin-top: 15px;
+            font-size: 1.1rem;
+            min-height: 24px;
+        }
+        #history ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        footer {
+            margin-top: 30px;
+            font-size: 0.9rem;
+            text-align: center;
+        }
+        footer a {
+            color: #00ff99;
+            text-decoration: none;
+            margin: 0 8px;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>Despertador Online Avançado</h1>
+    <div class="card">
+        <div id="clock">00:00:00</div>
+
+        <input type="time" id="alarmTime">
+        <select id="alarmSound">
+            <option value="beep">Beep</option>
+            <option value="chime">Chime</option>
+            <option value="ring">Ring</option>
+        </select>
+        <button id="setAlarm">Definir Alarme</button>
+        <button id="cancelAlarm">Cancelar Alarme</button>
+        <button id="snoozeAlarm">Soneca (+5 min)</button>
+        <button id="copyTime">Copiar Hora</button>
+
+        <div id="status"></div>
+    </div>
+
+    <div class="card" id="history">
+        <h2>Últimos horários definidos</h2>
+        <ul id="alarmList"></ul>
+    </div>
+
+    <div class="card" id="visits">
+        <h2>Contagem de visitas</h2>
+        <p id="visitCount"></p>
+    </div>
+
+    <footer>
+        <a href="https://valtaireloisiojunior-del.github.io/saberip/index.html" target="_blank">Início</a>|
+        <a href="https://valtaireloisiojunior-del.github.io/saberip/privacidade.html" target="_blank">Privacidade</a>|
+        <a href="https://valtaireloisiojunior-del.github.io/saberip/contato.html" target="_blank">Contato</a>
+    </footer>
+
+    <audio id="alarmAudio">
+        <source src="https://actions.google.com/sounds/v1/alarms/alarm_clock.ogg" type="audio/ogg">
+    </audio>
+
+    <script>
+        // --- Funções de cookies ---
+        function setCookie(name, value, days) {
+            const d = new Date();
+            d.setTime(d.getTime() + (days*24*60*60*1000));
+            document.cookie = name + "=" + encodeURIComponent(value) + ";path=/;expires=" + d.toUTCString();
+        }
+
+        function getCookie(name) {
+            const match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
+            return match ? decodeURIComponent(match[2]) : null;
+        }
+
+        // --- Visitas ---
+        let visits = parseInt(getCookie('visits')) || 0;
+        visits++;
+        setCookie('visits', visits, 365);
+        document.getElementById('visitCount').textContent = `Você visitou esta página ${visits} vez(es).`;
+
+        // --- Últimos horários ---
+        let alarmHistory = JSON.parse(getCookie('alarmHistory') || '[]');
+        const alarmList = document.getElementById('alarmList');
+
+        function updateHistory() {
+            alarmList.innerHTML = '';
+            alarmHistory.slice(-5).reverse().forEach(time => {
+                const li = document.createElement('li');
+                li.textContent = time;
+                alarmList.appendChild(li);
+            });
+        }
+        updateHistory();
+
+        // --- Relógio ---
+        const clockDiv = document.getElementById('clock');
+        const alarmTimeInput = document.getElementById('alarmTime');
+        const alarmSoundSelect = document.getElementById('alarmSound');
+        const setAlarmBtn = document.getElementById('setAlarm');
+        const cancelAlarmBtn = document.getElementById('cancelAlarm');
+        const snoozeBtn = document.getElementById('snoozeAlarm');
+        const copyTimeBtn = document.getElementById('copyTime');
+        const statusDiv = document.getElementById('status');
+        const alarmAudio = document.getElementById('alarmAudio');
+
+        let alarmTime = null;
+
+        function updateClock() {
+            const now = new Date();
+            const h = String(now.getHours()).padStart(2,'0');
+            const m = String(now.getMinutes()).padStart(2,'0');
+            const s = String(now.getSeconds()).padStart(2,'0');
+            clockDiv.textContent = `${h}:${m}:${s}`;
+
+            if (alarmTime && now.getHours() === alarmTime.hour && now.getMinutes() === alarmTime.minute && now.getSeconds() === 0) {
+                triggerAlarm();
+            }
+        }
+        setInterval(updateClock, 1000);
+
+        function triggerAlarm() {
+            alarmAudio.src = getSoundURL(alarmSoundSelect.value);
+            alarmAudio.play();
+            statusDiv.textContent = '⏰ Alarme tocando!';
+        }
+
+        function getSoundURL(sound) {
+            switch(sound) {
+                case 'beep': return 'https://actions.google.com/sounds/v1/alarms/alarm_clock.ogg';
+                case 'chime': return 'https://actions.google.com/sounds/v1/alarms/digital_watch_alarm_long.ogg';
+                case 'ring': return 'https://actions.google.com/sounds/v1/alarms/phone_alerts_and_rings.ogg';
+                default: return 'https://actions.google.com/sounds/v1/alarms/alarm_clock.ogg';
+            }
+        }
+
+        setAlarmBtn.addEventListener('click', () => {
+            const time = alarmTimeInput.value;
+            if(!time){
+                statusDiv.textContent = '❌ Selecione um horário antes de definir o alarme.';
+                return;
+            }
+            const [hour, minute] = time.split(':').map(Number);
+            alarmTime = {hour, minute};
+            statusDiv.textContent = `⏳ Alarme definido para ${time}`;
+
+            // Salva no histórico
+            alarmHistory.push(time);
+            setCookie('alarmHistory', JSON.stringify(alarmHistory), 365);
+            updateHistory();
+        });
+
+        cancelAlarmBtn.addEventListener('click', () => {
+            alarmTime = null;
+            alarmAudio.pause();
+            alarmAudio.currentTime = 0;
+            statusDiv.textContent = '❌ Alarme cancelado';
+        });
+
+        snoozeBtn.addEventListener('click', () => {
+            if(!alarmTime) return;
+            let date = new Date();
+            date.setHours(alarmTime.hour, alarmTime.minute + 5, 0);
+            alarmTime = {hour: date.getHours(), minute: date.getMinutes()};
+            alarmAudio.pause();
+            alarmAudio.currentTime = 0;
+            statusDiv.textContent = '💤 Alarme adiado 5 minutos';
+        });
+
+        copyTimeBtn.addEventListener('click', () => {
+            const time = clockDiv.textContent;
+            navigator.clipboard.writeText(time).then(() => {
+                statusDiv.textContent = `✅ Hora ${time} copiada para a área de transferência`;
+            });
+        });
+    </script>
+</body>
+</html>
