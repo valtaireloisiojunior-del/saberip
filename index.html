@@ -2,62 +2,25 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<title>Saber IP — Descubra seu IP e Localização</title>
-<meta name="description" content="Veja seu IP agora, descubra sua localização e use ferramentas online gratuitas.">
+<title>Geolocalização de IP | Saber IP</title>
+<meta name="description" content="Descubra a localização de qualquer IP no mapa com a ferramenta gratuita do Saber IP.">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+
 <style>
-body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#0d0d0d;color:#fff}
-a{text-decoration:none;color:#00ff99}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#0d0d0d;color:#fff;text-align:center;}
+a{text-decoration:none;color:#00ff99;}
 
-/* Layout */
-.wrapper{display:flex;min-height:100vh}
-
-/* Menu */
-.sidebar{
-  width:260px;
-  background:#111;
+.container{
+  max-width:900px;
+  margin:0 auto;
   padding:20px;
-  overflow-y:auto
-}
-.sidebar h2{color:#00ff99;margin-top:0}
-.sidebar a{
-  display:block;
-  padding:12px;
-  margin:6px 0;
-  background:#0d0d0d;
-  border-radius:10px;
-  font-size:15px
-}
-.sidebar a:hover{background:#00ff99;color:#000}
-
-/* Main */
-.main{
-  flex:1;
-  display:flex;
-  flex-direction:column;
-  padding:20px;
-  overflow:hidden
 }
 
-/* IP box */
-.ip-box{
-  background:#111;
-  padding:25px;
-  border-radius:18px;
-  text-align:center
-}
-.ip{
-  font-size:44px;
-  color:#00ff99;
-  font-weight:bold;
-  word-break:break-all
-}
-.geo{
-  margin-top:10px;
-  font-size:18px;
-  color:#ccc
-}
+.ip{font-size:42px;color:#00ff99;font-weight:bold;margin-top:10px;word-break:break-word;}
+.geo{margin-top:10px;font-size:18px;color:#ccc;}
+
 .btn{
   padding:14px 22px;
   margin:8px;
@@ -66,104 +29,112 @@ a{text-decoration:none;color:#00ff99}
   border:none;
   cursor:pointer
 }
-.btn-main{background:#00ff99;color:#000}
-.btn-outline{background:#0d0d0d;color:#00ff99;border:2px solid #00ff99}
+.btn-main{background:#00ff99;color:#000;}
+.btn-outline{background:#0d0d0d;color:#00ff99;border:2px solid #00ff99;}
 
-/* Frame */
-.frame{
-  margin-top:20px;
-  width:100%;
-  height:500px;
+#map{height:450px;width:100%;margin:20px auto;border-radius:16px;}
+
+.search input{
+  width:250px;
+  padding:10px;
+  font-size:16px;
+  border-radius:10px;
   border:none;
-  border-radius:16px;
-  background:#0d0d0d
+  text-align:center;
+  margin-bottom:8px;
 }
 
-/* Mobile */
-@media(max-width:900px){
-  .wrapper{flex-direction:column}
-  .sidebar{width:100%;display:flex;overflow-x:auto}
-  .sidebar a{min-width:180px}
-}
+footer{margin:30px 0;font-size:14px;color:#777;}
+footer a{color:#00ff99;text-decoration:none;margin:0 10px;}
 </style>
 </head>
 
 <body>
 
-<div class="wrapper">
+<div class="container">
+  <h1>🌍 Geolocalização de IP</h1>
+  <div class="ip" id="ip">Carregando...</div>
+  <button class="btn btn-main" onclick="copiarIP()">📋 Copiar IP</button>
 
-  <!-- MENU -->
-  <div class="sidebar">
-    <h2>🌐 IP</h2>
-    <a href="#" onclick="abrir('IP/meu-ip.html')">Meu IP</a>
-    <a href="#" onclick="abrir('IP/ipv4.html')">IPv4</a>
-    <a href="#" onclick="abrir('IP/ipv6.html')">IPv6</a>
+  <div class="geo" id="geo">Obtendo localização...</div>
 
-    <h2>🧩 Geradores</h2>
-    <a href="#" onclick="abrir('geradores/cpf.html')">CPF</a>
-    <a href="#" onclick="abrir('geradores/cnpj.html')">CNPJ</a>
-    <a href="#" onclick="abrir('geradores/pessoas.html')">Pessoas</a>
-    <a href="#" onclick="abrir('geradores/cartao-credito.html')">Cartão</a>
-    <a href="#" onclick="abrir('geradores/renavam.html')">RENAVAM</a>
-    <a href="#" onclick="abrir('geradores/qr-code.html')">QR Code</a>
-
-    <h2>✅ Validadores</h2>
-    <a href="#" onclick="abrir('validadores/cpf.html')">CPF</a>
-    <a href="#" onclick="abrir('validadores/cnpj.html')">CNPJ</a>
-    <a href="#" onclick="abrir('validadores/cartao-credito.html')">Cartão</a>
+  <div class="search">
+    <input type="text" id="ipBusca" placeholder="Consultar outro IP">
+    <br>
+    <button class="btn btn-outline" onclick="colarIP()">📋 Colar IP</button>
+    <button class="btn btn-main" onclick="buscarIP()">🔍 Consultar</button>
   </div>
 
-  <!-- CONTEÚDO -->
-  <div class="main">
-
-    <div class="ip-box">
-      <div class="ip" id="ip">Carregando...</div>
-      <button class="btn btn-main" onclick="copiarIP()">📋 Copiar IP</button>
-
-      <div class="geo" id="geo">Obtendo localização...</div>
-
-      <button class="btn btn-outline"
-        onclick="abrir('geolocalizacao.html?auto=1')">
-        📍 Descubra a localização de uma pessoa agora
-      </button>
-    </div>
-
-    <iframe class="frame" id="frame" src="IP/meu-ip.html"></iframe>
-
-  </div>
+  <div id="map"></div>
 </div>
 
+<footer>
+<a href="index.html">Início</a> |
+<a href="privacidade.html">Privacidade</a> |
+<a href="sobre.html">Sobre</a> |
+<a href="contato.html">Contato</a>
+</footer>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
-let ipAtual="";
+let mapa, marcador, ipAtual="";
 
-// Abrir páginas no frame
-function abrir(url){
-  document.getElementById("frame").src = url;
+// Lê parâmetro ?auto=1 para iniciar automaticamente
+function getParam(param){
+  const url = new URL(window.location.href);
+  return url.searchParams.get(param);
 }
 
-// Copiar IP
-function copiarIP(){
-  navigator.clipboard.writeText(ipAtual);
-  alert("IP copiado!");
-}
-
-// Carregar IP e GEO em texto
-async function carregar(){
+// Carregar IP e geolocalização
+async function carregar(ip=null){
   try{
-    const ipRes = await fetch("https://api64.ipify.org?format=json").then(r=>r.json());
+    const ipRes = ip ? {ip: ip} : await fetch("https://api64.ipify.org?format=json").then(r=>r.json());
     ipAtual = ipRes.ip;
     document.getElementById("ip").innerText = ipAtual;
 
     const geo = await fetch(`https://ipapi.co/${ipAtual}/json/`).then(r=>r.json());
     document.getElementById("geo").innerText =
       `${geo.city}, ${geo.region}, ${geo.country_name} | ISP: ${geo.org}`;
+
+    if(!mapa){
+      mapa = L.map('map', {scrollWheelZoom:true}).setView([geo.latitude, geo.longitude], 10);
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(mapa);
+    }
+
+    if(marcador) mapa.removeLayer(marcador);
+    marcador = L.marker([geo.latitude, geo.longitude]).addTo(mapa)
+      .bindPopup("Localização aproximada").openPopup();
+
+    mapa.setView([geo.latitude, geo.longitude], 11);
+
   }catch(e){
     document.getElementById("ip").innerText="Não foi possível obter IP";
     document.getElementById("geo").innerText="";
+    console.error(e);
   }
 }
 
-carregar();
+// Copiar IP
+function copiarIP(){ navigator.clipboard.writeText(ipAtual); alert("IP copiado!"); }
+
+// Colar IP
+function colarIP(){ navigator.clipboard.readText().then(t=>document.getElementById("ipBusca").value=t); }
+
+// Consultar IP digitado
+function buscarIP(){
+  const ip = document.getElementById("ipBusca").value.trim();
+  if(!ip) return alert("Digite um IP!");
+  carregar(ip);
+}
+
+// Inicializa
+window.onload = () => {
+  if(getParam("auto")==="1"){
+    carregar(); // inicia automaticamente com IP do usuário
+  }else{
+    carregar();
+  }
+};
 </script>
 
 </body>
