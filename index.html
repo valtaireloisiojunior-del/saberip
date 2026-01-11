@@ -1,121 +1,232 @@
-
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<title>Meu IP Agora | Saber IP</title>
-<meta name="description" content="Veja seu IP, localização exata no mapa e use ferramentas online gratuitas.">
+<title>Saber IP — Ferramentas Online Gratuitas</title>
+<meta name="description" content="Descubra seu IP público e use geradores e validadores online gratuitos. Rápido, simples e seguro.">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- Leaflet -->
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
-
 <style>
-body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#0d0d0d;color:#fff;text-align:center;}
-h1{font-size:42px;color:#00ff99;margin:20px 0;}
-h2{color:#00ff99;margin-top:50px;}
-.ip-box{background:#111;padding:30px;border-radius:20px;max-width:700px;margin:20px auto;}
-.ip{font-size:48px;font-weight:bold;margin:20px 0;word-wrap:break-word;}
-.btn{padding:15px 30px;font-size:20px;border-radius:12px;border:none;cursor:pointer;margin:10px;}
-.btn-main{background:#00ff99;color:#000;}
-.btn-outline{background:#111;color:#00ff99;border:2px solid #00ff99;}
-#map{height:350px;border-radius:20px;margin-top:20px;}
-.info{font-size:18px;color:#ccc;margin-top:10px;}
-.tools{max-width:1000px;margin:40px auto;text-align:left;}
-.tools a{display:block;background:#111;padding:15px;margin:10px 0;border-radius:12px;color:#00ff99;text-decoration:none;font-size:20px;}
-.tools a:hover{background:#00ff99;color:#000;}
-footer{margin:60px 0;color:#777;font-size:14px;}
-footer a{color:#00ff99;text-decoration:none;margin:0 10px;}
+body{
+  margin:0;
+  font-family:Arial, Helvetica, sans-serif;
+  background:#0d0d0d;
+  color:#ffffff;
+  text-align:center;
+}
+
+header{
+  padding:45px 20px 20px;
+}
+
+h1{
+  font-size:38px;
+  color:#00ff99;
+  margin-bottom:6px;
+}
+
+p{
+  font-size:18px;
+  color:#ccc;
+}
+
+/* IP */
+.ip-box{
+  margin:25px auto;
+  background:#111;
+  max-width:560px;
+  padding:25px 20px;
+  border-radius:16px;
+}
+
+.ip-label{
+  font-size:18px;
+  color:#aaa;
+}
+
+.ip-value{
+  font-size:32px; /* menor para não quebrar no mobile */
+  font-weight:bold;
+  color:#00ff99;
+  margin:14px 0;
+  word-break:break-all;
+}
+
+button{
+  background:#00ff99;
+  color:#000;
+  border:none;
+  padding:14px 26px;
+  font-size:18px;
+  border-radius:10px;
+  cursor:pointer;
+}
+
+button:hover{opacity:.9}
+
+/* Cards */
+.section{
+  max-width:720px;
+  margin:25px auto;
+  padding:15px;
+}
+
+a.card{
+  display:block;
+  background:#111;
+  margin:12px 0;
+  padding:22px;
+  border-radius:14px;
+  text-decoration:none;
+  color:#ffffff;
+  font-size:22px;
+  font-weight:bold;
+}
+
+a.card:hover{
+  background:#00ff99;
+  color:#000;
+}
+
+span.desc{
+  display:block;
+  font-size:14px;
+  font-weight:normal;
+  margin-top:6px;
+}
+
+/* Footer */
+footer{
+  margin:40px 0;
+  font-size:14px;
+  color:#777;
+}
+
+footer a{
+  color:#00ff99;
+  text-decoration:none;
+  margin:0 10px;
+}
+
+/* Mobile */
+@media(max-width:480px){
+  h1{font-size:32px}
+  .ip-value{font-size:28px}
+  a.card{font-size:20px}
+}
 </style>
 </head>
 
 <body>
 
-<h1>Seu IP Agora</h1>
+<header>
+  <h1>Saber IP</h1>
+  <p>Descubra seu IP e use ferramentas online grátis</p>
+</header>
 
+<!-- IP -->
 <div class="ip-box">
-  <div class="ip" id="ip">Carregando...</div>
-  <button class="btn btn-main" onclick="copiarIP()">📋 Copiar IP</button>
-  <div class="info" id="geo">Obtendo localização...</div>
-  <div id="map"></div>
+  <div class="ip-label">Seu IP público:</div>
+  <div class="ip-value" id="ip">Carregando...</div>
+  <button onclick="copiarIP()">📋 Copiar IP</button>
 </div>
 
-<h2>🛠 Ferramentas Saber IP</h2>
+<!-- FERRAMENTAS -->
+<div class="section">
 
-<div class="tools">
-  <strong>🌐 IP & Rede</strong>
-  <a href="ip/meu-ip.html">Meu IP</a>
-  <a href="ipv4.html">IPv4</a>
-  <a href="ipv6.html">IPv6</a>
+  <!-- IP -->
+  <a class="card" href="ip/meu-ip.html" target="_blank">
+    Meu IP Detalhado
+    <span class="desc">IP, localização e navegador</span>
+  </a>
 
-  <strong>🧩 Geradores</strong>
-  <a href="geradores/cpf.html">Gerador de CPF</a>
-  <a href="geradores/cnpj.html">Gerador de CNPJ</a>
-  <a href="geradores/pessoas.html">Gerador de Pessoas</a>
-  <a href="geradores/cartao-credito.html">Gerador de Cartão de Crédito</a>
-  <a href="geradores/renavam.html">Gerador de RENAVAM</a>
-  <a href="geradores/pis-pasep.html">Gerador de PIS/PASEP</a>
-  <a href="geradores/placa-veiculo.html">Gerador de Placa de Veículo</a>
-  <a href="geradores/lorem-ipsum.html">Gerador de Lorem Ipsum</a>
-  <a href="geradores/qr-code.html">Gerador de QR Code</a>
-  <a href="geradores/senha.html">Gerador de Senha</a>
+  <a class="card" href="ipv4.html" target="_blank">
+    IPv4
+    <span class="desc">Informações do IPv4</span>
+  </a>
 
-  <strong>✅ Validadores</strong>
-  <a href="validadores/cpf.html">Validador de CPF</a>
-  <a href="validadores/cnpj.html">Validador de CNPJ</a>
-  <a href="validadores/cartao-credito.html">Validador de Cartão</a>
+  <a class="card" href="ipv6.html" targetuto="_blank">
+    IPv6
+    <span class="desc">Informações do IPv6</span>
+  </a>
+
+  <!-- GERADORES -->
+  <a class="card" href="geradores/cpf.html" target="_blank">
+    Gerador de CPF
+    <span class="desc">CPF válido para testes</span>
+  </a>
+
+  <a class="card" href="geradores/cnpj.html" target="_blank">
+    Gerador de CNPJ
+    <span class="desc">CNPJ válido para testes</span>
+  </a>
+
+  <a class="card" href="geradores/pessoas.html" target="_blank">
+    Gerador de Pessoas
+    <span class="desc">Dados fictícios completos</span>
+  </a>
+
+  <a class="card" href="geradores/cartao-credito.html" target="_blank">
+    Gerador de Cartão de Crédito
+    <span class="desc">Cartão para testes</span>
+  </a>
+
+  <a class="card" href="geradores/rg.html" target="_blank">
+    Gerador de RG
+    <span class="desc">RG fictício</span>
+  </a>
+
+  <a class="card" href="geradores/cnh.html" target="_blank">
+    Gerador de CNH
+    <span class="desc">CNH fictícia</span>
+  </a>
+
+  <a class="card" href="geradores/conta-bancaria.html" target="_blank">
+    Gerador de Conta Bancária
+    <span class="desc">Banco, agência e conta</span>
+  </a>
+
+  <a class="card" href="geradores/conversor-moeda.html" target="_blank">
+    Conversor de Moeda
+    <span class="desc">Cotação do Real e moedas</span>
+  </a>
+
+  <!-- VALIDADORES -->
+  <a class="card" href="validadores/cpf.html" target="_blank">
+    Validador de CPF
+    <span class="desc">Verifique CPF</span>
+  </a>
+
+  <a class="card" href="validadores/cnpj.html" target="_blank">
+    Validador de CNPJ
+    <span class="desc">Verifique CNPJ</span>
+  </a>
+
+  <a class="card" href="validadores/cartao-credito.html" target="_blank">
+    Validador de Cartão
+    <span class="desc">Cheque cartão</span>
+  </a>
+
 </div>
 
 <footer>
-<a href="index.html">Início</a> |
-<a href="privacidade.html">Privacidade</a> |
-<a href="sobre.html">Sobre</a> |
-<a href="contato.html">Contato</a>
+  <a href="sobre.html">Sobre</a> |
+  <a href="privacidade.html">Privacidade</a> |
+  <a href="contato.html">Contato</a>
+  <br><br>
+  © 2026 — Saber IP
 </footer>
 
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
-let userIP = "";
-
-// Função para pegar IP via API confiável (funciona em mobile e desktop)
-async function pegarIP() {
-  try {
-    const res = await fetch("https://api64.ipify.org?format=json");
-    const dataIP = await res.json();
-    userIP = dataIP.ip;
-    document.getElementById("ip").innerText = userIP;
-
-    // Agora pegar geolocalização
-    const geoRes = await fetch(`https://ipapi.co/${userIP}/json/`);
-    const geo = await geoRes.json();
-
-    document.getElementById("geo").innerText =
-      `${geo.city}, ${geo.region}, ${geo.country_name} | ISP: ${geo.org}`;
-
-    const map = L.map('map').setView([geo.latitude, geo.longitude], 12);
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '© OpenStreetMap'
-    }).addTo(map);
-
-    L.marker([geo.latitude, geo.longitude]).addTo(map)
-      .bindPopup("Localização aproximada do IP")
-      .openPopup();
-
-  } catch (err) {
-    document.getElementById("ip").innerText = "Não foi possível obter IP";
-    document.getElementById("geo").innerText = "";
-    console.error(err);
-  }
-}
+fetch("https://api.ipify.org?format=json")
+  .then(res => res.json())
+  .then(data => document.getElementById("ip").innerText = data.ip)
+  .catch(()=> document.getElementById("ip").innerText="Erro");
 
 function copiarIP(){
-  if(!userIP) return alert("IP ainda não carregado!");
-  navigator.clipboard.writeText(userIP).then(()=>{alert("IP copiado!")});
+  const ip = document.getElementById("ip").innerText;
+  navigator.clipboard.writeText(ip).then(()=>alert("IP copiado: " + ip));
 }
-
-// Chama a função ao carregar
-pegarIP();
 </script>
 
 </body>

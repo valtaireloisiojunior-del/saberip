@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Conversor de Moeda — Saber IP</title>
+<meta name="description" content="Converta valores entre moedas e veja a cotação atual do Real de forma rápida e gratuita.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#0d0d0d;color:#fff;text-align:center;}
+header{padding:40px 20px;}
+h1{font-size:36px;color:#00ff99;margin-bottom:10px;}
+p{color:#ccc;font-size:18px;}
+.card{background:#111;max-width:520px;margin:20px auto;padding:25px;border-radius:16px;text-align:center;}
+input, select{width:80%;padding:12px;margin:10px 0;font-size:18px;border-radius:10px;border:none;text-align:center;}
+button{background:#00ff99;color:#000;border:none;padding:12px 25px;font-size:18px;border-radius:10px;cursor:pointer;margin:10px 5px;}
+button:hover{opacity:.9;}
+.result-box{margin:20px auto;background:#111;padding:20px;border-radius:12px;max-width:400px;font-size:22px;}
+.notice{color:#888;font-size:14px;margin-top:15px;}
+footer{margin:40px 0;font-size:14px;color:#777;}
+footer a{color:#00ff99;text-decoration:none;margin:0 10px;}
+</style>
+</head>
+<body>
+
+<header>
+<h1>Conversor de Moeda</h1>
+<p>Converta valores entre moedas e veja a cotação atual do Real</p>
+</header>
+
+<div class="card">
+<input type="number" id="valor" placeholder="Valor a converter">
+<br>
+<select id="de">
+<option value="BRL" selected>BRL - Real</option>
+<option value="USD">USD - Dólar</option>
+<option value="EUR">EUR - Euro</option>
+<option value="GBP">GBP - Libra</option>
+<option value="JPY">JPY - Iene</option>
+</select>
+<br>
+<select id="para">
+<option value="USD">USD - Dólar</option>
+<option value="EUR">EUR - Euro</option>
+<option value="BRL" selected>BRL - Real</option>
+<option value="GBP">GBP - Libra</option>
+<option value="JPY">JPY - Iene</option>
+</select>
+<br>
+<button onclick="converter()">💱 Converter</button>
+<button onclick="copiarResultado()">📋 Copiar resultado</button>
+
+<div class="result-box" id="resultado">Resultado aparecerá aqui...</div>
+<div class="notice">⚠️ Cotação aproximada, apenas para referência</div>
+</div>
+
+<footer>
+<a href="../index.html">Início</a> |
+<a href="../privacidade.html">Privacidade</a> |
+<a href="../contato.html">Contato</a>
+</footer>
+
+<script>
+async function converter(){
+  const valor = parseFloat(document.getElementById("valor").value);
+  const de = document.getElementById("de").value;
+  const para = document.getElementById("para").value;
+  const res = document.getElementById("resultado");
+
+  if(isNaN(valor)){alert("Digite um valor válido!"); return;}
+
+  res.innerText = "Consultando cotação...";
+  try{
+    const response = await fetch(`https://api.exchangerate.host/convert?from=${de}&to=${para}&amount=${valor}`);
+    const data = await response.json();
+    if(data.result !== undefined){
+      res.innerText = `${valor.toFixed(2)} ${de} = ${data.result.toFixed(2)} ${para}`;
+    } else {
+      res.innerText = "Não foi possível consultar a cotação.";
+    }
+  } catch(err){
+    res.innerText = "Erro ao consultar a cotação.";
+  }
+}
+
+function copiarResultado(){
+  const txt = document.getElementById("resultado").innerText;
+  navigator.clipboard.writeText(txt).then(()=>alert("Resultado copiado!"));
+}
+</script>
+
+</body>
+</html>
