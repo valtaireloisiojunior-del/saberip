@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Meu IP Agora | Saber IP</title>
-<meta name="description" content="Veja seu IP, localização exata no mapa e use ferramentas online gratuitas como geradores e validadores.">
+<meta name="description" content="Veja seu IP, localização exata no mapa e use ferramentas online gratuitas.">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <!-- Leaflet -->
@@ -14,7 +14,7 @@ body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#0d0d0d;color:#f
 h1{font-size:42px;color:#00ff99;margin:20px 0;}
 h2{color:#00ff99;margin-top:50px;}
 .ip-box{background:#111;padding:30px;border-radius:20px;max-width:700px;margin:20px auto;}
-.ip{font-size:48px;font-weight:bold;margin:20px 0;}
+.ip{font-size:48px;font-weight:bold;margin:20px 0;word-wrap:break-word;}
 .btn{padding:15px 30px;font-size:20px;border-radius:12px;border:none;cursor:pointer;margin:10px;}
 .btn-main{background:#00ff99;color:#000;}
 .btn-outline{background:#111;color:#00ff99;border:2px solid #00ff99;}
@@ -42,7 +42,6 @@ footer a{color:#00ff99;text-decoration:none;margin:0 10px;}
 <h2>🛠 Ferramentas Saber IP</h2>
 
 <div class="tools">
-
   <strong>🌐 IP & Rede</strong>
   <a href="ip/meu-ip.html">Meu IP</a>
   <a href="ipv4.html">IPv4</a>
@@ -64,7 +63,6 @@ footer a{color:#00ff99;text-decoration:none;margin:0 10px;}
   <a href="validadores/cpf.html">Validador de CPF</a>
   <a href="validadores/cnpj.html">Validador de CNPJ</a>
   <a href="validadores/cartao-credito.html">Validador de Cartão</a>
-
 </div>
 
 <footer>
@@ -75,33 +73,47 @@ footer a{color:#00ff99;text-decoration:none;margin:0 10px;}
 </footer>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-
 <script>
 let userIP = "";
 
-fetch("https://ipapi.co/json/")
-.then(res => res.json())
-.then(data => {
-  userIP = data.ip;
-  document.getElementById("ip").innerText = data.ip;
-  document.getElementById("geo").innerText =
-    `${data.city} - ${data.region}, ${data.country_name} | ISP: ${data.org}`;
+// Função para pegar IP via API confiável (funciona em mobile e desktop)
+async function pegarIP() {
+  try {
+    const res = await fetch("https://api64.ipify.org?format=json");
+    const dataIP = await res.json();
+    userIP = dataIP.ip;
+    document.getElementById("ip").innerText = userIP;
 
-  const map = L.map('map').setView([data.latitude, data.longitude], 12);
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '© OpenStreetMap'
-  }).addTo(map);
+    // Agora pegar geolocalização
+    const geoRes = await fetch(`https://ipapi.co/${userIP}/json/`);
+    const geo = await geoRes.json();
 
-  L.marker([data.latitude, data.longitude]).addTo(map)
-    .bindPopup("Localização aproximada do IP")
-    .openPopup();
-});
+    document.getElementById("geo").innerText =
+      `${geo.city}, ${geo.region}, ${geo.country_name} | ISP: ${geo.org}`;
+
+    const map = L.map('map').setView([geo.latitude, geo.longitude], 12);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© OpenStreetMap'
+    }).addTo(map);
+
+    L.marker([geo.latitude, geo.longitude]).addTo(map)
+      .bindPopup("Localização aproximada do IP")
+      .openPopup();
+
+  } catch (err) {
+    document.getElementById("ip").innerText = "Não foi possível obter IP";
+    document.getElementById("geo").innerText = "";
+    console.error(err);
+  }
+}
 
 function copiarIP(){
-  navigator.clipboard.writeText(userIP).then(()=>{
-    alert("IP copiado!");
-  });
+  if(!userIP) return alert("IP ainda não carregado!");
+  navigator.clipboard.writeText(userIP).then(()=>{alert("IP copiado!")});
 }
+
+// Chama a função ao carregar
+pegarIP();
 </script>
 
 </body>
