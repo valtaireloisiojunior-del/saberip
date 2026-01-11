@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Validador de CNPJ Online — Verificar CNPJ válido</title>
+<meta name="description" content="Valide CNPJ online gratuitamente. Descubra se um CNPJ é válido ou inválido em segundos.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body {
+  margin:0;
+  font-family: Arial, Helvetica, sans-serif;
+  background:#0d0d0d;
+  color:#fff;
+  text-align:center;
+}
+
+h1 {
+  font-size:36px;
+  color:#00ff99;
+  margin-top:40px;
+}
+
+p {
+  color:#ccc;
+  font-size:18px;
+}
+
+.container {
+  background:#111;
+  max-width:520px;
+  margin:30px auto;
+  padding:30px 20px;
+  border-radius:16px;
+}
+
+input {
+  width:90%;
+  padding:15px;
+  font-size:20px;
+  border-radius:10px;
+  border:none;
+  margin-bottom:20px;
+  text-align:center;
+}
+
+button {
+  background:#00ff99;
+  color:#000;
+  border:none;
+  padding:15px 30px;
+  font-size:20px;
+  border-radius:10px;
+  cursor:pointer;
+}
+
+.resultado {
+  margin-top:20px;
+  font-size:22px;
+  font-weight:bold;
+}
+
+.valido {
+  color:#00ff99;
+}
+
+.invalido {
+  color:#ff5555;
+}
+
+footer {
+  margin:40px 0;
+  font-size:14px;
+  color:#777;
+  position:relative;
+  z-index:10;
+}
+
+footer a {
+  color:#00ff99;
+  text-decoration:none;
+  margin:0 10px;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Validador de CNPJ</h1>
+<p>Verifique se um CNPJ é válido ou inválido</p>
+
+<div class="container">
+  <input type="text" id="cnpj" placeholder="Digite o CNPJ" maxlength="18">
+  <br>
+  <button onclick="validarCNPJ()">Validar CNPJ</button>
+  <div id="resultado" class="resultado"></div>
+</div>
+
+<footer>
+  <a href="../index.html">Início</a> |
+  <a href="../geradores/cnpj.html">Gerador de CNPJ</a> |
+  <a href="../privacidade.html">Privacidade</a>
+</footer>
+
+<script>
+function validarCNPJ() {
+  let cnpj = document.getElementById("cnpj").value.replace(/\D/g, '');
+
+  if (cnpj.length !== 14 || /^(\d)\1+$/.test(cnpj)) {
+    mostrarResultado(false);
+    return;
+  }
+
+  let tamanho = cnpj.length - 2;
+  let numeros = cnpj.substring(0, tamanho);
+  let digitos = cnpj.substring(tamanho);
+  let soma = 0;
+  let pos = tamanho - 7;
+
+  for (let i = tamanho; i >= 1; i--) {
+    soma += numeros.charAt(tamanho - i) * pos--;
+    if (pos < 2) pos = 9;
+  }
+
+  let resultado = soma % 11 < 2 ? 0 : 11 - soma % 11;
+  if (resultado != digitos.charAt(0)) {
+    mostrarResultado(false);
+    return;
+  }
+
+  tamanho = tamanho + 1;
+  numeros = cnpj.substring(0, tamanho);
+  soma = 0;
+  pos = tamanho - 7;
+
+  for (let i = tamanho; i >= 1; i--) {
+    soma += numeros.charAt(tamanho - i) * pos--;
+    if (pos < 2) pos = 9;
+  }
+
+  resultado = soma % 11 < 2 ? 0 : 11 - soma % 11;
+  mostrarResultado(resultado == digitos.charAt(1));
+}
+
+function mostrarResultado(valido) {
+  const res = document.getElementById("resultado");
+  if (valido) {
+    res.innerHTML = "✅ CNPJ VÁLIDO";
+    res.className = "resultado valido";
+  } else {
+    res.innerHTML = "❌ CNPJ INVÁLIDO";
+    res.className = "resultado invalido";
+  }
+}
+</script>
+
+</body>
+</html>
