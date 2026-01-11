@@ -2,15 +2,13 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<title>Geolocalização de IP | Saber IP</title>
-<meta name="description" content="Descubra a localização de qualquer IP no mapa com a ferramenta gratuita do Saber IP.">
+<title>Saber IP — Descubra seu IP e Localização</title>
+<meta name="description" content="Veja seu IP, descubra sua localização e use ferramentas online gratuitas do Saber IP.">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
-
 <style>
-body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#0d0d0d;color:#fff;text-align:center;}
-a{text-decoration:none;color:#00ff99;}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#0d0d0d;color:#fff;text-align:center}
+a{text-decoration:none;color:#00ff99}
 
 .container{
   max-width:900px;
@@ -18,8 +16,8 @@ a{text-decoration:none;color:#00ff99;}
   padding:20px;
 }
 
-.ip{font-size:42px;color:#00ff99;font-weight:bold;margin-top:10px;word-break:break-word;}
-.geo{margin-top:10px;font-size:18px;color:#ccc;}
+.ip{font-size:48px;color:#00ff99;font-weight:bold;word-break:break-word;margin:15px 0;}
+.geo{font-size:18px;color:#ccc;margin-bottom:20px;}
 
 .btn{
   padding:14px 22px;
@@ -32,8 +30,26 @@ a{text-decoration:none;color:#00ff99;}
 .btn-main{background:#00ff99;color:#000;}
 .btn-outline{background:#0d0d0d;color:#00ff99;border:2px solid #00ff99;}
 
-#map{height:450px;width:100%;margin:20px auto;border-radius:16px;}
+/* Menu centralizado */
+.menu{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  margin-top:30px;
+}
+.menu a{
+  background:#111;
+  padding:12px 16px;
+  margin:6px;
+  border-radius:12px;
+  min-width:140px;
+  text-align:center;
+  font-size:16px;
+  display:inline-block;
+}
+.menu a:hover{background:#00ff99;color:#000;}
 
+/* Campo de busca de IP */
 .search input{
   width:250px;
   padding:10px;
@@ -52,11 +68,16 @@ footer a{color:#00ff99;text-decoration:none;margin:0 10px;}
 <body>
 
 <div class="container">
-  <h1>🌍 Geolocalização de IP</h1>
+  <h1>🌐 Saber IP</h1>
+
   <div class="ip" id="ip">Carregando...</div>
   <button class="btn btn-main" onclick="copiarIP()">📋 Copiar IP</button>
 
   <div class="geo" id="geo">Obtendo localização...</div>
+
+  <a href="geolocalizacao.html?auto=1" target="_blank" class="btn btn-outline">
+    📍 Descubra a localização de uma pessoa agora
+  </a>
 
   <div class="search">
     <input type="text" id="ipBusca" placeholder="Consultar outro IP">
@@ -65,7 +86,31 @@ footer a{color:#00ff99;text-decoration:none;margin:0 10px;}
     <button class="btn btn-main" onclick="buscarIP()">🔍 Consultar</button>
   </div>
 
-  <div id="map"></div>
+  <!-- MENU CENTRALIZADO DE FERRAMENTAS -->
+  <div class="menu">
+    <h2 style="width:100%;color:#00ff99;text-align:center;margin-bottom:10px;">🛠️ Ferramentas</h2>
+
+    <!-- IP -->
+    <a href="IP/meu-ip.html" target="_blank">Meu IP</a>
+    <a href="IP/ipv4.html" target="_blank">IPv4</a>
+    <a href="IP/ipv6.html" target="_blank">IPv6</a>
+
+    <!-- Geradores -->
+    <a href="geradores/cpf.html" target="_blank">CPF</a>
+    <a href="geradores/cnpj.html" target="_blank">CNPJ</a>
+    <a href="geradores/pessoas.html" target="_blank">Pessoas</a>
+    <a href="geradores/cartao-credito.html" target="_blank">Cartão</a>
+    <a href="geradores/renavam.html" target="_blank">RENAVAM</a>
+    <a href="geradores/qr-code.html" target="_blank">QR Code</a>
+    <a href="geradores/cep.html" target="_blank">CEP</a>
+    <a href="geradores/empresas.html" target="_blank">Empresas</a>
+
+    <!-- Validadores -->
+    <a href="validadores/cpf.html" target="_blank">Val. CPF</a>
+    <a href="validadores/cnpj.html" target="_blank">Val. CNPJ</a>
+    <a href="validadores/cartao-credito.html" target="_blank">Val. Cartão</a>
+  </div>
+
 </div>
 
 <footer>
@@ -75,17 +120,28 @@ footer a{color:#00ff99;text-decoration:none;margin:0 10px;}
 <a href="contato.html">Contato</a>
 </footer>
 
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
-let mapa, marcador, ipAtual="";
+let ipAtual="";
 
-// Lê parâmetro ?auto=1 para iniciar automaticamente
-function getParam(param){
-  const url = new URL(window.location.href);
-  return url.searchParams.get(param);
+// Copiar IP
+function copiarIP(){
+  navigator.clipboard.writeText(ipAtual);
+  alert("IP copiado!");
 }
 
-// Carregar IP e geolocalização
+// Colar do clipboard
+function colarIP(){
+  navigator.clipboard.readText().then(t=>document.getElementById("ipBusca").value=t);
+}
+
+// Consultar IP digitado
+function buscarIP(){
+  const ip = document.getElementById("ipBusca").value.trim();
+  if(!ip) return alert("Digite um IP!");
+  carregar(ip);
+}
+
+// Carregar IP e geolocalização em texto
 async function carregar(ip=null){
   try{
     const ipRes = ip ? {ip: ip} : await fetch("https://api64.ipify.org?format=json").then(r=>r.json());
@@ -95,18 +151,6 @@ async function carregar(ip=null){
     const geo = await fetch(`https://ipapi.co/${ipAtual}/json/`).then(r=>r.json());
     document.getElementById("geo").innerText =
       `${geo.city}, ${geo.region}, ${geo.country_name} | ISP: ${geo.org}`;
-
-    if(!mapa){
-      mapa = L.map('map', {scrollWheelZoom:true}).setView([geo.latitude, geo.longitude], 10);
-      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(mapa);
-    }
-
-    if(marcador) mapa.removeLayer(marcador);
-    marcador = L.marker([geo.latitude, geo.longitude]).addTo(mapa)
-      .bindPopup("Localização aproximada").openPopup();
-
-    mapa.setView([geo.latitude, geo.longitude], 11);
-
   }catch(e){
     document.getElementById("ip").innerText="Não foi possível obter IP";
     document.getElementById("geo").innerText="";
@@ -114,27 +158,7 @@ async function carregar(ip=null){
   }
 }
 
-// Copiar IP
-function copiarIP(){ navigator.clipboard.writeText(ipAtual); alert("IP copiado!"); }
-
-// Colar IP
-function colarIP(){ navigator.clipboard.readText().then(t=>document.getElementById("ipBusca").value=t); }
-
-// Consultar IP digitado
-function buscarIP(){
-  const ip = document.getElementById("ipBusca").value.trim();
-  if(!ip) return alert("Digite um IP!");
-  carregar(ip);
-}
-
-// Inicializa
-window.onload = () => {
-  if(getParam("auto")==="1"){
-    carregar(); // inicia automaticamente com IP do usuário
-  }else{
-    carregar();
-  }
-};
+carregar();
 </script>
 
 </body>
