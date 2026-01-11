@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+
+  <title>Qual é meu IPv6? Descubra seu IPv6 público agora</title>
+
+  <meta name="description" content="Veja qual é o seu endereço IPv6 público agora. Descubra seu IPv6 em tempo real, localização aproximada e provedor de internet.">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="/ip/ipv6.html">
+
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0b0b0b;
+      color: #fff;
+    }
+
+    header {
+      text-align: center;
+      padding: 40px 15px 20px;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 26px;
+      color: #00ff99;
+    }
+
+    header p {
+      margin-top: 8px;
+      font-size: 14px;
+      color: #aaa;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 0 15px 40px;
+      text-align: center;
+    }
+
+    .box {
+      background: #111;
+      padding: 30px;
+      border-radius: 14px;
+      margin-top: 20px;
+      border: 1px solid #1f1f1f;
+    }
+
+    .ip {
+      font-size: 30px;
+      font-weight: bold;
+      color: #00ff99;
+      word-break: break-all;
+    }
+
+    .info {
+      margin-top: 12px;
+      font-size: 14px;
+      color: #bbb;
+    }
+
+    .buttons {
+      margin-top: 25px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+    }
+
+    .btn {
+      background: #00ff99;
+      color: #000;
+      padding: 14px 22px;
+      border-radius: 10px;
+      font-weight: bold;
+      font-size: 14px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      min-width: 160px;
+    }
+
+    .btn.secondary {
+      background: #1b1b1b;
+      color: #00ff99;
+      border: 1px solid #00ff99;
+    }
+
+    section {
+      margin-top: 40px;
+      text-align: left;
+    }
+
+    section h2 {
+      font-size: 20px;
+      color: #00ff99;
+      margin-bottom: 10px;
+    }
+
+    section p {
+      font-size: 14px;
+      color: #ccc;
+      margin-bottom: 10px;
+    }
+
+    footer {
+      margin-top: 40px;
+      font-size: 13px;
+      color: #666;
+      text-align: center;
+    }
+
+    footer a {
+      color: #00ff99;
+      text-decoration: none;
+      margin: 0 6px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Qual é meu IPv6?</h1>
+  <p>Descubra seu endereço IPv6 público em tempo real</p>
+</header>
+
+<div class="container">
+
+  <div class="box">
+    <div class="ip" id="ipv6">Verificando suporte a IPv6...</div>
+    <div class="info" id="info"></div>
+
+    <div class="buttons">
+      <button class="btn" onclick="copiar()">Copiar IPv6</button>
+      <a class="btn secondary" href="meu-ip.html">Meu IP</a>
+      <a class="btn secondary" href="ipv4.html">Ver IPv4</a>
+    </div>
+  </div>
+
+  <!-- CONTEÚDO SEO -->
+  <section>
+    <h2>O que é IPv6?</h2>
+    <p>
+      O IPv6 (Internet Protocol versão 6) é a versão mais moderna do protocolo IP.
+      Ele foi criado para substituir o IPv4, oferecendo um número praticamente
+      ilimitado de endereços.
+    </p>
+
+    <h2>Por que meu IPv6 pode não aparecer?</h2>
+    <p>
+      Nem todas as conexões utilizam IPv6. Caso seu provedor ou rede não suporte IPv6,
+      esta página informará que não foi possível detectar um endereço IPv6.
+    </p>
+
+    <h2>IPv6 é mais seguro?</h2>
+    <p>
+      O IPv6 possui melhorias estruturais em relação ao IPv4, mas a segurança depende
+      principalmente da configuração da rede e dos dispositivos.
+    </p>
+  </section>
+
+  <footer>
+    <p>
+      <a href="/">Início</a> |
+      <a href="/ip/meu-ip.html">Meu IP</a> |
+      <a href="/privacidade.html">Privacidade</a>
+    </p>
+  </footer>
+
+</div>
+
+<script>
+  fetch("https://api64.ipify.org?format=json")
+    .then(res => res.json())
+    .then(ipData => {
+      document.getElementById("ipv6").innerText = ipData.ip;
+
+      fetch("https://ipapi.co/" + ipData.ip + "/json/")
+        .then(res => res.json())
+        .then(geo => {
+          document.getElementById("info").innerText =
+            `${geo.city} - ${geo.region} - ${geo.country_name} • ${geo.org}`;
+        });
+    })
+    .catch(() => {
+      document.getElementById("ipv6").innerText =
+        "IPv6 não detectado nesta conexão";
+    });
+
+  function copiar() {
+    const ip = document.getElementById("ipv6").innerText;
+    if (ip.includes("não detectado")) return;
+    navigator.clipboard.writeText(ip);
+    alert("IPv6 copiado!");
+  }
+</script>
+
+</body>
+</html>

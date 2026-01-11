@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+
+  <title>Qual é meu IPv4? Descubra seu IPv4 público agora</title>
+
+  <meta name="description" content="Veja qual é o seu endereço IPv4 público agora. Descubra seu IPv4 em tempo real, localização aproximada e provedor de internet.">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="/ip/ipv4.html">
+
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0b0b0b;
+      color: #fff;
+    }
+
+    header {
+      text-align: center;
+      padding: 40px 15px 20px;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 26px;
+      color: #00ff99;
+    }
+
+    header p {
+      margin-top: 8px;
+      font-size: 14px;
+      color: #aaa;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 0 15px 40px;
+      text-align: center;
+    }
+
+    .box {
+      background: #111;
+      padding: 30px;
+      border-radius: 14px;
+      margin-top: 20px;
+      border: 1px solid #1f1f1f;
+    }
+
+    .ip {
+      font-size: 38px;
+      font-weight: bold;
+      color: #00ff99;
+      word-break: break-all;
+    }
+
+    .info {
+      margin-top: 12px;
+      font-size: 14px;
+      color: #bbb;
+    }
+
+    .buttons {
+      margin-top: 25px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+    }
+
+    .btn {
+      background: #00ff99;
+      color: #000;
+      padding: 14px 22px;
+      border-radius: 10px;
+      font-weight: bold;
+      font-size: 14px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      min-width: 160px;
+    }
+
+    .btn.secondary {
+      background: #1b1b1b;
+      color: #00ff99;
+      border: 1px solid #00ff99;
+    }
+
+    section {
+      margin-top: 40px;
+      text-align: left;
+    }
+
+    section h2 {
+      font-size: 20px;
+      color: #00ff99;
+      margin-bottom: 10px;
+    }
+
+    section p {
+      font-size: 14px;
+      color: #ccc;
+      margin-bottom: 10px;
+    }
+
+    footer {
+      margin-top: 40px;
+      font-size: 13px;
+      color: #666;
+      text-align: center;
+    }
+
+    footer a {
+      color: #00ff99;
+      text-decoration: none;
+      margin: 0 6px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Qual é meu IPv4?</h1>
+  <p>Descubra seu endereço IPv4 público em tempo real</p>
+</header>
+
+<div class="container">
+
+  <div class="box">
+    <div class="ip" id="ipv4">Carregando...</div>
+    <div class="info" id="info">Obtendo informações...</div>
+
+    <div class="buttons">
+      <button class="btn" onclick="copiar()">Copiar IPv4</button>
+      <a class="btn secondary" href="meu-ip.html">Meu IP</a>
+      <a class="btn secondary" href="ipv6.html">Ver IPv6</a>
+    </div>
+  </div>
+
+  <!-- CONTEÚDO SEO -->
+  <section>
+    <h2>O que é IPv4?</h2>
+    <p>
+      O IPv4 (Internet Protocol versão 4) é o formato de endereço IP mais utilizado no mundo.
+      Ele é composto por quatro conjuntos de números separados por pontos, como 192.168.0.1.
+    </p>
+
+    <h2>Para que serve o IPv4?</h2>
+    <p>
+      O IPv4 identifica sua conexão na internet e permite a comunicação entre dispositivos.
+      Mesmo com a chegada do IPv6, o IPv4 ainda é amplamente utilizado.
+    </p>
+
+    <h2>Meu IPv4 é público?</h2>
+    <p>
+      Sim. Esta ferramenta mostra o seu IPv4 público, que é fornecido pelo seu provedor
+      de internet e visível para sites e serviços online.
+    </p>
+  </section>
+
+  <footer>
+    <p>
+      <a href="/">Início</a> |
+      <a href="/ip/meu-ip.html">Meu IP</a> |
+      <a href="/privacidade.html">Privacidade</a>
+    </p>
+  </footer>
+
+</div>
+
+<script>
+  fetch("https://api.ipify.org?format=json")
+    .then(res => res.json())
+    .then(ipData => {
+      document.getElementById("ipv4").innerText = ipData.ip;
+
+      fetch("https://ipapi.co/" + ipData.ip + "/json/")
+        .then(res => res.json())
+        .then(geo => {
+          document.getElementById("info").innerText =
+            `${geo.city} - ${geo.region} - ${geo.country_name} • ${geo.org}`;
+        });
+    });
+
+  function copiar() {
+    const ip = document.getElementById("ipv4").innerText;
+    navigator.clipboard.writeText(ip);
+    alert("IPv4 copiado!");
+  }
+</script>
+
+</body>
+</html>
