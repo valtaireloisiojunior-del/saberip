@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Validador de CPF Online Grátis | Saber IP</title>
+<meta name="description" content="Valide CPF online de forma rápida e gratuita. Verifique se um CPF é válido para testes e cadastros.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body {
+  background:#0d0d0d;
+  color:#eaeaea;
+  font-family:Arial, Helvetica, sans-serif;
+  text-align:center;
+  margin:0;
+}
+.container {
+  max-width:600px;
+  margin:40px auto;
+  padding:20px;
+}
+h1 {
+  color:#00ff99;
+  font-size:32px;
+}
+input {
+  width:100%;
+  padding:14px;
+  font-size:18px;
+  border-radius:8px;
+  border:none;
+  margin-top:20px;
+  text-align:center;
+}
+button {
+  background:#00ff99;
+  border:none;
+  padding:15px 25px;
+  font-size:18px;
+  border-radius:8px;
+  cursor:pointer;
+  margin-top:20px;
+}
+.result {
+  margin-top:25px;
+  font-size:22px;
+  font-weight:bold;
+}
+.valid {
+  color:#00ff99;
+}
+.invalid {
+  color:#ff5555;
+}
+footer {
+  margin-top:50px;
+  font-size:13px;
+  color:#777;
+}
+footer a {
+  color:#00ff99;
+  text-decoration:none;
+}
+.warning {
+  background:#111;
+  padding:15px;
+  border-radius:8px;
+  margin-top:30px;
+  font-size:14px;
+  color:#ccc;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <h1>Validador de CPF</h1>
+  <p>Verifique se um CPF é válido</p>
+
+  <input type="text" id="cpf" placeholder="Digite o CPF">
+
+  <button onclick="validarCPF()">Validar CPF</button>
+
+  <div class="result" id="resultado"></div>
+
+  <div class="warning">
+    ⚠️ Esta ferramenta é destinada apenas para <strong>validação técnica</strong>.  
+    Não armazena nem envia dados.
+  </div>
+
+  <footer>
+    <a href="/">Início</a> |
+    <a href="/geradores/cpf.html">Gerar CPF</a> |
+    <a href="/privacidade.html">Privacidade</a>
+  </footer>
+</div>
+
+<script>
+function validarCPF() {
+  let cpf = document.getElementById("cpf").value.replace(/\D/g, "");
+  let resultado = document.getElementById("resultado");
+
+  if (cpf.length !== 11 || /^(\d)\1+$/.test(cpf)) {
+    resultado.innerHTML = "CPF inválido ❌";
+    resultado.className = "result invalid";
+    return;
+  }
+
+  let soma = 0;
+  for (let i = 0; i < 9; i++) {
+    soma += cpf[i] * (10 - i);
+  }
+  let resto = (soma * 10) % 11;
+  if (resto === 10) resto = 0;
+  if (resto != cpf[9]) {
+    resultado.innerHTML = "CPF inválido ❌";
+    resultado.className = "result invalid";
+    return;
+  }
+
+  soma = 0;
+  for (let i = 0; i < 10; i++) {
+    soma += cpf[i] * (11 - i);
+  }
+  resto = (soma * 10) % 11;
+  if (resto === 10) resto = 0;
+
+  if (resto == cpf[10]) {
+    resultado.innerHTML = "CPF válido ✔️";
+    resultado.className = "result valid";
+  } else {
+    resultado.innerHTML = "CPF inválido ❌";
+    resultado.className = "result invalid";
+  }
+}
+</script>
+
+</body>
+</html>
