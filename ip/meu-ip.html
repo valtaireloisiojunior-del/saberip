@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+
+  <title>Qual é meu IP? Descubra seu IP público agora</title>
+
+  <meta name="description" content="Descubra qual é o seu IP público agora. Veja IPv4, IPv6, localização aproximada, provedor de internet e copie seu IP instantaneamente.">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO básico -->
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="/ip/meu-ip.html">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0b0b0b;
+      color: #fff;
+      line-height: 1.6;
+    }
+
+    header {
+      text-align: center;
+      padding: 40px 15px 20px;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 26px;
+      color: #00ff99;
+    }
+
+    header p {
+      color: #aaa;
+      font-size: 14px;
+      margin-top: 8px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 0 15px 40px;
+      text-align: center;
+    }
+
+    .ip-box {
+      background: #111;
+      padding: 30px;
+      border-radius: 14px;
+      margin-top: 20px;
+      border: 1px solid #1f1f1f;
+    }
+
+    .ip {
+      font-size: 40px;
+      font-weight: bold;
+      color: #00ff99;
+      word-break: break-all;
+    }
+
+    .geo {
+      margin-top: 12px;
+      font-size: 14px;
+      color: #bbb;
+    }
+
+    .buttons {
+      margin-top: 25px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+    }
+
+    .btn {
+      background: #00ff99;
+      color: #000;
+      padding: 14px 22px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 14px;
+      border: none;
+      cursor: pointer;
+      min-width: 160px;
+    }
+
+    .btn.secondary {
+      background: #1b1b1b;
+      color: #00ff99;
+      border: 1px solid #00ff99;
+    }
+
+    section {
+      margin-top: 40px;
+      text-align: left;
+    }
+
+    section h2 {
+      color: #00ff99;
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    section p {
+      color: #ccc;
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 13px;
+      color: #666;
+      margin-top: 40px;
+    }
+
+    footer a {
+      color: #00ff99;
+      text-decoration: none;
+      margin: 0 6px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Qual é meu IP?</h1>
+  <p>Veja seu endereço IP público instantaneamente</p>
+</header>
+
+<div class="container">
+
+  <div class="ip-box">
+    <div class="ip" id="ip">Carregando...</div>
+    <div class="geo" id="geo">Obtendo localização...</div>
+
+    <div class="buttons">
+      <button class="btn" onclick="copiarIP()">Copiar IP</button>
+      <a class="btn secondary" href="ipv4.html">Ver IPv4</a>
+      <a class="btn secondary" href="ipv6.html">Ver IPv6</a>
+    </div>
+  </div>
+
+  <!-- TEXTO SEO -->
+  <section>
+    <h2>O que é um endereço IP?</h2>
+    <p>
+      O endereço IP (Internet Protocol) é um identificador único atribuído à sua conexão
+      quando você acessa a internet. Ele permite que dispositivos se comuniquem entre si
+      em redes locais e na internet.
+    </p>
+
+    <h2>Qual é meu IP público?</h2>
+    <p>
+      O IP público é o endereço visível na internet e fornecido pelo seu provedor.
+      É ele que sites e serviços online utilizam para identificar sua conexão.
+      Esta ferramenta mostra seu IP público em tempo real.
+    </p>
+
+    <h2>Meu IP muda?</h2>
+    <p>
+      Na maioria dos casos, sim. Provedores de internet geralmente utilizam IP dinâmico,
+      o que significa que seu endereço IP pode mudar sempre que o modem é reiniciado
+      ou após determinado período.
+    </p>
+
+    <h2>IP público x IP privado</h2>
+    <p>
+      O IP público é usado para comunicação na internet.
+      Já o IP privado é utilizado apenas dentro da sua rede local
+      (como 192.168.0.1).
+    </p>
+  </section>
+
+  <footer>
+    <p>
+      <a href="/">Início</a> |
+      <a href="/sobre.html">Sobre</a> |
+      <a href="/privacidade.html">Privacidade</a> |
+      <a href="/contato.html">Contato</a>
+    </p>
+  </footer>
+
+</div>
+
+<script>
+  fetch("https://ipapi.co/json/")
+    .then(res => res.json())
+    .then(data => {
+      document.getElementById("ip").innerText = data.ip;
+      document.getElementById("geo").innerText =
+        `${data.city} - ${data.region} - ${data.country_name} • ${data.org}`;
+    });
+
+  function copiarIP() {
+    const ip = document.getElementById("ip").innerText;
+    navigator.clipboard.writeText(ip);
+    alert("IP copiado!");
+  }
+</script>
+
+</body>
+</html>
