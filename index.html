@@ -1,173 +1,882 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<title>Saber IP — Descubra seu IP e Geolocalização</title>
-<meta name="description" content="Veja seu IP público instantaneamente, localização no mapa e acesse ferramentas online como geradores e validadores de CPF, CNPJ, Cartão de Crédito e muito mais.">
-
-<!-- Open Graph -->
-<meta property="og:title" content="Saber IP — Descubra seu IP e Geolocalização">
-<meta property="og:description" content="Ferramentas online simples: ver IP, geolocalização, geradores e validadores.">
-<meta property="og:url" content="https://valtaireloisiojunior-del.github.io/saberip/">
-<meta property="og:type" content="website">
-<meta property="og:image" content="https://valtaireloisiojunior-del.github.io/saberip/assets/preview.png">
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<style>
-body { margin:0; font-family: Arial, Helvetica, sans-serif; background:#0d0d0d; color:#fff; text-align:center;}
-header{ padding:40px 20px 20px;}
-h1{ font-size:40px; color:#00ff99; margin-bottom:5px;}
-p{ font-size:18px; color:#ccc;}
-.ip-box{ margin:20px auto; background:#111; max-width:600px; padding:25px 20px; border-radius:16px;}
-.ip-label{ font-size:18px; color:#aaa;}
-.ip-value{ font-size:32px; font-weight:bold; color:#00ff99; margin:12px 0; word-break:break-all;}
-button{ background:#00ff99; color:#000; border:none; padding:12px 25px; font-size:16px; border-radius:10px; cursor:pointer; margin:5px;}
-button:hover{opacity:.9;}
-.section{ max-width:700px; margin:20px auto; padding:20px;}
-a.card{ display:block; background:#111; margin:10px 0; padding:20px; border-radius:12px; text-decoration:none; color:#fff; font-size:20px; font-weight:bold; text-align:left;}
-a.card:hover{ background:#00ff99; color:#000;}
-span.desc{ display:block; font-size:14px; font-weight:normal; margin-top:6px; color:#ccc;}
-#geoBox{ margin:25px auto; max-width:700px; background:#111; padding:20px; border-radius:16px;}
-#map { width:100%; height:350px; border-radius:12px; margin-top:15px;}
-input[type=text]{ width:60%; padding:10px; font-size:16px; border-radius:8px; border:none; margin-right:8px;}
-#visitHistory{ margin-top:15px; font-size:16px; color:#00ff99;}
-footer{ margin:40px 0; font-size:14px; color:#777;}
-footer a{ color:#00ff99; text-decoration:none; margin:0 10px;}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEUIP - 60+ Ferramentas Online Grátis | Descubra seu IP, Geradores, Validadores</title>
+    
+    <meta name="description" content="SEUIP: +60 ferramentas online gratuitas. Descubra seu IP público, gere CPF/CNPJ válidos, teste velocidade da internet, crie senhas fortes, QR Code e muito mais. Tudo 100% no navegador.">
+    
+    <meta name="keywords" content="seu ip, qual é meu ip, gerador cpf, validador cnpj, teste velocidade, senha forte, qr code, ferramentas online, desenvolvedor">
+    
+    <!-- Schema.org para SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "SEUIP",
+      "description": "Coleção de ferramentas online gratuitas para desenvolvedores e usuários",
+      "url": "https://valtaireloisiojunior-del.github.io/seuip/",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Any",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "BRL"
+      }
+    }
+    </script>
+    
+    <style>
+        /* RESET E BASE - Mantendo seu estilo escuro com verde */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        
+        body {
+            background-color: #0d0d0d;
+            color: #f0f0f0;
+            line-height: 1.6;
+            padding: 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        /* HEADER PRINCIPAL */
+        .main-header {
+            text-align: center;
+            padding: 40px 20px 30px;
+            margin-bottom: 30px;
+            border-bottom: 1px solid #222;
+        }
+        
+        .main-header h1 {
+            color: #00ff99;
+            font-size: 3rem;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+        
+        .main-header p {
+            color: #aaa;
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* IP EM DESTAQUE GRANDE */
+        .ip-mega-box {
+            background: linear-gradient(135deg, #111 0%, #0a0a0a 100%);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 40px auto;
+            max-width: 900px;
+            text-align: center;
+            border: 2px solid #222;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+        }
+        
+        .ip-label {
+            color: #00ff99;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .ip-display {
+            color: #00ff99;
+            font-size: 3.5rem;
+            font-weight: bold;
+            margin: 25px 0;
+            word-break: break-all;
+            padding: 25px;
+            background-color: #050505;
+            border-radius: 15px;
+            border: 2px solid #00ff99;
+            text-shadow: 0 0 10px rgba(0, 255, 153, 0.3);
+        }
+        
+        /* BOTÕES PRINCIPAIS */
+        .main-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .main-btn {
+            background-color: #00ff99;
+            color: #000;
+            border: none;
+            border-radius: 12px;
+            padding: 18px 35px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            min-width: 220px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .main-btn:hover {
+            background-color: #00cc77;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 255, 153, 0.4);
+        }
+        
+        .main-btn.secondary {
+            background-color: transparent;
+            color: #00ff99;
+            border: 2px solid #00ff99;
+        }
+        
+        .main-btn.secondary:hover {
+            background-color: rgba(0, 255, 153, 0.1);
+        }
+        
+        /* SEÇÃO DE DESTAQUES */
+        .featured-section {
+            margin: 60px 0 40px;
+        }
+        
+        .section-title {
+            color: #00ff99;
+            font-size: 2.2rem;
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #00ff99, transparent);
+        }
+        
+        /* GRADE DE FERRAMENTAS */
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .tool-card {
+            background-color: #111;
+            border-radius: 15px;
+            padding: 30px;
+            border: 1px solid #222;
+            transition: all 0.3s ease;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .tool-card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #00ff99, #00cc77);
+        }
+        
+        .tool-card:hover {
+            transform: translateY(-8px);
+            border-color: #00ff99;
+            box-shadow: 0 20px 40px rgba(0, 255, 153, 0.15);
+        }
+        
+        .tool-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: #00ff99;
+        }
+        
+        .tool-title {
+            color: #fff;
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+        
+        .tool-desc {
+            color: #aaa;
+            margin-bottom: 25px;
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+        
+        .tool-btn {
+            background-color: rgba(0, 255, 153, 0.1);
+            color: #00ff99;
+            border: 1px solid #00ff99;
+            border-radius: 8px;
+            padding: 12px 25px;
+            font-weight: bold;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            width: 100%;
+            text-align: center;
+        }
+        
+        .tool-btn:hover {
+            background-color: #00ff99;
+            color: #000;
+        }
+        
+        /* ESPAÇOS PARA ANÚNCIOS */
+        .ad-container {
+            margin: 50px auto;
+            text-align: center;
+            padding: 25px;
+            background-color: #111;
+            border-radius: 12px;
+            border: 2px dashed #333;
+            color: #666;
+            max-width: 800px;
+        }
+        
+        .ad-label {
+            color: #777;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+        
+        /* FOOTER COMPLETO */
+        .main-footer {
+            margin-top: 80px;
+            padding-top: 50px;
+            border-top: 1px solid #222;
+            text-align: center;
+        }
+        
+        .footer-logo {
+            color: #00ff99;
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 25px;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-bottom: 35px;
+        }
+        
+        .footer-links a {
+            color: #00ff99;
+            text-decoration: none;
+            font-size: 1.1rem;
+            padding: 8px 15px;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            background-color: rgba(0, 255, 153, 0.1);
+        }
+        
+        .copyright {
+            color: #777;
+            font-size: 0.9rem;
+            margin-top: 25px;
+            line-height: 1.6;
+        }
+        
+        .copyright a {
+            color: #00ff99;
+            text-decoration: none;
+        }
+        
+        /* BADGES E INDICADORES */
+        .badge {
+            background-color: #00ff99;
+            color: #000;
+            font-size: 0.8rem;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-weight: bold;
+            margin-left: 10px;
+            vertical-align: middle;
+        }
+        
+        .badge.new {
+            background-color: #ff3366;
+            color: white;
+        }
+        
+        /* RESPONSIVIDADE */
+        @media (max-width: 1100px) {
+            .tools-grid {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .main-header h1 {
+                font-size: 2.2rem;
+            }
+            
+            .ip-display {
+                font-size: 2.2rem;
+                padding: 20px;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .tools-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .main-btn {
+                min-width: 100%;
+                margin-bottom: 15px;
+            }
+            
+            .main-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            body {
+                padding: 15px;
+            }
+            
+            .footer-links {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .ip-display {
+                font-size: 1.8rem;
+            }
+            
+            .ip-mega-box {
+                padding: 25px;
+            }
+            
+            .tool-card {
+                padding: 25px;
+            }
+        }
+        
+        /* ANIMAÇÕES */
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+    </style>
 </head>
 <body>
+    <!-- HEADER PRINCIPAL -->
+    <header class="main-header">
+        <h1>🌐 SEUIP</h1>
+        <p>+60 ferramentas online gratuitas para desenvolvedores, testadores e usuários</p>
+    </header>
 
-<header>
-  <h1>Saber IP</h1>
-  <p>Descubra seu IP público e localização no mapa</p>
-</header>
+    <!-- IP EM DESTAQUE MEGA -->
+    <div class="ip-mega-box">
+        <div class="ip-label">🔍 SEU ENDEREÇO IP PÚBLICO É:</div>
+        <div class="ip-display" id="main-ip">Carregando...</div>
+        
+        <!-- BOTÕES DO IP -->
+        <div class="main-buttons">
+            <button class="main-btn" onclick="copyIP()">📋 Copiar IP</button>
+            <a href="https://valtaireloisiojunior-del.github.io/saberip/ip/meu-ip.html" class="main-btn">🔍 Detalhes do IP</a>
+            <a href="https://valtaireloisiojunior-del.github.io/saberip/ip/geolocalizacao.html" class="main-btn secondary">📍 Geolocalização</a>
+            <a href="https://valtaireloisiojunior-del.github.io/saberip/teste-velocidade.html" class="main-btn">🚀 Testar Velocidade</a>
+        </div>
+    </div>
 
-<!-- IP em destaque -->
-<div class="ip-box">
-  <div class="ip-label">Seu IP público é:</div>
-  <div class="ip-value" id="ip">Carregando...</div>
-  <button onclick="copiarIP()">📋 Copiar IP</button>
-  <div id="visitHistory">Carregando histórico de visitas...</div>
-</div>
+    <!-- ANÚNCIO 1 -->
+    <div class="ad-container">
+        <div class="ad-label">PUBLICIDADE</div>
+        <div style="min-height: 250px; background: #1a1a1a; display: flex; align-items: center; justify-content: center; color: #555; border-radius: 10px; font-size: 0.9rem;">
+            [ESPAÇO PARA ANÚNCIO ADSENSE - 728x250]<br>
+            Monitore seu site gratuitamente
+        </div>
+    </div>
 
-<!-- Geolocalização -->
-<div id="geoBox">
-  <div>
-    <input type="text" id="ipSearch" placeholder="Digite outro IP ou cole aqui">
-    <button onclick="buscarIP()">🔍 Descubra a Localização</button>
-    <button onclick="colarIP()">📋 Colar IP</button>
-  </div>
-  <div id="geoInfo" style="margin-top:10px;color:#ccc;">Informações de localização aparecerão aqui</div>
-  <div id="map"></div>
-</div>
+    <!-- SEÇÃO: FERRAMENTAS MAIS POPULARES -->
+    <section class="featured-section">
+        <h2 class="section-title">⭐ FERRAMENTAS MAIS UTILIZADAS</h2>
+        
+        <div class="tools-grid">
+            <!-- CPF -->
+            <div class="tool-card">
+                <div class="tool-icon">🔢</div>
+                <div class="tool-title">Gerador de CPF</div>
+                <div class="tool-desc">Gere números de CPF válidos para testes. Com ou sem pontuação, totalmente gratuito.</div>
+                <a href="https://valtaireloisiojunior-del.github.io/saberip/geradores/cpf.html" class="tool-btn">Gerar CPF</a>
+            </div>
+            
+            <!-- CNPJ -->
+            <div class="tool-card">
+                <div class="tool-icon">🏢</div>
+                <div class="tool-title">Gerador de CNPJ</div>
+                <div class="tool-desc">Crie números de CNPJ válidos para testes em sistemas de desenvolvimento.</div>
+                <a href="https://valtaireloisiojunior-del.github.io/saberip/geradores/cnpj.html" class="tool-btn">Gerar CNPJ</a>
+            </div>
+            
+            <!-- TESTE VELOCIDADE -->
+            <div class="tool-card">
+                <div class="tool-icon">🚀</div>
+                <div class="tool-title">Teste de Velocidade</div>
+                <div class="tool-desc">Mede a velocidade real da sua internet: download, upload e ping.</div>
+                <a href="https://valtaireloisiojunior-del.github.io/saberip/teste-velocidade.html" class="tool-btn">Testar Agora</a>
+            </div>
+            
+            <!-- CARTÃO CRÉDITO -->
+            <div class="tool-card">
+                <div class="tool-icon">💳</div>
+                <div class="tool-title">Gerador de Cartão</div>
+                <div class="tool-desc">Gere números de cartões de crédito válidos (apenas para testes).</div>
+                <a href="https://valtaireloisiojunior-del.github.io/saberip/geradores/cartao-credito.html" class="tool-btn">Gerar Cartão</a>
+            </div>
+            
+            <!-- SENHA SEGURA -->
+            <div class="tool-card">
+                <div class="tool-icon">🔐</div>
+                <div class="tool-title">Gerador de Senha</div>
+                <div class="tool-desc">Crie senhas fortes e seguras com diferentes níveis de complexidade.</div>
+                <a href="https://valtaireloisiojunior-del.github.io/saberip/geradores/senha.html" class="tool-btn">Criar Senha</a>
+            </div>
+            
+            <!-- QR CODE -->
+            <div class="tool-card">
+                <div class="tool-icon">📱</div>
+                <div class="tool-title">Gerador de QR Code</div>
+                <div class="tool-desc">Crie QR Codes personalizados para URLs, textos, Wi-Fi e mais.</div>
+                <a href="https://valtaireloisiojunior-del.github.io/saberip/geradores/qr-code.html" class="tool-btn">Criar QR Code</a>
+            </div>
+        </div>
+    </section>
 
-<!-- Seções de Ferramentas -->
+    <!-- ANÚNCIO 2 -->
+    <div class="ad-container">
+        <div class="ad-label">ANÚNCIO</div>
+        <div style="min-height: 90px; background: #1a1a1a; display: flex; align-items: center; justify-content: center; color: #555; border-radius: 8px; font-size: 0.9rem;">
+            [ESPAÇO PARA ANÚNCIO ADSENSE - 728x90]
+        </div>
+    </div>
 
-<section class="section">
-  <h2>IP</h2>
-  <a class="card" href="ip/meu-ip.html" target="_blank">Meu IP detalhado <span class="desc">IP, navegador e localização</span></a>
-  <a class="card" href="ipv4.html" target="_blank">IPv4 <span class="desc">Detalhes do endereço IPv4</span></a>
-  <a class="card" href="ipv6.html" target="_blank">IPv6 <span class="desc">Detalhes do endereço IPv6</span></a>
-</section>
+    <!-- SEÇÃO: TODAS AS CATEGORIAS -->
+    <section class="featured-section">
+        <h2 class="section-title">📂 TODAS AS FERRAMENTAS POR CATEGORIA</h2>
+        
+        <!-- CATEGORIA: GERADORES -->
+        <div style="margin: 50px 0 30px;">
+            <h3 style="color: #00ff99; font-size: 1.8rem; margin-bottom: 25px; padding-left: 10px; border-left: 4px solid #00ff99;">🛠️ GERADORES</h3>
+            
+            <div class="tools-grid">
+                <!-- CPF -->
+                <div class="tool-card">
+                    <div class="tool-title">Gerador de CPF <span class="badge">Popular</span></div>
+                    <div class="tool-desc">Gere CPFs válidos com ou sem pontuação</div>
+                    <a href="https://valtaireloisiojunior-del.github.io/saberip/geradores/cpf.html" class="tool-btn">Acessar</a>
+                </div>
+                
+                <!-- CNPJ -->
+                <div class="tool-card">
+                    <div class="tool-title">Gerador de CNPJ <span class="badge">Popular</span></div>
+                    <div class="tool-desc">Crie CNPJs válidos para testes</div>
+                    <a href="https://valtaireloisiojunior-del.github.io/saberip/geradores/cnpj.html" class="tool-btn">Acessar</a>
+                </div>
+                
+                <!-- PESSOAS -->
+                <div class="tool-card">
+                    <div class="tool-title">Gerador de Pessoas</div>
+                    <div class="tool-desc">Dados completos de pessoas fictícias</div>
+                    <a href="https://valtaireloisiojunior-del.github.io/saberip/geradores/pessoas.html" class="tool-btn">Acessar</a>
+                </div>
+                
+                <!-- RG -->
+                <div class="tool-card">
+                    <div class="tool-title">Gerador de RG</div>
+                    <div class="tool-desc">Números de RG para diferentes estados</div>
+                    <a href="https://valtaireloisiojunior-del.github.io/saberip/geradores/rg.html" class="tool-btn">Acessar</a>
+                </div>
+                
+                <!-- CNH -->
+                <div class="tool-card">
+                    <div class="tool-title">Gerador de CNH</div>
+                    <div class="tool-desc">Carteira Nacional de Habilitação</div>
+                    <a href="https://valtaireloisiojunior-del.github.io/saberip/geradores/cnh.html" class="tool-btn">Acessar</a>
+                </div>
+                
+                <!-- CARTÃO -->
+                <div class="tool-card">
+                    <div class="tool-title">Cartão de Crédito</div>
+                    <div class="tool-desc">Números de cartão para testes</div>
+                    <a href="https://valtaireloisiojunior-del.github.io/saberip/geradores/cartao-credito.html" class="tool-btn">Acessar</a>
+                </div>
+                
+                <!-- CONTA BANCÁRIA -->
+                <div class="tool-card">
+                    <div class="tool-title">Conta Bancária</div>
+                    <div class="tool-desc">Dados de contas bancárias fictícias</div>
+                    <a href="https://valtaireloisiojunior-del.github.io/saberip/geradores/conta-bancaria.html" class="tool-btn">Acessar</a>
+                </div>
+                
+                <!-- SENHA -->
+                <div class="tool-card">
+                    <div class="tool-title">Gerador de Senha</div>
+                    <div class="tool-desc">Crie senhas fortes e seguras</div>
+                    <a href="https://valtaireloisiojunior-del.github.io/saberip/geradores/senha.html" class="tool-btn">Acessar</a>
+                </div>
+                
+                <!-- QR CODE -->
+                <div class="tool-card">
+                    <div class="tool-title">Gerador de QR Code</div>
+                    <div class="tool-desc">Crie QR Codes personalizados</div>
+                    <a href="https://valtaireloisiojunior-del.github.io/saberip/geradores/qr-code.html" class="tool-btn">Acessar</a>
+                </div>
+                
+                <!-- CEP -->
+                <div class="tool-card">
+                    <div class="tool-title">Gerador de CEP</div>
+                    <div class="tool-desc">Códigos de Endereçamento Postal</div>
+                    <a href="https://valtaireloisiojunior-del.github.io/saberip/geradores/cep.html" class="tool-btn">Acessar</a>
+                </div>
+                
+                <!-- PIS/PASEP -->
+                <div class="tool-card">
+                    <div class="tool-title">Gerador de PIS/PASEP</div>
+                    <div class="tool-desc">Números de PIS/PASEP válidos</div>
+                    <a href="https://valtaireloisiojunior-del.github.io/saberip/geradores/pis-pasep.html" class="tool-btn">Acessar</a>
+                </div>
+                
+                <!-- TÍTULO ELEITOR -->
+                <div class="tool-card">
+                    <div class="tool-title">Título de Eleitor</div>
+                    <div class="tool-desc">Gerador de título de eleitor</div>
+                    <a href="https://valtaireloisiojunior-del.github.io/saberip/geradores/titulo-eleitor.html" class="tool-btn">Acessar</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- CATEGORIA: IP E REDE -->
+        <div style="margin: 60px 0 30px;">
+            <h3 style="color: #00ff99; font-size: 1.8rem; margin-bottom: 25px; padding-left: 10px; border-left: 4px solid #00ff99;">🌐 IP E REDE</h3>
+            
+            <div class="tools-grid">
+                <!-- MEU IP -->
+                <div class="tool-card">
+                    <div class="tool-title">Meu IP Completo</div>
+                    <div class="tool-desc">Veja seu IP com todas as informações</div>
+                    <a href="https://valtaireloisiojunior-del.github.io/saberip/ip/meu-ip.html" class="tool-btn">Acessar</a>
+                </div>
+                
+                <!-- IPV4 -->
+                <div class="tool-card">
+                    <div class="tool-title">IPv4</div>
+                    <div class="tool-desc">Tudo sobre o protocolo IPv4</div>
+                    <a href="https://valtaireloisiojunior-del.github.io/saberip/ip/ipv4.html" class="tool-btn">Acessar</a>
+                </div>
+                
+                <!-- IPV6 -->
+                <div class="tool-card">
+                    <div class="tool-title">IPv6</div>
+                    <div class="tool-desc">O novo protocolo da internet</div>
+                    <a href="https://valtaireloisiojunior-del.github.io/saberip/ip/ipv6.html" class="tool-btn">Acessar</a>
+                </div>
+                
+                <!-- GEOLOCALIZAÇÃO -->
+                <div class="tool-card">
+                    <div class="tool-title">Geolocalização</div>
+                    <div class="tool-desc">Localize IPs no mapa</div>
+                    <a href="https://valtaireloisiojunior-del.github.io/saberip/ip/geolocalizacao.html" class="tool-btn">Acessar</a>
+                </div>
+                
+                <!-- MEU DNS -->
+                <div class="tool-card">
+                    <div class="tool-title">Meu DNS</div>
+                    <div class="tool-desc">Veja seus servidores DNS</div>
+                    <a href="https://valtaireloisiojunior-del.github.io/saberip/dns/meu-dns.html" class="tool-btn">Acessar</a>
+                </div>
+                
+                <!-- PING -->
+                <div class="tool-card">
+                    <div class="tool-title">Ping e Traceroute</div>
+                    <div class="tool-desc">Teste de conectividade</div>
+                    <a href="https://valtaireloisiojunior-del.github.io/saberip/geradores/ping-tracerout.html" class="tool-btn">Acessar</a>
+                </div>
+                
+                <!-- WHOIS -->
+                <div class="tool-card">
+                    <div class="tool-title">WHOIS</div>
+                    <div class="tool-desc">Consulta de domínios</div>
+                    <a href="https://valtaireloisiojunior-del.github.io/saberip/geradores/whois.html" class="tool-btn">Acessar</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- CATEGORIA: VALIDADORES -->
+        <div style="margin: 60px 0 30px;">
+            <h3 style="color: #00ff99; font-size: 1.8rem; margin-bottom: 25px; padding-left: 10px; border-left: 4px solid #00ff99;">✅ VALIDADORES</h3>
+            
+            <div class="tools-grid">
+                <!-- CPF -->
+                <div class="tool-card">
+                    <div class="tool-title">Validador de CPF</div>
+                    <div class="tool-desc">Verifique se um CPF é válido</div>
+                    <a href="https://valtaireloisiojunior-del.github.io/saberip/validadores/cpf.html" class="tool-btn">Acessar</a>
+                </div>
+                
+                <!-- CNPJ -->
+                <div class="tool-card">
+                    <div class="tool-title">Validador de CNPJ</div>
+                    <div class="tool-desc">Verifique se um CNPJ é válido</div>
+                    <a href="https://valtaireloisiojunior-del.github.io/saberip/validadores/cnpj.html" class="tool-btn">Acessar</a>
+                </div>
+                
+                <!-- CARTÃO -->
+                <div class="tool-card">
+                    <div class="tool-title">Validador de Cartão</div>
+                    <div class="tool-desc">Valide números de cartão</div>
+                    <a href="https://valtaireloisiojunior-del.github.io/saberip/validadores/cartao-credito.html" class="tool-btn">Acessar</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- CATEGORIA: OUTRAS FERRAMENTAS -->
+        <div style="margin: 60px 0 30px;">
+            <h3 style="color: #00ff99; font-size: 1.8rem; margin-bottom: 25px; padding-left: 10px; border-left: 4px solid #00ff99;">🔧 OUTRAS FERRAMENTAS</h3>
+            
+            <div class="tools-grid">
+                <!-- CONVERSOR MOEDA -->
+                <div class="tool-card">
+                    <div class="tool-title">Conversor de Moeda</div>
+                    <div class="tool-desc">Converta entre moedas</div>
+                    <a href="https://valtaireloisiojunior-del.github.io/saberip/geradores/conversor-moeda.html" class="tool-btn">Acessar</a>
+                </div>
+                
+                <!-- CALCULADORA -->
+                <div class="tool-card">
+                    <div class="tool-title">Calculadora %</div>
+                    <div class="tool-desc">Calculadora de porcentagem</div>
+                    <a href="https://valtaireloisiojunior-del.github.io/saberip/calculadora/porcentagem.html" class="tool-btn">Acessar</a>
+                </div>
+                
+                <!-- CURRICULUM -->
+                <div class="tool-card">
+                    <div class="tool-title">Gerador de Curriculum</div>
+                    <div class="tool-desc">Crie currículos profissionais</div>
+                    <a href="https://valtaireloisiojunior-del.github.io/saberip/geradores/curriculum.html" class="tool-btn">Acessar</a>
+                </div>
+                
+                <!-- PLACA VEÍCULO -->
+                <div class="tool-card">
+                    <div class="tool-title">Gerador de Placa</div>
+                    <div class="tool-desc">Placas de veículo brasileiras</div>
+                    <a href="https://valtaireloisiojunior-del.github.io/saberip/geradores/placa-veiculo.html" class="tool-btn">Acessar</a>
+                </div>
+                
+                <!-- LOTERIAS -->
+                <div class="tool-card">
+                    <div class="tool-title">Gerador de Loteria</div>
+                    <div class="tool-desc">Números para loterias</div>
+                    <a href="https://valtaireloisiojunior-del.github.io/saberip/geradores/loterias.html" class="tool-btn">Acessar</a>
+                </div>
+                
+                <!-- LOREM IPSUM -->
+                <div class="tool-card">
+                    <div class="tool-title">Gerador de Lorem Ipsum</div>
+                    <div class="tool-desc">Texto de exemplo para design</div>
+                    <a href="https://valtaireloisiojunior-del.github.io/saberip/geradores/lorem-ipsum.html" class="tool-btn">Acessar</a>
+                </div>
+                
+                <!-- DESPERTADOR -->
+                <div class="tool-card">
+                    <div class="tool-title">Despertador Online</div>
+                    <div class="tool-desc">Alarme no navegador</div>
+                    <a href="https://valtaireloisiojunior-del.github.io/saberip/geradores/despertador.html" class="tool-btn">Acessar</a>
+                </div>
+                
+                <!-- UUID -->
+                <div class="tool-card">
+                    <div class="tool-title">Gerador de UUID</div>
+                    <div class="tool-desc">Identificadores únicos universais</div>
+                    <a href="https://valtaireloisiojunior-del.github.io/saberip/geradores/uuid.html" class="tool-btn">Acessar</a>
+                </div>
+                
+                <!-- RENAVAM -->
+                <div class="tool-card">
+                    <div class="tool-title">Gerador de RENAVAM</div>
+                    <div class="tool-desc">Registro Nacional de Veículos</div>
+                    <a href="https://valtaireloisiojunior-del.github.io/saberip/geradores/renavam.html" class="tool-btn">Acessar</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<section class="section">
-  <h2>Geradores</h2>
-  <a class="card" href="geradores/cpf.html" target="_blank">CPF</a>
-  <a class="card" href="geradores/cnpj.html" target="_blank">CNPJ</a>
-  <a class="card" href="geradores/pessoas.html" target="_blank">Pessoas</a>
-  <a class="card" href="geradores/cartao-credito.html" target="_blank">Cartão de Crédito</a>
-  <a class="card" href="geradores/rg.html" target="_blank">RG</a>
-  <a class="card" href="geradores/cnh.html" target="_blank">CNH</a>
-  <a class="card" href="geradores/conta-bancaria.html" target="_blank">Conta Bancária</a>
-  <a class="card" href="geradores/conversor-moeda.html" target="_blank">Conversor de Moeda</a>
-  <a class="card" href="geradores/curriculum.html" target="_blank">Curriculum</a>
-  <a class="card" href="geradores/despertador.html" target="_blank">Despertador</a>
-  <a class="card" href="geradores/lorem-ipsum.html" target="_blank">Lorem Ipsum</a>
-  <a class="card" href="geradores/loterias.html" target="_blank">Loterias</a>
-  <a class="card" href="geradores/ping-tracerout.html" target="_blank">Ping/Traceroute</a>
-  <a class="card" href="geradores/pis-pasep.html" target="_blank">PIS/PASEP</a>
-  <a class="card" href="geradores/placa-veiculo.html" target="_blank">Placa de Veículo</a>
-  <a class="card" href="geradores/qr-code.html" target="_blank">QR Code</a>
-  <a class="card" href="geradores/renavam.html" target="_blank">Renavam</a>
-  <a class="card" href="geradores/senha.html" target="_blank">Senha</a>
-  <a class="card" href="geradores/titulo-eleitor.html" target="_blank">Título de Eleitor</a>
-  <a class="card" href="geradores/uuid.html" target="_blank">UUID</a>
-  <a class="card" href="geradores/whois.html" target="_blank">Whois</a>
-</section>
+    <!-- ANÚNCIO 3 -->
+    <div class="ad-container">
+        <div class="ad-label">PUBLICIDADE</div>
+        <div style="min-height: 250px; background: #1a1a1a; display: flex; align-items: center; justify-content: center; color: #555; border-radius: 10px; font-size: 0.9rem;">
+            [ESPAÇO PARA ANÚNCIO ADSENSE - 300x250]<br>
+            Hospedagem com desconto
+        </div>
+    </div>
 
-<section class="section">
-  <h2>Calculadora</h2>
-  <a class="card" href="calculadora/porcentagem.html" target="_blank">Porcentagem</a>
-</section>
+    <!-- FOOTER COMPLETO -->
+    <footer class="main-footer">
+        <div class="footer-logo">SEUIP</div>
+        
+        <div class="footer-links">
+            <a href="https://valtaireloisiojunior-del.github.io/saberip/index.html">🏠 Início</a>
+            <a href="https://valtaireloisiojunior-del.github.io/saberip/sobre.html">📖 Sobre</a>
+            <a href="https://valtaireloisiojunior-del.github.io/saberip/privacidade.html">🔒 Privacidade</a>
+            <a href="https://valtaireloisiojunior-del.github.io/saberip/contato.html">📞 Contato</a>
+            <a href="https://valtaireloisiojunior-del.github.io/saberip/termos.html">📄 Termos de Uso</a>
+        </div>
+        
+        <div class="copyright">
+            © 2023 SEUIP - Todas as ferramentas são 100% gratuitas e funcionam no seu navegador.<br>
+            <strong>Aviso:</strong> As ferramentas deste site são para fins de teste, desenvolvimento e aprendizado.<br>
+            Não use informações falsas para atividades ilegais ou fraudes. Este site não coleta dados pessoais.<br><br>
+            
+            <div style="margin-top: 20px; color: #666; font-size: 0.8rem;">
+                Concorrentes: <a href="https://meuip.com.br" target="_blank">meuip.com.br</a> • 
+                <a href="https://4devs.com.br" target="_blank">4devs.com.br</a> • 
+                <a href="https://geradornv.com.br" target="_blank">geradornv.com.br</a>
+            </div>
+        </div>
+    </footer>
 
-<section class="section">
-  <h2>DNS</h2>
-  <a class="card" href="dns/meu-dns.html" target="_blank">Meu DNS</a>
-</section>
-
-<section class="section">
-  <h2>Validadores</h2>
-  <a class="card" href="validadores/cpf.html" target="_blank">CPF</a>
-  <a class="card" href="validadores/cnpj.html" target="_blank">CNPJ</a>
-  <a class="card" href="validadores/cartao-credito.html" target="_blank">Cartão de Crédito</a>
-</section>
-
-<footer>
-  <a href="index.html">Início</a> |
-  <a href="sobre.html">Sobre</a> |
-  <a href="privacidade.html">Privacidade</a> |
-  <a href="contato.html">Contato</a>
-  <br><br>
-  © 2026 — Saber IP
-</footer>
-
-<script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js"></script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css"/>
-
-<script>
-// Cookies
-function setCookie(name,value,days){ const d=new Date(); d.setTime(d.getTime()+(days*24*60*60*1000)); document.cookie=name+"="+encodeURIComponent(value)+";path=/;expires="+d.toUTCString();}
-function getCookie(name){ const match=document.cookie.match(new RegExp('(^| )'+name+'=([^;]+)')); return match?decodeURIComponent(match[2]):null;}
-
-// Histórico de visitas
-let visits = parseInt(getCookie('visits')||'0');
-visits++;
-setCookie('visits',visits,365);
-document.getElementById('visitHistory').innerText = `Você visitou este site ${visits} vez(es).`;
-
-// Busca IP público
-let currentIP = '';
-fetch("https://api.ipify.org?format=json")
-  .then(res => res.json())
-  .then(data => { currentIP = data.ip; document.getElementById("ip").innerText = data.ip; document.getElementById("ipSearch").value = data.ip; mostrarGeo(data.ip); })
-  .catch(()=>document.getElementById("ip").innerText="Não foi possível carregar");
-
-// Copiar IP
-function copiarIP(){ const ip = document.getElementById("ip").innerText; navigator.clipboard.writeText(ip).then(()=>alert("IP copiado: "+ip));}
-
-// Colar IP no campo
-function colarIP(){ navigator.clipboard.readText().then(text=>{ document.getElementById("ipSearch").value = text; mostrarGeo(text); });}
-
-// Buscar IP digitado
-function buscarIP(){ const ip = document.getElementById("ipSearch").value.trim(); if(ip) mostrarGeo(ip);}
-
-// Mostrar GeoLocalização
-function mostrarGeo(ip){
-  fetch(`https://ipapi.co/${ip}/json/`)
-    .then(res=>res.json())
-    .then(data=>{
-      if(data.error){ document.getElementById("geoInfo").innerText = "Não foi possível localizar o IP."; return;}
-      document.getElementById("geoInfo").innerText = `IP: ${data.ip} | País: ${data.country_name} | Estado: ${data.region} | Cidade: ${data.city} | Latitude: ${data.latitude} | Longitude: ${data.longitude}`;
-      const mapDiv = document.getElementById("map");
-      mapDiv.innerHTML = "";
-      const map = L.map('map').setView([data.latitude, data.longitude], 10);
-      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{ attribution: '© OpenStreetMap contributors' }).addTo(map);
-      L.marker([data.latitude,data.longitude]).addTo(map).bindPopup(`IP: ${data.ip}`).openPopup();
-    })
-    .catch(()=>document.getElementById("geoInfo").innerText="Erro ao buscar geolocalização");
-}
-</script>
-
+    <script>
+        // DETECTAR IP DO USUÁRIO
+        async function detectIP() {
+            try {
+                const response = await fetch('https://api.ipify.org?format=json');
+                const data = await response.json();
+                
+                const ipElement = document.getElementById('main-ip');
+                const isIPv6 = data.ip.includes(':');
+                
+                ipElement.innerHTML = `
+                    <div style="font-size: 3.5rem;">${data.ip}</div>
+                    <div style="font-size: 1.2rem; color: #aaa; margin-top: 10px;">
+                        IPv${isIPv6 ? '6' : '4'} • ${isIPv6 ? 'Nova geração' : 'Padrão atual'}
+                    </div>
+                `;
+                
+            } catch (error) {
+                document.getElementById('main-ip').innerHTML = `
+                    <div style="color: #ff6666; font-size: 2.5rem;">IP não detectado</div>
+                    <div style="font-size: 1rem; color: #aaa; margin-top: 10px;">
+                        Verifique sua conexão com a internet
+                    </div>
+                `;
+            }
+        }
+        
+        // COPIAR IP
+        async function copyIP() {
+            try {
+                const ip = document.getElementById('main-ip').textContent;
+                if (ip.includes('Carregando') || ip.includes('não detectado')) {
+                    alert('Aguarde o IP carregar');
+                    return;
+                }
+                
+                await navigator.clipboard.writeText(ip.split('\n')[0]);
+                
+                // Feedback visual
+                const originalText = document.getElementById('main-ip').innerHTML;
+                document.getElementById('main-ip').innerHTML = `
+                    <div style="font-size: 3.5rem; color: #00ff99;">IP Copiado!</div>
+                    <div style="font-size: 1rem; color: #aaa; margin-top: 10px;">
+                        Cole onde precisar
+                    </div>
+                `;
+                
+                setTimeout(() => {
+                    document.getElementById('main-ip').innerHTML = originalText;
+                }, 1500);
+                
+            } catch (error) {
+                alert('Erro ao copiar. Tente manualmente.');
+            }
+        }
+        
+        // CONTADOR DE FERRAMENTAS
+        function countTools() {
+            const toolCards = document.querySelectorAll('.tool-card');
+            const counterElement = document.querySelector('.section-title');
+            
+            if (counterElement && toolCards.length > 0) {
+                counterElement.innerHTML = `📂 TODAS AS FERRAMENTAS (${toolCards.length}+)`;
+            }
+        }
+        
+        // INICIALIZAÇÃO
+        document.addEventListener('DOMContentLoaded', function() {
+            detectIP();
+            countTools();
+            
+            // Adicionar efeitos aos cards
+            document.querySelectorAll('.tool-card').forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-8px)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+            });
+            
+            // Adicionar classe pulse ao IP periodicamente
+            setInterval(() => {
+                const ipBox = document.querySelector('.ip-display');
+                ipBox.classList.add('pulse');
+                setTimeout(() => ipBox.classList.remove('pulse'), 1000);
+            }, 5000);
+        });
+        
+        // ROLAGEM SUAVE PARA ÂNCORAS
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId !== '#') {
+                    document.querySelector(targetId)?.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>

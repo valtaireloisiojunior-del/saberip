@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Saber IP — Descubra seu IP e Geolocalização</title>
+<meta name="description" content="Veja seu IP público instantaneamente, localização no mapa e acesse ferramentas online como geradores e validadores de CPF, CNPJ, Cartão de Crédito e muito mais.">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Saber IP — Descubra seu IP e Geolocalização">
+<meta property="og:description" content="Ferramentas online simples: ver IP, geolocalização, geradores e validadores.">
+<meta property="og:url" content="https://valtaireloisiojunior-del.github.io/saberip/">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://valtaireloisiojunior-del.github.io/saberip/assets/preview.png">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body { margin:0; font-family: Arial, Helvetica, sans-serif; background:#0d0d0d; color:#fff; text-align:center;}
+header{ padding:40px 20px 20px;}
+h1{ font-size:40px; color:#00ff99; margin-bottom:5px;}
+p{ font-size:18px; color:#ccc;}
+.ip-box{ margin:20px auto; background:#111; max-width:600px; padding:25px 20px; border-radius:16px;}
+.ip-label{ font-size:18px; color:#aaa;}
+.ip-value{ font-size:32px; font-weight:bold; color:#00ff99; margin:12px 0; word-break:break-all;}
+button{ background:#00ff99; color:#000; border:none; padding:12px 25px; font-size:16px; border-radius:10px; cursor:pointer; margin:5px;}
+button:hover{opacity:.9;}
+.section{ max-width:700px; margin:20px auto; padding:20px;}
+a.card{ display:block; background:#111; margin:10px 0; padding:20px; border-radius:12px; text-decoration:none; color:#fff; font-size:20px; font-weight:bold; text-align:left;}
+a.card:hover{ background:#00ff99; color:#000;}
+span.desc{ display:block; font-size:14px; font-weight:normal; margin-top:6px; color:#ccc;}
+#geoBox{ margin:25px auto; max-width:700px; background:#111; padding:20px; border-radius:16px;}
+#map { width:100%; height:350px; border-radius:12px; margin-top:15px;}
+input[type=text]{ width:60%; padding:10px; font-size:16px; border-radius:8px; border:none; margin-right:8px;}
+#visitHistory{ margin-top:15px; font-size:16px; color:#00ff99;}
+footer{ margin:40px 0; font-size:14px; color:#777;}
+footer a{ color:#00ff99; text-decoration:none; margin:0 10px;}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Saber IP</h1>
+  <p>Descubra seu IP público e localização no mapa</p>
+</header>
+
+<!-- IP em destaque -->
+<div class="ip-box">
+  <div class="ip-label">Seu IP público é:</div>
+  <div class="ip-value" id="ip">Carregando...</div>
+  <button onclick="copiarIP()">📋 Copiar IP</button>
+  <div id="visitHistory">Carregando histórico de visitas...</div>
+</div>
+
+<!-- Geolocalização -->
+<div id="geoBox">
+  <div>
+    <input type="text" id="ipSearch" placeholder="Digite outro IP ou cole aqui">
+    <button onclick="buscarIP()">🔍 Descubra a Localização</button>
+    <button onclick="colarIP()">📋 Colar IP</button>
+  </div>
+  <div id="geoInfo" style="margin-top:10px;color:#ccc;">Informações de localização aparecerão aqui</div>
+  <div id="map"></div>
+</div>
+
+<!-- Seções de Ferramentas -->
+
+<section class="section">
+  <h2>IP</h2>
+  <a class="card" href="ip/meu-ip.html" target="_blank">Meu IP detalhado <span class="desc">IP, navegador e localização</span></a>
+  <a class="card" href="ipv4.html" target="_blank">IPv4 <span class="desc">Detalhes do endereço IPv4</span></a>
+  <a class="card" href="ipv6.html" target="_blank">IPv6 <span class="desc">Detalhes do endereço IPv6</span></a>
+</section>
+
+<section class="section">
+  <h2>Geradores</h2>
+  <a class="card" href="geradores/cpf.html" target="_blank">CPF</a>
+  <a class="card" href="geradores/cnpj.html" target="_blank">CNPJ</a>
+  <a class="card" href="geradores/pessoas.html" target="_blank">Pessoas</a>
+  <a class="card" href="geradores/cartao-credito.html" target="_blank">Cartão de Crédito</a>
+  <a class="card" href="geradores/rg.html" target="_blank">RG</a>
+  <a class="card" href="geradores/cnh.html" target="_blank">CNH</a>
+  <a class="card" href="geradores/conta-bancaria.html" target="_blank">Conta Bancária</a>
+  <a class="card" href="geradores/conversor-moeda.html" target="_blank">Conversor de Moeda</a>
+  <a class="card" href="geradores/curriculum.html" target="_blank">Curriculum</a>
+  <a class="card" href="geradores/despertador.html" target="_blank">Despertador</a>
+  <a class="card" href="geradores/lorem-ipsum.html" target="_blank">Lorem Ipsum</a>
+  <a class="card" href="geradores/loterias.html" target="_blank">Loterias</a>
+  <a class="card" href="geradores/ping-tracerout.html" target="_blank">Ping/Traceroute</a>
+  <a class="card" href="geradores/pis-pasep.html" target="_blank">PIS/PASEP</a>
+  <a class="card" href="geradores/placa-veiculo.html" target="_blank">Placa de Veículo</a>
+  <a class="card" href="geradores/qr-code.html" target="_blank">QR Code</a>
+  <a class="card" href="geradores/renavam.html" target="_blank">Renavam</a>
+  <a class="card" href="geradores/senha.html" target="_blank">Senha</a>
+  <a class="card" href="geradores/titulo-eleitor.html" target="_blank">Título de Eleitor</a>
+  <a class="card" href="geradores/uuid.html" target="_blank">UUID</a>
+  <a class="card" href="geradores/whois.html" target="_blank">Whois</a>
+</section>
+
+<section class="section">
+  <h2>Calculadora</h2>
+  <a class="card" href="calculadora/porcentagem.html" target="_blank">Porcentagem</a>
+</section>
+
+<section class="section">
+  <h2>DNS</h2>
+  <a class="card" href="dns/meu-dns.html" target="_blank">Meu DNS</a>
+</section>
+
+<section class="section">
+  <h2>Validadores</h2>
+  <a class="card" href="validadores/cpf.html" target="_blank">CPF</a>
+  <a class="card" href="validadores/cnpj.html" target="_blank">CNPJ</a>
+  <a class="card" href="validadores/cartao-credito.html" target="_blank">Cartão de Crédito</a>
+</section>
+
+<footer>
+  <a href="index.html">Início</a> |
+  <a href="sobre.html">Sobre</a> |
+  <a href="privacidade.html">Privacidade</a> |
+  <a href="contato.html">Contato</a>
+  <br><br>
+  © 2026 — Saber IP
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css"/>
+
+<script>
+// Cookies
+function setCookie(name,value,days){ const d=new Date(); d.setTime(d.getTime()+(days*24*60*60*1000)); document.cookie=name+"="+encodeURIComponent(value)+";path=/;expires="+d.toUTCString();}
+function getCookie(name){ const match=document.cookie.match(new RegExp('(^| )'+name+'=([^;]+)')); return match?decodeURIComponent(match[2]):null;}
+
+// Histórico de visitas
+let visits = parseInt(getCookie('visits')||'0');
+visits++;
+setCookie('visits',visits,365);
+document.getElementById('visitHistory').innerText = `Você visitou este site ${visits} vez(es).`;
+
+// Busca IP público
+let currentIP = '';
+fetch("https://api.ipify.org?format=json")
+  .then(res => res.json())
+  .then(data => { currentIP = data.ip; document.getElementById("ip").innerText = data.ip; document.getElementById("ipSearch").value = data.ip; mostrarGeo(data.ip); })
+  .catch(()=>document.getElementById("ip").innerText="Não foi possível carregar");
+
+// Copiar IP
+function copiarIP(){ const ip = document.getElementById("ip").innerText; navigator.clipboard.writeText(ip).then(()=>alert("IP copiado: "+ip));}
+
+// Colar IP no campo
+function colarIP(){ navigator.clipboard.readText().then(text=>{ document.getElementById("ipSearch").value = text; mostrarGeo(text); });}
+
+// Buscar IP digitado
+function buscarIP(){ const ip = document.getElementById("ipSearch").value.trim(); if(ip) mostrarGeo(ip);}
+
+// Mostrar GeoLocalização
+function mostrarGeo(ip){
+  fetch(`https://ipapi.co/${ip}/json/`)
+    .then(res=>res.json())
+    .then(data=>{
+      if(data.error){ document.getElementById("geoInfo").innerText = "Não foi possível localizar o IP."; return;}
+      document.getElementById("geoInfo").innerText = `IP: ${data.ip} | País: ${data.country_name} | Estado: ${data.region} | Cidade: ${data.city} | Latitude: ${data.latitude} | Longitude: ${data.longitude}`;
+      const mapDiv = document.getElementById("map");
+      mapDiv.innerHTML = "";
+      const map = L.map('map').setView([data.latitude, data.longitude], 10);
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{ attribution: '© OpenStreetMap contributors' }).addTo(map);
+      L.marker([data.latitude,data.longitude]).addTo(map).bindPopup(`IP: ${data.ip}`).openPopup();
+    })
+    .catch(()=>document.getElementById("geoInfo").innerText="Erro ao buscar geolocalização");
+}
+</script>
+
+</body>
+</html>
