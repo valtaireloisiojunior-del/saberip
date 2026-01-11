@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Gerador de CEP — Dados para Testes</title>
+<meta name="description" content="Gere CEPs fictícios para testes de sistemas. Número, cidade e estado com botão copiar.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body {
+  margin:0;
+  font-family: Arial, Helvetica, sans-serif;
+  background:#0d0d0d;
+  color:#fff;
+  text-align:center;
+}
+
+h1 {
+  font-size:36px;
+  color:#00ff99;
+  margin-top:40px;
+}
+
+p {
+  color:#ccc;
+  font-size:18px;
+}
+
+.container {
+  background:#111;
+  max-width:600px;
+  margin:30px auto;
+  padding:30px 20px;
+  border-radius:16px;
+}
+
+.campo {
+  background:#0d0d0d;
+  padding:15px;
+  margin:12px 0;
+  border-radius:12px;
+  font-size:20px;
+  text-align:left;
+}
+
+.campo strong {
+  color:#00ff99;
+}
+
+.btn {
+  display:block;
+  width:100%;
+  margin:10px 0;
+  padding:15px;
+  font-size:20px;
+  border-radius:10px;
+  border:none;
+  cursor:pointer;
+}
+
+.btn-gerar {
+  background:#00ff99;
+  color:#000;
+}
+
+.btn-copiar {
+  background:#222;
+  color:#00ff99;
+  border:2px solid #00ff99;
+}
+
+.btn:hover {
+  opacity:0.9;
+}
+
+footer {
+  margin:40px 0;
+  font-size:14px;
+  color:#777;
+}
+
+footer a {
+  color:#00ff99;
+  text-decoration:none;
+  margin:0 10px;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Gerador de CEP</h1>
+<p>CEPs fictícios para testes de sistemas e formulários</p>
+
+<div class="container" id="resultado">
+  Clique em gerar para criar um CEP
+</div>
+
+<div class="container">
+  <button class="btn btn-gerar" onclick="gerarCEP()">📌 Gerar CEP</button>
+  <button class="btn btn-copiar" onclick="copiarTudo()">📋 Copiar Tudo</button>
+</div>
+
+<footer>
+  <a href="../index.html">Início</a> |
+  <a href="pessoas.html">Gerador de Pessoas</a> |
+  <a href="../privacidade.html">Privacidade</a>
+</footer>
+
+<script>
+const cidades = [
+  {cidade:"São Paulo", uf:"SP"},
+  {cidade:"Rio de Janeiro", uf:"RJ"},
+  {cidade:"Belo Horizonte", uf:"MG"},
+  {cidade:"Curitiba", uf:"PR"},
+  {cidade:"Porto Alegre", uf:"RS"},
+  {cidade:"Salvador", uf:"BA"},
+  {cidade:"Fortaleza", uf:"CE"},
+  {cidade:"Brasília", uf:"DF"}
+];
+
+function gerarCEP() {
+  const cep = `${Math.floor(Math.random()*90000 + 10000)}-${Math.floor(Math.random()*900 + 100)}`;
+  const randomCidade = cidades[Math.floor(Math.random()*cidades.length)];
+  
+  document.getElementById("resultado").innerHTML = `
+    <div class="campo"><strong>CEP:</strong> ${cep} <button class="btn btn-copiar" onclick="copiar('${cep}')">Copiar</button></div>
+    <div class="campo"><strong>Cidade:</strong> ${randomCidade.cidade} <button class="btn btn-copiar" onclick="copiar('${randomCidade.cidade}')">Copiar</button></div>
+    <div class="campo"><strong>Estado:</strong> ${randomCidade.uf} <button class="btn btn-copiar" onclick="copiar('${randomCidade.uf}')">Copiar</button></div>
+  `;
+}
+
+function copiar(texto) {
+  navigator.clipboard.writeText(texto).then(() => {
+    alert("Copiado: " + texto);
+  });
+}
+
+function copiarTudo() {
+  const texto = document.getElementById("resultado").innerText;
+  navigator.clipboard.writeText(texto).then(() => {
+    alert("Todos os dados copiados!");
+  });
+}
+</script>
+
+</body>
+</html>

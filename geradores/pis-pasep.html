@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Gerador de PIS/PASEP</title>
+<meta name="description" content="Gere números de PIS/PASEP fictícios para testes de sistemas corporativos e de RH.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#0d0d0d;color:#fff;text-align:center;}
+a.home{display:inline-block;background:#00ff99;color:#000;font-weight:bold;font-size:20px;padding:12px 25px;margin:20px 0;border-radius:12px;text-decoration:none;cursor:pointer;}
+h1{font-size:36px;color:#00ff99;margin-top:20px;}
+p{color:#ccc;font-size:18px;}
+.container{background:#111;max-width:600px;margin:20px auto;padding:30px 20px;border-radius:16px;}
+.campo{background:#0d0d0d;padding:15px;margin:12px 0;border-radius:12px;font-size:20px;text-align:left;}
+.campo strong{color:#00ff99;}
+.btn{display:block;width:100%;margin:10px 0;padding:15px;font-size:20px;border-radius:10px;border:none;cursor:pointer;}
+.btn-gerar{background:#00ff99;color:#000;}
+.btn-copiar{background:#222;color:#00ff99;border:2px solid #00ff99;}
+.btn:hover{opacity:0.9;}
+footer{margin:40px 0;font-size:14px;color:#777;}
+footer a{color:#00ff99;text-decoration:none;margin:0 10px;}
+.aviso{background:#222;color:#ff5555;padding:15px;border-radius:12px;margin:20px auto;max-width:600px;font-size:16px;text-align:center;}
+</style>
+</head>
+
+<body>
+
+<!-- BOTÃO HOME -->
+<a class="home" href="https://valtaireloisiojunior-del.github.io/saberip/index.html">🏠 Home</a>
+
+<!-- AVISO LEGAL -->
+<div class="aviso">
+⚠️ ATENÇÃO: Todos os dados gerados são <strong>fictícios</strong> e servem apenas para <strong>testes de sistemas e desenvolvimento</strong>. Não use para fins ilegais ou em cadastros reais.
+</div>
+
+<h1>Gerador de PIS/PASEP</h1>
+<p>Gere números de PIS/PASEP fictícios para testes de sistemas corporativos</p>
+
+<div class="container" id="resultado">Clique em gerar para criar um PIS/PASEP</div>
+
+<div class="container">
+  <button class="btn btn-gerar" onclick="gerarPISPasep()">📄 Gerar PIS/PASEP</button>
+  <button class="btn btn-copiar" onclick="copiarTudo()">📋 Copiar Tudo</button>
+</div>
+
+<footer>
+<a href="../index.html">Início</a> |
+<a href="renavam.html">Gerador de RENAVAM</a> |
+<a href="../privacidade.html">Privacidade</a>
+</footer>
+
+<script>
+// Gera PIS/PASEP fictício (11 dígitos + dígito verificador simples)
+function gerarPISPasep() {
+  let n = [];
+  for(let i=0;i<10;i++) n.push(Math.floor(Math.random()*10));
+
+  // Dígito verificador simples (módulo 11)
+  let pesos = [3,2,9,8,7,6,5,4,3,2];
+  let soma = n.reduce((acc,val,i)=>acc + val*pesos[i],0);
+  let dv = 11 - (soma % 11);
+  if(dv >= 10) dv = 0;
+  n.push(dv);
+
+  const pis = n.join('');
+
+  document.getElementById("resultado").innerHTML = `<div class="campo"><strong>PIS/PASEP:</strong> ${pis} <button class="btn btn-copiar" onclick="copiar('${pis}')">Copiar</button></div>`;
+}
+
+function copiar(texto){
+  navigator.clipboard.writeText(texto).then(()=>{alert("Copiado: "+texto)});
+}
+
+function copiarTudo(){
+  const texto=document.getElementById("resultado").innerText;
+  navigator.clipboard.writeText(texto).then(()=>{alert("Todos os dados copiados!")});
+}
+</script>
+
+</body>
+</html>

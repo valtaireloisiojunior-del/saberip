@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Gerador de Lorem Ipsum</title>
+<meta name="description" content="Gere textos fictícios aleatórios (Lorem Ipsum) para testes de sites e sistemas.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#0d0d0d;color:#fff;text-align:center;}
+a.home{display:inline-block;background:#00ff99;color:#000;font-weight:bold;font-size:20px;padding:12px 25px;margin:20px 0;border-radius:12px;text-decoration:none;cursor:pointer;}
+h1{font-size:36px;color:#00ff99;margin-top:20px;}
+p{color:#ccc;font-size:18px;}
+.container{background:#111;max-width:700px;margin:20px auto;padding:30px 20px;border-radius:16px;}
+.campo{background:#0d0d0d;padding:15px;margin:12px 0;border-radius:12px;font-size:20px;text-align:left;word-break:break-word;}
+.campo strong{color:#00ff99;}
+.btn{display:block;width:100%;margin:10px 0;padding:15px;font-size:20px;border-radius:10px;border:none;cursor:pointer;}
+.btn-gerar{background:#00ff99;color:#000;}
+.btn-copiar{background:#222;color:#00ff99;border:2px solid #00ff99;}
+.btn:hover{opacity:0.9;}
+footer{margin:40px 0;font-size:14px;color:#777;}
+footer a{color:#00ff99;text-decoration:none;margin:0 10px;}
+.aviso{background:#222;color:#ff5555;padding:15px;border-radius:12px;margin:20px auto;max-width:700px;font-size:16px;text-align:center;}
+</style>
+</head>
+
+<body>
+
+<!-- BOTÃO HOME -->
+<a class="home" href="https://valtaireloisiojunior-del.github.io/saberip/index.html">🏠 Home</a>
+
+<!-- AVISO LEGAL -->
+<div class="aviso">
+⚠️ ATENÇÃO: Todos os dados gerados são <strong>fictícios</strong> e servem apenas para <strong>testes de sistemas e desenvolvimento</strong>. Não use para fins ilegais ou cadastros reais.
+</div>
+
+<h1>Gerador de Lorem Ipsum</h1>
+<p>Gere textos fictícios para preencher campos ou testar sites e sistemas</p>
+
+<div class="container" id="resultado">Clique em gerar para criar o texto Lorem Ipsum</div>
+
+<div class="container">
+  <button class="btn btn-gerar" onclick="gerarLorem()">📝 Gerar Texto</button>
+  <button class="btn btn-copiar" onclick="copiarTudo()">📋 Copiar Tudo</button>
+</div>
+
+<footer>
+<a href="../index.html">Início</a> |
+<a href="placa-veiculo.html">Gerador de Placa</a> |
+<a href="../privacidade.html">Privacidade</a>
+</footer>
+
+<script>
+const loremPalavras = ["lorem","ipsum","dolor","sit","amet","consectetur","adipiscing","elit","sed","do","eiusmod","tempor","incididunt","ut","labore","et","dolore","magna","aliqua","ut","enim","ad","minim","veniam"];
+
+function gerarLorem(){
+  let paragrafo="";
+  for(let i=0;i<5;i++){ // 5 frases
+    let frase="";
+    let palavrasNaFrase = Math.floor(Math.random()*8 + 4); // 4 a 12 palavras
+    for(let j=0;j<palavrasNaFrase;j++){
+      frase += loremPalavras[Math.floor(Math.random()*loremPalavras.length)] + " ";
+    }
+    frase = frase.charAt(0).toUpperCase() + frase.slice(1).trim() + ". ";
+    paragrafo += frase;
+  }
+  document.getElementById("resultado").innerHTML = `<div class="campo"><strong>Texto Lorem Ipsum:</strong> ${paragrafo} <button class="btn btn-copiar" onclick="copiar('${paragrafo}')">Copiar</button></div>`;
+}
+
+function copiar(texto){
+  navigator.clipboard.writeText(texto).then(()=>{alert("Copiado! :)")});
+}
+
+function copiarTudo(){
+  const texto=document.getElementById("resultado").innerText;
+  navigator.clipboard.writeText(texto).then(()=>{alert("Todos os dados copiados!")});
+}
+</script>
+
+</body>
+</html>
