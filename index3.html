@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Saber IP — Descubra seu IP agora</title>
-<meta name="description" content="Veja seu IP público automaticamente. Geradores e validadores online simples e rápidos.">
+<meta name="description" content="Veja seu IP público automaticamente e sua localização em mapa. Ferramentas online simples e rápidas.">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
@@ -51,6 +51,12 @@ p {
   word-break: break-all;
 }
 
+.location {
+  font-size: 18px;
+  color: #ccc;
+  margin-bottom: 10px;
+}
+
 button {
   background: #00ff99;
   color: #000;
@@ -63,6 +69,15 @@ button {
 
 button:hover {
   opacity: 0.9;
+}
+
+#map {
+  width: 100%;
+  max-width: 700px;
+  height: 350px;
+  margin: 20px auto;
+  border-radius: 12px;
+  border: 2px solid #00ff99;
 }
 
 .section {
@@ -107,29 +122,33 @@ footer a {
   margin: 0 10px;
 }
 </style>
-</head>
 
+<!-- Leaflet CSS -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+
+</head>
 <body>
 
 <header>
   <h1>Saber IP</h1>
-  <p>Ferramentas online simples, rápidas e gratuitas</p>
+  <p>Veja seu IP público e localização instantaneamente</p>
 </header>
 
-<!-- IP EM DESTAQUE -->
 <div class="ip-box">
   <div class="ip-label">Seu IP público é:</div>
   <div class="ip-value" id="ip">Carregando...</div>
+  <div class="location" id="geo">Carregando localização...</div>
   <button onclick="copiarIP()">📋 Copiar IP</button>
 </div>
 
+<!-- MAPA -->
+<div id="map"></div>
+
 <!-- FERRAMENTAS -->
 <div class="section">
-
-  <!-- IP -->
   <a class="card" href="ip/meu-ip.html" target="_blank">
     Meu IP detalhado
-    <span class="desc">IP, localização e informações do navegador</span>
+    <span class="desc">IP, localização e navegador</span>
   </a>
 
   <a class="card" href="ip/geolocalizacao.html" target="_blank">
@@ -137,10 +156,9 @@ footer a {
     <span class="desc">Descubra a localização de um IP agora</span>
   </a>
 
-  <!-- GERADORES -->
   <a class="card" href="geradores/cpf.html" target="_blank">
     Gerador de CPF
-    <span class="desc">CPF válido para testes e validações</span>
+    <span class="desc">CPF válido para testes</span>
   </a>
 
   <a class="card" href="geradores/cnpj.html" target="_blank">
@@ -178,7 +196,6 @@ footer a {
     <span class="desc">Crie e baixe QR Codes</span>
   </a>
 
-  <!-- VALIDADORES -->
   <a class="card" href="validadores/cpf.html" target="_blank">
     Validador de CPF
     <span class="desc">Verifique se um CPF é válido</span>
@@ -193,7 +210,6 @@ footer a {
     Validador de Cartão de Crédito
     <span class="desc">Validação pelo algoritmo Luhn</span>
   </a>
-
 </div>
 
 <footer>
@@ -204,16 +220,32 @@ footer a {
   © 2026 — Saber IP
 </footer>
 
+<!-- Leaflet JS -->
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 <script>
-fetch("https://api.ipify.org?format=json")
+// Busca IP público e geolocalização
+fetch("https://ipapi.co/json/")
   .then(res => res.json())
   .then(data => {
     document.getElementById("ip").innerText = data.ip;
+    document.getElementById("geo").innerText = `${data.city}, ${data.region}, ${data.country_name}`;
+
+    // Inicializa mapa com Leaflet
+    var map = L.map('map').setView([data.latitude, data.longitude], 13);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19,
+      attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(map);
+    L.marker([data.latitude, data.longitude]).addTo(map)
+      .bindPopup("Você está aqui").openPopup();
   })
   .catch(() => {
-    document.getElementById("ip").innerText = "Não foi possível carregar";
+    document.getElementById("ip").innerText = "Não foi possível carregar IP";
+    document.getElementById("geo").innerText = "";
+    document.getElementById("map").innerHTML = "<p style='color:#ccc'>Mapa indisponível</p>";
   });
 
+// Copiar IP
 function copiarIP() {
   const ip = document.getElementById("ip").innerText;
   navigator.clipboard.writeText(ip).then(() => {
