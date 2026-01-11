@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Gerador de Pessoas — Dados para Testes</title>
+<meta name="description" content="Gere pessoas fictícias para testes: nome, CPF, endereço, email e telefone. Rápido e gratuito.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body {
+  margin:0;
+  font-family: Arial, Helvetica, sans-serif;
+  background:#0d0d0d;
+  color:#fff;
+  text-align:center;
+}
+
+h1 {
+  font-size:36px;
+  color:#00ff99;
+  margin-top:40px;
+}
+
+p {
+  color:#ccc;
+  font-size:18px;
+}
+
+.container {
+  background:#111;
+  max-width:600px;
+  margin:30px auto;
+  padding:30px 20px;
+  border-radius:16px;
+}
+
+.dado {
+  background:#0d0d0d;
+  padding:12px;
+  margin:10px 0;
+  border-radius:10px;
+  font-size:18px;
+  text-align:left;
+}
+
+.dado strong {
+  color:#00ff99;
+}
+
+button {
+  background:#00ff99;
+  color:#000;
+  border:none;
+  padding:15px 30px;
+  font-size:20px;
+  border-radius:10px;
+  cursor:pointer;
+  margin:10px;
+}
+
+button:hover {
+  opacity:0.9;
+}
+
+footer {
+  margin:40px 0;
+  font-size:14px;
+  color:#777;
+  position:relative;
+  z-index:10;
+}
+
+footer a {
+  color:#00ff99;
+  text-decoration:none;
+  margin:0 10px;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Gerador de Pessoas</h1>
+<p>Dados fictícios para testes e desenvolvimento</p>
+
+<div class="container" id="resultado">
+  Clique em gerar para criar uma pessoa
+</div>
+
+<button onclick="gerarPessoa()">🔄 Gerar Pessoa</button>
+<button onclick="copiarTudo()">📋 Copiar Tudo</button>
+
+<footer>
+  <a href="../index.html">Início</a> |
+  <a href="cpf.html">Gerador de CPF</a> |
+  <a href="../validadores/cpf.html">Validador de CPF</a> |
+  <a href="../privacidade.html">Privacidade</a>
+</footer>
+
+<script>
+const nomes = ["João","Maria","Pedro","Ana","Lucas","Mariana","Carlos","Fernanda","Rafael","Juliana"];
+const sobrenomes = ["Silva","Santos","Oliveira","Pereira","Costa","Rodrigues","Almeida","Lima","Gomes"];
+const ruas = ["Rua das Flores","Av Brasil","Rua Central","Rua das Palmeiras","Av Paulista"];
+const cidades = ["São Paulo","Rio de Janeiro","Belo Horizonte","Curitiba","Porto Alegre"];
+const estados = ["SP","RJ","MG","PR","RS"];
+
+function gerarCPF() {
+  let cpf = [];
+  for (let i = 0; i < 9; i++) cpf.push(Math.floor(Math.random() * 10));
+
+  let soma = cpf.reduce((s, n, i) => s + n * (10 - i), 0);
+  let d1 = (soma * 10) % 11;
+  if (d1 === 10) d1 = 0;
+  cpf.push(d1);
+
+  soma = cpf.reduce((s, n, i) => s + n * (11 - i), 0);
+  let d2 = (soma * 10) % 11;
+  if (d2 === 10) d2 = 0;
+  cpf.push(d2);
+
+  return cpf.join('');
+}
+
+function gerarPessoa() {
+  const nome = nomes[Math.floor(Math.random()*nomes.length)];
+  const sobrenome = sobrenomes[Math.floor(Math.random()*sobrenomes.length)];
+  const rua = ruas[Math.floor(Math.random()*ruas.length)];
+  const cidade = cidades[Math.floor(Math.random()*cidades.length)];
+  const estado = estados[Math.floor(Math.random()*estados.length)];
+  const cpf = gerarCPF();
+  const email = `${nome.toLowerCase()}.${sobrenome.toLowerCase()}@emailteste.com`;
+  const telefone = `(11) 9${Math.floor(1000+Math.random()*9000)}-${Math.floor(1000+Math.random()*9000)}`;
+
+  document.getElementById("resultado").innerHTML = `
+    <div class="dado"><strong>Nome:</strong> ${nome} ${sobrenome}</div>
+    <div class="dado"><strong>CPF:</strong> ${cpf}</div>
+    <div class="dado"><strong>Email:</strong> ${email}</div>
+    <div class="dado"><strong>Telefone:</strong> ${telefone}</div>
+    <div class="dado"><strong>Endereço:</strong> ${rua}, ${cidade} - ${estado}</div>
+  `;
+}
+
+function copiarTudo() {
+  const texto = document.getElementById("resultado").innerText;
+  navigator.clipboard.writeText(texto).then(() => {
+    alert("Dados copiados!");
+  });
+}
+</script>
+
+</body>
+</html>

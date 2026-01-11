@@ -2,79 +2,121 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<title>Saber IP — Ferramentas Online Gratuitas</title>
-<meta name="description" content="Ferramentas online gratuitas: Meu IP, IPv4, IPv6, DNS, gerador de CPF, CNPJ, validador de CPF e muito mais.">
+<title>Saber IP — Ferramentas Online Rápidas</title>
+<meta name="description" content="Veja seu IP público e use ferramentas online: CPF, CNPJ, Pessoas, Validadores e mais.">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
 body {
   margin:0;
-  font-family:Arial, Helvetica, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   background:#0d0d0d;
-  color:#eaeaea;
-}
-header {
+  color:#fff;
   text-align:center;
-  padding:40px 20px;
 }
-header h1 {
+
+/* TOPO */
+header {
+  padding:50px 20px 20px;
+}
+
+h1 {
+  font-size:42px;
   color:#00ff99;
-  font-size:40px;
   margin-bottom:10px;
 }
-header p {
+
+.subtitle {
+  font-size:20px;
   color:#ccc;
-  font-size:18px;
 }
-.section {
-  max-width:1100px;
-  margin:0 auto;
-  padding:20px;
-}
-.section h2 {
-  color:#00ff99;
-  margin-bottom:15px;
-  border-bottom:1px solid #222;
-  padding-bottom:5px;
-}
-.grid {
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:15px;
-}
-.card {
+
+/* IP BOX */
+.ip-box {
   background:#111;
-  border-radius:10px;
-  padding:20px;
-  text-align:center;
-  transition:.2s;
+  max-width:620px;
+  margin:30px auto;
+  padding:30px 20px;
+  border-radius:18px;
 }
-.card:hover {
-  transform:translateY(-3px);
-  background:#151515;
-}
-.card a {
-  text-decoration:none;
-  color:#eaeaea;
-  font-size:17px;
-  font-weight:bold;
-}
-.card span {
-  display:block;
-  margin-top:8px;
-  font-size:14px;
+
+.ip-label {
+  font-size:20px;
   color:#aaa;
 }
+
+.ip-value {
+  font-size:42px;
+  font-weight:bold;
+  color:#00ff99;
+  margin:15px 0;
+  word-break:break-all;
+}
+
+button {
+  background:#00ff99;
+  color:#000;
+  border:none;
+  padding:15px 30px;
+  font-size:20px;
+  border-radius:10px;
+  cursor:pointer;
+}
+
+button:hover {
+  opacity:0.9;
+}
+
+/* SEÇÕES */
+.section {
+  max-width:800px;
+  margin:40px auto;
+  padding:0 20px;
+}
+
+.section h2 {
+  text-align:left;
+  color:#00ff99;
+  font-size:26px;
+  margin-bottom:10px;
+}
+
+.card {
+  display:block;
+  background:#111;
+  padding:22px;
+  margin:15px 0;
+  border-radius:14px;
+  text-decoration:none;
+  color:#fff;
+  font-size:22px;
+  font-weight:bold;
+  text-align:left;
+}
+
+.card:hover {
+  background:#00ff99;
+  color:#000;
+}
+
+.card span {
+  display:block;
+  font-size:16px;
+  font-weight:normal;
+  margin-top:6px;
+}
+
+/* FOOTER */
 footer {
-  text-align:center;
-  padding:30px 15px;
-  font-size:13px;
+  margin:50px 0 30px;
+  font-size:14px;
   color:#777;
 }
+
 footer a {
   color:#00ff99;
   text-decoration:none;
-  margin:0 8px;
+  margin:0 10px;
 }
 </style>
 </head>
@@ -83,85 +125,94 @@ footer a {
 
 <header>
   <h1>Saber IP</h1>
-  <p>Ferramentas online gratuitas para IP, rede, geradores e validadores</p>
+  <div class="subtitle">Ferramentas online simples, rápidas e gratuitas</div>
 </header>
 
-<!-- IP & REDE -->
-<section class="section">
-  <h2>🌐 IP & Rede</h2>
-  <div class="grid">
-    <div class="card">
-      <a href="ip/meu-ip.html">Meu IP</a>
-      <span>Veja seu IP público</span>
-    </div>
-    <div class="card">
-      <a href="ip/ipv4.html">IPv4</a>
-      <span>Endereço IPv4</span>
-    </div>
-    <div class="card">
-      <a href="ip/ipv6.html">IPv6</a>
-      <span>Endereço IPv6</span>
-    </div>
-    <div class="card">
-      <a href="dns/meu-dns.html">Meu DNS</a>
-      <span>Servidores DNS</span>
-    </div>
-  </div>
-</section>
+<!-- IP EM DESTAQUE -->
+<div class="ip-box">
+  <div class="ip-label">Seu IP público é:</div>
+  <div class="ip-value" id="ip">Carregando...</div>
+  <button onclick="copiarIP()">📋 Copiar IP</button>
+</div>
+
+<!-- REDE -->
+<div class="section">
+  <h2>🌐 Rede e Internet</h2>
+
+  <a class="card" href="ip/meu-ip.html">
+    Meu IP
+    <span>IP, localização e navegador</span>
+  </a>
+
+  <a class="card" href="ipv4.html">
+    IPv4
+    <span>Informações do seu IPv4</span>
+  </a>
+
+  <a class="card" href="ipv6.html">
+    IPv6
+    <span>Verificar conectividade IPv6</span>
+  </a>
+</div>
 
 <!-- GERADORES -->
-<section class="section">
-  <h2>🛠️ Geradores</h2>
-  <div class="grid">
-    <div class="card">
-      <a href="geradores/cpf.html">Gerador de CPF</a>
-      <span>CPF válido para testes</span>
-    </div>
-    <div class="card">
-      <a href="geradores/cnpj.html">Gerador de CNPJ</a>
-      <span>CNPJ válido para testes</span>
-    </div>
-    <div class="card">
-      <a href="geradores/senha.html">Gerador de Senha</a>
-      <span>Senhas seguras</span>
-    </div>
-    <div class="card">
-      <a href="geradores/uuid.html">Gerador de UUID</a>
-      <span>Identificadores únicos</span>
-    </div>
-  </div>
-</section>
+<div class="section">
+  <h2>⚙️ Geradores</h2>
+
+  <a class="card" href="geradores/cpf.html">
+    Gerador de CPF
+    <span>CPF válido para testes</span>
+  </a>
+
+  <a class="card" href="geradores/cnpj.html">
+    Gerador de CNPJ
+    <span>CNPJ válido para testes</span>
+  </a>
+
+  <a class="card" href="geradores/pessoas.html">
+    Gerador de Pessoas
+    <span>Nome, CPF, email e endereço fictícios</span>
+  </a>
+</div>
 
 <!-- VALIDADORES -->
-<section class="section">
-  <h2>✔️ Validadores</h2>
-  <div class="grid">
-    <div class="card">
-      <a href="validadores/cpf.html">Validador de CPF</a>
-      <span>Verifique CPF</span>
-    </div>
-  </div>
-</section>
+<div class="section">
+  <h2>✅ Validadores</h2>
 
-<!-- UTILITÁRIOS -->
-<section class="section">
-  <h2>📐 Utilidades</h2>
-  <div class="grid">
-    <div class="card">
-      <a href="calculadora/porcentagem.html">Calculadora</a>
-      <span>Cálculo de porcentagem</span>
-    </div>
-  </div>
-</section>
+  <a class="card" href="validadores/cpf.html">
+    Validador de CPF
+    <span>Verifique se um CPF é válido</span>
+  </a>
+
+  <a class="card" href="validadores/cnpj.html">
+    Validador de CNPJ
+    <span>Verifique se um CNPJ é válido</span>
+  </a>
+</div>
 
 <footer>
-  <a href="index.html">Início</a> |
   <a href="sobre.html">Sobre</a> |
   <a href="privacidade.html">Privacidade</a> |
   <a href="contato.html">Contato</a>
   <br><br>
   © 2026 — Saber IP
 </footer>
+
+<script>
+// BUSCAR IP
+fetch("https://api.ipify.org?format=json")
+  .then(r => r.json())
+  .then(d => document.getElementById("ip").innerText = d.ip)
+  .catch(() => document.getElementById("ip").innerText = "Indisponível");
+
+// COPIAR IP
+function copiarIP() {
+  const ip = document.getElementById("ip").innerText;
+  navigator.clipboard.writeText(ip).then(() => {
+    alert("IP copiado: " + ip);
+  });
+}
+</script>
 
 </body>
 </html>
