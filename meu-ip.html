@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Meu IP – Descubra Seu Endereço IP Agora | SaberIP</title>
+  <meta name="description" content="Descubra seu IP público agora com a ferramenta Meu IP do SaberIP. Consulta rápida, gratuita e segura direto no navegador.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO básico -->
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://valtaireloisiojunior-del.github.io/saberip/meu-ip.html">
+
+  <!-- Estilo simples (opcional, pode remover se já tiver CSS global) -->
+  <style>
+    body { font-family: Arial, sans-serif; line-height: 1.6; margin: 20px; }
+    h1, h2, h3 { color: #222; }
+    .tool-box { padding: 15px; background: #f5f5f5; margin: 20px 0; border-radius: 6px; }
+    .faq h3 { margin-bottom: 5px; }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>Meu IP – Descubra Seu Endereço IP Agora</h1>
+    <p>Ferramenta gratuita do <strong>SaberIP</strong> para consultar seu IP público de forma rápida e segura.</p>
+  </header>
+
+  <!-- 🔧 AQUI você pode reutilizar o script que já mostra o IP -->
+  <section class="tool-box">
+    <h2>Seu IP Público</h2>
+    <p id="meu-ip">Carregando...</p>
+
+    <script>
+      fetch('https://api.ipify.org?format=json')
+        .then(response => response.json())
+        .then(data => {
+          document.getElementById('meu-ip').innerText = data.ip;
+        })
+        .catch(() => {
+          document.getElementById('meu-ip').innerText = 'Não foi possível obter o IP';
+        });
+    </script>
+  </section>
+
+  <section>
+    <h2>O que é um endereço IP</h2>
+    <p>
+      O endereço IP é um número único que identifica um dispositivo conectado à internet.
+      Ele funciona como um endereço digital, permitindo que dados sejam enviados e recebidos corretamente.
+    </p>
+  </section>
+
+  <section>
+    <h2>Diferença entre IP público e IP privado</h2>
+    <p>
+      O IP público é fornecido pelo provedor de internet e é visível na web.
+      Já o IP privado é usado apenas dentro da sua rede local, como em casas e empresas.
+    </p>
+  </section>
+
+  <section>
+    <h2>Para que serve descobrir o IP</h2>
+    <ul>
+      <li>Configurar roteadores e redes</li>
+      <li>Acessar sistemas remotos</li>
+      <li>Resolver problemas de conexão</li>
+      <li>Verificar uso de VPN</li>
+      <li>Aprender mais sobre redes</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Como descobrir seu IP online</h2>
+    <ol>
+      <li>Acesse o SaberIP</li>
+      <li>Abra a página Meu IP</li>
+      <li>Veja seu IP exibido automaticamente</li>
+      <li>Copie e use quando precisar</li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>Segurança e privacidade do IP</h2>
+    <p>
+      Visualizar seu IP não representa risco.
+      Sites sempre veem seu IP ao serem acessados.
+      Para mais privacidade, é possível usar VPNs.
+    </p>
+  </section>
+
+  <section>
+    <h2>Quando usar a ferramenta Meu IP</h2>
+    <p>
+      A ferramenta é ideal para suporte técnico, estudos, testes de conexão
+      e para qualquer pessoa que queira saber qual é seu IP no momento.
+    </p>
+  </section>
+
+  <section class="faq">
+    <h2>Perguntas frequentes</h2>
+
+    <h3>O que é meu IP?</h3>
+    <p>É o endereço IP público da sua conexão com a internet.</p>
+
+    <h3>Meu IP muda?</h3>
+    <p>Sim, a maioria dos provedores utiliza IP dinâmico.</p>
+
+    <h3>Funciona no celular?</h3>
+    <p>Sim, funciona em qualquer dispositivo com internet.</p>
+
+    <h3>Usar VPN muda meu IP?</h3>
+    <p>Sim, o IP exibido será o da VPN.</p>
+
+    <h3>O SaberIP armazena dados?</h3>
+    <p>Não. A ferramenta apenas exibe informações públicas.</p>
+
+    <h3>É gratuito?</h3>
+    <p>Sim, totalmente gratuito.</p>
+  </section>
+
+  <footer>
+    <p>© 2026 – SaberIP</p>
+  </footer>
+
+</body>
+      </html>
+      
