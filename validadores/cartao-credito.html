@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Validador de Cartão de Crédito | Saber IP</title>
+<meta name="description" content="Valide qualquer número de cartão de crédito usando o algoritmo Luhn. Ferramenta gratuita e online.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#0d0d0d;color:#fff;text-align:center;}
+a.home{display:inline-block;background:#00ff99;color:#000;font-weight:bold;font-size:20px;padding:12px 25px;margin:20px 0;border-radius:12px;text-decoration:none;cursor:pointer;}
+h1{font-size:36px;color:#00ff99;margin-top:20px;}
+p{color:#ccc;font-size:18px;}
+.container{background:#111;max-width:600px;margin:20px auto;padding:30px 20px;border-radius:16px;}
+input{width:90%;padding:12px;margin:12px 0;font-size:20px;border-radius:12px;border:none;text-align:center;}
+.btn{display:block;width:100%;margin:10px 0;padding:15px;font-size:20px;border-radius:12px;border:none;cursor:pointer;}
+.btn-validate{background:#00ff99;color:#000;}
+.btn-copy{background:#111;color:#00ff99;border:2px solid #00ff99;}
+.result{font-size:24px;font-weight:bold;margin-top:20px;}
+footer{margin:40px 0;font-size:14px;color:#777;}
+footer a{color:#00ff99;text-decoration:none;margin:0 10px;}
+</style>
+</head>
+
+<body>
+
+<a class="home" href="../index.html">🏠 Home</a>
+
+<h1>Validador de Cartão de Crédito</h1>
+<p>Insira o número do cartão para verificar se é válido (Luhn)</p>
+
+<div class="container">
+  <input type="text" id="card" placeholder="Digite o número do cartão">
+  <button class="btn btn-validate" onclick="validarCartao()">✅ Validar</button>
+  <button class="btn btn-copy" onclick="copiarCartao()">📋 Copiar Número</button>
+  <div class="result" id="resultado"></div>
+  <div class="result" style="font-size:16px;color:#00ff99;">⚠️ Dados fictícios apenas para teste</div>
+</div>
+
+<footer>
+<a href="../index.html">Início</a> |
+<a href="../privacidade.html">Privacidade</a> |
+<a href="../sobre.html">Sobre</a> |
+<a href="../contato.html">Contato</a>
+</footer>
+
+<script>
+// Função Luhn para validar cartão
+function validarCartao(){
+  const numero = document.getElementById("card").value.replace(/\D/g,'');
+  if(!numero){alert("Digite um número válido!"); return;}
+
+  let soma = 0;
+  let deveDobrar = false;
+
+  for(let i = numero.length -1; i>=0; i--){
+    let digito = parseInt(numero.charAt(i));
+    if(deveDobrar){
+      digito *=2;
+      if(digito>9) digito -=9;
+    }
+    soma += digito;
+    deveDobrar = !deveDobrar;
+  }
+
+  const valido = (soma % 10 ===0);
+  const resultado = document.getElementById("resultado");
+  resultado.innerText = valido ? "Cartão VÁLIDO ✅" : "Cartão INVÁLIDO ❌";
+  resultado.style.color = valido ? "#00ff99" : "#ff5555";
+}
+
+// Copiar cartão
+function copiarCartao(){
+  const numero = document.getElementById("card").value;
+  if(!numero){alert("Nada para copiar!"); return;}
+  navigator.clipboard.writeText(numero).then(()=>{alert("Número copiado!")});
+}
+</script>
+
+</body>
+</html>
