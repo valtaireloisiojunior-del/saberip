@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Gerador de CPF Online Grátis | Saber IP</title>
+<meta name="description" content="Gere CPF válido para testes e desenvolvimento. Ferramenta online gratuita, rápida e segura.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body {
+  background:#0d0d0d;
+  color:#eaeaea;
+  font-family:Arial, Helvetica, sans-serif;
+  text-align:center;
+  margin:0;
+  padding:0;
+}
+.container {
+  max-width:600px;
+  margin:40px auto;
+  padding:20px;
+}
+h1 {
+  color:#00ff99;
+  font-size:32px;
+}
+button {
+  background:#00ff99;
+  border:none;
+  padding:15px 25px;
+  font-size:18px;
+  border-radius:8px;
+  cursor:pointer;
+  margin-top:20px;
+}
+button:hover {
+  opacity:0.9;
+}
+.result {
+  font-size:26px;
+  margin-top:25px;
+  letter-spacing:2px;
+}
+.options {
+  margin-top:15px;
+}
+footer {
+  margin-top:50px;
+  font-size:13px;
+  color:#777;
+}
+footer a {
+  color:#00ff99;
+  text-decoration:none;
+}
+.warning {
+  background:#111;
+  padding:15px;
+  border-radius:8px;
+  margin-top:30px;
+  font-size:14px;
+  color:#ccc;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <h1>Gerador de CPF</h1>
+  <p>Gere CPF válido para testes e desenvolvimento</p>
+
+  <div class="result" id="cpf">---</div>
+
+  <button onclick="gerarCPF()">Gerar CPF</button>
+
+  <div class="options">
+    <label>
+      <input type="checkbox" id="pontuacao" checked>
+      Com pontuação
+    </label>
+  </div>
+
+  <div class="warning">
+    ⚠️ <strong>Aviso legal:</strong>  
+    Os CPFs gerados são apenas para <strong>testes, estudos e desenvolvimento</strong>.  
+    Não utilize para fins ilegais.
+  </div>
+
+  <footer>
+    <a href="/">Início</a> |
+    <a href="/privacidade.html">Privacidade</a>
+  </footer>
+</div>
+
+<script>
+function gerarCPF() {
+  let n = [];
+  for (let i = 0; i < 9; i++) {
+    n.push(Math.floor(Math.random() * 9));
+  }
+
+  let d1 = 0;
+  for (let i = 0; i < 9; i++) {
+    d1 += n[i] * (10 - i);
+  }
+  d1 = 11 - (d1 % 11);
+  if (d1 >= 10) d1 = 0;
+
+  let d2 = 0;
+  for (let i = 0; i < 9; i++) {
+    d2 += n[i] * (11 - i);
+  }
+  d2 += d1 * 2;
+  d2 = 11 - (d2 % 11);
+  if (d2 >= 10) d2 = 0;
+
+  let cpf = n.join('') + d1 + d2;
+
+  if (document.getElementById('pontuacao').checked) {
+    cpf = cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
+  }
+
+  document.getElementById('cpf').innerText = cpf;
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Gerador de Senha Segura | Saber IP</title>
+<meta name="description" content="Crie senhas fortes e seguras instantaneamente.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body{margin:0;font-family:Arial;background:#0b0b0b;color:#fff}
+.container{max-width:900px;margin:auto;padding:40px 15px;text-align:center}
+.box{background:#111;border-radius:14px;padding:30px}
+h1{color:#00ff99}
+input{width:100%;padding:12px;border-radius:8px;border:none;margin-top:15px;font-size:16px}
+button{margin-top:15px;padding:14px 22px;border:none;border-radius:10px;background:#00ff99;font-weight:bold;cursor:pointer}
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Gerador de Senha</h1>
+  <div class="box">
+    <input id="senha" readonly>
+    <button onclick="gerar()">Gerar Senha</button>
+  </div>
+</div>
+
+<script>
+function gerar(){
+  const chars="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%";
+  let senha="";
+  for(let i=0;i<16;i++){
+    senha+=chars[Math.floor(Math.random()*chars.length)];
+  }
+  document.getElementById("senha").value=senha;
+}
+gerar();
+</script>
+
+</body>
+</html>

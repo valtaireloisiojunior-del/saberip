@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Calculadora de Porcentagem | Saber IP</title>
+<meta name="description" content="Calcule porcentagem de forma rápida e simples.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body{margin:0;font-family:Arial;background:#0b0b0b;color:#fff}
+.container{max-width:900px;margin:auto;padding:40px 15px;text-align:center}
+.box{background:#111;border-radius:14px;padding:30px}
+h1{color:#00ff99}
+input{width:100%;padding:12px;border-radius:8px;border:none;margin-top:10px}
+button{margin-top:15px;padding:14px 22px;border:none;border-radius:10px;background:#00ff99;font-weight:bold;cursor:pointer}
+.result{margin-top:15px;color:#00ff99;font-size:18px}
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Calculadora de Porcentagem</h1>
+  <div class="box">
+    <input id="valor" placeholder="Valor total">
+    <input id="porc" placeholder="Porcentagem (%)">
+    <button onclick="calc()">Calcular</button>
+    <div class="result" id="res"></div>
+  </div>
+</div>
+
+<script>
+function calc(){
+  const v=parseFloat(valor.value);
+  const p=parseFloat(porc.value);
+  if(isNaN(v)||isNaN(p)) return;
+  res.innerText = (v*p/100).toFixed(2);
+}
+</script>
+
+</body>
+</html>

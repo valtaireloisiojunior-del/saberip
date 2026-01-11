@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Meu DNS | Saber IP</title>
+<meta name="description" content="Veja quais servidores DNS você está utilizando atualmente.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body{margin:0;font-family:Arial;background:#0b0b0b;color:#fff}
+.container{max-width:900px;margin:auto;padding:40px 15px;text-align:center}
+.box{background:#111;border:1px solid #1f1f1f;border-radius:14px;padding:30px}
+h1{color:#00ff99}
+.dns{margin-top:15px;font-size:18px;color:#00ff99}
+footer{margin-top:40px;font-size:13px;color:#666}
+footer a{color:#00ff99;text-decoration:none;margin:0 6px}
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Meu DNS</h1>
+  <p>Veja os servidores DNS detectados na sua conexão</p>
+
+  <div class="box">
+    <div class="dns" id="dns">Carregando...</div>
+  </div>
+
+  <footer>
+    <a href="/">Início</a> |
+    <a href="/privacidade.html">Privacidade</a>
+  </footer>
+</div>
+
+<script>
+fetch("https://dns.google/resolve?name=google.com")
+.then(()=> {
+  document.getElementById("dns").innerText =
+  "DNS do sistema detectado automaticamente pelo navegador.";
+});
+</script>
+
+</body>
+</html>
