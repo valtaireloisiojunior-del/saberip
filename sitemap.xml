@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Páginas principais -->
+  <url>
+    <loc>https://valtaireloisiojunior-del.github.io/saberip/</loc>
+  </url>
+  <url>
+    <loc>https://valtaireloisiojunior-del.github.io/saberip/sobre.html</loc>
+  </url>
+  <url>
+    <loc>https://valtaireloisiojunior-del.github.io/saberip/contato.html</loc>
+  </url>
+  <url>
+    <loc>https://valtaireloisiojunior-del.github.io/saberip/privacidade.html</loc>
+  </url>
+
+  <!-- IP -->
+  <url>
+    <loc>https://valtaireloisiojunior-del.github.io/saberip/ip/meu-ip.html</loc>
+  </url>
+  <url>
+    <loc>https://valtaireloisiojunior-del.github.io/saberip/ipv4.html</loc>
+  </url>
+  <url>
+    <loc>https://valtaireloisiojunior-del.github.io/saberip/ipv6.html</loc>
+  </url>
+
+  <!-- Geradores -->
+  <url>
+    <loc>https://valtaireloisiojunior-del.github.io/saberip/geradores/cpf.html</loc>
+  </url>
+  <url>
+    <loc>https://valtaireloisiojunior-del.github.io/saberip/geradores/cnpj.html</loc>
+  </url>
+  <url>
+    <loc>https://valtaireloisiojunior-del.github.io/saberip/geradores/pessoas.html</loc>
+  </url>
+  <url>
+    <loc>https://valtaireloisiojunior-del.github.io/saberip/geradores/cartao-credito.html</loc>
+  </url>
+  <url>
+    <loc>https://valtaireloisiojunior-del.github.io/saberip/geradores/rg.html</loc>
+  </url>
+  <url>
+    <loc>https://valtaireloisiojunior-del.github.io/saberip/geradores/cnh.html</loc>
+  </url>
+  <url>
+    <loc>https://valtaireloisiojunior-del.github.io/saberip/geradores/conta-bancaria.html</loc>
+  </url>
+  <url>
+    <loc>https://valtaireloisiojunior-del.github.io/saberip/geradores/conversor-moeda.html</loc>
+  </url>
+
+  <!-- Validadores -->
+  <url>
+    <loc>https://valtaireloisiojunior-del.github.io/saberip/validadores/cpf.html</loc>
+  </url>
+  <url>
+    <loc>https://valtaireloisiojunior-del.github.io/saberip/validadores/cnpj.html</loc>
+  </url>
+  <url>
+    <loc>https://valtaireloisiojunior-del.github.io/saberip/validadores/cartao-credito.html</loc>
+  </url>
+
+</urlset>
