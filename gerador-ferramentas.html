@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gerador Avançado de Ferramentas</title>
+<style>
+body{font-family:Arial,sans-serif; background:#0d0d0d; color:#f0f0f0; padding:20px;}
+input,textarea,select,button{width:100%; padding:10px; margin:5px 0; border-radius:6px; border:none;}
+button{background:#00ff99;color:#000;cursor:pointer;}
+pre{background:#111;padding:15px;border-radius:6px;overflow-x:auto;}
+</style>
+</head>
+<body>
+
+<h1>Gerador Avançado de Ferramentas</h1>
+
+<label>Título da Ferramenta:</label>
+<input type="text" id="titulo">
+
+<label>Descrição:</label>
+<input type="text" id="descricao">
+
+<label>Ícone:</label>
+<input type="text" id="icone" placeholder="Ex: 🔢">
+
+<label>Categoria:</label>
+<select id="categoria">
+<option value="geradores">GERADORES</option>
+<option value="validadores">VALIDADORES</option>
+<option value="ip">IP</option>
+<option value="outros">OUTROS</option>
+</select>
+
+<label>Script HTML da Ferramenta:</label>
+<textarea id="html" rows="10"></textarea>
+
+<button onclick="criarFerramenta()">Criar Ferramenta</button>
+
+<h2>Resultado:</h2>
+<pre id="saida"></pre>
+
+<script>
+async function criarFerramenta(){
+    const titulo = document.getElementById('titulo').value;
+    const descricao = document.getElementById('descricao').value;
+    const icone = document.getElementById('icone').value;
+    const categoria = document.getElementById('categoria').value;
+    const html = document.getElementById('html').value;
+
+    const resposta = await fetch('/criar-ferramenta', {
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body: JSON.stringify({titulo,descricao,icone,categoria,html})
+    });
+
+    const data = await resposta.json();
+    document.getElementById('saida').textContent = JSON.stringify(data,null,2);
+}
+</script>
+
+</body>
+</html>
