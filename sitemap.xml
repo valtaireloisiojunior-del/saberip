@@ -1,66 +1,117 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
-  <!-- Páginas principais -->
+  <!-- Página principal -->
   <url>
     <loc>https://valtaireloisiojunior-del.github.io/saberip/</loc>
-  </url>
-  <url>
-    <loc>https://valtaireloisiojunior-del.github.io/saberip/sobre.html</loc>
-  </url>
-  <url>
-    <loc>https://valtaireloisiojunior-del.github.io/saberip/contato.html</loc>
-  </url>
-  <url>
-    <loc>https://valtaireloisiojunior-del.github.io/saberip/privacidade.html</loc>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
   </url>
 
-  <!-- IP -->
+  <!-- Páginas institucionais -->
+  <url>
+    <loc>https://valtaireloisiojunior-del.github.io/saberip/sobre.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://valtaireloisiojunior-del.github.io/saberip/contato.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <url>
+    <loc>https://valtaireloisiojunior-del.github.io/saberip/privacidade.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <!-- IP e Rede -->
   <url>
     <loc>https://valtaireloisiojunior-del.github.io/saberip/ip/meu-ip.html</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
   </url>
+
   <url>
     <loc>https://valtaireloisiojunior-del.github.io/saberip/ipv4.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
+
   <url>
     <loc>https://valtaireloisiojunior-del.github.io/saberip/ipv6.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
 
   <!-- Geradores -->
   <url>
     <loc>https://valtaireloisiojunior-del.github.io/saberip/geradores/cpf.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
   </url>
+
   <url>
     <loc>https://valtaireloisiojunior-del.github.io/saberip/geradores/cnpj.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
   </url>
+
   <url>
     <loc>https://valtaireloisiojunior-del.github.io/saberip/geradores/pessoas.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
   </url>
+
   <url>
     <loc>https://valtaireloisiojunior-del.github.io/saberip/geradores/cartao-credito.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
   </url>
+
   <url>
     <loc>https://valtaireloisiojunior-del.github.io/saberip/geradores/rg.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
   </url>
+
   <url>
     <loc>https://valtaireloisiojunior-del.github.io/saberip/geradores/cnh.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
   </url>
+
   <url>
     <loc>https://valtaireloisiojunior-del.github.io/saberip/geradores/conta-bancaria.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
+
   <url>
     <loc>https://valtaireloisiojunior-del.github.io/saberip/geradores/conversor-moeda.html</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.85</priority>
   </url>
 
   <!-- Validadores -->
   <url>
     <loc>https://valtaireloisiojunior-del.github.io/saberip/validadores/cpf.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
   </url>
+
   <url>
     <loc>https://valtaireloisiojunior-del.github.io/saberip/validadores/cnpj.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
   </url>
+
   <url>
     <loc>https://valtaireloisiojunior-del.github.io/saberip/validadores/cartao-credito.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
   </url>
 
 </urlset>
