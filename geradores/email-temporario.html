@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Email Temporário | SEUIP.COM.BR</title>
+
+<meta name="description" content="Crie um e-mail temporário gratuito para receber mensagens online sem usar seu email pessoal.">
+<meta name="keywords" content="email temporário, email fake, email descartável, email anonimo">
+
+<style>
+body{background:#0d0d0d;color:#f0f0f0;font-family:Arial;padding:20px}
+.container{max-width:900px;margin:auto;background:#111;padding:25px;border-radius:15px;border:2px solid #222}
+h1{color:#00ff99;text-align:center}
+.email-box{background:#050505;border:2px solid #00ff99;border-radius:10px;padding:15px;font-size:1.3rem;text-align:center;margin:20px 0;word-break:break-all}
+button{background:#00ff99;color:#000;border:none;padding:12px 20px;border-radius:8px;font-weight:bold;cursor:pointer;margin:5px}
+button:hover{background:#00cc77}
+.inbox{margin-top:20px}
+.mail{background:#0a0a0a;border:1px solid #222;padding:15px;border-radius:8px;margin-bottom:10px}
+.mail strong{color:#00ff99}
+.small{color:#aaa;font-size:.9rem;text-align:center;margin-top:10px}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+<h1>📧 Email Temporário</h1>
+<p class="small">Use este email para cadastros e testes sem expor seu email real.</p>
+
+<div class="email-box" id="email">Gerando email...</div>
+
+<div style="text-align:center">
+<button onclick="copyEmail()">📋 Copiar Email</button>
+<button onclick="loadInbox()">🔄 Atualizar Caixa</button>
+<button onclick="newEmail()">♻️ Novo Email</button>
+</div>
+
+<div class="inbox" id="inbox"></div>
+
+<p class="small">Emails expiram automaticamente • Serviço gratuito</p>
+</div>
+
+<script>
+let login = "";
+let domain = "";
+
+async function newEmail(){
+    const domains = ["1secmail.com","1secmail.org","1secmail.net"];
+    login = "user" + Math.floor(Math.random()*100000);
+    domain = domains[Math.floor(Math.random()*domains.length)];
+    document.getElementById("email").innerText = login+"@"+domain;
+    document.getElementById("inbox").innerHTML = "";
+}
+
+async function loadInbox(){
+    if(!login) return;
+    const inboxDiv = document.getElementById("inbox");
+    inboxDiv.innerHTML = "<p class='small'>Carregando mensagens...</p>";
+
+    try{
+        const res = await fetch(`https://www.1secmail.com/api/v1/?action=getMessages&login=${login}&domain=${domain}`);
+        const data = await res.json();
+
+        if(data.length === 0){
+            inboxDiv.innerHTML = "<p class='small'>Nenhum email recebido ainda.</p>";
+            return;
+        }
+
+        inboxDiv.innerHTML = "";
+        for(const mail of data){
+            const msg = await fetch(`https://www.1secmail.com/api/v1/?action=readMessage&login=${login}&domain=${domain}&id=${mail.id}`);
+            const m = await msg.json();
+
+            inboxDiv.innerHTML += `
+                <div class="mail">
+                    <strong>De:</strong> ${m.from}<br>
+                    <strong>Assunto:</strong> ${m.subject}<br><br>
+                    ${m.textBody || "<i>Email sem conteúdo de texto</i>"}
+                </div>
+            `;
+        }
+    }catch(e){
+        inboxDiv.innerHTML = "<p style='color:#ff6666'>Erro ao carregar emails.</p>";
+    }
+}
+
+function copyEmail(){
+    const email = document.getElementById("email").innerText;
+    navigator.clipboard.writeText(email);
+    alert("Email copiado!");
+}
+
+// Inicialização
+newEmail();
+</script>
+
+</body>
+</html>
