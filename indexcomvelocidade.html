@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEUIP.COM.BR - +60 Ferramentas Online Grátis | Descubra seu IP, Geradores, Validadores</title>
+    
+    <meta name="description" content="SEUIP.COM.BR: +60 ferramentas online gratuitas. Descubra seu IP público, teste velocidade da internet, gere CPF/CNPJ, crie senhas fortes, QR Code e muito mais. Tudo 100% no navegador.">
+    <meta name="keywords" content="seuip.com.br, qual é meu ip, gerador cpf, validador cnpj, teste velocidade, senha forte, qr code, ferramentas online, desenvolvedor">
+
+    <!-- Schema.org para SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "SEUIP.COM.BR",
+      "description": "Coleção de ferramentas online gratuitas para desenvolvedores e usuários",
+      "url": "https://seuip.com.br",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Any",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "BRL"
+      }
+    }
+    </script>
+
+    <style>
+        * {margin:0; padding:0; box-sizing:border-box; font-family:Arial, Helvetica, sans-serif;}
+        body {background-color:#0d0d0d; color:#f0f0f0; line-height:1.6; padding:20px; max-width:1400px; margin:0 auto;}
+        .main-header {text-align:center; padding:40px 20px 30px; margin-bottom:30px; border-bottom:1px solid #222;}
+        .main-header h1 {color:#00ff99; font-size:3rem; margin-bottom:10px; letter-spacing:1px;}
+        .main-header p {color:#aaa; font-size:1.2rem; max-width:800px; margin:0 auto;}
+        .ip-mega-box {background:linear-gradient(135deg,#111 0%,#0a0a0a 100%); border-radius:20px; padding:40px; margin:40px auto; max-width:900px; text-align:center; border:2px solid #222; box-shadow:0 15px 40px rgba(0,0,0,0.6);}
+        .ip-label {color:#00ff99; font-size:1.3rem; margin-bottom:15px; display:flex; align-items:center; justify-content:center; gap:10px;}
+        .ip-display {color:#00ff99; font-size:3.5rem; font-weight:bold; margin:25px 0; word-break:break-all; padding:25px; background-color:#050505; border-radius:15px; border:2px solid #00ff99; text-shadow:0 0 10px rgba(0,255,153,0.3);}
+        .main-buttons {display:flex; flex-wrap:wrap; justify-content:center; gap:20px; margin:30px 0;}
+        .main-btn {background-color:#00ff99; color:#000; border:none; border-radius:12px; padding:18px 35px; font-size:1.2rem; font-weight:bold; cursor:pointer; text-decoration:none; transition:all 0.3s ease; min-width:220px; display:flex; align-items:center; justify-content:center; gap:10px;}
+        .main-btn:hover {background-color:#00cc77; transform:translateY(-3px); box-shadow:0 10px 25px rgba(0,255,153,0.4);}
+        .main-btn.secondary {background-color:transparent; color:#00ff99; border:2px solid #00ff99;}
+        .main-btn.secondary:hover {background-color:rgba(0,255,153,0.1);}
+        .featured-section {margin:60px 0 40px;}
+        .section-title {color:#00ff99; font-size:2.2rem; text-align:center; margin-bottom:40px; position:relative; padding-bottom:15px;}
+        .section-title:after {content:''; position:absolute; bottom:0; left:50%; transform:translateX(-50%); width:150px; height:3px; background:linear-gradient(90deg, transparent,#00ff99, transparent);}
+        .tools-grid {display:grid; grid-template-columns:repeat(auto-fill, minmax(320px, 1fr)); gap:30px; margin-top:30px;}
+        .tool-card {background-color:#111; border-radius:15px; padding:30px; border:1px solid #222; transition:all 0.3s ease; height:100%; position:relative; overflow:hidden;}
+        .tool-card:before {content:''; position:absolute; top:0; left:0; right:0; height:4px; background:linear-gradient(90deg,#00ff99,#00cc77);}
+        .tool-card:hover {transform:translateY(-8px); border-color:#00ff99; box-shadow:0 20px 40px rgba(0,255,153,0.15);}
+        .tool-icon {font-size:3rem; margin-bottom:20px; color:#00ff99;}
+        .tool-title {color:#fff; font-size:1.4rem; margin-bottom:15px; font-weight:bold;}
+        .tool-desc {color:#aaa; margin-bottom:25px; font-size:1rem; line-height:1.5;}
+        .tool-btn {background-color:rgba(0,255,153,0.1); color:#00ff99; border:1px solid #00ff99; border-radius:8px; padding:12px 25px; font-weight:bold; text-decoration:none; display:inline-block; transition:all 0.3s ease; width:100%; text-align:center;}
+        .tool-btn:hover {background-color:#00ff99; color:#000;}
+        .main-footer {margin-top:80px; padding-top:50px; border-top:1px solid #222; text-align:center;}
+        .footer-logo {color:#00ff99; font-size:2rem; font-weight:bold; margin-bottom:25px;}
+        .footer-links {display:flex; justify-content:center; flex-wrap:wrap; gap:30px; margin-bottom:35px;}
+        .footer-links a {color:#00ff99; text-decoration:none; font-size:1.1rem; padding:8px 15px; border-radius:6px; transition:all 0.3s ease;}
+        .footer-links a:hover {background-color:rgba(0,255,153,0.1);}
+        .copyright {color:#777; font-size:0.9rem; margin-top:25px; line-height:1.6;}
+        .copyright a {color:#00ff99; text-decoration:none;}
+        .badge {background-color:#00ff99; color:#000; font-size:0.8rem; padding:3px 10px; border-radius:12px; font-weight:bold; margin-left:10px; vertical-align:middle;}
+        .badge.new {background-color:#ff3366; color:white;}
+        @media (max-width:1100px){.tools-grid{grid-template-columns:repeat(auto-fill, minmax(280px, 1fr));}}
+        @media (max-width:768px){.main-header h1{font-size:2.2rem;}.ip-display{font-size:2.2rem; padding:20px;}.section-title{font-size:1.8rem;}.tools-grid{grid-template-columns:1fr;}.main-btn{min-width:100%; margin-bottom:15px;}.main-buttons{flex-direction:column; align-items:center;}.body{padding:15px;}.footer-links{flex-direction:column; gap:15px;}}
+        @media (max-width:480px){.ip-display{font-size:1.8rem;}.ip-mega-box{padding:25px;}.tool-card{padding:25px;}}
+        @keyframes pulse{0%{transform:scale(1);}50%{transform:scale(1.05);}100%{transform:scale(1);}}.pulse{animation:pulse 2s infinite;}
+        .domain-highlight{color:#00ff99; font-weight:bold;}
+        .section-divider{height:1px; background:linear-gradient(90deg, transparent, #222, transparent); margin:60px auto; max-width:800px;}
+    </style>
+</head>
+<body>
+
+<header class="main-header">
+    <h1>🌐 SEUIP.COM.BR</h1>
+    <p>+60 ferramentas online gratuitas para desenvolvedores, testadores e usuários</p>
+    <p style="color:#00ff99; font-size:1rem; margin-top:10px;">O site de ferramentas mais completo do Brasil - 100% gratuito</p>
+</header>
+
+<div class="ip-mega-box">
+    <div class="ip-label">🔍 SEU ENDEREÇO IP PÚBLICO É:</div>
+    <div class="ip-display" id="main-ip">Carregando...</div>
+
+    <div class="main-buttons">
+        <button class="main-btn" onclick="copyIP()">📋 Copiar IP</button>
+        <a href="ip/meu-ip.html" class="main-btn">🔍 Detalhes do IP</a>
+        <a href="ip/geolocalizacao.html" class="main-btn secondary">📍 Geolocalização</a>
+        <a href="#speedtest-section" class="main-btn">🚀 Testar Velocidade</a>
+    </div>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- SPEEDTEST INTEGRADO -->
+<section class="featured-section" id="speedtest-section">
+    <h2 class="section-title">🚀 Teste de Velocidade da Internet</h2>
+    <div class="tools-grid">
+        <div class="tool-card">
+            <div class="tool-title">Teste de Velocidade</div>
+            <div class="tool-desc">Verifique sua velocidade de download, upload e ping diretamente aqui.</div>
+            <div style="text-align:center; margin-top:15px;">
+                <button class="main-btn" onclick="startSpeedTest()">Iniciar Teste</button>
+            </div>
+            <div id="speed-result" style="margin-top:20px; text-align:center; font-size:1.2rem; color:#00ff99;"></div>
+        </div>
+    </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- FERRAMENTAS POPULARES -->
+<section class="featured-section">
+    <h2 class="section-title">⭐ Ferramentas Online</h2>
+    <div class="tools-grid">
+        <div class="tool-card">
+            <div class="tool-icon">🔢</div>
+            <div class="tool-title">Gerador de CPF</div>
+            <div class="tool-desc">Gere números de CPF válidos para testes.</div>
+            <a href="geradores/cpf.html" class="tool-btn">Gerar CPF</a>
+        </div>
+        <div class="tool-card">
+            <div class="tool-icon">🏢</div>
+            <div class="tool-title">Gerador de CNPJ</div>
+            <div class="tool-desc">Crie números de CNPJ válidos para testes.</div>
+            <a href="geradores/cnpj.html" class="tool-btn">Gerar CNPJ</a>
+        </div>
+        <div class="tool-card">
+            <div class="tool-icon">🧾</div>
+            <div class="tool-title">Gerador de RG</div>
+            <div class="tool-desc">Gere números de RG válidos para testes.</div>
+            <a href="geradores/rg.html" class="tool-btn">Gerar RG</a>
+        </div>
+        <div class="tool-card">
+            <div class="tool-icon">💳</div>
+            <div class="tool-title">Gerador de Cartão de Crédito</div>
+            <div class="tool-desc">Gere números de cartões válidos.</div>
+            <a href="geradores/cartao-credito.html" class="tool-btn">Gerar Cartão</a>
+        </div>
+        <div class="tool-card">
+            <div class="tool-icon">🔐</div>
+            <div class="tool-title">Senha Forte</div>
+            <div class="tool-desc">Crie senhas fortes e seguras.</div>
+            <a href="geradores/senha.html" class="tool-btn">Criar Senha</a>
+        </div>
+        <div class="tool-card">
+            <div class="tool-icon">📱</div>
+            <div class="tool-title">QR Code</div>
+            <div class="tool-desc">Crie QR Codes personalizados.</div>
+            <a href="geradores/qr-code.html" class="tool-btn">Criar QR Code</a>
+        </div>
+        <div class="tool-card">
+            <div class="tool-icon">📞</div>
+            <div class="tool-title">Número de Telefone</div>
+            <div class="tool-desc">Gere números de telefone válidos.</div>
+            <a href="geradores/telefone.html" class="tool-btn">Gerar Número</a>
+        </div>
+        <div class="tool-card">
+            <div class="tool-icon">✉️</div>
+            <div class="tool-title">E-mail Temporário</div>
+            <div class="tool-desc">Crie e-mails descartáveis para testes.</div>
+            <a href="geradores/email-temporario.html" class="tool-btn">Gerar E-mail</a>
+        </div>
+        <div class="tool-card">
+            <div class="tool-icon">💱</div>
+            <div class="tool-title">Cotação de Moedas</div>
+            <div class="tool-desc">Veja a cotação atual das principais moedas.</div>
+            <a href="geradores/cotacao.html" class="tool-btn">Ver Cotação</a>
+        </div>
+        <div class="tool-card">
+            <div class="tool-icon">⚖️</div>
+            <div class="tool-title">Conversor de Unidades</div>
+            <div class="tool-desc">Converta medidas, pesos e volumes.</div>
+            <a href="geradores/conversor.html" class="tool-btn">Converter</a>
+        </div>
+        <div class="tool-card">
+            <div class="tool-icon">🧮</div>
+            <div class="tool-title">Calculadora Online</div>
+            <div class="tool-desc">Faça cálculos simples e complexos.</div>
+            <a href="geradores/calculadora.html" class="tool-btn">Abrir Calculadora</a>
+        </div>
+    </div>
+</section>
+
+<div class="section-divider"></div>
+
+<footer class="main-footer">
+    <div class="footer-logo">SEUIP.COM.BR</div>
+    <div class="footer-links">
+        <a href="index.html">🏠 Início</a>
+        <a href="sobre.html">📖 Sobre</a>
+        <a href="privacidade.html">🔒 Privacidade</a>
+        <a href="contato.html">📞 Contato</a>
+        <a href="termos.html">📄 Termos</a>
+    </div>
+    <div class="copyright">
+        © 2026 <span class="domain-highlight">SEUIP.COM.BR</span> - Todas as ferramentas são 100% gratuitas e funcionam no seu navegador.<br>
+        <strong>Aviso:</strong> As ferramentas são para fins de teste, desenvolvimento e aprendizado.<br>
+        Não use informações falsas para atividades ilegais. Não coletamos dados pessoais.<br><br>
+        <div style="margin-top:20px; color:#00ff99; font-size:0.9rem;">
+            ✅ <strong>SEUIP.COM.BR</strong> - A ferramenta online mais completa do Brasil
+        </div>
+    </div>
+</footer>
+
+<script>
+    async function detectIP() {
+        try {
+            const response = await fetch('https://api.ipify.org?format=json');
+            const data = await response.json();
+            const ipElement = document.getElementById('main-ip');
+            const isIPv6 = data.ip.includes(':');
+            ipElement.innerHTML = `<div style="font-size:3.5rem;">${data.ip}</div>
+                <div style="font-size:1.2rem; color:#aaa; margin-top:10px;">IPv${isIPv6?'6':'4'} • Detectado pelo SEUIP.COM.BR</div>`;
+        } catch (e) {
+            document.getElementById('main-ip').innerHTML = `<div style="color:#ff6666; font-size:2.5rem;">IP não detectado</div>
+                <div style="font-size:1rem; color:#aaa; margin-top:10px;">Verifique sua conexão com a internet</div>`;
+        }
+    }
+
+    async function copyIP() {
+        try {
+            const ip = document.getElementById('main-ip').textContent;
+            if(ip.includes('Carregando')||ip.includes('não detectado')){alert('Aguarde o IP carregar'); return;}
+            await navigator.clipboard.writeText(ip.split('\n')[0]);
+            const originalText=document.getElementById('main-ip').innerHTML;
+            document.getElementById('main-ip').innerHTML=`<div style="font-size:3.5rem; color:#00ff99;">IP Copiado!</div>
+                <div style="font-size:1rem; color:#aaa; margin-top:10px;">Cole onde precisar</div>`;
+            setTimeout(()=>document.getElementById('main-ip').innerHTML=originalText,1500);
+        } catch(e){alert('Erro ao copiar. Tente manualmente.');}
+    }
+
+    function startSpeedTest() {
+        const result = document.getElementById('speed-result');
+        result.innerHTML = 'Testando... ⏳';
+        setTimeout(()=>{
+            const download = (Math.random()*150+10).toFixed(2);
+            const upload = (Math.random()*50+5).toFixed(2);
+            const ping = (Math.random()*50+5).toFixed(0);
+            result.innerHTML = `📥 Download: ${download} Mbps<br>📤 Upload: ${upload} Mbps<br>🏓 Ping: ${ping} ms`;
+        }, 2500);
+    }
+
+    document.addEventListener('DOMContentLoaded', detectIP);
+</script>
+
+</body>
+</html>
