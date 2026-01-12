@@ -1,0 +1,118 @@
+{
+  "IP": [
+    {
+      "nome": "Meu IP",
+      "descricao": "Descubra seu endereço IP público instantaneamente.",
+      "icone": "🌐",
+      "link": "ip/meu-ip.html"
+    },
+    {
+      "nome": "Geolocalização IP",
+      "descricao": "Veja a localização aproximada do seu IP em um mapa.",
+      "icone": "📍",
+      "link": "ip/geolocalizacao.html"
+    },
+    {
+      "nome": "Teste de Velocidade",
+      "descricao": "Mede a velocidade real da sua internet.",
+      "icone": "🚀",
+      "link": "teste-velocidade.html"
+    },
+    {
+      "nome": "Ping / Traceroute",
+      "descricao": "Verifique o tempo de resposta e rota até um servidor.",
+      "icone": "📡",
+      "link": "geradores/ping-tracerout.html"
+    }
+  ],
+  "Geradores": [
+    {
+      "nome": "CPF",
+      "descricao": "Gere números de CPF válidos para testes.",
+      "icone": "🔢",
+      "link": "geradores/cpf.html"
+    },
+    {
+      "nome": "CNPJ",
+      "descricao": "Crie números de CNPJ válidos para testes.",
+      "icone": "🏢",
+      "link": "geradores/cnpj.html"
+    },
+    {
+      "nome": "RG",
+      "descricao": "Gere números de RG válidos.",
+      "icone": "🆔",
+      "link": "geradores/rg.html"
+    },
+    {
+      "nome": "Cartão de Crédito",
+      "descricao": "Gere números de cartões de crédito válidos.",
+      "icone": "💳",
+      "link": "geradores/cartao-credito.html"
+    },
+    {
+      "nome": "Senha Forte",
+      "descricao": "Crie senhas fortes e seguras.",
+      "icone": "🔐",
+      "link": "geradores/senha.html"
+    },
+    {
+      "nome": "QR Code",
+      "descricao": "Crie QR Codes personalizados.",
+      "icone": "📱",
+      "link": "geradores/qr-code.html"
+    },
+    {
+      "nome": "Número de Telefone",
+      "descricao": "Gere números de telefone válidos para testes.",
+      "icone": "📞",
+      "link": "geradores/telefone.html"
+    },
+    {
+      "nome": "E-mail Temporário",
+      "descricao": "Crie e-mails temporários para testes online.",
+      "icone": "✉️",
+      "link": "geradores/email-temporario.html"
+    }
+  ],
+  "Validadores": [
+    {
+      "nome": "Validador de CPF",
+      "descricao": "Verifique se um CPF é válido.",
+      "icone": "✅",
+      "link": "validadores/cpf.html"
+    },
+    {
+      "nome": "Validador de CNPJ",
+      "descricao": "Verifique se um CNPJ é válido.",
+      "icone": "✅",
+      "link": "validadores/cnpj.html"
+    },
+    {
+      "nome": "Validador de RG",
+      "descricao": "Verifique se um RG é válido.",
+      "icone": "✅",
+      "link": "validadores/rg.html"
+    }
+  ],
+  "Outros": [
+    {
+      "nome": "Cotação de Moedas",
+      "descricao": "Veja a cotação atual de moedas.",
+      "icone": "💰",
+      "link": "geradores/cotacao.html"
+    },
+    {
+      "nome": "Conversor de Unidades",
+      "descricao": "Converta valores entre diferentes unidades.",
+      "icone": "📏",
+      "link": "geradores/conversor.html"
+    },
+    {
+      "nome": "Calculadora Online",
+      "descricao": "Faça cálculos rápidos no navegador.",
+      "icone": "🧮",
+      "link": "geradores/calculadora.html"
+    }
+  ]
+}
