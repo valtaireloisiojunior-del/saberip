@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Validador de RG | SEUIP.COM.BR - Ferramentas Online Grátis</title>
+<meta name="description" content="Valide RGs brasileiros de forma rápida e gratuita. Confira se o número de RG é válido em nosso site de ferramentas online.">
+<meta name="keywords" content="validador RG, conferir RG, verificar RG, SEUIP.COM.BR, ferramentas online, teste RG">
+<style>
+    body { background-color:#0d0d0d; color:#f0f0f0; font-family:Arial,sans-serif; padding:20px; max-width:900px; margin:0 auto; }
+    h1 { color:#00ff99; text-align:center; margin-bottom:10px; }
+    p { text-align:center; color:#aaa; margin-bottom:30px; }
+    .validator-box { background:#111; padding:30px; border-radius:15px; border:2px solid #222; text-align:center; }
+    input[type="text"] { padding:15px; width:80%; border-radius:10px; border:1px solid #00ff99; margin-bottom:20px; font-size:1rem; text-align:center; }
+    button { background:#00ff99; color:#000; border:none; padding:15px 30px; font-size:1.1rem; border-radius:10px; cursor:pointer; transition:0.3s; }
+    button:hover { background:#00cc77; }
+    .result { margin-top:20px; font-size:1.2rem; color:#00ff99; }
+    .result.invalid { color:#ff3366; }
+</style>
+</head>
+<body>
+
+<h1>✅ Validador de RG</h1>
+<p>Digite um número de RG brasileiro para verificar se é válido.</p>
+
+<div class="validator-box">
+    <input type="text" id="rgInput" placeholder="Ex: 12.345.678-9" maxlength="12">
+    <br>
+    <button onclick="validateRG()">Validar RG</button>
+    <div class="result" id="rgResult"></div>
+</div>
+
+<script>
+function validateRG() {
+    const rg = document.getElementById('rgInput').value.trim().replace(/\D/g,''); // remove pontos e traços
+    const resultDiv = document.getElementById('rgResult');
+
+    if(rg.length < 8 || rg.length > 9) {
+        resultDiv.textContent = "❌ RG inválido: deve ter entre 8 e 9 números";
+        resultDiv.className = "result invalid";
+        return;
+    }
+
+    // Cálculo de validação do dígito
+    let sum = 0;
+    let weights = [2,3,4,5,6,7,8,9]; // pesos para 8 primeiros números
+    for(let i=0; i<rg.length-1; i++){
+        sum += parseInt(rg[i]) * weights[i];
+    }
+    let mod = sum % 11;
+    let checkDigit = 11 - mod;
+    if(checkDigit === 10) checkDigit = 'X';
+    if(checkDigit === 11) checkDigit = 0;
+
+    let lastDigit = rg[rg.length-1].toUpperCase();
+    if(lastDigit == checkDigit.toString()){
+        resultDiv.textContent = `✔ RG válido: ${rg}`;
+        resultDiv.className = "result";
+    } else {
+        resultDiv.textContent = `❌ RG inválido: ${rg}`;
+        resultDiv.className = "result invalid";
+    }
+}
+</script>
+
+</body>
+</html>

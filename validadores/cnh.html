@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Validador de CNH | SEUIP.COM.BR - Ferramentas Online Grátis</title>
+<meta name="description" content="Valide CNHs brasileiras de forma rápida e gratuita. Confira se o número da sua CNH é válido em nosso site de ferramentas online.">
+<meta name="keywords" content="validador CNH, conferir CNH, verificar CNH, SEUIP.COM.BR, ferramentas online, teste CNH">
+<style>
+    body { background-color:#0d0d0d; color:#f0f0f0; font-family:Arial,sans-serif; padding:20px; max-width:900px; margin:0 auto; }
+    h1 { color:#00ff99; text-align:center; margin-bottom:10px; }
+    p { text-align:center; color:#aaa; margin-bottom:30px; }
+    .validator-box { background:#111; padding:30px; border-radius:15px; border:2px solid #222; text-align:center; }
+    input[type="text"] { padding:15px; width:80%; border-radius:10px; border:1px solid #00ff99; margin-bottom:20px; font-size:1rem; text-align:center; }
+    button { background:#00ff99; color:#000; border:none; padding:15px 30px; font-size:1.1rem; border-radius:10px; cursor:pointer; transition:0.3s; }
+    button:hover { background:#00cc77; }
+    .result { margin-top:20px; font-size:1.2rem; color:#00ff99; }
+    .result.invalid { color:#ff3366; }
+</style>
+</head>
+<body>
+
+<h1>✅ Validador de CNH</h1>
+<p>Digite o número da CNH brasileira para verificar se é válido.</p>
+
+<div class="validator-box">
+    <input type="text" id="cnhInput" placeholder="Ex: 12345678900" maxlength="11">
+    <br>
+    <button onclick="validateCNH()">Validar CNH</button>
+    <div class="result" id="cnhResult"></div>
+</div>
+
+<script>
+function validateCNH() {
+    const cnh = document.getElementById('cnhInput').value.trim().replace(/\D/g,''); // remove caracteres não numéricos
+    const resultDiv = document.getElementById('cnhResult');
+
+    if(cnh.length !== 11){
+        resultDiv.textContent = "❌ CNH inválida: deve ter 11 números";
+        resultDiv.className = "result invalid";
+        return;
+    }
+
+    // Validação do dígito verificador da CNH
+    let v1=0, v2=0;
+    for(let i=0, j=9; i<9; i++, j--){
+        v1 += parseInt(cnh[i]) * j;
+    }
+    v1 = v1 % 11;
+    if(v1 >= 10) v1 = 0;
+
+    for(let i=0, j=1; i<9; i++, j++){
+        v2 += parseInt(cnh[i]) * j;
+    }
+    v2 = v2 % 11;
+    if(v2 >= 10) v2 = 0;
+
+    if(v1 == cnh[9] && v2 == cnh[10]){
+        resultDiv.textContent = `✔ CNH válida: ${cnh}`;
+        resultDiv.className = "result";
+    } else {
+        resultDiv.textContent = `❌ CNH inválida: ${cnh}`;
+        resultDiv.className = "result invalid";
+    }
+}
+</script>
+
+</body>
+</html>

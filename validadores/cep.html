@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Validador de CEP | SEUIP.COM.BR - Ferramentas Online Grátis</title>
+<meta name="description" content="Valide CEPs brasileiros de forma rápida e gratuita. Confira se o CEP é válido em nosso site de ferramentas online.">
+<meta name="keywords" content="validador CEP, verificar CEP, conferir CEP, SEUIP.COM.BR, ferramentas online, teste CEP">
+<style>
+    body { background-color:#0d0d0d; color:#f0f0f0; font-family:Arial,sans-serif; padding:20px; max-width:900px; margin:0 auto; }
+    h1 { color:#00ff99; text-align:center; margin-bottom:10px; }
+    p { text-align:center; color:#aaa; margin-bottom:30px; }
+    .validator-box { background:#111; padding:30px; border-radius:15px; border:2px solid #222; text-align:center; }
+    input[type="text"] { padding:15px; width:80%; border-radius:10px; border:1px solid #00ff99; margin-bottom:20px; font-size:1rem; text-align:center; }
+    button { background:#00ff99; color:#000; border:none; padding:15px 30px; font-size:1.1rem; border-radius:10px; cursor:pointer; transition:0.3s; }
+    button:hover { background:#00cc77; }
+    .result { margin-top:20px; font-size:1.2rem; color:#00ff99; }
+    .result.invalid { color:#ff3366; }
+</style>
+</head>
+<body>
+
+<h1>✅ Validador de CEP</h1>
+<p>Digite um CEP brasileiro para verificar se é válido.</p>
+
+<div class="validator-box">
+    <input type="text" id="cepInput" placeholder="Ex: 12345-678" maxlength="9">
+    <br>
+    <button onclick="validateCEP()">Validar CEP</button>
+    <div class="result" id="cepResult"></div>
+</div>
+
+<script>
+function validateCEP() {
+    const cep = document.getElementById('cepInput').value.trim().replace(/\D/g,''); // remove tudo que não for número
+    const resultDiv = document.getElementById('cepResult');
+
+    if(cep.length !== 8){
+        resultDiv.textContent = "❌ CEP inválido: deve ter 8 números";
+        resultDiv.className = "result invalid";
+        return;
+    }
+
+    // Formatar CEP com traço
+    const formattedCEP = cep.substring(0,5) + '-' + cep.substring(5,8);
+
+    // Opção: buscar API dos Correios (aqui apenas valida o formato)
+    resultDiv.textContent = `✔ CEP válido: ${formattedCEP}`;
+    resultDiv.className = "result";
+}
+</script>
+
+</body>
+</html>

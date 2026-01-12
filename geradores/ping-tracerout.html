@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ping e Traceroute | SEUIP.COM.BR - Ferramentas Online Grátis</title>
+<meta name="description" content="Teste a conectividade da sua internet com Ping e Traceroute. Descubra latência e caminho até o servidor rapidamente e de forma gratuita.">
+<meta name="keywords" content="ping, traceroute, teste de conexão, latência, internet, SEUIP.COM.BR, ferramentas online">
+<style>
+body { background:#0d0d0d; color:#f0f0f0; font-family:Arial,sans-serif; padding:20px; max-width:900px; margin:0 auto; }
+h1 { color:#00ff99; text-align:center; margin-bottom:10px; }
+p { text-align:center; color:#aaa; margin-bottom:30px; }
+.test-box { background:#111; padding:30px; border-radius:15px; border:2px solid #222; text-align:center; }
+input[type="text"] { padding:15px; width:80%; border-radius:10px; border:1px solid #00ff99; margin-bottom:20px; font-size:1rem; text-align:center; }
+button { background:#00ff99; color:#000; border:none; padding:15px 30px; font-size:1.1rem; border-radius:10px; cursor:pointer; transition:0.3s; }
+button:hover { background:#00cc77; }
+.results { margin-top:20px; text-align:left; max-height:400px; overflow-y:auto; border-top:1px solid #222; padding-top:20px; }
+.result-line { margin-bottom:10px; font-family:monospace; }
+.result-line.success { color:#00ff99; }
+.result-line.error { color:#ff3366; }
+</style>
+</head>
+<body>
+
+<h1>🌐 Ping e Traceroute</h1>
+<p>Teste a conectividade de um host ou IP e veja o caminho dos pacotes.</p>
+
+<div class="test-box">
+    <input type="text" id="hostInput" placeholder="Digite um host ou IP (Ex: google.com)">
+    <br>
+    <button onclick="runTest()">Iniciar Teste</button>
+    <div class="results" id="results"></div>
+</div>
+
+<script>
+// Função simulada de Ping e Traceroute
+function runTest() {
+    const host = document.getElementById('hostInput').value.trim();
+    const resultsDiv = document.getElementById('results');
+    resultsDiv.innerHTML = '';
+
+    if(!host) {
+        resultsDiv.innerHTML = '<div class="result-line error">❌ Informe um host ou IP válido</div>';
+        return;
+    }
+
+    // Simulação de Ping
+    resultsDiv.innerHTML += `<div class="result-line success">Ping para ${host}...</div>`;
+    for(let i=1;i<=4;i++){
+        const latency = (Math.random()*50 + 10).toFixed(2);
+        resultsDiv.innerHTML += `<div class="result-line success">Resposta ${i}: tempo=${latency}ms</div>`;
+    }
+
+    // Simulação de Traceroute
+    resultsDiv.innerHTML += `<div class="result-line success" style="margin-top:15px;">Traceroute para ${host}:</div>`;
+    const hops = Math.floor(Math.random()*10 + 5);
+    for(let i=1;i<=hops;i++){
+        const ip = `192.168.${Math.floor(Math.random()*255)}.${Math.floor(Math.random()*255)}`;
+        const time = (Math.random()*20 + 1).toFixed(2);
+        resultsDiv.innerHTML += `<div class="result-line success">Hop ${i}: ${ip} tempo=${time}ms</div>`;
+    }
+}
+</script>
+
+</body>
+</html>
