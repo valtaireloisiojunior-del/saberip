@@ -2,10 +2,19 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Gerador de CPF Válido | Uso Educativo</title>
-  <meta name="description" content="Gere CPF válido para fins educativos e testes. Opção de lista, copiar e compartilhar. Entenda como funciona a fórmula do CPF.">
+
+  <title>Gerador de CPF Válido Online (Lista, Copiar e Compartilhar) | Saber IP</title>
+
+  <meta name="description" content="Gerador de CPF válido online para fins educativos e testes. Gere lista de CPFs, copie, compartilhe e entenda como funciona a fórmula oficial do CPF passo a passo.">
+
   <meta name="robots" content="index, follow">
 
+  <!-- SEO AVANÇADO -->
+  <meta name="keywords" content="gerador de cpf, cpf válido, gerar cpf online, lista de cpf, fórmula do cpf, dígito verificador cpf">
+  <meta name="author" content="Saber IP">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- CANONICAL AUTOMÁTICO -->
   <link rel="canonical" href="">
   <script>
     (function () {
@@ -15,66 +24,111 @@
     })();
   </script>
 
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
 
 <div class="container">
-  <h1>Gerador de CPF Válido</h1>
-  <p>Ferramenta gratuita para <strong>fins educativos e testes de sistemas</strong>.</p>
 
+  <h1>Gerador de CPF Válido</h1>
+  <p>Ferramenta gratuita para <strong>testes, estudos e desenvolvimento de sistemas</strong>.</p>
+
+  <!-- GERADOR -->
   <div class="card">
-    <label>Quantidade de CPFs</label>
+    <label for="qtd">Quantidade de CPFs</label>
     <input type="number" id="qtd" value="1" min="1" max="100">
+
+    <label>
+      <input type="checkbox" id="comPont"> Com pontuação (000.000.000-00)
+    </label>
 
     <button onclick="gerarCPF()">Gerar CPF</button>
     <button onclick="copiar()">Copiar</button>
     <button onclick="compartilhar()">Compartilhar</button>
 
     <textarea id="resultado" rows="6" readonly></textarea>
+
+    <p class="aviso">
+      ⚠️ Os CPFs gerados são <strong>fictícios</strong> e devem ser utilizados
+      exclusivamente para fins educativos, testes e aprendizado.
+    </p>
   </div>
 
-  <!-- ARTIGO EDUCATIVO -->
+  <!-- ARTIGO SEO LONGO -->
   <article class="card">
-    <h2>Como funciona a fórmula do CPF?</h2>
+
+    <h2>O que é um CPF e como funciona o gerador?</h2>
 
     <p>
-      O CPF (Cadastro de Pessoas Físicas) é composto por <strong>11 dígitos</strong>.
-      Os 9 primeiros são a base numérica e os 2 últimos são chamados de
+      O CPF (Cadastro de Pessoas Físicas) é um documento emitido pela Receita Federal do Brasil
+      que identifica cada cidadão de forma única. Ele é composto por <strong>11 dígitos numéricos</strong>,
+      sendo os nove primeiros a base do número e os dois últimos chamados de
       <strong>dígitos verificadores</strong>.
     </p>
 
-    <h3>Cálculo do primeiro dígito</h3>
     <p>
-      Cada um dos 9 dígitos é multiplicado por pesos decrescentes de 10 até 2.
-      A soma é dividida por 11 e o resto define o dígito verificador.
+      Um gerador de CPF válido, como esta ferramenta do Saber IP, cria números que seguem
+      exatamente a <strong>mesma lógica matemática oficial</strong> utilizada nos sistemas de validação.
+      Isso significa que os CPFs gerados passam por verificações automáticas em formulários,
+      porém <strong>não pertencem a pessoas reais</strong>.
     </p>
 
-    <h3>Cálculo do segundo dígito</h3>
+    <h3>Como funciona a fórmula do CPF?</h3>
+
     <p>
-      O processo se repete incluindo o primeiro dígito verificador,
-      agora com pesos de 11 até 2.
+      A fórmula do CPF é baseada em um cálculo de módulo 11. Para gerar um CPF válido,
+      o sistema começa criando nove números aleatórios. Em seguida, esses números são
+      multiplicados por pesos decrescentes e somados.
     </p>
 
-    <h3>Para que serve este gerador?</h3>
-    <ul>
-      <li>Testes de sistemas</li>
-      <li>Validação de formulários</li>
-      <li>Aprendizado de algoritmos</li>
-    </ul>
-
-    <h3>⚠️ Aviso importante</h3>
     <p>
-      Os CPFs gerados <strong>não pertencem a pessoas reais</strong> e devem ser usados
-      <strong>exclusivamente para fins educativos e de desenvolvimento</strong>.
-      O uso indevido é de responsabilidade do usuário.
+      Para calcular o <strong>primeiro dígito verificador</strong>, os nove números iniciais
+      são multiplicados por pesos que vão de 10 até 2. O resultado da soma é multiplicado por 10
+      e dividido por 11. Se o resto da divisão for igual a 10, o dígito é considerado 0.
     </p>
+
+    <p>
+      O <strong>segundo dígito verificador</strong> segue a mesma lógica, mas agora incluindo
+      o primeiro dígito no cálculo, com pesos que variam de 11 até 2. Esse método garante
+      que qualquer erro de digitação seja facilmente detectado por sistemas de validação.
+    </p>
+
+    <h3>Para que serve um gerador de CPF?</h3>
+
+    <p>
+      Geradores de CPF são amplamente utilizados por desenvolvedores, estudantes e testadores
+      de software para validar formulários, simular cadastros e realizar testes em ambientes
+      de desenvolvimento sem expor dados pessoais reais.
+    </p>
+
+    <p>
+      Utilizar CPFs reais em testes pode gerar problemas legais e de privacidade.
+      Por isso, ferramentas como esta são essenciais para boas práticas de desenvolvimento
+      e aprendizado.
+    </p>
+
+    <h3>Aviso legal importante</h3>
+
+    <p>
+      Os CPFs gerados por esta ferramenta são <strong>números fictícios</strong>,
+      criados exclusivamente para fins educativos, acadêmicos e de testes.
+      É expressamente proibido utilizar esses números para tentar se passar por
+      outra pessoa ou cometer qualquer atividade ilegal.
+    </p>
+
+    <p>
+      O usuário é o único responsável pelo uso das informações geradas.
+      O Saber IP não se responsabiliza por usos indevidos desta ferramenta.
+    </p>
+
   </article>
+
 </div>
 
 <script>
 function gerarCPF() {
   const qtd = parseInt(document.getElementById('qtd').value);
+  const comPont = document.getElementById('comPont').checked;
   let lista = [];
 
   for (let i = 0; i < qtd; i++) {
@@ -83,27 +137,32 @@ function gerarCPF() {
       n.push(Math.floor(Math.random() * 10));
     }
 
-    let d1 = calcularDigito(n, 10);
-    let d2 = calcularDigito([...n, d1], 11);
+    let d1 = calc(n, 10);
+    let d2 = calc([...n, d1], 11);
+    let cpf = n.join('') + d1 + d2;
 
-    lista.push(n.join('') + d1 + d2);
+    if (comPont) {
+      cpf = cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, "$1.$2.$3-$4");
+    }
+
+    lista.push(cpf);
   }
 
   document.getElementById('resultado').value = lista.join('\n');
 }
 
-function calcularDigito(numeros, peso) {
+function calc(nums, peso) {
   let soma = 0;
-  for (let i = 0; i < numeros.length; i++) {
-    soma += numeros[i] * (peso - i);
+  for (let i = 0; i < nums.length; i++) {
+    soma += nums[i] * (peso - i);
   }
   let resto = (soma * 10) % 11;
   return resto === 10 ? 0 : resto;
 }
 
 function copiar() {
-  const texto = document.getElementById('resultado');
-  texto.select();
+  const t = document.getElementById('resultado');
+  t.select();
   document.execCommand('copy');
   alert('CPF(s) copiado(s)!');
 }
@@ -112,7 +171,7 @@ function compartilhar() {
   const texto = document.getElementById('resultado').value;
   if (navigator.share) {
     navigator.share({
-      title: 'Gerador de CPF',
+      title: 'Gerador de CPF Válido',
       text: texto
     });
   } else {
