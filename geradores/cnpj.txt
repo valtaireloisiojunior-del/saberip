@@ -1,6 +1,24 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+<title>Gerador de CNPJ Válido Online – Lista, Copiar e Compartilhar | Saber IP</title>
+
+<meta name="description" content="Gerador de CNPJ válido online para fins educativos e testes. Gere lista de CNPJs, copie, compartilhe e entenda detalhadamente como funciona a fórmula oficial do CNPJ e seus dígitos verificadores.">
+
+<meta name="robots" content="index, follow">
+<meta name="author" content="Saber IP">
+
+<!-- CANONICAL AUTOMÁTICO -->
+<link rel="canonical" href="">
+<script>
+(function () {
+  const base = 'https://valtaireloisiojunior-del.github.io/saberip/';
+  const path = window.location.pathname.replace('/saberip/', '');
+  document.querySelector('link[rel="canonical"]').href = base + path;
+})();
+</script>
+
+
 <meta charset="UTF-8">
 <title>Gerador de CNPJ Online Grátis | Saber IP</title>
 <meta name="description" content="Gere CNPJ válido para testes e desenvolvimento. Ferramenta online gratuita, rápida e segura.">
@@ -128,6 +146,24 @@ function gerarCNPJ() {
   document.getElementById("cnpj").innerText = cnpj;
 }
 </script>
+
+<title>Gerador de CNPJ Válido Online – Lista, Copiar e Compartilhar | Saber IP</title>
+
+<meta name="description" content="Gerador de CNPJ válido online para fins educativos e testes. Gere lista de CNPJs, copie, compartilhe e entenda detalhadamente como funciona a fórmula oficial do CNPJ e seus dígitos verificadores.">
+
+<meta name="robots" content="index, follow">
+<meta name="author" content="Saber IP">
+
+<!-- CANONICAL AUTOMÁTICO -->
+<link rel="canonical" href="">
+<script>
+(function () {
+  const base = 'https://valtaireloisiojunior-del.github.io/saberip/';
+  const path = window.location.pathname.replace('/saberip/', '');
+  document.querySelector('link[rel="canonical"]').href = base + path;
+})();
+</script>
+
 
 </body>
 </html>
