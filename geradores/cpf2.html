@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Gerador de CPF Válido | Uso Educativo</title>
+  <meta name="description" content="Gere CPF válido para fins educativos e testes. Opção de lista, copiar e compartilhar. Entenda como funciona a fórmula do CPF.">
+  <meta name="robots" content="index, follow">
+
+  <link rel="canonical" href="">
+  <script>
+    (function () {
+      const base = 'https://valtaireloisiojunior-del.github.io/saberip/';
+      const path = window.location.pathname.replace('/saberip/', '');
+      document.querySelector('link[rel="canonical"]').href = base + path;
+    })();
+  </script>
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="container">
+  <h1>Gerador de CPF Válido</h1>
+  <p>Ferramenta gratuita para <strong>fins educativos e testes de sistemas</strong>.</p>
+
+  <div class="card">
+    <label>Quantidade de CPFs</label>
+    <input type="number" id="qtd" value="1" min="1" max="100">
+
+    <button onclick="gerarCPF()">Gerar CPF</button>
+    <button onclick="copiar()">Copiar</button>
+    <button onclick="compartilhar()">Compartilhar</button>
+
+    <textarea id="resultado" rows="6" readonly></textarea>
+  </div>
+
+  <!-- ARTIGO EDUCATIVO -->
+  <article class="card">
+    <h2>Como funciona a fórmula do CPF?</h2>
+
+    <p>
+      O CPF (Cadastro de Pessoas Físicas) é composto por <strong>11 dígitos</strong>.
+      Os 9 primeiros são a base numérica e os 2 últimos são chamados de
+      <strong>dígitos verificadores</strong>.
+    </p>
+
+    <h3>Cálculo do primeiro dígito</h3>
+    <p>
+      Cada um dos 9 dígitos é multiplicado por pesos decrescentes de 10 até 2.
+      A soma é dividida por 11 e o resto define o dígito verificador.
+    </p>
+
+    <h3>Cálculo do segundo dígito</h3>
+    <p>
+      O processo se repete incluindo o primeiro dígito verificador,
+      agora com pesos de 11 até 2.
+    </p>
+
+    <h3>Para que serve este gerador?</h3>
+    <ul>
+      <li>Testes de sistemas</li>
+      <li>Validação de formulários</li>
+      <li>Aprendizado de algoritmos</li>
+    </ul>
+
+    <h3>⚠️ Aviso importante</h3>
+    <p>
+      Os CPFs gerados <strong>não pertencem a pessoas reais</strong> e devem ser usados
+      <strong>exclusivamente para fins educativos e de desenvolvimento</strong>.
+      O uso indevido é de responsabilidade do usuário.
+    </p>
+  </article>
+</div>
+
+<script>
+function gerarCPF() {
+  const qtd = parseInt(document.getElementById('qtd').value);
+  let lista = [];
+
+  for (let i = 0; i < qtd; i++) {
+    let n = [];
+    for (let j = 0; j < 9; j++) {
+      n.push(Math.floor(Math.random() * 10));
+    }
+
+    let d1 = calcularDigito(n, 10);
+    let d2 = calcularDigito([...n, d1], 11);
+
+    lista.push(n.join('') + d1 + d2);
+  }
+
+  document.getElementById('resultado').value = lista.join('\n');
+}
+
+function calcularDigito(numeros, peso) {
+  let soma = 0;
+  for (let i = 0; i < numeros.length; i++) {
+    soma += numeros[i] * (peso - i);
+  }
+  let resto = (soma * 10) % 11;
+  return resto === 10 ? 0 : resto;
+}
+
+function copiar() {
+  const texto = document.getElementById('resultado');
+  texto.select();
+  document.execCommand('copy');
+  alert('CPF(s) copiado(s)!');
+}
+
+function compartilhar() {
+  const texto = document.getElementById('resultado').value;
+  if (navigator.share) {
+    navigator.share({
+      title: 'Gerador de CPF',
+      text: texto
+    });
+  } else {
+    alert('Compartilhamento não suportado neste navegador.');
+  }
+}
+</script>
+
+</body>
+</html>
