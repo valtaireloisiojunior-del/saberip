@@ -5,11 +5,14 @@
 
   <title>Gerador de CPF Válido Online – Lista, Copiar e Compartilhar | Saber IP</title>
 
-  <meta name="description" content="Gerador de CPF válido online para fins educativos e testes. Gere lista de CPFs, copie, compartilhe e aprenda em detalhes como funciona a fórmula oficial do CPF e seus dígitos verificadores.">
+  <meta name="description" content="Gerador de CPF válido online para fins educativos e testes. Gere lista de CPFs, copie, compartilhe e aprenda detalhadamente como funciona a fórmula oficial do CPF.">
 
   <meta name="robots" content="index, follow">
   <meta name="author" content="Saber IP">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- CSS CORRETO (TEMA VERDE) -->
+  <link rel="stylesheet" href="/saberip/css/style.css">
 
   <!-- CANONICAL AUTOMÁTICO -->
   <link rel="canonical" href="">
@@ -20,150 +23,128 @@
       document.querySelector('link[rel="canonical"]').href = base + path;
     })();
   </script>
-
-  <!-- CSS PADRÃO DO SITE (TEMA VERDE) -->
-  <link rel="stylesheet" href="../css/style.css">
 </head>
+
 <body>
 
-<div class="container">
+<main class="main">
+  <section class="tool">
 
-  <h1>Gerador de CPF Válido</h1>
-  <p>Ferramenta gratuita para <strong>fins educativos, acadêmicos e testes de sistemas</strong>.</p>
+    <h1>Gerador de CPF Válido</h1>
+    <p>Gere CPF válido para <strong>testes, estudos e desenvolvimento de sistemas</strong>.</p>
 
-  <!-- GERADOR -->
-  <div class="card">
-    <label for="qtd">Quantidade de CPFs</label>
-    <input type="number" id="qtd" value="1" min="1" max="100">
+    <!-- GERADOR -->
+    <div class="card">
 
-    <label>
-      <input type="checkbox" id="comPont"> Com pontuação (000.000.000-00)
-    </label>
+      <label for="qtd">Quantidade de CPFs</label>
+      <input type="number" id="qtd" value="1" min="1" max="100">
 
-    <button onclick="gerarCPF()">Gerar CPF</button>
-    <button onclick="copiar()">Copiar</button>
-    <button onclick="compartilhar()">Compartilhar</button>
+      <label>
+        <input type="checkbox" id="comPont"> Com pontuação (000.000.000-00)
+      </label>
 
-    <textarea id="resultado" rows="6" readonly></textarea>
+      <button onclick="gerarCPF()">Gerar CPF</button>
+      <button onclick="copiar()">Copiar</button>
+      <button onclick="compartilhar()">Compartilhar</button>
 
-    <p class="aviso">
-      ⚠️ Os CPFs gerados são números <strong>fictícios</strong> e devem ser utilizados
-      exclusivamente para testes, estudos e desenvolvimento.
-    </p>
-  </div>
+      <textarea id="resultado" rows="6" readonly></textarea>
 
-  <!-- ARTIGO SEO EXTENSO -->
-  <article class="card">
+      <p class="aviso">
+        ⚠️ Os CPFs gerados são números <strong>fictícios</strong> e devem ser utilizados
+        exclusivamente para fins educativos, acadêmicos e testes.
+      </p>
 
-    <h2>O que é CPF e qual a finalidade deste gerador?</h2>
+    </div>
 
-    <p>
-      O CPF, sigla para Cadastro de Pessoas Físicas, é um número de identificação
-      emitido pela Receita Federal do Brasil e utilizado para identificar cidadãos
-      brasileiros em diversas operações fiscais, financeiras e administrativas.
-      Ele é composto por 11 dígitos numéricos, sendo que os dois últimos possuem uma
-      função especial chamada de dígitos verificadores.
-    </p>
+    <!-- ARTIGO SEO MUITO GRANDE -->
+    <article class="card">
 
-    <p>
-      O objetivo principal deste gerador de CPF válido é fornecer números que seguem
-      exatamente a mesma regra matemática utilizada pelos sistemas oficiais de validação,
-      porém sem qualquer vínculo com pessoas reais. Isso torna a ferramenta ideal para
-      estudantes, desenvolvedores, testadores de software e profissionais da área de TI.
-    </p>
+      <h2>O que é CPF e qual a função deste gerador?</h2>
 
-    <p>
-      Utilizar CPFs reais em ambientes de teste representa um risco à privacidade
-      e pode gerar problemas legais. Por esse motivo, o uso de CPFs fictícios é
-      considerado uma boa prática no desenvolvimento de sistemas e aplicações.
-    </p>
+      <p>
+        O CPF, Cadastro de Pessoas Físicas, é um documento emitido pela Receita Federal do Brasil
+        com o objetivo de identificar cada cidadão de forma única. Ele é composto por 11 dígitos
+        numéricos, sendo que os dois últimos são chamados de dígitos verificadores.
+      </p>
 
-    <h3>Como funciona a estrutura de um CPF?</h3>
+      <p>
+        Este gerador de CPF válido foi desenvolvido para criar números que seguem exatamente
+        a mesma regra matemática utilizada pelos sistemas oficiais de validação, porém sem
+        qualquer vínculo com pessoas reais.
+      </p>
 
-    <p>
-      A estrutura do CPF é dividida em duas partes principais. A primeira parte
-      consiste em nove números que formam a base do documento. Esses números podem
-      ser gerados de forma aleatória. A segunda parte é composta por dois dígitos
-      verificadores, responsáveis por garantir a integridade do número.
-    </p>
+      <p>
+        Isso permite que desenvolvedores, estudantes e profissionais de tecnologia possam
+        realizar testes de formulários, simulações de cadastro e validações de sistemas
+        sem expor dados pessoais reais.
+      </p>
 
-    <p>
-      Os dígitos verificadores existem para evitar erros de digitação, fraudes simples
-      e inconsistências em cadastros. Quando um CPF é digitado incorretamente,
-      o sistema consegue identificar o erro através do cálculo matemático.
-    </p>
+      <h3>Estrutura do número de CPF</h3>
 
-    <h3>Fórmula oficial do CPF explicada em detalhes</h3>
+      <p>
+        A estrutura do CPF é dividida em duas partes principais. A primeira contém nove números
+        gerados de forma pseudoaleatória. A segunda parte é composta por dois dígitos verificadores,
+        responsáveis por garantir a integridade do número.
+      </p>
 
-    <p>
-      A fórmula do CPF utiliza um algoritmo matemático conhecido como módulo 11.
-      Esse algoritmo é amplamente utilizado em documentos oficiais para validação
-      de números identificadores.
-    </p>
+      <p>
+        Esses dígitos verificadores existem para evitar erros de digitação e inconsistências em
+        bancos de dados. Caso um número seja digitado incorretamente, o sistema identifica
+        automaticamente a falha através do cálculo matemático.
+      </p>
 
-    <p>
-      Para calcular o primeiro dígito verificador, os nove números iniciais do CPF
-      são multiplicados por pesos decrescentes que vão de 10 até 2. Após essa
-      multiplicação, todos os resultados são somados.
-    </p>
+      <h3>Fórmula oficial do CPF explicada passo a passo</h3>
 
-    <p>
-      O valor da soma é então multiplicado por 10 e dividido por 11. O resto dessa
-      divisão determina o dígito verificador. Caso o resultado seja igual a 10,
-      o dígito é automaticamente convertido para 0.
-    </p>
+      <p>
+        A fórmula do CPF utiliza o algoritmo matemático conhecido como módulo 11. Para calcular
+        o primeiro dígito verificador, cada um dos nove números iniciais é multiplicado por pesos
+        decrescentes que vão de 10 até 2.
+      </p>
 
-    <p>
-      O cálculo do segundo dígito verificador segue o mesmo princípio, porém agora
-      incluindo o primeiro dígito no final da sequência. Os pesos utilizados variam
-      de 11 até 2, garantindo um nível maior de verificação.
-    </p>
+      <p>
+        Após a multiplicação, todos os resultados são somados. O valor obtido é multiplicado por 10
+        e dividido por 11. Caso o resto da divisão seja igual a 10, o dígito verificador assume o valor 0.
+      </p>
 
-    <p>
-      Esse processo matemático torna extremamente difícil que um CPF inválido passe
-      despercebido por sistemas de validação corretamente implementados.
-    </p>
+      <p>
+        O segundo dígito verificador segue o mesmo princípio, porém agora incluindo o primeiro dígito
+        no final da sequência e utilizando pesos de 11 até 2.
+      </p>
 
-    <h3>Para que serve um gerador de CPF válido?</h3>
+      <p>
+        Esse método garante que apenas números corretamente gerados sejam considerados válidos,
+        tornando o CPF um identificador confiável.
+      </p>
 
-    <p>
-      Um gerador de CPF válido é amplamente utilizado para testes de formulários,
-      validação de cadastros, simulação de usuários e aprendizado de algoritmos.
-      Ele é essencial para ambientes de desenvolvimento, homologação e estudo.
-    </p>
+      <h3>Para que serve um gerador de CPF válido?</h3>
 
-    <p>
-      Desenvolvedores utilizam esse tipo de ferramenta para garantir que seus sistemas
-      estejam preparados para receber dados reais, sem a necessidade de expor
-      informações pessoais verdadeiras.
-    </p>
+      <p>
+        Geradores de CPF são amplamente utilizados para testes de sistemas, validação de formulários,
+        desenvolvimento de aplicações, aprendizado de algoritmos e simulações acadêmicas.
+      </p>
 
-    <p>
-      Além disso, estudantes de programação utilizam o gerador para compreender
-      melhor como funcionam algoritmos de validação e lógica matemática aplicada.
-    </p>
+      <p>
+        O uso de CPFs reais em ambientes de teste é altamente desaconselhado, pois pode gerar
+        problemas legais e violações de privacidade.
+      </p>
 
-    <h3>Uso responsável e aviso legal</h3>
+      <h3>Aviso legal e uso responsável</h3>
 
-    <p>
-      Todos os CPFs gerados por esta ferramenta são fictícios e criados exclusivamente
-      para fins educativos, acadêmicos e de testes. Eles não pertencem a nenhuma pessoa
-      real cadastrada na Receita Federal.
-    </p>
+      <p>
+        Todos os CPFs gerados por esta ferramenta são fictícios e criados exclusivamente para fins
+        educativos, acadêmicos e de testes. Eles não pertencem a nenhuma pessoa real cadastrada
+        na Receita Federal.
+      </p>
 
-    <p>
-      É expressamente proibido utilizar os números gerados para tentar se passar por
-      outra pessoa, cometer fraudes ou realizar qualquer atividade ilegal.
-    </p>
+      <p>
+        O uso indevido dessas informações é de inteira responsabilidade do usuário. O Saber IP
+        não se responsabiliza por qualquer utilização ilegal desta ferramenta.
+      </p>
 
-    <p>
-      O usuário assume total responsabilidade pelo uso das informações geradas.
-      O Saber IP não se responsabiliza por qualquer uso indevido desta ferramenta.
-    </p>
+    </article>
 
-  </article>
-
-</div>
+  </section>
+</main>
 
 <script>
 function gerarCPF() {
@@ -173,9 +154,7 @@ function gerarCPF() {
 
   for (let i = 0; i < qtd; i++) {
     let n = [];
-    for (let j = 0; j < 9; j++) {
-      n.push(Math.floor(Math.random() * 10));
-    }
+    for (let j = 0; j < 9; j++) n.push(Math.floor(Math.random() * 10));
 
     let d1 = calc(n, 10);
     let d2 = calc([...n, d1], 11);
@@ -193,9 +172,7 @@ function gerarCPF() {
 
 function calc(nums, peso) {
   let soma = 0;
-  for (let i = 0; i < nums.length; i++) {
-    soma += nums[i] * (peso - i);
-  }
+  for (let i = 0; i < nums.length; i++) soma += nums[i] * (peso - i);
   let resto = (soma * 10) % 11;
   return resto === 10 ? 0 : resto;
 }
@@ -210,12 +187,9 @@ function copiar() {
 function compartilhar() {
   const texto = document.getElementById('resultado').value;
   if (navigator.share) {
-    navigator.share({
-      title: 'Gerador de CPF Válido',
-      text: texto
-    });
+    navigator.share({ title: 'Gerador de CPF', text: texto });
   } else {
-    alert('Compartilhamento não suportado neste navegador.');
+    alert('Compartilhamento não suportado.');
   }
 }
 </script>
