@@ -2,64 +2,44 @@
 <html lang="pt-BR">
 <head>
 
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <!-- Básico -->
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2713105320249369"
+        crossorigin="anonymous"></script>
 
-  <!-- SEO -->
-  <title><!-- TITULO DA FERRAMENTA --> | Saber IP</title>
-  <meta name="description" content="<!-- DESCRIÇÃO ÚNICA DA FERRAMENTA -->">
-  <meta name="robots" content="index, follow">
-  <meta name="author" content="Saber IP">
-
-  <!-- Canonical automático -->
-  <link rel="canonical" href="">
-  <script>
-    (function () {
-      const base = 'https://valtaireloisiojunior-del.github.io/saberip/';
-      const path = window.location.pathname.replace('/saberip/', '');
-      document.querySelector('link[rel="canonical"]').href = base + path;
-    })();
-  </script>
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="<!-- TITULO DA FERRAMENTA --> | Saber IP">
-  <meta property="og:description" content="<!-- DESCRIÇÃO ÚNICA DA FERRAMENTA -->">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="">
-
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      document.querySelector('meta[property="og:url"]').content = window.location.href;
-    });
-  </script>
-
-  <!-- Google AdSense -->
-  <script async
-    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2713105320249369"
-    crossorigin="anonymous"></script>
-
-  <!-- Google Analytics GA4 -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-MCNWEQ8XMH"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-MCNWEQ8XMH');
-  </script>
-
-
-
-
-
+<!-- Básico -->
 <meta charset="UTF-8">
-<title>Gerador de CEP — Dados para Testes</title>
-<meta name="description" content="Gere CEPs fictícios para testes de sistemas. Número, cidade e estado com botão copiar.">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- SEO -->
+<title>Gerador de CEP para Testes | Estrutura e Funcionamento | SEUIP.ORG</title>
+<meta name="description" content="Entenda como funciona a estrutura do CEP brasileiro e como são gerados códigos postais fictícios para testes de sistemas, formulários e estudos.">
+<meta name="robots" content="index, follow">
+<meta name="author" content="SEUIP.ORG">
+
+<!-- Canonical -->
+<link rel="canonical" href="https://seuip.org/geradores/cep.html">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Gerador de CEP para Testes | SEUIP.ORG">
+<meta property="og:description" content="Artigo técnico explicando a estrutura do CEP e como funciona a geração de códigos postais para testes.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://seuip.org/geradores/cep.html">
+<meta property="og:site_name" content="SEUIP.ORG">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Gerador de CEP para Testes | SEUIP.ORG">
+<meta name="twitter:description" content="Como funciona a estrutura do CEP brasileiro e sua geração para testes.">
+
+<!-- Google Analytics GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MCNWEQ8XMH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-MCNWEQ8XMH');
+</script>
 
 <style>
 body {
@@ -67,25 +47,38 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   background:#0d0d0d;
   color:#fff;
+}
+
+header {
+  padding:20px;
   text-align:center;
+  font-size:22px;
+}
+
+header a {
+  color:#00ff99;
+  text-decoration:none;
+  font-weight:bold;
 }
 
 h1 {
   font-size:36px;
   color:#00ff99;
-  margin-top:40px;
+  text-align:center;
+  margin-top:20px;
 }
 
 p {
   color:#ccc;
   font-size:18px;
+  line-height:1.6;
 }
 
 .container {
   background:#111;
-  max-width:600px;
+  max-width:900px;
   margin:30px auto;
-  padding:30px 20px;
+  padding:30px 25px;
   border-radius:16px;
 }
 
@@ -95,7 +88,6 @@ p {
   margin:12px 0;
   border-radius:12px;
   font-size:20px;
-  text-align:left;
 }
 
 .campo strong {
@@ -128,8 +120,14 @@ p {
   opacity:0.9;
 }
 
+.article h2 {
+  color:#00ff99;
+  margin-top:35px;
+}
+
 footer {
-  margin:40px 0;
+  margin:60px 0 30px;
+  text-align:center;
   font-size:14px;
   color:#777;
 }
@@ -144,8 +142,12 @@ footer a {
 
 <body>
 
+<header>
+  <a href="/index.html">SEUIP.ORG</a>
+</header>
+
 <h1>Gerador de CEP</h1>
-<p>CEPs fictícios para testes de sistemas e formulários</p>
+<p style="text-align:center">CEPs fictícios para testes de sistemas e formulários</p>
 
 <div class="container" id="resultado">
   Clique em gerar para criar um CEP
@@ -156,10 +158,77 @@ footer a {
   <button class="btn btn-copiar" onclick="copiarTudo()">📋 Copiar Tudo</button>
 </div>
 
+<div class="container article">
+  <h2>Estrutura do Código de Endereçamento Postal (CEP)</h2>
+
+  <p>
+    O Código de Endereçamento Postal (CEP) é um sistema numérico criado para organizar,
+    localizar e otimizar a distribuição de correspondências no território brasileiro.
+    Ele é composto por oito dígitos numéricos, geralmente apresentados no formato
+    NNNNN-NNN, onde cada conjunto possui uma função específica dentro da lógica postal.
+  </p>
+
+  <h2>Divisão Geográfica e Lógica Numérica</h2>
+  <p>
+    Os primeiros cinco dígitos do CEP representam a região, o estado, a cidade e,
+    em muitos casos, um conjunto específico de bairros ou distritos. Já os três
+    últimos dígitos identificam um setor postal, podendo corresponder a uma rua,
+    um quarteirão, um prédio específico ou um grande destinatário.
+  </p>
+
+  <p>
+    Essa estrutura hierárquica permite que sistemas automatizados processem grandes
+    volumes de correspondências com rapidez, reduzindo erros humanos e aumentando
+    a eficiência logística.
+  </p>
+
+  <h2>Geração de CEPs para Testes</h2>
+  <p>
+    Em ambientes de desenvolvimento de software, é comum a necessidade de validar
+    formulários de cadastro, sistemas de e-commerce e aplicações logísticas sem
+    utilizar dados reais. Para isso, são utilizados CEPs fictícios, que respeitam
+    o formato oficial, mas não correspondem a endereços existentes.
+  </p>
+
+  <p>
+    A geração desses CEPs envolve a criação de números aleatórios dentro do padrão
+    estrutural, garantindo apenas que o formato seja válido. A associação com
+    cidades e estados é feita de maneira ilustrativa, permitindo testes visuais
+    e funcionais sem impacto em bases reais.
+  </p>
+
+  <h2>Aplicações Acadêmicas e Técnicas</h2>
+  <p>
+    O estudo da estrutura do CEP é amplamente utilizado em cursos de tecnologia,
+    logística, ciência de dados e sistemas de informação. Ele demonstra como
+    sistemas de classificação numérica podem ser aplicados para organizar grandes
+    volumes de dados geográficos.
+  </p>
+
+  <p>
+    Além disso, compreender essa lógica ajuda estudantes e desenvolvedores a criar
+    validações mais eficientes, melhorar a experiência do usuário e evitar erros
+    comuns em cadastros digitais.
+  </p>
+
+  <h2>Limitações e Uso Responsável</h2>
+  <p>
+    CEPs gerados para testes não devem ser utilizados em operações reais, envios
+    de correspondência ou cadastros oficiais. Seu uso é estritamente educacional
+    e técnico, voltado para simulações, aprendizado e validação de sistemas.
+  </p>
+</div>
+
+<div class="container">
+  <h2 style="color:#00ff99">Outras Ferramentas do SEUIP.ORG</h2>
+  <p>Explore outras ferramentas gratuitas para estudos, testes e desenvolvimento.</p>
+  <a class="btn btn-gerar" href="/index.html">Voltar para a Home</a>
+</div>
+
 <footer>
-  <a href="../index.html">Início</a> |
-  <a href="pessoas.html">Gerador de Pessoas</a> |
-  <a href="../privacidade.html">Privacidade</a>
+  <a href="/index.html">Início</a> |
+  <a href="/geradores/pessoas.html">Gerador de Pessoas</a> |
+  <a href="/privacidade.html">Privacidade</a>
 </footer>
 
 <script>
@@ -179,22 +248,16 @@ function gerarCEP() {
   const randomCidade = cidades[Math.floor(Math.random()*cidades.length)];
   
   document.getElementById("resultado").innerHTML = `
-    <div class="campo"><strong>CEP:</strong> ${cep} <button class="btn btn-copiar" onclick="copiar('${cep}')">Copiar</button></div>
-    <div class="campo"><strong>Cidade:</strong> ${randomCidade.cidade} <button class="btn btn-copiar" onclick="copiar('${randomCidade.cidade}')">Copiar</button></div>
-    <div class="campo"><strong>Estado:</strong> ${randomCidade.uf} <button class="btn btn-copiar" onclick="copiar('${randomCidade.uf}')">Copiar</button></div>
+    <div class="campo"><strong>CEP:</strong> ${cep}</div>
+    <div class="campo"><strong>Cidade:</strong> ${randomCidade.cidade}</div>
+    <div class="campo"><strong>Estado:</strong> ${randomCidade.uf}</div>
   `;
-}
-
-function copiar(texto) {
-  navigator.clipboard.writeText(texto).then(() => {
-    alert("Copiado: " + texto);
-  });
 }
 
 function copiarTudo() {
   const texto = document.getElementById("resultado").innerText;
   navigator.clipboard.writeText(texto).then(() => {
-    alert("Todos os dados copiados!");
+    alert("Dados copiados!");
   });
 }
 </script>
