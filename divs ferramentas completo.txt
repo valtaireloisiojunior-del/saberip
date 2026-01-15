@@ -1,0 +1,293 @@
+
+<!-- FERRAMENTAS COMPLETAS -->
+<section class="featured-section">
+<h2 class="section-title">⭐ FERRAMENTAS COMPLETAS</h2>
+<div class="tools-grid">
+<!-- IP & REDE -->
+<div class="tool-card">
+  <div class="tool-icon">🌐</div>
+  <div class="tool-title">Meu IP</div>
+  <div class="tool-desc">Descubra seu IP público.</div>
+  <a href="meu-ip.html" class="tool-btn">Ver Meu IP</a>
+</div>
+
+<div class="tool-card">
+  <div class="tool-icon">🌐</div>
+  <div class="tool-title">Rastrear IP</div>
+  <div class="tool-desc">Descubra tudo sobre um endereco  IP público.</div>
+  <a href="rastreamento-ip.html" class="tool-btn">Rastrear um Endereco IP </a>
+</div>
+
+
+<div class="tool-card">
+  <div class="tool-icon">🔍</div>
+  <div class="tool-title">Consulta IPv4</div>
+  <div class="tool-desc">Informações sobre IPv4.</div>
+  <a href="ipv4.html" class="tool-btn">Abrir IPv4</a>
+</div>
+
+<div class="tool-card">
+  <div class="tool-icon">📍</div>
+  <div class="tool-title">Geolocalização de IP</div>
+  <div class="tool-desc">Veja a localização aproximada do IP.</div>
+  <a href="geolocalizacao.html" class="tool-btn">Geolocalização</a>
+</div>
+
+<div class="tool-card">
+  <div class="tool-icon">🚀</div>
+  <div class="tool-title">Teste de Velocidade</div>
+  <div class="tool-desc">Teste sua velocidade de internet.</div>
+  <a href="teste-velocidade.html" class="tool-btn">Testar Velocidade</a>
+</div>
+
+<!-- GERADORES -->
+<div class="tool-card">
+  <div class="tool-icon">🔢</div>
+  <div class="tool-title">Gerador de CPF</div>
+  <div class="tool-desc">Gere CPF válido para testes.</div>
+  <a href="geradores/cpf.html" class="tool-btn">Gerar CPF</a>
+</div>
+
+<div class="tool-card">
+  <div class="tool-icon">🏢</div>
+  <div class="tool-title">Gerador de CNPJ</div>
+  <div class="tool-desc">Gere CNPJ válido para testes.</div>
+  <a href="geradores/cnpj.html" class="tool-btn">Gerar CNPJ</a>
+</div>
+
+<div class="tool-card">
+  <div class="tool-icon">🪪</div>
+  <div class="tool-title">Gerador de RG</div>
+  <div class="tool-desc">Gere RG fictício para testes.</div>
+  <a href="geradores/rg.html" class="tool-btn">Gerar RG</a>
+</div>
+
+<div class="tool-card">
+  <div class="tool-icon">💳</div>
+  <div class="tool-title">Gerador de Cartão de Crédito</div>
+  <div class="tool-desc">Gere números de cartão válidos.</div>
+  <a href="geradores/cartao-credito.html" class="tool-btn">Gerar Cartão</a>
+</div>
+
+<div class="tool-card">
+  <div class="tool-icon">🏦</div>
+  <div class="tool-title">Gerador de Conta Bancária</div>
+  <div class="tool-desc">Gere conta, agência e banco fictícios.</div>
+  <a href="geradores/conta-bancaria.html" class="tool-btn">Gerar Conta</a>
+</div>
+
+<div class="tool-card">
+  <div class="tool-icon">📞</div>
+  <div class="tool-title">Gerador de Telefone</div>
+  <div class="tool-desc">Gere número de telefone válido para testes.</div>
+  <a href="geradores/telefone.html" class="tool-btn">Gerar Número</a>
+</div>
+
+<div class="tool-card">
+  <div class="tool-icon">📧</div>
+  <div class="tool-title">Gerador de E-mail Temporário</div>
+  <div class="tool-desc">Crie e-mails descartáveis para testes.</div>
+  <a href="geradores/email-temporario.html" class="tool-btn">Gerar E-mail</a>
+</div>
+
+<div class="tool-card">
+  <div class="tool-icon">🔐</div>
+  <div class="tool-title">Gerador de Senha Forte</div>
+  <div class="tool-desc">Crie senhas fortes e seguras.</div>
+  <a href="geradores/senha.html" class="tool-btn">Gerar Senha</a>
+</div>
+
+<div class="tool-card">
+  <div class="tool-icon">🔗</div>
+  <div class="tool-title">Gerador de Link WhatsApp</div>
+  <div class="tool-desc">Crie links wa.me personalizados.</div>
+  <a href="geradores/whatsapp-link.html" class="tool-btn">Gerar Link</a>
+</div>
+
+<div class="tool-card">
+  <div class="tool-icon">📱</div>
+  <div class="tool-title">Gerador de IMEI</div>
+  <div class="tool-desc">Gere números IMEI válidos para testes.</div>
+  <a href="geradores/imei.html" class="tool-btn">Gerar IMEI</a>
+</div>
+
+<div class="tool-card">
+  <div class="tool-icon">💠</div>
+  <div class="tool-title">Gerador de QR Code</div>
+  <div class="tool-desc">Crie QR Codes personalizados.</div>
+  <a href="geradores/qr-code.html" class="tool-btn">Criar QR Code</a>
+</div>
+
+<div class="tool-card">
+  <div class="tool-icon">📦</div>
+  <div class="tool-title">Gerador de Lorem Ipsum</div>
+  <div class="tool-desc">Gere texto Lorem Ipsum para seus layouts.</div>
+  <a href="geradores/lorem-ipsum.html" class="tool-btn">Gerar Lorem</a>
+</div>
+
+<div class="tool-card">
+  <div class="tool-icon">👤</div>
+  <div class="tool-title">Gerador de Pessoas</div>
+  <div class="tool-desc">Gere dados de pessoas fictícias.</div>
+  <a href="geradores/pessoas.html" class="tool-btn">Gerar Pessoa</a>
+</div>
+
+<div class="tool-card">
+  <div class="tool-icon">🚘</div>
+  <div class="tool-title">Gerador de Placa de Veículo</div>
+  <div class="tool-desc">Gere placas válidas para veículos.</div>
+  <a href="geradores/placa-veiculo.html" class="tool-btn">Gerar Placa</a>
+</div>
+
+<div class="tool-card">
+  <div class="tool-icon">🧾</div>
+  <div class="tool-title">Gerador de RENAVAM</div>
+  <div class="tool-desc">Gere número de RENAVAM válido.</div>
+  <a href="geradores/renavam.html" class="tool-btn">Gerar RENAVAM</a>
+</div>
+
+<div class="tool-card">
+  <div class="tool-icon">📊</div>
+  <div class="tool-title">Gerador de PIS/PASEP</div>
+  <div class="tool-desc">Gere números de PIS/PASEP válidos.</div>
+  <a href="geradores/pis-pasep.html" class="tool-btn">Gerar PIS/PASEP</a>
+</div>
+
+<!-- VALIDADORES -->
+<div class="tool-card">
+  <div class="tool-icon">✔️</div>
+  <div class="tool-title">Validador de CPF</div>
+  <div class="tool-desc">Verifique se um CPF é válido.</div>
+  <a href="validadores/cpf.html" class="tool-btn">Validar CPF</a>
+</div>
+
+<div class="tool-card">
+  <div class="tool-icon">✔️</div>
+  <div class="tool-title">Validador de CNPJ</div>
+  <div class="tool-desc">Verifique se um CNPJ é válido.</div>
+  <a href="validadores/cnpj.html" class="tool-btn">Validar CNPJ</a>
+</div>
+
+<div class="tool-card">
+  <div class="tool-icon">✔️</div>
+  <div class="tool-title">Validador de RG</div>
+  <div class="tool-desc">Verifique se um RG é válido.</div>
+  <a href="validadores/rg.html" class="tool-btn">Validar RG</a>
+</div>
+
+<div class="tool-card">
+  <div class="tool-icon">✔️</div>
+  <div class="tool-title">Validador de CEP</div>
+  <div class="tool-desc">Verifique se um CEP é válido.</div>
+  <a href="validadores/cep.html" class="tool-btn">Validar CEP</a>
+</div>
+
+<!-- GERADORES -->
+<div class="tool-card">
+    <div class="tool-icon">🔢</div>
+    <div class="tool-title">Gerador de CPF</div>
+    <div class="tool-desc">Gere números de CPF válidos para testes.</div>
+    <a href="geradores/cpf.html" class="tool-btn">Gerar CPF</a>
+</div>
+<div class="tool-card">
+    <div class="tool-icon">🏢</div>
+    <div class="tool-title">Gerador de CNPJ</div>
+    <div class="tool-desc">Crie números de CNPJ válidos para testes.</div>
+    <a href="geradores/cnpj.html" class="tool-btn">Gerar CNPJ</a>
+</div>
+<div class="tool-card">
+    <div class="tool-icon">📝</div>
+    <div class="tool-title">Gerador de RG</div>
+    <div class="tool-desc">Crie números de RG válidos.</div>
+    <a href="geradores/rg.html" class="tool-btn">Gerar RG</a>
+</div>
+<div class="tool-card">
+    <div class="tool-icon">💳</div>
+    <div class="tool-title">Gerador de Cartão de Crédito</div>
+    <div class="tool-desc">Gere números de cartões válidos.</div>
+    <a href="geradores/cartao-credito.html" class="tool-btn">Gerar Cartão</a>
+</div>
+<div class="tool-card">
+    <div class="tool-icon">📋</div>
+    <div class="tool-title">Gerador de Conta Bancária</div>
+    <div class="tool-desc">Crie contas fictícias para testes.</div>
+    <a href="geradores/conta-bancaria.html" class="tool-btn">Gerar Conta</a>
+</div>
+<div class="tool-card">
+    <div class="tool-icon">🔐</div>
+    <div class="tool-title">Gerador de Senha Forte</div>
+    <div class="tool-desc">Crie senhas fortes e seguras.</div>
+    <a href="geradores/senha.html" class="tool-btn">Gerar Senha</a>
+</div>
+<div class="tool-card">
+  <div class="tool-icon">💬</div>
+  <div class="tool-title">Gerador de Link WhatsApp</div>
+  <div class="tool-desc">Crie links wa.me com mensagem automática.</div>
+  <a href="geradores/whatsapp-link.html" class="tool-btn">Gerar Link</a>
+</div>
+
+<div class="tool-card">
+    <div class="tool-icon">📱</div>
+    <div class="tool-title">Gerador de QR Code</div>
+    <div class="tool-desc">Crie QR Codes personalizados.</div>
+    <a href="geradores/qr-code.html" class="tool-btn">Criar QR Code</a>
+</div>
+<div class="tool-card">
+    <div class="tool-icon">📞</div>
+    <div class="tool-title">Gerador de Número de Telefone</div>
+    <div class="tool-desc">Gere números de telefone válidos.</div>
+    <a href="geradores/telefone.html" class="tool-btn">Gerar Número</a>
+</div>
+<div class="tool-card">
+    <div class="tool-icon">📧</div>
+    <div class="tool-title">E-mail Temporário</div>
+    <div class="tool-desc">Crie e-mails descartáveis para testes.</div>
+    <a href="geradores/email-temporario.html" class="tool-btn">Gerar E-mail</a>
+</div>
+<div class="tool-card">
+    <div class="tool-icon">🧮</div>
+    <div class="tool-title">Calculadora Online</div>
+    <div class="tool-desc">Calcule expressões matemáticas rapidamente.</div>
+    <a href="geradores/calculadora.html" class="tool-btn">Abrir Calculadora</a>
+</div>
+<div class="tool-card">
+    <div class="tool-icon">💰</div>
+    <div class="tool-title">Cotação de Moedas</div>
+    <div class="tool-desc">Consulte cotações atualizadas.</div>
+    <a href="geradores/cotacao.html" class="tool-btn">Ver Cotação</a>
+</div>
+<div class="tool-card">
+    <div class="tool-icon">🔄</div>
+    <div class="tool-title">Conversor de Unidades</div>
+    <div class="tool-desc">Converta medidas, pesos, volumes e mais.</div>
+    <a href="geradores/conversor.html" class="tool-btn">Converter</a>
+</div>
+
+<!-- VALIDADORES -->
+<div class="tool-card">
+    <div class="tool-icon">✔️</div>
+    <div class="tool-title">Validador de CPF</div>
+    <div class="tool-desc">Verifique se um CPF é válido.</div>
+    <a href="validadores/cpf.html" class="tool-btn">Validar CPF</a>
+</div>
+<div class="tool-card">
+    <div class="tool-icon">✔️</div>
+    <div class="tool-title">Validador de CNPJ</div>
+    <div class="tool-desc">Verifique se um CNPJ é válido.</div>
+    <a href="validadores/cnpj.html" class="tool-btn">Validar CNPJ</a>
+</div>
+<div class="tool-card">
+    <div class="tool-icon">✔️</div>
+    <div class="tool-title">Validador de RG</div>
+    <div class="tool-desc">Verifique se um RG é válido.</div>
+    <a href="validadores/rg.html" class="tool-btn">Validar RG</a>
+</div>
+<div class="tool-card">
+    <div class="tool-icon">✔️</div>
+    <div class="tool-title">Validador de CEP</div>
+    <div class="tool-desc">Verifique se um CEP é válido.</div>
+    <a href="validadores/cep.html" class="tool-btn">Validar CEP</a>
+</div>
+
+</div>
+</section>

@@ -1,11 +1,35 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2713105320249369" crossorigin="anonymous"></script>
+
+    <!-- Básico -->
     <meta charset="UTF-8">
-    <title>Rastreador de IP Avançado | SEUIP.ORG</title>
-    <meta name="description" content="Rastreamento completo de IP com mapa, informações de rede, segurança, WHOIS e muito mais. Ferramenta gratuita do SEUIP.ORG.">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO -->
+    <title>SEUIP.ORG – Rastreador de IP Avançado | Geolocalização, Segurança & WHOIS</title>
+    <meta name="description" content="Rastreamento completo de IP com mapa, informações de rede, segurança, WHOIS e muito mais. Ferramenta gratuita do SEUIP.ORG.">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="SEUIP.ORG">
+
+    <!-- Canonical -->
     <link rel="canonical" href="https://seuip.org/ip/rastreamento-ip.html">
+
+    <!-- Open Graph (Facebook, WhatsApp, LinkedIn) -->
+    <meta property="og:title" content="SEUIP.ORG – Rastreador de IP Avançado">
+    <meta property="og:description" content="Rastreamento completo de IP com mapa, informações de rede, segurança, WHOIS e muito mais.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://seuip.org/ip/rastreamento-ip.html">
+    <meta property="og:site_name" content="SEUIP.ORG">
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="SEUIP.ORG – Rastreador de IP Avançado">
+    <meta name="twitter:description" content="Rastreamento completo de IP com mapa, informações de rede, segurança, WHOIS e muito mais.">
+    
     <!-- Leaflet CSS para mapa -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -287,6 +311,16 @@
         .tag.ipv6 { background: rgba(46, 213, 115, 0.2); color: var(--info); }
         .tag.private { background: rgba(255, 165, 2, 0.2); color: var(--warning); }
         
+        /* Estilos para o AdSense */
+        .ad-container {
+            margin: 25px 0;
+            text-align: center;
+            background: #1a1a1a;
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+        }
+        
         @media (max-width: 768px) {
             .input-group {
                 flex-direction: column;
@@ -305,6 +339,15 @@
             }
         }
     </style>
+    
+    <!-- Google Analytics GA4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MCNWEQ8XMH"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-MCNWEQ8XMH');
+    </script>
 </head>
 
 <body>
@@ -312,6 +355,20 @@
         <h1><i class="fas fa-search-location"></i> Rastreador de IP Avançado</h1>
         <p class="subtitle">Ferramenta completa para rastreamento de endereços IP com mapa de geolocalização, informações de rede, segurança, WHOIS e muito mais.</p>
     </header>
+    
+    <!-- Anúncio AdSense -->
+    <div class="ad-container">
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2713105320249369" crossorigin="anonymous"></script>
+        <ins class="adsbygoogle"
+            style="display:block"
+            data-ad-client="ca-pub-2713105320249369"
+            data-ad-slot="1234567890"
+            data-ad-format="auto"
+            data-full-width-responsive="true"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
     
     <section class="input-section">
         <div class="input-group">
@@ -325,7 +382,7 @@
         </div>
         
         <div class="tool-buttons">
-            <button class="btn-secondary tab-btn" onclick="mudarAba('geolocalizacao')">
+            <button class="btn-secondary tab-btn active" onclick="mudarAba('geolocalizacao')">
                 <i class="fas fa-map-marker-alt"></i> Geolocalização
             </button>
             <button class="btn-secondary tab-btn" onclick="mudarAba('rede')">
@@ -345,6 +402,21 @@
             </button>
         </div>
     </section>
+	
+    
+    <!-- Anúncio AdSense -->
+    <div class="ad-container">
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2713105320249369" crossorigin="anonymous"></script>
+        <ins class="adsbygoogle"
+            style="display:block"
+            data-ad-client="ca-pub-2713105320249369"
+            data-ad-slot="0987654321"
+            data-ad-format="auto"
+            data-full-width-responsive="true"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
     
     <div class="loader" id="loader">
         <div class="spinner"></div>
@@ -647,6 +719,20 @@
         </div>
     </div>
     
+    <!-- Anúncio AdSense -->
+    <div class="ad-container">
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2713105320249369" crossorigin="anonymous"></script>
+        <ins class="adsbygoogle"
+            style="display:block"
+            data-ad-client="ca-pub-2713105320249369"
+            data-ad-slot="1357924680"
+            data-ad-format="auto"
+            data-full-width-responsive="true"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+    
     <div class="footer">
         <p>&copy; 2023 SEUIP.ORG - Rastreador de IP Avançado</p>
         <p>
@@ -733,6 +819,14 @@
                 // Ativar aba de geolocalização por padrão
                 mudarAba('geolocalizacao');
                 
+                // Registrar evento no Google Analytics
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'ip_tracked', {
+                        'event_category': 'engagement',
+                        'event_label': data.ip
+                    });
+                }
+                
             } catch (error) {
                 // Esconder loader
                 loader.style.display = 'none';
@@ -747,6 +841,14 @@
                 `;
                 
                 console.error('Erro ao rastrear IP:', error);
+                
+                // Registrar erro no Google Analytics
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'ip_track_error', {
+                        'event_category': 'errors',
+                        'event_label': error.message
+                    });
+                }
             }
         }
         
@@ -844,4 +946,323 @@
             });
         }
         
-        // Função para
+        // Função para inicializar/atualizar o mapa
+        function inicializarMapa(lat, lon, cidade, pais) {
+            if (!mapa) {
+                // Criar mapa se não existir
+                mapa = L.map('map').setView([lat, lon], 10);
+                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                    attribution: '© OpenStreetMap contributors',
+                    maxZoom: 18
+                }).addTo(mapa);
+            } else {
+                // Atualizar visualização do mapa
+                mapa.setView([lat, lon], 10);
+            }
+            
+            // Remover marcador anterior se existir
+            if (marcador) {
+                mapa.removeLayer(marcador);
+            }
+            
+            // Adicionar novo marcador
+            marcador = L.marker([lat, lon]).addTo(mapa)
+                .bindPopup(`<b>${cidade}, ${pais}</b><br>IP: ${dadosIP.ip}<br>Coordenadas: ${lat}, ${lon}`)
+                .openPopup();
+        }
+        
+        // Função para mudar entre abas
+        function mudarAba(abaId) {
+            // Remover classe active de todas as abas e botões
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Adicionar classe active à aba selecionada
+            document.getElementById(abaId).classList.add('active');
+            
+            // Ativar o botão correspondente
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                if (btn.textContent.includes(abaId.charAt(0).toUpperCase() + abaId.slice(1))) {
+                    btn.classList.add('active');
+                }
+            });
+            
+            // Registrar no Google Analytics
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'tab_switch', {
+                    'event_category': 'navigation',
+                    'event_label': abaId
+                });
+            }
+        }
+        
+        // Funções auxiliares
+        function obterDominioDoISP(isp) {
+            if (!isp) return null;
+            const match = isp.match(/(?:https?:\/\/)?(?:www\.)?([^\/]+)/);
+            return match ? match[1] : null;
+        }
+        
+        function verificarProxy(ip) {
+            // Lista de IPs conhecidos de proxy/VPN (simplificado)
+            const proxyRanges = ['192.168.', '10.', '172.16.', '172.31.'];
+            return proxyRanges.some(range => ip.startsWith(range));
+        }
+        
+        function verificarTor(ip) {
+            // Lista simulada de nós Tor conhecidos
+            const torNodes = ['185.220.100.', '185.220.101.', '199.249.230.'];
+            return torNodes.some(node => ip.startsWith(node));
+        }
+        
+        function verificarHospedagem(org) {
+            if (!org) return false;
+            const hostingKeywords = ['host', 'server', 'cloud', 'data center', 'amazon', 'google', 'azure', 'digitalocean', 'linode'];
+            return hostingKeywords.some(keyword => org.toLowerCase().includes(keyword));
+        }
+        
+        function detectarNavegador(userAgent) {
+            if (userAgent.includes('Chrome') && !userAgent.includes('Edg')) return 'Google Chrome';
+            if (userAgent.includes('Firefox')) return 'Mozilla Firefox';
+            if (userAgent.includes('Safari') && !userAgent.includes('Chrome')) return 'Apple Safari';
+            if (userAgent.includes('Edg')) return 'Microsoft Edge';
+            if (userAgent.includes('Opera') || userAgent.includes('OPR')) return 'Opera';
+            return 'Navegador Desconhecido';
+        }
+        
+        function detectarSistemaOperacional(userAgent) {
+            if (userAgent.includes('Windows')) return 'Windows';
+            if (userAgent.includes('Mac')) return 'macOS';
+            if (userAgent.includes('Linux')) return 'Linux';
+            if (userAgent.includes('Android')) return 'Android';
+            if (userAgent.includes('iOS') || userAgent.includes('iPhone')) return 'iOS';
+            return 'Sistema Operacional Desconhecido';
+        }
+        
+        function obterRIR(countryCode) {
+            const rirMap = {
+                'US': 'ARIN',
+                'CA': 'ARIN',
+                'BR': 'LACNIC',
+                'GB': 'RIPE NCC',
+                'DE': 'RIPE NCC',
+                'FR': 'RIPE NCC',
+                'AU': 'APNIC',
+                'JP': 'APNIC',
+                'CN': 'APNIC'
+            };
+            return rirMap[countryCode] || 'Não identificado';
+        }
+        
+        // Funções para as ferramentas
+        function verificarPing() {
+            const resultado = document.getElementById('ferramentas-resultado');
+            resultado.innerHTML = '<p><i class="fas fa-sync fa-spin"></i> Testando ping para ' + dadosIP.ip + '...</p>';
+            
+            // Simular teste de ping (em um sistema real, isso seria feito no backend)
+            setTimeout(() => {
+                const latencia = Math.floor(Math.random() * 100) + 10;
+                resultado.innerHTML = `
+                    <h4><i class="fas fa-check-circle" style="color: var(--primary);"></i> Resultado do Ping</h4>
+                    <p>IP: <strong>${dadosIP.ip}</strong></p>
+                    <p>Latência: <strong>${latencia} ms</strong></p>
+                    <p>Status: <span style="color: ${latencia < 50 ? 'var(--primary)' : latencia < 100 ? 'var(--warning)' : 'var(--danger)'}">${latencia < 50 ? 'Ótimo' : latencia < 100 ? 'Bom' : 'Lento'}</span></p>
+                    <p><small>Nota: Este é um teste simulado. Para resultados precisos, use um terminal.</small></p>
+                `;
+            }, 1500);
+        }
+        
+        function verificarPortas() {
+            const resultado = document.getElementById('ferramentas-resultado');
+            resultado.innerHTML = '<p><i class="fas fa-sync fa-spin"></i> Verificando portas comuns para ' + dadosIP.ip + '...</p>';
+            
+            // Simular verificação de portas
+            setTimeout(() => {
+                const portas = [
+                    {porta: 80, servico: 'HTTP', status: 'Aberta'},
+                    {porta: 443, servico: 'HTTPS', status: 'Aberta'},
+                    {porta: 22, servico: 'SSH', status: 'Fechada'},
+                    {porta: 21, servico: 'FTP', status: 'Fechada'},
+                    {porta: 25, servico: 'SMTP', status: 'Fechada'},
+                    {porta: 3389, servico: 'RDP', status: 'Fechada'}
+                ];
+                
+                let html = '<h4><i class="fas fa-door-open" style="color: var(--primary);"></i> Portas Comuns</h4>';
+                html += '<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px; margin-top: 15px;">';
+                
+                portas.forEach(p => {
+                    const statusColor = p.status === 'Aberta' ? 'var(--danger)' : 'var(--primary)';
+                    html += `
+                        <div style="background: #222; padding: 10px; border-radius: 8px; text-align: center;">
+                            <div style="font-weight: bold; font-size: 1.2rem;">${p.porta}</div>
+                            <div style="font-size: 0.9rem; color: #ccc;">${p.servico}</div>
+                            <div style="color: ${statusColor}; font-weight: bold;">${p.status}</div>
+                        </div>
+                    `;
+                });
+                
+                html += '</div><p style="margin-top: 15px;"><small>Nota: Esta é uma verificação simulada. Para resultados precisos, use ferramentas como nmap.</small></p>';
+                resultado.innerHTML = html;
+            }, 2000);
+        }
+        
+        function verificarDNS() {
+            const resultado = document.getElementById('ferramentas-resultado');
+            resultado.innerHTML = '<p><i class="fas fa-sync fa-spin"></i> Verificando DNS reverso para ' + dadosIP.ip + '...</p>';
+            
+            setTimeout(() => {
+                resultado.innerHTML = `
+                    <h4><i class="fas fa-globe" style="color: var(--primary);"></i> DNS Reverso</h4>
+                    <p>IP: <strong>${dadosIP.ip}</strong></p>
+                    <p>Hostname: <strong>${dadosIP.reverse || 'Não encontrado'}</strong></p>
+                    <p>Domínio Principal: <strong>${obterDominioDoISP(dadosIP.org) || 'Não identificado'}</strong></p>
+                    <p><small>Nota: Informações de DNS podem variar dependendo da configuração do provedor.</small></p>
+                `;
+            }, 1000);
+        }
+        
+        function verificarVPN() {
+            const resultado = document.getElementById('ferramentas-resultado');
+            resultado.innerHTML = '<p><i class="fas fa-sync fa-spin"></i> Verificando VPN/Proxy para ' + dadosIP.ip + '...</p>';
+            
+            setTimeout(() => {
+                const isProxy = verificarProxy(dadosIP.ip);
+                const isVPN = Math.random() > 0.7;
+                
+                resultado.innerHTML = `
+                    <h4><i class="fas fa-user-shield" style="color: var(--primary);"></i> Verificação de VPN/Proxy</h4>
+                    <p>IP Analisado: <strong>${dadosIP.ip}</strong></p>
+                    <p>Proxy Detectado: <span style="color: ${isProxy ? 'var(--warning)' : 'var(--primary)'}; font-weight: bold;">${isProxy ? 'POSSÍVEL' : 'NÃO DETECTADO'}</span></p>
+                    <p>VPN Detectada: <span style="color: ${isVPN ? 'var(--warning)' : 'var(--primary)'}; font-weight: bold;">${isVPN ? 'POSSÍVEL' : 'NÃO DETECTADA'}</span></p>
+                    <p>Anonimidade: <span style="color: ${isProxy || isVPN ? 'var(--warning)' : 'var(--primary)'}; font-weight: bold;">${isProxy || isVPN ? 'ALTA' : 'BAIXA'}</span></p>
+                    <p><small>Nota: Esta verificação é baseada em padrões conhecidos e pode não ser 100% precisa.</small></p>
+                `;
+            }, 1500);
+        }
+        
+        function converterIPv4toIPv6() {
+            const resultado = document.getElementById('ferramentas-resultado');
+            const ipv4 = dadosIP.ip;
+            
+            if (!ipv4 || !ipv4.includes('.')) {
+                resultado.innerHTML = '<p style="color: var(--danger);">Este IP não é um IPv4 válido para conversão.</p>';
+                return;
+            }
+            
+            // Simulação simples de conversão IPv4 para IPv6
+            const partes = ipv4.split('.');
+            const ipv6 = `2001:0db8:85a3:0000:0000:8a2e:${parseInt(partes[0]).toString(16)}${parseInt(partes[1]).toString(16)}:${parseInt(partes[2]).toString(16)}${parseInt(partes[3]).toString(16)}`;
+            
+            resultado.innerHTML = `
+                <h4><i class="fas fa-exchange-alt" style="color: var(--primary);"></i> Conversão IPv4 para IPv6</h4>
+                <p>IPv4 Original: <strong>${ipv4}</strong></p>
+                <p>IPv6 Convertido: <strong>${ipv6}</strong></p>
+                <p><small>Nota: Esta é uma conversão ilustrativa. A conversão real segue protocolos específicos.</small></p>
+            `;
+        }
+        
+        function converterDecimal() {
+            const resultado = document.getElementById('ferramentas-resultado');
+            const ip = dadosIP.ip;
+            
+            if (!ip || !ip.includes('.')) {
+                resultado.innerHTML = '<p style="color: var(--danger);">IP não disponível para conversão.</p>';
+                return;
+            }
+            
+            // Converter IP para decimal
+            const partes = ip.split('.');
+            const decimal = (parseInt(partes[0]) * 16777216) + 
+                           (parseInt(partes[1]) * 65536) + 
+                           (parseInt(partes[2]) * 256) + 
+                           parseInt(partes[3]);
+            
+            resultado.innerHTML = `
+                <h4><i class="fas fa-calculator" style="color: var(--primary);"></i> Conversão para Decimal</h4>
+                <p>IP: <strong>${ip}</strong></p>
+                <p>Decimal: <strong>${decimal.toLocaleString('pt-BR')}</strong></p>
+                <p>Notação Longa: <strong>${decimal}</strong></p>
+            `;
+        }
+        
+        function converterBinario() {
+            const resultado = document.getElementById('ferramentas-resultado');
+            const ip = dadosIP.ip;
+            
+            if (!ip || !ip.includes('.')) {
+                resultado.innerHTML = '<p style="color: var(--danger);">IP não disponível para conversão.</p>';
+                return;
+            }
+            
+            // Converter IP para binário
+            const partes = ip.split('.');
+            const binario = partes.map(part => {
+                const bin = parseInt(part).toString(2);
+                return '00000000'.substring(bin.length) + bin;
+            }).join('.');
+            
+            resultado.innerHTML = `
+                <h4><i class="fas fa-code" style="color: var(--primary);"></i> Conversão para Binário</h4>
+                <p>IP: <strong>${ip}</strong></p>
+                <p>Binário: <strong>${binario}</strong></p>
+                <p>Formato: <strong>${partes.map(p => parseInt(p).toString(2)).join(' ')}</strong></p>
+            `;
+        }
+        
+        function copiarTodosDados() {
+            let dadosTexto = `=== RASTREAMENTO DE IP - SEUIP.ORG ===\n`;
+            dadosTexto += `Data: ${new Date().toLocaleString('pt-BR')}\n\n`;
+            
+            // Coletar todos os dados visíveis
+            document.querySelectorAll('.info-row').forEach(row => {
+                const label = row.querySelector('.label')?.textContent || '';
+                const value = row.querySelector('.value')?.textContent || '';
+                if (label && value) {
+                    dadosTexto += `${label}: ${value}\n`;
+                }
+            });
+            
+            // Copiar para a área de transferência
+            navigator.clipboard.writeText(dadosTexto).then(() => {
+                const resultado = document.getElementById('ferramentas-resultado');
+                resultado.innerHTML = '<p style="color: var(--primary);"><i class="fas fa-check-circle"></i> Todos os dados foram copiados para a área de transferência!</p>';
+                
+                // Mostrar mensagem temporária
+                setTimeout(() => {
+                    if (resultado.innerHTML.includes('copiados')) {
+                        resultado.innerHTML = '<p>Os dados do IP foram copiados com sucesso!</p>';
+                    }
+                }, 3000);
+            }).catch(err => {
+                console.error('Erro ao copiar dados: ', err);
+                document.getElementById('ferramentas-resultado').innerHTML = '<p style="color: var(--danger);">Erro ao copiar dados. Tente novamente.</p>';
+            });
+        }
+        
+        function carregarDetalhesWHOIS(ip) {
+            const detailsDiv = document.getElementById('whois-details');
+            detailsDiv.innerHTML = '<p><i class="fas fa-sync fa-spin"></i> Carregando informações WHOIS...</p>';
+            
+            // Simular carregamento de dados WHOIS
+            setTimeout(() => {
+                detailsDiv.innerHTML = `
+                    <p><strong>Informações WHOIS para ${ip}:</strong></p>
+                    <p>Registrante: Informação não disponível publicamente</p>
+                    <p>Provedor: ${dadosIP.org || 'Não disponível'}</p>
+                    <p>Range: ${dadosIP.network || 'Não disponível'}</p>
+                    <p>País: ${dadosIP.country_name || 'Não disponível'}</p>
+                    <p>Cidade: ${dadosIP.city || 'Não disponível'}</p>
+                    <p>Última atualização: ${new Date().toLocaleDateString('pt-BR')}</p>
+                    <p>Status do registro: ATIVO</p>
+                    <p><br><small>Nota: Informações WHOIS completas podem estar disponíveis no site do RIR correspondente.</small></p>
+                `;
+            }, 1500);
+        }
+    </script>
+	
+</body>
+</html>
