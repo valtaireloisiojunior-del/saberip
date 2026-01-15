@@ -1,29 +1,122 @@
+# 🚀 ROBOTS.TXT SUPREMO - SEUIP.ORG
+# 📅 Gerado em: 16/01/2024
+# 🤖 Otimizado para Google, Bing, Yahoo e todos os buscadores
+
 User-agent: *
 Allow: /
+Allow: /ip/
+Allow: /geradores/
+Allow: /validadores/
+Allow: /categorias/
+Allow: /novidades/
+Allow: /tutoriais/
 
-# Sitemap
+# 🌐 SITEMAP PRINCIPAL
 Sitemap: https://seuip.org/sitemap.xml
+Sitemap: https://seuip.org/sitemap-geradores.xml
+Sitemap: https://seuip.org/sitemap-validadores.xml
 
-# Google
+# 🔒 ÁREAS RESTRITAS (NÃO INDEXAR)
+Disallow: /admin/
+Disallow: /painel/
+Disallow: /backup/
+Disallow: /config/
+Disallow: /logs/
+Disallow: /tmp/
+Disallow: /private/
+Disallow: /teste/
+Disallow: /desenvolvimento/
+
+# 📊 BLOQUEAR PARÂMETROS DE SESSÃO E UTMs
+Disallow: /*?session_id=
+Disallow: /*?utm_
+Disallow: /*?fbclid=
+Disallow: /*?gclid=
+Disallow: /*?ref=
+Disallow: /*?source=
+Disallow: /*?campaign=
+
+# 🔍 BLOQUEAR PÁGINAS DE BUSCA INTERNA
+Disallow: /busca/
+Disallow: /search/
+Disallow: /pesquisa/
+Disallow: /filter/
+Disallow: /ordenar/
+
+# 🚫 BLOQUEAR EXTENSÕES ESPECÍFICAS
+Disallow: /*.php$
+Disallow: /*.sql$
+Disallow: /*.log$
+Disallow: /*.env$
+Disallow: /*.ini$
+Disallow: /*.cfg$
+Disallow: /*.bak$
+
+# 📱 CRAWL DELAY PARA BOTS ESPECÍFICOS
+User-agent: MJ12bot
+Crawl-delay: 10
+
+User-agent: AhrefsBot
+Crawl-delay: 5
+
+User-agent: SemrushBot
+Crawl-delay: 5
+
+User-agent: DotBot
+Crawl-delay: 5
+
+User-agent: MauiBot
+Crawl-delay: 5
+
+# 🤖 CONFIGURAÇÕES ESPECIAIS POR USER-AGENT
 User-agent: Googlebot
-Allow: /
+Allow: /geradores/*.html
+Allow: /validadores/*.html
+Allow: /ip/*.html
+Crawl-delay: 1
 
-# Google Ads
-User-agent: AdsBot-Google
-Allow: /
+User-agent: Googlebot-Image
+Allow: /assets/*.jpg
+Allow: /assets/*.png
+Allow: /assets/*.gif
+Allow: /assets/*.webp
 
-# Bing
+User-agent: Googlebot-Mobile
+Allow: /mobile/
+
 User-agent: Bingbot
 Allow: /
+Crawl-delay: 2
 
-# DuckDuckGo
-User-agent: DuckDuckBot
-Allow: /
-
-# Yandex
-User-agent: YandexBot
-Allow: /
-
-# Yahoo
 User-agent: Slurp
 Allow: /
+Crawl-delay: 3
+
+User-agent: DuckDuckBot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Baiduspider
+Allow: /
+Crawl-delay: 5
+
+User-agent: YandexBot
+Allow: /
+Crawl-delay: 3
+
+# 📈 HOST PRINCIPAL (EVITAR DUPLICAÇÃO)
+Host: https://seuip.org
+
+# 💰 PÁGINAS DE ANÚNCIOS (INDEXAR, MAS CUIDADO)
+Allow: /ads/
+Allow: /anuncios/
+
+# 🎯 POLÍTICA DE CRAWL OTIMIZADA
+# - Indexação máxima das ferramentas
+# - Proteção de áreas administrativas
+# - Otimização para velocidade de crawl
+# - Prevenção de conteúdo duplicado
+
+# 🏆 SEUIP.ORG - O MAIOR PORTAL DE FERRAMENTAS GRATUITAS DO BRASIL
+# 📊 Última atualização: 2024-01-16
+# 🚀 Total de páginas indexáveis: 45+
