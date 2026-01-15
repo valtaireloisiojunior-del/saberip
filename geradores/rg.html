@@ -18,13 +18,15 @@ crossorigin="anonymous"></script>
 body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#0d0d0d;color:#fff;text-align:center}
 header{padding:30px}
 header a{color:#00ff99;text-decoration:none;font-weight:bold}
-.lang button{margin:5px;padding:6px 12px;border-radius:6px;border:none;cursor:pointer}
+.lang button{margin:5px;padding:6px 12px;border-radius:6px;border:none;cursor:pointer;background:#111;color:#00ff99}
+.lang button:hover{background:#00ff99;color:#000}
 h1{color:#00ff99}
 .card{background:#111;max-width:520px;margin:20px auto;padding:25px;border-radius:16px}
-input{width:100%;padding:14px;font-size:18px;border-radius:10px;border:none;margin-top:10px;text-align:center}
-button.main{background:#00ff99;color:#000;border:none;padding:14px 26px;font-size:18px;border-radius:10px;margin:10px}
+input{width:100%;padding:14px;font-size:18px;border-radius:10px;border:none;margin-top:10px;text-align:center;background:#222;color:#fff}
+button.main{background:#00ff99;color:#000;border:none;padding:14px 26px;font-size:18px;border-radius:10px;margin:10px;cursor:pointer}
+button.main:hover{opacity:0.9}
 .article{max-width:900px;margin:60px auto;padding:20px;text-align:left;color:#ccc;line-height:1.8}
-.article h2{color:#00ff99}
+.article h2{color:#00ff99;margin-bottom:15px}
 footer{margin:40px;color:#777}
 footer a{color:#00ff99;text-decoration:none}
 </style>
@@ -37,8 +39,6 @@ footer a{color:#00ff99;text-decoration:none}
 
 <div class="lang">
 <button onclick="setLang('pt')">🇧🇷 PT</button>
-<button onclick="setLang('en')">🇺🇸 EN</button>
-<button onclick="setLang('es')">🇪🇸 ES</button>
 </div>
 
 <h1 data-i18n="title">Gerador de RG</h1>
@@ -52,7 +52,17 @@ footer a{color:#00ff99;text-decoration:none}
 
 <section class="article">
 <h2 data-i18n="art_title">Fundamentos Científicos do RG</h2>
-<p data-i18n="art_text"></p>
+<p data-i18n="art_text">
+O Registro Geral (RG) é o principal documento de identificação civil no Brasil, emitido por órgãos de segurança pública de cada estado, conhecido oficialmente como carteira de identidade. Ele serve para identificar cidadãos brasileiros de maneira única, permitindo que informações pessoais sejam confirmadas em diversas situações, como abertura de contas bancárias, matrículas escolares, contratação de serviços, viagens e processos legais. Cada RG possui uma combinação numérica, geralmente composta por oito dígitos seguidos de um dígito verificador, que garante a integridade do número e evita duplicidades ou erros de registro. A emissão do RG é regulamentada por legislações estaduais e federais, garantindo que cada cidadão possua apenas um documento oficial em seu nome. Historicamente, o RG foi criado para substituir outros registros mais antigos, centralizando informações civis e proporcionando maior segurança e confiabilidade no processo de identificação. 
+<br><br>
+Além de sua função prática de identificação, o RG também possui valor histórico e social, pois cada emissão é registrada com datas, local de nascimento, filiação e, muitas vezes, fotografia do titular, o que fortalece a autenticidade e confiabilidade do documento. Para fins acadêmicos, testes de sistemas e simulações de cadastro, geradores de RG fictícios são amplamente utilizados por desenvolvedores e pesquisadores, garantindo que softwares e aplicativos possam ser validados sem a necessidade de dados reais. Essa prática previne vazamentos de informações, respeita a privacidade dos cidadãos e permite simulações confiáveis em plataformas digitais de gerenciamento de dados civis. 
+<br><br>
+O uso do RG em sistemas digitais exige atenção a padrões de validação. O dígito verificador final é calculado por algoritmos matemáticos que permitem identificar se o número informado segue a estrutura correta. Esse mecanismo é essencial para bancos de dados, sistemas de atendimento público e aplicativos de controle interno de instituições, prevenindo fraudes e inconsistências. Além disso, o RG é frequentemente utilizado em conjunto com outros documentos, como CPF e títulos de eleitor, formando uma rede integrada de informações que garante a confiabilidade de serviços públicos e privados. 
+<br><br>
+O conhecimento detalhado sobre a estrutura do RG, seus números, dígito verificador e a maneira como é emitido, é fundamental para quem desenvolve sistemas de validação, automação de cadastros e softwares que dependem de dados civis. Por isso, ferramentas como este gerador de RG fictício têm grande relevância acadêmica, permitindo experimentação segura, aprendizado de algoritmos e teste de interfaces, tudo sem comprometer dados pessoais reais. Além disso, possibilita que pesquisadores compreendam melhor o funcionamento dos órgãos emissores e da lógica por trás da identificação civil, contribuindo para a criação de sistemas mais seguros e confiáveis. 
+<br><br>
+Em resumo, o RG é um documento central na vida civil de cada brasileiro, com funções administrativas, legais e sociais importantes. O conhecimento sobre sua estrutura, emissão e validação permite o desenvolvimento de soluções digitais seguras e confiáveis. Geradores de RG fictícios, como esta ferramenta, desempenham papel educativo e prático, garantindo que testes e pesquisas possam ser realizados de forma ética, segura e eficiente, respeitando totalmente a privacidade e integridade de cada cidadão.
+</p>
 </section>
 
 <footer>
@@ -66,21 +76,7 @@ title:"Gerador de RG",
 subtitle:"Gere RG fictício para testes e estudos",
 generate:"Gerar RG",
 art_title:"Fundamentos Científicos do RG",
-art_text:"O Registro Geral (RG) é um identificador civil utilizado no Brasil... (aqui entra o artigo longo em português, ~4.000 caracteres)."
-},
-en:{
-title:"RG Generator",
-subtitle:"Generate fictional RG numbers for testing and studies",
-generate:"Generate RG",
-art_title:"Scientific Foundations of RG",
-art_text:"The General Registry (RG) is a civil identification number used in Brazil... (artigo equivalente em inglês)."
-},
-es:{
-title:"Generador de RG",
-subtitle:"Genere números de RG ficticios para pruebas y estudios",
-generate:"Generar RG",
-art_title:"Fundamentos Científicos del RG",
-art_text:"El Registro General (RG) es un identificador civil utilizado en Brasil... (artigo equivalente em espanhol)."
+art_text:"O Registro Geral (RG) é o principal documento de identificação civil no Brasil, emitido por órgãos de segurança pública de cada estado, conhecido oficialmente como carteira de identidade. Ele serve para identificar cidadãos brasileiros de maneira única, permitindo que informações pessoais sejam confirmadas em diversas situações, como abertura de contas bancárias, matrículas escolares, contratação de serviços, viagens e processos legais. Cada RG possui uma combinação numérica, geralmente composta por oito dígitos seguidos de um dígito verificador, que garante a integridade do número e evita duplicidades ou erros de registro. A emissão do RG é regulamentada por legislações estaduais e federais, garantindo que cada cidadão possua apenas um documento oficial em seu nome. Historicamente, o RG foi criado para substituir outros registros mais antigos, centralizando informações civis e proporcionando maior segurança e confiabilidade no processo de identificação. Além de sua função prática de identificação, o RG também possui valor histórico e social, pois cada emissão é registrada com datas, local de nascimento, filiação e, muitas vezes, fotografia do titular, o que fortalece a autenticidade e confiabilidade do documento. Para fins acadêmicos, testes de sistemas e simulações de cadastro, geradores de RG fictícios são amplamente utilizados por desenvolvedores e pesquisadores, garantindo que softwares e aplicativos possam ser validados sem a necessidade de dados reais. Essa prática previne vazamentos de informações, respeita a privacidade dos cidadãos e permite simulações confiáveis em plataformas digitais de gerenciamento de dados civis. O uso do RG em sistemas digitais exige atenção a padrões de validação. O dígito verificador final é calculado por algoritmos matemáticos que permitem identificar se o número informado segue a estrutura correta. Esse mecanismo é essencial para bancos de dados, sistemas de atendimento público e aplicativos de controle interno de instituições, prevenindo fraudes e inconsistências. Além disso, o RG é frequentemente utilizado em conjunto com outros documentos, como CPF e títulos de eleitor, formando uma rede integrada de informações que garante a confiabilidade de serviços públicos e privados. O conhecimento detalhado sobre a estrutura do RG, seus números, dígito verificador e a maneira como é emitido, é fundamental para quem desenvolve sistemas de validação, automação de cadastros e softwares que dependem de dados civis. Por isso, ferramentas como este gerador de RG fictício têm grande relevância acadêmica, permitindo experimentação segura, aprendizado de algoritmos e teste de interfaces, tudo sem comprometer dados pessoais reais. Além disso, possibilita que pesquisadores compreendam melhor o funcionamento dos órgãos emissores e da lógica por trás da identificação civil, contribuindo para a criação de sistemas mais seguros e confiáveis. Em resumo, o RG é um documento central na vida civil de cada brasileiro, com funções administrativas, legais e sociais importantes. O conhecimento sobre sua estrutura, emissão e validação permite o desenvolvimento de soluções digitais seguras e confiáveis. Geradores de RG fictícios, como esta ferramenta, desempenham papel educativo e prático, garantindo que testes e pesquisas possam ser realizados de forma ética, segura e eficiente, respeitando totalmente a privacidade e integridade de cada cidadão."
 }
 };
 
