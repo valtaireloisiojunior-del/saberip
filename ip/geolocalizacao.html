@@ -1,10 +1,3 @@
-
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-
-
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -14,8 +7,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- SEO -->
-  <title><!-- TITULO DA FERRAMENTA --> | Saber IP</title>
-  <meta name="description" content="<!-- DESCRIÇÃO ÚNICA DA FERRAMENTA -->">
+  <title>Meu IP Agora | Saber IP</title>
+  <meta name="description" content="Veja seu IP, localização exata no mapa e use ferramentas online gratuitas.">
   <meta name="robots" content="index, follow">
   <meta name="author" content="Saber IP">
 
@@ -30,11 +23,10 @@
   </script>
 
   <!-- Open Graph -->
-  <meta property="og:title" content="<!-- TITULO DA FERRAMENTA --> | Saber IP">
-  <meta property="og:description" content="<!-- DESCRIÇÃO ÚNICA DA FERRAMENTA -->">
+  <meta property="og:title" content="Meu IP Agora | Saber IP">
+  <meta property="og:description" content="Veja seu IP, localização exata no mapa e use ferramentas online gratuitas.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="">
-
   <script>
     document.addEventListener("DOMContentLoaded", () => {
       document.querySelector('meta[property="og:url"]').content = window.location.href;
@@ -55,35 +47,27 @@
     gtag('config', 'G-MCNWEQ8XMH');
   </script>
 
+  <!-- Leaflet -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
 
-
-
-
-<meta charset="UTF-8">
-<title>Meu IP Agora | Saber IP</title>
-<meta name="description" content="Veja seu IP, localização exata no mapa e use ferramentas online gratuitas.">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<!-- Leaflet -->
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
-
-<style>
-body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#0d0d0d;color:#fff;text-align:center;}
-h1{font-size:42px;color:#00ff99;margin:20px 0;}
-h2{color:#00ff99;margin-top:50px;}
-.ip-box{background:#111;padding:30px;border-radius:20px;max-width:700px;margin:20px auto;}
-.ip{font-size:48px;font-weight:bold;margin:20px 0;word-wrap:break-word;}
-.btn{padding:15px 30px;font-size:20px;border-radius:12px;border:none;cursor:pointer;margin:10px;}
-.btn-main{background:#00ff99;color:#000;}
-.btn-outline{background:#111;color:#00ff99;border:2px solid #00ff99;}
-#map{height:350px;border-radius:20px;margin-top:20px;}
-.info{font-size:18px;color:#ccc;margin-top:10px;}
-.tools{max-width:1000px;margin:40px auto;text-align:left;}
-.tools a{display:block;background:#111;padding:15px;margin:10px 0;border-radius:12px;color:#00ff99;text-decoration:none;font-size:20px;}
-.tools a:hover{background:#00ff99;color:#000;}
-footer{margin:60px 0;color:#777;font-size:14px;}
-footer a{color:#00ff99;text-decoration:none;margin:0 10px;}
-</style>
+  <style>
+    body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#0d0d0d;color:#fff;text-align:center;}
+    h1{font-size:42px;color:#00ff99;margin:20px 0;}
+    h2{color:#00ff99;margin-top:50px;}
+    .ip-box{background:#111;padding:30px;border-radius:20px;max-width:700px;margin:20px auto;}
+    .ip{font-size:48px;font-weight:bold;margin:20px 0;word-wrap:break-word;}
+    .btn{padding:15px 30px;font-size:20px;border-radius:12px;border:none;cursor:pointer;margin:10px;}
+    .btn-main{background:#00ff99;color:#000;}
+    .btn-outline{background:#111;color:#00ff99;border:2px solid #00ff99;}
+    #map{height:350px;border-radius:20px;margin-top:20px;}
+    .info{font-size:18px;color:#ccc;margin-top:10px;}
+    .tools{max-width:1000px;margin:40px auto;text-align:left;}
+    .tools a{display:block;background:#111;padding:15px;margin:10px 0;border-radius:12px;color:#00ff99;text-decoration:none;font-size:20px;}
+    .tools a:hover{background:#00ff99;color:#000;}
+    .article-box{background:#111;padding:25px;border-radius:20px;max-width:900px;margin:40px auto;text-align:justify;color:#ccc;font-size:16px;line-height:1.7;}
+    footer{margin:60px 0;color:#777;font-size:14px;}
+    footer a{color:#00ff99;text-decoration:none;margin:0 10px;}
+  </style>
 </head>
 
 <body>
@@ -95,6 +79,18 @@ footer a{color:#00ff99;text-decoration:none;margin:0 10px;}
   <button class="btn btn-main" onclick="copiarIP()">📋 Copiar IP</button>
   <div class="info" id="geo">Obtendo localização...</div>
   <div id="map"></div>
+</div>
+
+<!-- ARTIGO SOBRE IP (4000 CARACTERES) -->
+<div class="article-box">
+<h2>📘 O que é o endereço IP e como ele funciona?</h2>
+<p>O endereço IP, ou Internet Protocol, é um identificador único atribuído a cada dispositivo conectado a uma rede que utiliza o protocolo de internet. Cada IP funciona como uma espécie de "identidade" digital, permitindo que informações sejam enviadas e recebidas corretamente. Assim como uma correspondência precisa de um endereço postal, os dados na internet precisam de um IP para chegar ao destino correto.</p>
+<p>Existem dois tipos principais de endereços IP: IPv4 e IPv6. O IPv4 utiliza 32 bits, divididos em quatro octetos, como 192.168.0.1, enquanto o IPv6 utiliza 128 bits, permitindo uma quantidade muito maior de endereços. O IPv4 está se tornando escasso devido ao aumento de dispositivos conectados, e o IPv6 foi criado para suprir essa necessidade, garantindo conectividade global sem repetição de endereços.</p>
+<p>Os IPs podem ser públicos ou privados. O IP público é visível na internet e fornecido pelo provedor de internet, sendo único globalmente. O IP privado é utilizado dentro de redes locais para comunicação interna entre dispositivos, sem expor diretamente o endereço para a internet.</p>
+<p>Além disso, os IPs podem ser dinâmicos ou estáticos. Um IP dinâmico muda a cada nova conexão ou conforme definido pelo provedor, enquanto o IP estático permanece o mesmo, ideal para servidores e aplicações que necessitam de acesso contínuo. Conhecer essa diferença é fundamental para administradores de redes, desenvolvedores e usuários que configuram sistemas e serviços online.</p>
+<p>O endereço IP também é essencial para segurança. Firewalls, roteadores e softwares de monitoramento utilizam o IP para controlar acesso, detectar ameaças e evitar invasões. Localizar a origem de um IP ajuda a identificar tentativas de fraude ou acessos não autorizados. Ferramentas de geolocalização permitem entender o tráfego e otimizar recursos em websites, redes e aplicativos.</p>
+<p>Em desenvolvimento de software e testes, o IP é crucial. Permite configurar servidores, redes internas e simular ambientes diversos. Desenvolvedores e estudantes de TI usam IPs para aprender roteamento, validação e segurança. Além disso, em análises de tráfego e estatísticas, o IP ajuda a identificar padrões de uso, otimizar desempenho e distribuir recursos de forma eficiente.</p>
+<p>Com a popularização da Internet das Coisas (IoT), bilhões de dispositivos conectados simultaneamente dependem de endereços IP únicos. Compreender seu funcionamento garante que aplicações e redes operem de forma confiável e segura. Em resumo, o endereço IP é mais do que um número: é a base da comunicação digital moderna, sendo fundamental para educação, testes e administração de sistemas na internet.</p>
 </div>
 
 <h2>🛠 Ferramentas Saber IP</h2>
@@ -134,7 +130,7 @@ footer a{color:#00ff99;text-decoration:none;margin:0 10px;}
 <script>
 let userIP = "";
 
-// Função para pegar IP via API confiável (funciona em mobile e desktop)
+// Função para pegar IP via API
 async function pegarIP() {
   try {
     const res = await fetch("https://api64.ipify.org?format=json");
@@ -142,7 +138,7 @@ async function pegarIP() {
     userIP = dataIP.ip;
     document.getElementById("ip").innerText = userIP;
 
-    // Agora pegar geolocalização
+    // Geolocalização
     const geoRes = await fetch(`https://ipapi.co/${userIP}/json/`);
     const geo = await geoRes.json();
 
@@ -170,7 +166,7 @@ function copiarIP(){
   navigator.clipboard.writeText(userIP).then(()=>{alert("IP copiado!")});
 }
 
-// Chama a função ao carregar
+// Chama ao carregar
 pegarIP();
 </script>
 
