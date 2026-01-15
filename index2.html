@@ -1,179 +1,138 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2713105320249369"
+        crossorigin="anonymous"></script>
+
+<!-- Básico -->
 <meta charset="UTF-8">
-<title>Saber IP — Descubra seu IP agora</title>
-<meta name="description" content="Veja seu IP público automaticamente. Ferramentas online simples e rápidas.">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<!-- SEO -->
+<title>SEUIP.ORG – Descubra Seu IP Agora | Ferramentas Online Gratuitas</title>
+<meta name="description" content="Descubra seu IP público, localização, DNS, navegador e utilize ferramentas online gratuitas no SEUIP.ORG. Rápido, seguro e sem cadastro.">
+<meta name="robots" content="index, follow">
+<meta name="author" content="SEUIP.ORG">
+
+<!-- Canonical -->
+<link rel="canonical" href="https://seuip.org/">
+
+<!-- Open Graph -->
+<meta property="og:title" content="SEUIP.ORG – Descubra Seu IP Agora">
+<meta property="og:description" content="Ferramentas online gratuitas para consultar IP, localização, DNS, navegador e muito mais.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://seuip.org/">
+<meta property="og:site_name" content="SEUIP.ORG">
+
+<!-- Google Analytics GA4 (CORRIGIDO, SEM DUPLICAÇÃO) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MCNWEQ8XMH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-MCNWEQ8XMH');
+</script>
+
+<meta name="keywords" content="seuip.org, qual é meu ip, ip agora, gerador cpf, validador cnpj, ferramentas online, desenvolvedor">
+
 <style>
-body {
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  background: #0d0d0d;
-  color: #ffffff;
-  text-align: center;
-}
-
-header {
-  padding: 50px 20px 20px;
-}
-
-h1 {
-  font-size: 42px;
-  color: #00ff99;
-  margin-bottom: 5px;
-}
-
-p {
-  font-size: 20px;
-  color: #ccc;
-}
-
-.ip-box {
-  margin: 30px auto;
-  background: #111;
-  max-width: 600px;
-  padding: 30px 20px;
-  border-radius: 16px;
-}
-
-.ip-label {
-  font-size: 20px;
-  color: #aaa;
-}
-
-.ip-value {
-  font-size: 40px;
-  font-weight: bold;
-  color: #00ff99;
-  margin: 15px 0;
-  word-break: break-all;
-}
-
-button {
-  background: #00ff99;
-  color: #000;
-  border: none;
-  padding: 15px 30px;
-  font-size: 20px;
-  border-radius: 10px;
-  cursor: pointer;
-}
-
-button:hover {
-  opacity: 0.9;
-}
-
-.section {
-  max-width: 700px;
-  margin: 30px auto;
-  padding: 20px;
-}
-
-a.card {
-  display: block;
-  background: #111;
-  margin: 15px 0;
-  padding: 25px;
-  border-radius: 12px;
-  text-decoration: none;
-  color: #ffffff;
-  font-size: 24px;
-  font-weight: bold;
-}
-
-a.card:hover {
-  background: #00ff99;
-  color: #000;
-}
-
-span.desc {
-  display: block;
-  font-size: 16px;
-  font-weight: normal;
-  margin-top: 8px;
-}
-
-footer {
-  margin: 40px 0;
-  font-size: 14px;
-  color: #777;
-}
-
-footer a {
-  color: #00ff99;
-  text-decoration: none;
-  margin: 0 10px;
-}
+/* === SEU CSS ORIGINAL (INTACTO) === */
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,Helvetica,sans-serif;}
+body{background-color:#0d0d0d;color:#f0f0f0;line-height:1.6;padding:20px;max-width:1400px;margin:0 auto;}
+.main-header{text-align:center;padding:30px 20px 20px;margin-bottom:25px;border-bottom:1px solid #222;}
+.main-header h1{color:#00ff99;font-size:2.2rem;margin-bottom:8px;}
+.main-header h1 a{color:#00ff99;text-decoration:none;}
+.main-header p{color:#aaa;font-size:1rem;}
+.ip-mega-box{background:#111;border-radius:20px;padding:30px;margin:30px auto;max-width:900px;text-align:center;border:2px solid #222;}
+.ip-display{color:#00ff99;font-size:2.5rem;font-weight:bold;margin:20px 0;}
+.main-btn{background:#00ff99;color:#000;border:none;border-radius:12px;padding:15px 25px;font-weight:bold;cursor:pointer;text-decoration:none;margin:5px;display:inline-block}
+.main-btn.secondary{background:none;color:#00ff99;border:2px solid #00ff99}
+.tools-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:25px;margin-top:25px}
+.tool-card{background:#111;border-radius:15px;padding:25px;border:1px solid #222}
+.tool-title{font-size:1.2rem;color:#fff;margin-bottom:10px}
+.tool-desc{color:#aaa;margin-bottom:15px}
+.tool-btn{display:block;text-align:center;background:#00ff99;color:#000;padding:10px;border-radius:8px;text-decoration:none;font-weight:bold}
+footer{text-align:center;margin-top:60px;color:#777}
+footer a{color:#00ff99;text-decoration:none;margin:0 10px}
 </style>
 </head>
 
 <body>
 
-<header>
-  <h1>Saber IP</h1>
-  <p>Veja seu IP público instantaneamente</p>
+<header class="main-header">
+  <h1><a href="index.html">🌐 SEUIP.ORG</a></h1>
+  <p>Ferramentas online gratuitas para desenvolvedores, estudantes e usuários</p>
 </header>
 
-<!-- IP EM DESTAQUE -->
-<div class="ip-box">
-  <div class="ip-label">Seu IP público é:</div>
-  <div class="ip-value" id="ip">Carregando...</div>
-  <button onclick="copiarIP()">📋 Copiar IP</button>
+<!-- IP BOX -->
+<div class="ip-mega-box">
+  <div>🔍 Seu IP Público</div>
+  <div class="ip-display" id="ip">Carregando...</div>
+  <button class="main-btn" onclick="copiarIP()">Copiar IP</button>
+  <a class="main-btn secondary" href="ip/geolocalizacao.html">Geolocalização</a>
 </div>
 
 <!-- FERRAMENTAS -->
-<div class="section">
+<section>
+<h2 style="color:#00ff99;text-align:center">🛠 Todas as Ferramentas</h2>
 
-  <a class="card" href="ip/meu-ip.html">
-    Meu IP detalhado
-    <span class="desc">IP, localização e navegador</span>
-  </a>
+<div class="tools-grid">
 
-  <a class="card" href="geradores/cpf.html">
-    Gerador de CPF
-    <span class="desc">CPF válido para testes</span>
-  </a>
-
-  <a class="card" href="geradores/cnpj.html">
-    Gerador de CNPJ
-    <span class="desc">CNPJ válido para testes</span>
-  </a>
-
-  <a class="card" href="validadores/cpf.html">
-    Validador de CPF
-    <span class="desc">Verifique se um CPF é válido</span>
-  </a>
-
+<!-- IP -->
+<div class="tool-card">
+  <div class="tool-title">Meu IP</div>
+  <div class="tool-desc">Descubra seu IP público</div>
+  <a class="tool-btn" href="ip/meu-ip.html">Acessar</a>
 </div>
 
+<div class="tool-card">
+  <div class="tool-title">Geolocalização IP</div>
+  <div class="tool-desc">Localização aproximada do IP</div>
+  <a class="tool-btn" href="ip/geolocalizacao.html">Ver</a>
+</div>
+
+<!-- GERADORES -->
+<div class="tool-card"><div class="tool-title">Gerador de CPF</div><a class="tool-btn" href="geradores/cpf.html">Abrir</a></div>
+<div class="tool-card"><div class="tool-title">Gerador de CNPJ</div><a class="tool-btn" href="geradores/cnpj.html">Abrir</a></div>
+<div class="tool-card"><div class="tool-title">Gerador de RG</div><a class="tool-btn" href="geradores/rg.html">Abrir</a></div>
+<div class="tool-card"><div class="tool-title">Cartão de Crédito</div><a class="tool-btn" href="geradores/cartao-credito.html">Abrir</a></div>
+<div class="tool-card"><div class="tool-title">Gerador de Senha</div><a class="tool-btn" href="geradores/senha.html">Abrir</a></div>
+<div class="tool-card"><div class="tool-title">QR Code</div><a class="tool-btn" href="geradores/qr-code.html">Abrir</a></div>
+
+<!-- VALIDADORES -->
+<div class="tool-card"><div class="tool-title">Validador de CPF</div><a class="tool-btn" href="validadores/cpf.html">Validar</a></div>
+<div class="tool-card"><div class="tool-title">Validador de CNPJ</div><a class="tool-btn" href="validadores/cnpj.html">Validar</a></div>
+<div class="tool-card"><div class="tool-title">Validador de RG</div><a class="tool-btn" href="validadores/rg.html">Validar</a></div>
+
+<!-- OUTROS -->
+<div class="tool-card"><div class="tool-title">Calculadora</div><a class="tool-btn" href="calculadora/index.html">Abrir</a></div>
+<div class="tool-card"><div class="tool-title">Consulta DNS</div><a class="tool-btn" href="dns/index.html">Consultar</a></div>
+
+</div>
+</section>
+
 <footer>
+  <a href="index.html">Início</a> |
   <a href="sobre.html">Sobre</a> |
   <a href="privacidade.html">Privacidade</a> |
   <a href="contato.html">Contato</a>
-  <br><br>
-  © 2026 — Saber IP
+  <p>© 2026 SEUIP.ORG</p>
 </footer>
 
 <script>
-// Busca IP público
-fetch("https://api.ipify.org?format=json")
-  .then(res => res.json())
-  .then(data => {
-    document.getElementById("ip").innerText = data.ip;
-  })
-  .catch(() => {
-    document.getElementById("ip").innerText = "Não foi possível carregar";
-  });
-
-// Copiar IP
-function copiarIP() {
-  const ip = document.getElementById("ip").innerText;
-  navigator.clipboard.writeText(ip).then(() => {
-    alert("IP copiado: " + ip);
-  });
+async function detectarIP(){
+  const r = await fetch('https://api.ipify.org?format=json');
+  const j = await r.json();
+  document.getElementById('ip').innerText = j.ip;
 }
+function copiarIP(){
+  navigator.clipboard.writeText(document.getElementById('ip').innerText);
+  alert('IP copiado');
+}
+detectarIP();
 </script>
 
 </body>
