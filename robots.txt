@@ -1,4 +1,29 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://valtaireloisiojunior-del.github.io/saberip/sitemap.xml
+# Sitemap
+Sitemap: https://seuip.org/sitemap.xml
+
+# Google
+User-agent: Googlebot
+Allow: /
+
+# Google Ads
+User-agent: AdsBot-Google
+Allow: /
+
+# Bing
+User-agent: Bingbot
+Allow: /
+
+# DuckDuckGo
+User-agent: DuckDuckBot
+Allow: /
+
+# Yandex
+User-agent: YandexBot
+Allow: /
+
+# Yahoo
+User-agent: Slurp
+Allow: /
