@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Gerador de Link do WhatsApp | SEUIP.ORG</title>
+<meta name="description" content="Crie links do WhatsApp personalizados com número e mensagem automática. Gere links wa.me para divulgação, vendas e atendimento.">
+<meta name="robots" content="index, follow">
+
+<link rel="canonical" href="https://seuip.org/geradores/whatsapp-link.html">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,Helvetica,sans-serif}
+body{background:#0d0d0d;color:#f0f0f0;padding:20px;max-width:900px;margin:auto}
+h1{color:#00ff99;text-align:center;margin-bottom:10px}
+p{text-align:center;color:#aaa;margin-bottom:25px}
+
+.box{background:#111;border:1px solid #222;border-radius:15px;padding:25px}
+label{display:block;margin-top:15px;color:#00ff99;font-weight:bold}
+input,textarea{width:100%;padding:12px;margin-top:8px;border-radius:8px;
+border:1px solid #333;background:#050505;color:#fff}
+textarea{resize:vertical;min-height:80px}
+
+button{margin-top:20px;width:100%;padding:15px;border:none;border-radius:10px;
+background:#00ff99;color:#000;font-size:1rem;font-weight:bold;cursor:pointer}
+button:hover{background:#00cc77}
+
+.result{margin-top:25px;background:#050505;border:2px solid #00ff99;
+border-radius:12px;padding:20px;text-align:center;word-break:break-all}
+.result a{color:#00ff99;text-decoration:none}
+
+.actions{display:flex;gap:10px;margin-top:15px;flex-wrap:wrap}
+.actions button{flex:1;background:transparent;color:#00ff99;border:2px solid #00ff99}
+.actions button:hover{background:rgba(0,255,153,0.1)}
+
+.back{display:block;margin-top:30px;text-align:center;color:#00ff99;text-decoration:none}
+</style>
+</head>
+
+<body>
+
+<h1>💬 Gerador de Link do WhatsApp</h1>
+<p>Crie links personalizados do WhatsApp com número e mensagem automática</p>
+
+<div class="box">
+
+<label>Número de telefone (com DDD)</label>
+<input id="telefone" placeholder="Ex: 11987654321">
+
+<label>Mensagem (opcional)</label>
+<textarea id="mensagem" placeholder="Olá, gostaria de mais informações."></textarea>
+
+<button onclick="gerarLink()">🔗 Gerar Link</button>
+
+<div class="result" id="resultado" style="display:none">
+  <div id="link"></div>
+
+  <div class="actions">
+    <button onclick="copiar()">📋 Copiar Link</button>
+    <button onclick="abrir()">🚀 Abrir WhatsApp</button>
+  </div>
+</div>
+
+</div>
+
+<a href="../index.html" class="back">⬅ Voltar para o início</a>
+
+<script>
+function gerarLink(){
+  let tel = document.getElementById('telefone').value;
+  let msg = document.getElementById('mensagem').value;
+
+  tel = tel.replace(/\D/g,'');
+
+  if(tel.length < 10){
+    alert('Digite um número válido com DDD');
+    return;
+  }
+
+  let url = 'https://wa.me/55' + tel;
+
+  if(msg.trim() !== ''){
+    url += '?text=' + encodeURIComponent(msg);
+  }
+
+  document.getElementById('link').innerHTML =
+    `<a href="${url}" target="_blank">${url}</a>`;
+
+  document.getElementById('resultado').style.display = 'block';
+}
+
+function copiar(){
+  const text = document.getElementById('link').innerText;
+  navigator.clipboard.writeText(text);
+  alert('Link copiado!');
+}
+
+function abrir(){
+  window.open(document.getElementById('link').innerText,'_blank');
+}
+</script>
+
+</body>
+</html>
