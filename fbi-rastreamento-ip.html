@@ -32,6 +32,8 @@
     
     <!-- Leaflet CSS para mapa -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <!-- Leaflet Extra Layers -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
@@ -444,33 +446,114 @@
             font-family: 'Courier New', monospace;
         }
         
-        /* Map Container */
+        /* Map Container - MELHORADO */
         .fbi-map-container {
-            height: 450px;
+            height: 550px;
             border-radius: 10px;
             overflow: hidden;
             margin: 30px 0;
-            border: 2px solid var(--fbi-blue);
-            box-shadow: 0 0 20px rgba(0, 48, 135, 0.3);
+            border: 3px solid var(--fbi-blue);
+            box-shadow: 0 0 30px rgba(0, 48, 135, 0.5);
             position: relative;
         }
         
         #fbi-map {
             height: 100%;
             width: 100%;
+            background: var(--fbi-dark);
         }
         
         .map-overlay {
             position: absolute;
             top: 10px;
             right: 10px;
-            background: rgba(0, 0, 0, 0.8);
-            padding: 10px 15px;
-            border-radius: 6px;
-            border: 1px solid var(--fbi-gold);
+            background: rgba(0, 0, 0, 0.85);
+            padding: 12px 20px;
+            border-radius: 8px;
+            border: 2px solid var(--fbi-gold);
             color: var(--fbi-gold);
             font-size: 0.9rem;
             z-index: 1000;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+        }
+        
+        .map-controls {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0.85);
+            padding: 10px;
+            border-radius: 8px;
+            border: 2px solid var(--fbi-blue);
+            display: flex;
+            gap: 8px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .map-control-btn {
+            background: rgba(0, 48, 135, 0.3);
+            color: var(--fbi-light);
+            border: 1px solid var(--fbi-blue);
+            border-radius: 5px;
+            padding: 8px 12px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .map-control-btn:hover {
+            background: rgba(0, 48, 135, 0.6);
+            border-color: var(--fbi-gold);
+        }
+        
+        .map-control-btn.active {
+            background: var(--fbi-blue);
+            color: white;
+            border-color: var(--fbi-gold);
+        }
+        
+        /* FBI Map Legend */
+        .map-legend {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            background: rgba(0, 0, 0, 0.85);
+            padding: 15px;
+            border-radius: 8px;
+            border: 2px solid var(--fbi-red);
+            color: var(--fbi-light);
+            font-size: 0.8rem;
+            z-index: 1000;
+            max-width: 200px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin: 8px 0;
+        }
+        
+        .legend-color {
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+        }
+        
+        .legend-fbi {
+            background: var(--fbi-red);
+            border: 2px solid var(--fbi-gold);
+        }
+        
+        .legend-precision {
+            background: rgba(255, 215, 0, 0.3);
+            border: 2px dashed var(--fbi-gold);
         }
         
         /* Loader */
@@ -644,7 +727,16 @@
             }
             
             .fbi-map-container {
-                height: 300px;
+                height: 400px;
+            }
+            
+            .map-controls {
+                flex-wrap: wrap;
+            }
+            
+            .map-overlay, .map-legend {
+                font-size: 0.7rem;
+                padding: 8px 12px;
             }
         }
         
@@ -661,6 +753,10 @@
             .fbi-tab-btn {
                 padding: 10px 15px;
                 font-size: 14px;
+            }
+            
+            .fbi-map-container {
+                height: 350px;
             }
         }
         
@@ -710,6 +806,31 @@
         @keyframes ipGlow {
             from { box-shadow: 0 0 20px rgba(0, 48, 135, 0.3); }
             to { box-shadow: 0 0 40px rgba(0, 48, 135, 0.6); }
+        }
+        
+        /* Animação do Marcador FBI */
+        @keyframes pulseMarker {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.2); opacity: 0.8; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        
+        /* Estilo customizado para popup do Leaflet */
+        .leaflet-popup-content-wrapper {
+            background: var(--fbi-dark) !important;
+            color: var(--fbi-light) !important;
+            border: 2px solid var(--fbi-gold) !important;
+            border-radius: 8px !important;
+        }
+        
+        .leaflet-popup-tip {
+            background: var(--fbi-gold) !important;
+        }
+        
+        .leaflet-control-attribution {
+            background: rgba(0, 0, 0, 0.7) !important;
+            color: var(--fbi-light) !important;
+            font-size: 11px !important;
         }
     </style>
     
@@ -888,14 +1009,48 @@
                     </div>
                 </div>
                 
-                <!-- MAP -->
+                <!-- MAPA FBI COM CONTROLES -->
                 <h3 style="color: var(--fbi-gold); margin: 30px 0 15px;">
                     <i class="fas fa-map"></i> MAPA DE GEOLOCALIZAÇÃO FBI
                 </h3>
                 <div class="fbi-map-container">
                     <div id="fbi-map"></div>
+                    
+                    <!-- Controles do Mapa -->
+                    <div class="map-controls">
+                        <button class="map-control-btn active" onclick="switchMapLayer('street')">
+                            <i class="fas fa-map"></i> Rua
+                        </button>
+                        <button class="map-control-btn" onclick="switchMapLayer('satellite')">
+                            <i class="fas fa-satellite"></i> Satélite
+                        </button>
+                        <button class="map-control-btn" onclick="switchMapLayer('terrain')">
+                            <i class="fas fa-mountain"></i> Terreno
+                        </button>
+                        <button class="map-control-btn" onclick="centerOnMarker()">
+                            <i class="fas fa-crosshairs"></i> Centralizar
+                        </button>
+                        <button class="map-control-btn" onclick="zoomToIP()">
+                            <i class="fas fa-search-location"></i> Zoom
+                        </button>
+                    </div>
+                    
+                    <!-- Overlay do Mapa -->
                     <div class="map-overlay">
-                        <i class="fas fa-crosshairs"></i> LOCALIZAÇÃO ATIVA
+                        <i class="fas fa-crosshairs"></i> LOCALIZAÇÃO ATIVA - SISTEMA FBI
+                    </div>
+                    
+                    <!-- Legenda do Mapa -->
+                    <div class="map-legend">
+                        <strong><i class="fas fa-key"></i> LEGENDA FBI:</strong>
+                        <div class="legend-item">
+                            <div class="legend-color legend-fbi"></div>
+                            <span>Marcador FBI</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color legend-precision"></div>
+                            <span>Área de Precisão</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1176,8 +1331,10 @@
 
     <!-- Leaflet JS para mapa -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <!-- Leaflet Extra Layers -->
+    <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
     
-    <!-- FBI TRACKING SCRIPT -->
+    <!-- FBI TRACKING SCRIPT COM MAPA COMPLETO -->
     <script>
         // ============================================
         // 🚨 SISTEMA FBI DE RASTREAMENTO DE IP
@@ -1188,6 +1345,8 @@
         let fbiMarker = null;
         let fbiData = {};
         let fbiTrackingActive = false;
+        let currentMapLayer = 'street';
+        let mapLayers = {};
         
         // Constantes do sistema
         const FBI_VERSION = "3.0.0";
@@ -1278,8 +1437,8 @@
                 // Atualizar interface
                 updateFBIInterface(data);
                 
-                // Atualizar mapa
-                fbiUpdateMap(data.latitude, data.longitude, data.city, data.country_name);
+                // Inicializar ou atualizar mapa
+                fbiInitializeMap(data.latitude, data.longitude, data.city, data.country_name);
                 
                 // Gerar relatório
                 fbiGenerateFullReport(data);
@@ -1288,6 +1447,9 @@
                 clearInterval(statusInterval);
                 loader.style.display = 'none';
                 results.style.display = 'block';
+                
+                // Scroll para resultados
+                results.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 
                 // Mostrar notificação
                 fbiShowNotification(`✅ IP ${data.ip} rastreado com sucesso!`, "success");
@@ -1316,12 +1478,334 @@
                 updateFBIInterface(simulatedData);
                 results.style.display = 'block';
                 
+                // Inicializar mapa com dados simulados
+                fbiInitializeMap(simulatedData.latitude, simulatedData.longitude, simulatedData.city, simulatedData.country_name);
+                
                 fbiShowNotification("⚠️ Usando modo de demonstração", "warning");
             }
         }
         
         // ============================================
-        // 🗺️ FUNÇÕES DE ATUALIZAÇÃO DA INTERFACE
+        // 🗺️ FUNÇÕES DO MAPA FBI
+        // ============================================
+        function fbiInitializeMap(lat, lon, city, country) {
+            if (!lat || !lon) {
+                lat = -23.5505; // São Paulo como fallback
+                lon = -46.6333;
+            }
+            
+            const latNum = parseFloat(lat);
+            const lonNum = parseFloat(lon);
+            
+            // Se o mapa ainda não existe, criar
+            if (!fbiMap) {
+                // Criar mapa com tema FBI
+                fbiMap = L.map('fbi-map', {
+                    center: [latNum, lonNum],
+                    zoom: 10,
+                    zoomControl: true,
+                    attributionControl: true,
+                    fadeAnimation: true,
+                    zoomAnimation: true,
+                    preferCanvas: true
+                });
+                
+                // Adicionar camadas
+                mapLayers.street = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                    attribution: '© OpenStreetMap | Sistema FBI',
+                    maxZoom: 19,
+                    id: 'osm.streets'
+                });
+                
+                mapLayers.satellite = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+                    attribution: '© Esri | Sistema FBI',
+                    maxZoom: 18
+                });
+                
+                mapLayers.terrain = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
+                    attribution: '© OpenTopoMap | Sistema FBI',
+                    maxZoom: 17
+                });
+                
+                // Adicionar layer padrão
+                mapLayers.street.addTo(fbiMap);
+                currentMapLayer = 'street';
+                
+                // Adicionar controle de camadas
+                L.control.layers({
+                    "Mapa de Rua": mapLayers.street,
+                    "Imagem de Satélite": mapLayers.satellite,
+                    "Mapa de Terreno": mapLayers.terrain
+                }).addTo(fbiMap);
+                
+                // Adicionar controle de escala
+                L.control.scale({
+                    imperial: false,
+                    metric: true
+                }).addTo(fbiMap);
+                
+                // Configurar atribuição
+                fbiMap.attributionControl.setPrefix('<i class="fas fa-shield-alt"></i> Sistema FBI');
+                
+            } else {
+                // Apenas atualizar a visualização
+                fbiMap.setView([latNum, lonNum], 10);
+            }
+            
+            // Remover marcador anterior se existir
+            if (fbiMarker) {
+                fbiMap.removeLayer(fbiMarker);
+            }
+            
+            // Criar ícone personalizado do FBI
+            const fbiIcon = L.divIcon({
+                html: `
+                    <div style="
+                        width: 40px;
+                        height: 40px;
+                        background: ${fbiData.ip ? '#c41e3a' : '#003087'};
+                        border: 3px solid #ffd700;
+                        border-radius: 50%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        color: white;
+                        font-weight: bold;
+                        font-size: 14px;
+                        box-shadow: 0 0 15px rgba(196, 30, 58, 0.8);
+                        animation: pulseMarker 2s infinite;
+                        position: relative;
+                    ">
+                        <div style="
+                            position: absolute;
+                            top: -2px;
+                            left: -2px;
+                            right: -2px;
+                            bottom: -2px;
+                            border: 2px solid rgba(255, 215, 0, 0.5);
+                            border-radius: 50%;
+                            animation: pulseMarker 3s infinite;
+                        "></div>
+                        <span style="z-index: 2;">FBI</span>
+                    </div>
+                `,
+                className: 'fbi-marker-icon',
+                iconSize: [40, 40],
+                iconAnchor: [20, 40],
+                popupAnchor: [0, -40]
+            });
+            
+            // Adicionar marcador
+            fbiMarker = L.marker([latNum, lonNum], {
+                icon: fbiIcon,
+                title: 'Localização FBI',
+                alt: 'Marcador de localização do FBI',
+                riseOnHover: true
+            }).addTo(fbiMap);
+            
+            // Adicionar popup informativo
+            const popupContent = `
+                <div style="
+                    background: #0a0a1a;
+                    color: white;
+                    padding: 20px;
+                    border: 2px solid #ffd700;
+                    border-radius: 10px;
+                    max-width: 300px;
+                    font-family: 'Courier New', monospace;
+                ">
+                    <div style="
+                        display: flex;
+                        align-items: center;
+                        gap: 10px;
+                        margin-bottom: 15px;
+                        border-bottom: 1px solid rgba(255, 215, 0, 0.3);
+                        padding-bottom: 10px;
+                    ">
+                        <div style="
+                            background: #c41e3a;
+                            width: 30px;
+                            height: 30px;
+                            border-radius: 50%;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            color: white;
+                            font-weight: bold;
+                            border: 2px solid #ffd700;
+                        ">
+                            FBI
+                        </div>
+                        <h3 style="margin: 0; color: #ffd700; font-size: 16px;">
+                            LOCALIZAÇÃO CONFIRMADA
+                        </h3>
+                    </div>
+                    
+                    <div style="margin-bottom: 10px;">
+                        <strong style="color: #00ff99;">IP RASTREADO:</strong><br>
+                        <span style="font-size: 1.2rem; font-weight: bold;">${fbiData.ip || 'Desconhecido'}</span>
+                    </div>
+                    
+                    <div style="margin-bottom: 10px;">
+                        <strong style="color: #00ff99;">LOCAL:</strong><br>
+                        ${city || 'Desconhecida'}, ${country || 'Desconhecido'}
+                    </div>
+                    
+                    <div style="margin-bottom: 10px;">
+                        <strong style="color: #00ff99;">COORDENADAS:</strong><br>
+                        ${latNum.toFixed(6)}, ${lonNum.toFixed(6)}
+                    </div>
+                    
+                    <div style="margin-bottom: 10px;">
+                        <strong style="color: #00ff99;">PRECISÃO:</strong><br>
+                        ± 1-5 km (Sistema FBI)
+                    </div>
+                    
+                    <div style="
+                        margin-top: 15px;
+                        padding-top: 10px;
+                        border-top: 1px solid rgba(255, 215, 0, 0.3);
+                        font-size: 11px;
+                        color: #a0a0c0;
+                    ">
+                        <i class="fas fa-satellite"></i> Sistema de rastreamento FBI ativo<br>
+                        <i class="fas fa-shield-alt"></i> Conexão criptografada
+                    </div>
+                </div>
+            `;
+            
+            fbiMarker.bindPopup(popupContent, {
+                maxWidth: 350,
+                minWidth: 300,
+                autoClose: false,
+                closeOnClick: false,
+                className: 'fbi-popup'
+            }).openPopup();
+            
+            // Adicionar círculo de precisão
+            const accuracyCircle = L.circle([latNum, lonNum], {
+                color: '#ffd700',
+                fillColor: '#ffd700',
+                fillOpacity: 0.1,
+                weight: 2,
+                dashArray: '10, 5',
+                radius: 5000 // 5km
+            }).addTo(fbiMap);
+            
+            // Adicionar linha de conexão (efeito visual)
+            const connectionLine = L.polyline([
+                [latNum, lonNum],
+                [latNum + 0.1, lonNum + 0.1]
+            ], {
+                color: '#00ff99',
+                weight: 2,
+                opacity: 0.5,
+                dashArray: '20, 10'
+            }).addTo(fbiMap);
+            
+            // Animação da linha
+            let dashOffset = 0;
+            setInterval(() => {
+                dashOffset = (dashOffset + 1) % 100;
+                connectionLine.setStyle({
+                    dashOffset: dashOffset
+                });
+            }, 50);
+            
+            // Adicionar evento de clique no mapa
+            fbiMap.on('click', function(e) {
+                const popup = L.popup()
+                    .setLatLng(e.latlng)
+                    .setContent(`
+                        <div style="
+                            background: #0a0a1a;
+                            color: white;
+                            padding: 15px;
+                            border: 2px solid #003087;
+                            border-radius: 8px;
+                            font-family: 'Courier New', monospace;
+                        ">
+                            <strong style="color: #ffd700;">
+                                <i class="fas fa-map-pin"></i> COORDENADAS:
+                            </strong><br>
+                            ${e.latlng.lat.toFixed(6)}, ${e.latlng.lng.toFixed(6)}<br><br>
+                            <small style="color: #a0a0c0;">
+                                Clique no marcador FBI para mais informações
+                            </small>
+                        </div>
+                    `)
+                    .openOn(fbiMap);
+            });
+            
+            // Redimensionar mapa após carregamento
+            setTimeout(() => {
+                fbiMap.invalidateSize();
+            }, 100);
+            
+            // Track no Google Analytics
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'map_loaded', {
+                    'event_category': 'map',
+                    'event_label': 'FBI Map'
+                });
+            }
+        }
+        
+        // ============================================
+        // 🎮 CONTROLES DO MAPA
+        // ============================================
+        function switchMapLayer(layer) {
+            if (!fbiMap || !mapLayers[layer]) return;
+            
+            // Remover layer atual
+            if (mapLayers[currentMapLayer]) {
+                fbiMap.removeLayer(mapLayers[currentMapLayer]);
+            }
+            
+            // Adicionar nova layer
+            mapLayers[layer].addTo(fbiMap);
+            currentMapLayer = layer;
+            
+            // Atualizar botões
+            document.querySelectorAll('.map-control-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Encontrar e ativar botão correspondente
+            const layerText = layer === 'street' ? 'Rua' : 
+                            layer === 'satellite' ? 'Satélite' : 'Terreno';
+            
+            document.querySelectorAll('.map-control-btn').forEach(btn => {
+                if (btn.textContent.includes(layerText)) {
+                    btn.classList.add('active');
+                }
+            });
+            
+            fbiShowNotification(`🗺️ Mapa alterado para: ${layerText}`, "info");
+        }
+        
+        function centerOnMarker() {
+            if (fbiMap && fbiMarker) {
+                const markerLatLng = fbiMarker.getLatLng();
+                fbiMap.setView(markerLatLng, 15);
+                fbiMarker.openPopup();
+                fbiShowNotification("🎯 Centralizado no marcador FBI", "success");
+            }
+        }
+        
+        function zoomToIP() {
+            if (fbiMap && fbiMarker) {
+                const markerLatLng = fbiMarker.getLatLng();
+                fbiMap.setView(markerLatLng, 13, {
+                    animate: true,
+                    duration: 1.5
+                });
+                fbiShowNotification("🔍 Zoom aplicado na localização", "info");
+            }
+        }
+        
+        // ============================================
+        // 📊 FUNÇÕES DE ATUALIZAÇÃO DA INTERFACE
         // ============================================
         function updateFBIInterface(data) {
             // Atualizar display do IP
@@ -1402,73 +1886,6 @@
             
             // Atualizar relatório de ameaças
             updateThreatReport(data.ip);
-        }
-        
-        // ============================================
-        // 🗺️ FUNÇÕES DO MAPA
-        // ============================================
-        function fbiUpdateMap(lat, lon, city, country) {
-            if (!lat || !lon) {
-                lat = -23.5505; // São Paulo como fallback
-                lon = -46.6333;
-            }
-            
-            if (!fbiMap) {
-                // Criar mapa
-                fbiMap = L.map('fbi-map').setView([lat, lon], 10);
-                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                    attribution: '© OpenStreetMap contributors',
-                    maxZoom: 18
-                }).addTo(fbiMap);
-                
-                // Adicionar layer FBI
-                L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
-                    attribution: 'FBI Satellite Imagery'
-                }).addTo(fbiMap);
-            } else {
-                fbiMap.setView([lat, lon], 10);
-            }
-            
-            // Remover marcador anterior
-            if (fbiMarker) {
-                fbiMap.removeLayer(fbiMarker);
-            }
-            
-            // Adicionar novo marcador FBI
-            const fbiIcon = L.divIcon({
-                html: `<div style="background: ${fbiData.ip ? '#c41e3a' : '#003087'}; 
-                       width: 30px; height: 30px; border-radius: 50%; border: 3px solid #ffd700; 
-                       display: flex; align-items: center; justify-content: center; color: white; 
-                       font-weight: bold; font-size: 12px;">FBI</div>`,
-                className: 'fbi-marker',
-                iconSize: [30, 30],
-                iconAnchor: [15, 15]
-            });
-            
-            fbiMarker = L.marker([lat, lon], { icon: fbiIcon }).addTo(fbiMap)
-                .bindPopup(`
-                    <div style="background: #0a0a1a; color: white; padding: 15px; border: 2px solid #ffd700; border-radius: 8px;">
-                        <h3 style="margin: 0 0 10px 0; color: #ffd700; font-size: 16px;">
-                            <i class="fas fa-crosshairs"></i> LOCALIZAÇÃO FBI
-                        </h3>
-                        <p style="margin: 5px 0;"><strong>IP:</strong> ${fbiData.ip || 'Desconhecido'}</p>
-                        <p style="margin: 5px 0;"><strong>Local:</strong> ${city || 'Desconhecida'}, ${country || 'Desconhecido'}</p>
-                        <p style="margin: 5px 0;"><strong>Coordenadas:</strong> ${lat.toFixed(4)}, ${lon.toFixed(4)}</p>
-                        <p style="margin: 5px 0;"><strong>Precisão:</strong> ± 1-5 km</p>
-                        <p style="margin: 10px 0 0 0; font-size: 12px; color: #a0a0c0;">
-                            <i class="fas fa-satellite"></i> Sistema de rastreamento FBI ativo
-                        </p>
-                    </div>
-                `)
-                .openPopup();
-            
-            // Adicionar círculo de precisão
-            L.circle([lat, lon], {
-                color: '#ffd700',
-                fillColor: '#ffd700',
-                fillOpacity: 0.1,
-                radius: 5000 // 5km
-            }).addTo(fbiMap);
         }
         
         // ============================================
@@ -1654,6 +2071,13 @@
                     btn.classList.add('active');
                 }
             });
+            
+            // Se for a tab de geolocalização, redimensionar o mapa
+            if (tabId === 'geolocation' && fbiMap) {
+                setTimeout(() => {
+                    fbiMap.invalidateSize();
+                }, 300);
+            }
             
             // Track no Google Analytics
             if (typeof gtag !== 'undefined') {
@@ -2011,6 +2435,9 @@ Agente Responsável: Sistema Automatizado
         window.fbiGenerateReport = fbiGenerateReport;
         window.fbiPrintReport = fbiPrintReport;
         window.fbiShareReport = fbiShareReport;
+        window.switchMapLayer = switchMapLayer;
+        window.centerOnMarker = centerOnMarker;
+        window.zoomToIP = zoomToIP;
     </script>
 </body>
 </html>
