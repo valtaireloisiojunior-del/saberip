@@ -1,188 +1,1473 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Gerador de CPF Válido | SEUIP.ORG</title>
-<meta name="description" content="Gerador de CPF válido para testes e estudos. Aprenda a fórmula matemática do CPF passo a passo.">
-<meta name="robots" content="index, follow">
-<meta name="author" content="SEUIP.ORG">
-
-<link rel="canonical" href="https://seuip.org/geradores/cpf.html">
-
-<!-- Open Graph -->
-<meta property="og:title" content="Gerador de CPF Válido | SEUIP.ORG">
-<meta property="og:description" content="Gere CPF válido para testes e estudos. Entenda a fórmula oficial do CPF.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://seuip.org/geradores/cpf.html">
-
-<!-- AdSense -->
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2713105320249369"
-crossorigin="anonymous"></script>
-
-<style>
-body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#0d0d0d;color:#fff}
-header{text-align:center;padding:30px}
-header a{color:#00ff99;text-decoration:none;font-weight:bold}
-.lang{text-align:center;margin-top:10px}
-.lang button{margin:5px;padding:6px 14px;border-radius:6px;border:none;cursor:pointer}
-h1{color:#00ff99}
-.container{max-width:600px;margin:40px auto;padding:20px;text-align:center}
-button.main{background:#00ff99;color:#000;border:none;padding:14px 26px;font-size:18px;border-radius:10px;cursor:pointer}
-.result{font-size:26px;margin-top:25px;letter-spacing:2px}
-.options{margin-top:15px}
-.warning{background:#111;padding:15px;border-radius:8px;margin-top:30px;font-size:14px;color:#ccc}
-.article{max-width:900px;margin:60px auto;padding:20px;line-height:1.8;color:#ccc}
-.article h2,.article h3{color:#00ff99}
-footer{text-align:center;margin:50px 0;color:#777}
-footer a{color:#00ff99;text-decoration:none}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Gerador de CPF Avançado | SEUIP.ORG</title>
+    <meta name="description" content="Gerador completo de CPF com validação, lista personalizável, histórico, exportação e todas as ferramentas que você precisa.">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="SEUIP.ORG">
+    
+    <link rel="canonical" href="https://seuip.org/geradores/cpf.html">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Gerador de CPF Avançado | SEUIP.ORG">
+    <meta property="og:description" content="Gerador completo de CPF com todas as funcionalidades profissionais.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://seuip.org/geradores/cpf.html">
+    <meta property="og:image" content="https://seuip.org/images/cpf-generator-og.jpg">
+    
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Gerador de CPF Avançado">
+    <meta name="twitter:description" content="Ferramenta profissional para gerar e validar CPFs">
+    
+    <!-- AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2713105320249369" crossorigin="anonymous"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Toastify CSS para notificações -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    
+    <style>
+        :root {
+            --primary: #00ff99;
+            --primary-dark: #00cc77;
+            --secondary: #1a1a1a;
+            --bg-dark: #0d0d0d;
+            --bg-card: #111;
+            --border: #222;
+            --text: #fff;
+            --text-light: #ccc;
+            --danger: #ff4757;
+            --warning: #ffa502;
+            --info: #2ed573;
+            --shadow: 0 5px 20px rgba(0, 255, 153, 0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+            background: var(--bg-dark);
+            color: var(--text);
+            line-height: 1.6;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        header {
+            text-align: center;
+            padding: 30px 0;
+            margin-bottom: 30px;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .back-btn {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .lang-selector {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .lang-btn {
+            background: var(--bg-card);
+            color: var(--text-light);
+            border: 1px solid var(--border);
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 14px;
+        }
+        
+        .lang-btn:hover {
+            background: var(--primary);
+            color: #000;
+        }
+        
+        h1 {
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-size: 2.5rem;
+        }
+        
+        .subtitle {
+            color: var(--text-light);
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .main-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        @media (max-width: 900px) {
+            .main-container {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .card {
+            background: var(--bg-card);
+            border-radius: 16px;
+            padding: 25px;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow);
+        }
+        
+        .card-title {
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-size: 1.4rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .card-title i {
+            font-size: 1.2rem;
+        }
+        
+        .cpf-display {
+            background: #000;
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            padding: 25px;
+            text-align: center;
+            margin-bottom: 25px;
+            font-size: 2.2rem;
+            letter-spacing: 3px;
+            font-weight: bold;
+            font-family: 'Courier New', monospace;
+            min-height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .cpf-display .cpf-text {
+            color: var(--primary);
+        }
+        
+        .action-buttons {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+        
+        .btn {
+            background: var(--primary);
+            color: #000;
+            border: none;
+            padding: 15px;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        
+        .btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 255, 153, 0.3);
+        }
+        
+        .btn-secondary {
+            background: #333;
+            color: var(--text);
+        }
+        
+        .btn-secondary:hover {
+            background: #444;
+        }
+        
+        .btn-success {
+            background: var(--info);
+            color: #000;
+        }
+        
+        .btn-warning {
+            background: var(--warning);
+            color: #000;
+        }
+        
+        .btn-danger {
+            background: var(--danger);
+            color: #fff;
+        }
+        
+        .options-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .option-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 15px;
+            background: #1a1a1a;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+        
+        .option-item input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            accent-color: var(--primary);
+        }
+        
+        .option-item input[type="number"] {
+            width: 70px;
+            padding: 8px;
+            background: #000;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            color: var(--text);
+            text-align: center;
+        }
+        
+        .option-label {
+            flex-grow: 1;
+        }
+        
+        .input-group {
+            margin-bottom: 20px;
+        }
+        
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--text-light);
+        }
+        
+        .input-group input {
+            width: 100%;
+            padding: 15px;
+            background: #000;
+            border: 2px solid var(--border);
+            border-radius: 10px;
+            color: var(--text);
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+        
+        .input-group input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 2px rgba(0, 255, 153, 0.2);
+        }
+        
+        .list-container {
+            max-height: 400px;
+            overflow-y: auto;
+            margin-top: 20px;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 10px;
+            background: #000;
+        }
+        
+        .cpf-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .cpf-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 15px;
+            background: #1a1a1a;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+        
+        .cpf-item-text {
+            font-family: 'Courier New', monospace;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+        }
+        
+        .cpf-item-actions {
+            display: flex;
+            gap: 8px;
+        }
+        
+        .icon-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-light);
+            cursor: pointer;
+            padding: 6px;
+            border-radius: 6px;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .icon-btn:hover {
+            background: #333;
+            color: var(--primary);
+        }
+        
+        .history-container {
+            margin-top: 20px;
+        }
+        
+        .history-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 15px;
+            background: #1a1a1a;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            border-left: 4px solid var(--primary);
+        }
+        
+        .history-cpf {
+            font-family: 'Courier New', monospace;
+            font-size: 1rem;
+        }
+        
+        .history-time {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .stat-card {
+            background: #1a1a1a;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            border: 1px solid var(--border);
+        }
+        
+        .stat-value {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+        
+        .stat-label {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+        
+        .warning-box {
+            background: rgba(255, 165, 2, 0.1);
+            border: 1px solid var(--warning);
+            color: var(--warning);
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 30px;
+            font-size: 0.95rem;
+        }
+        
+        .danger-box {
+            background: rgba(255, 71, 87, 0.1);
+            border: 1px solid var(--danger);
+            color: var(--danger);
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 30px;
+            font-size: 0.95rem;
+        }
+        
+        .info-box {
+            background: rgba(46, 213, 115, 0.1);
+            border: 1px solid var(--info);
+            color: var(--info);
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 30px;
+            font-size: 0.95rem;
+        }
+        
+        .section-title {
+            color: var(--primary);
+            margin: 40px 0 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 60px;
+            padding-top: 30px;
+            border-top: 1px solid var(--border);
+            color: var(--text-light);
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 20px 0;
+        }
+        
+        .footer-links a {
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+        
+        .disclaimer {
+            font-size: 0.9rem;
+            color: #777;
+            margin-top: 20px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .ad-container {
+            margin: 30px 0;
+            text-align: center;
+            padding: 20px;
+            background: #1a1a1a;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+        }
+        
+        /* Scrollbar personalizada */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #1a1a1a;
+            border-radius: 10px;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 10px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary-dark);
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .cpf-display {
+                font-size: 1.8rem;
+                padding: 20px;
+            }
+            
+            .action-buttons {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .options-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .header-top {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+    </style>
 </head>
 
 <body>
-
-<header>
-<a href="https://seuip.org">← SEUIP.ORG</a>
-
-<div class="lang">
-<button onclick="setLang('pt')">🇧🇷 PT</button>
-<button onclick="setLang('en')">🇺🇸 EN</button>
-<button onclick="setLang('es')">🇪🇸 ES</button>
-</div>
-
-<h1 data-i18n="title">Gerador de CPF</h1>
-<p data-i18n="subtitle">Gere CPF válido para testes e estudos</p>
-</header>
-
-<div class="container">
-<div class="result" id="cpf">---</div>
-
-<button class="main" onclick="gerarCPF()" data-i18n="generate">Gerar CPF</button>
-
-<div class="options">
-<label>
-<input type="checkbox" id="pontuacao" checked>
-<span data-i18n="format">Com pontuação</span>
-</label>
-</div>
-
-<div class="warning" data-i18n="warning">
-Os CPFs gerados são fictícios e devem ser usados apenas para fins educacionais e testes.
-</div>
-</div>
-
-<section class="article">
-<h2 data-i18n="art_title"></h2>
-<div data-i18n="art_text"></div>
-</section>
-
-<footer>
-<a href="https://seuip.org">Início</a>
-</footer>
-
-<script>
-const texts = {
-pt:{
-title:"Gerador de CPF",
-subtitle:"Gere CPF válido para testes e estudos",
-generate:"Gerar CPF",
-format:"Com pontuação",
-warning:"Os CPFs gerados são fictícios e devem ser usados apenas para fins educacionais e testes.",
-art_title:"Fundamentos Matemáticos e Estrutura Científica do CPF",
-art_text:`<p>O Cadastro de Pessoas Físicas (CPF) é um identificador numérico utilizado no Brasil para identificar cidadãos em sistemas fiscais, financeiros e administrativos. Sua estrutura foi projetada com base em princípios matemáticos que permitem validar automaticamente a integridade do número.</p>
-
-<p>O CPF é composto por 11 dígitos numéricos. Os nove primeiros formam a base do cadastro, enquanto os dois últimos são conhecidos como dígitos verificadores. Esses dígitos não são aleatórios; eles são calculados por meio de um algoritmo matemático específico.</p>
-
-<p>O algoritmo utilizado no CPF é baseado no método do módulo 11. Esse método é amplamente utilizado em sistemas de identificação por sua eficiência na detecção de erros de digitação e combinações inválidas.</p>
-
-<p>No cálculo do primeiro dígito verificador, cada um dos nove números iniciais é multiplicado por um peso decrescente, iniciando em 10 e terminando em 2. Os resultados dessas multiplicações são somados.</p>
-
-<p>Em seguida, o valor total da soma é multiplicado por 10 e dividido por 11. O resto da divisão determina o dígito verificador. Caso o resultado seja 10 ou 11, o dígito é convertido para 0.</p>
-
-<p>O segundo dígito verificador é calculado de forma semelhante, porém agora incluindo o primeiro dígito no final da sequência. Os pesos utilizados variam de 11 até 2, aumentando o nível de validação.</p>
-
-<p>Esse processo garante que CPFs inválidos sejam facilmente identificados por sistemas computacionais, tornando o CPF um exemplo clássico de aplicação prática de algoritmos matemáticos.</p>
-
-<p>Geradores de CPF válido são utilizados em ambientes acadêmicos, desenvolvimento de software e testes de sistemas, permitindo simulações realistas sem o uso de dados reais de cidadãos.</p>
-
-<p>Todos os números gerados por esta ferramenta são fictícios e não possuem qualquer vínculo com registros oficiais.</p>`
-},
-en:{
-title:"CPF Generator",
-subtitle:"Generate valid CPF numbers for testing and study",
-generate:"Generate CPF",
-format:"With formatting",
-warning:"Generated CPFs are fictional and intended only for educational and testing purposes.",
-art_title:"Mathematical Foundations and Scientific Structure of CPF",
-art_text:`<p>The Brazilian Individual Taxpayer Registry (CPF) is a numerical identifier designed to uniquely identify citizens in fiscal and administrative systems.</p>
-
-<p>The CPF consists of 11 digits. The first nine form the base number, while the last two are verification digits calculated through a mathematical algorithm.</p>
-
-<p>This algorithm is based on the modulus 11 method, widely used to detect typing errors and invalid sequences.</p>
-
-<p>The first verification digit is calculated by multiplying each base digit by descending weights from 10 to 2 and summing the results.</p>
-
-<p>The sum is multiplied by 10 and divided by 11. The remainder defines the digit, with values 10 or 11 converted to zero.</p>
-
-<p>The second digit follows the same logic, including the first verification digit and weights from 11 to 2.</p>
-
-<p>This method ensures data integrity and makes CPF a classic example of applied mathematical validation.</p>
-
-<p>CPF generators are commonly used in academic environments, software development, and system testing without using real personal data.</p>`
-},
-es:{
-title:"Generador de CPF",
-subtitle:"Genere CPF válidos para pruebas y estudios",
-generate:"Generar CPF",
-format:"Con formato",
-warning:"Los CPFs generados son ficticios y solo deben usarse con fines educativos y de prueba.",
-art_title:"Fundamentos Matemáticos y Estructura Científica del CPF",
-art_text:`<p>El CPF es un identificador numérico utilizado en Brasil para identificar ciudadanos en sistemas fiscales y administrativos.</p>
-
-<p>Está compuesto por 11 dígitos, donde los dos últimos son dígitos verificadores calculados mediante un algoritmo matemático.</p>
-
-<p>El algoritmo se basa en el método módulo 11, ampliamente utilizado para detectar errores de digitación.</p>
-
-<p>El primer dígito se calcula multiplicando los números base por pesos decrecientes de 10 a 2.</p>
-
-<p>El segundo dígito incluye el primero y utiliza pesos de 11 a 2, aumentando la seguridad del número.</p>
-
-<p>Este proceso garantiza la integridad del CPF y su validez matemática.</p>
-
-<p>Los generadores de CPF se utilizan en estudios académicos, desarrollo de software y pruebas de sistemas.</p>`
-}
-};
-
-function setLang(lang){
-document.documentElement.lang = lang;
-document.querySelectorAll("[data-i18n]").forEach(el=>{
-el.innerHTML = texts[lang][el.dataset.i18n];
-});
-}
-
-setLang("pt");
-
-function gerarCPF(){
-let n=[];
-for(let i=0;i<9;i++) n.push(Math.floor(Math.random()*9));
-
-let d1=0;
-for(let i=0;i<9;i++) d1+=n[i]*(10-i);
-d1=11-(d1%11); if(d1>=10)d1=0;
-
-let d2=0;
-for(let i=0;i<9;i++) d2+=n[i]*(11-i);
-d2+=d1*2;
-d2=11-(d2%11); if(d2>=10)d2=0;
-
-let cpf=n.join("")+d1+d2;
-if(document.getElementById("pontuacao").checked){
-cpf=cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/,"$1.$2.$3-$4");
-}
-document.getElementById("cpf").innerText=cpf;
-}
-</script>
-
+    <header>
+        <div class="header-top">
+            <a href="https://seuip.org" class="back-btn">
+                <i class="fas fa-arrow-left"></i> Voltar para SEUIP.ORG
+            </a>
+            
+            <div class="lang-selector">
+                <button class="lang-btn" onclick="setLanguage('pt')">🇧🇷 Português</button>
+                <button class="lang-btn" onclick="setLanguage('en')">🇺🇸 English</button>
+                <button class="lang-btn" onclick="setLanguage('es')">🇪🇸 Español</button>
+            </div>
+        </div>
+        
+        <h1 id="main-title">Gerador de CPF Avançado</h1>
+        <p class="subtitle" id="main-subtitle">Gere, valide e gerencie CPFs válidos com todas as ferramentas profissionais</p>
+    </header>
+    
+    <!-- Anúncio AdSense -->
+    <div class="ad-container">
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2713105320249369" crossorigin="anonymous"></script>
+        <ins class="adsbygoogle"
+            style="display:block"
+            data-ad-client="ca-pub-2713105320249369"
+            data-ad-slot="1234567890"
+            data-ad-format="auto"
+            data-full-width-responsive="true"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+    
+    <div class="main-container">
+        <!-- Painel Principal -->
+        <div class="card">
+            <h2 class="card-title"><i class="fas fa-id-card"></i> <span id="panel-title">Gerador Principal</span></h2>
+            
+            <div class="cpf-display" id="cpfDisplay">
+                <div class="cpf-text" id="cpfText">Clique em Gerar</div>
+            </div>
+            
+            <div class="action-buttons">
+                <button class="btn" onclick="generateCPF()" id="btn-generate">
+                    <i class="fas fa-bolt"></i> Gerar CPF
+                </button>
+                <button class="btn btn-secondary" onclick="copyToClipboard()" id="btn-copy">
+                    <i class="far fa-copy"></i> Copiar
+                </button>
+                <button class="btn btn-success" onclick="validateCPF()" id="btn-validate">
+                    <i class="fas fa-check-circle"></i> Validar
+                </button>
+                <button class="btn btn-warning" onclick="shareCPF()" id="btn-share">
+                    <i class="fas fa-share-alt"></i> Compartilhar
+                </button>
+            </div>
+            
+            <div class="options-grid">
+                <div class="option-item">
+                    <input type="checkbox" id="formatOption" checked>
+                    <label class="option-label" for="formatOption" id="label-format">Com formatação (XXX.XXX.XXX-XX)</label>
+                </div>
+                
+                <div class="option-item">
+                    <input type="checkbox" id="maskOption">
+                    <label class="option-label" for="maskOption" id="label-mask">Mascarar parte do CPF (XXX.XXX.XXX-XX)</label>
+                </div>
+                
+                <div class="option-item">
+                    <input type="checkbox" id="stateOption">
+                    <label class="option-label" for="stateOption" id="label-state">Gerar por estado brasileiro</label>
+                    <select id="stateSelect" style="background: #000; color: #fff; border: 1px solid #333; padding: 5px; border-radius: 5px;">
+                        <option value="random">Aleatório</option>
+                        <option value="SP">São Paulo</option>
+                        <option value="RJ">Rio de Janeiro</option>
+                        <option value="MG">Minas Gerais</option>
+                        <option value="RS">Rio Grande do Sul</option>
+                        <option value="BA">Bahia</option>
+                        <option value="PR">Paraná</option>
+                        <option value="PE">Pernambuco</option>
+                        <option value="CE">Ceará</option>
+                        <option value="DF">Distrito Federal</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="warning-box" id="disclaimer">
+                <i class="fas fa-exclamation-triangle"></i> 
+                <strong>Aviso Legal:</strong> Todos os CPFs gerados são fictícios e devem ser usados APENAS para fins educacionais, testes de software ou estudos. O uso indevido de dados pessoais é crime previsto na Lei 13.709/2018 (LGPD).
+            </div>
+        </div>
+        
+        <!-- Painel de Lista e Histórico -->
+        <div class="card">
+            <h2 class="card-title"><i class="fas fa-list"></i> <span id="list-title">Lista & Histórico</span></h2>
+            
+            <div class="input-group">
+                <label for="listCount" id="label-list-count">Quantidade de CPFs para gerar:</label>
+                <div style="display: flex; gap: 10px;">
+                    <input type="number" id="listCount" min="1" max="100" value="5">
+                    <button class="btn btn-secondary" onclick="generateCPFList()" id="btn-generate-list">
+                        <i class="fas fa-bolt"></i> Gerar Lista
+                    </button>
+                </div>
+            </div>
+            
+            <div class="list-container">
+                <div class="cpf-list" id="cpfList">
+                    <!-- CPFs da lista serão inseridos aqui -->
+                    <div style="text-align: center; padding: 20px; color: #777;">
+                        <i class="fas fa-list-alt fa-2x"></i>
+                        <p id="empty-list-msg">Nenhum CPF na lista</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="action-buttons" style="margin-top: 15px;">
+                <button class="btn btn-secondary" onclick="exportToCSV()" id="btn-export-csv">
+                    <i class="fas fa-file-csv"></i> Exportar CSV
+                </button>
+                <button class="btn btn-secondary" onclick="exportToTXT()" id="btn-export-txt">
+                    <i class="fas fa-file-alt"></i> Exportar TXT
+                </button>
+                <button class="btn btn-danger" onclick="clearList()" id="btn-clear">
+                    <i class="fas fa-trash"></i> Limpar Lista
+                </button>
+            </div>
+            
+            <div class="history-container" id="historyContainer">
+                <h3 style="color: var(--text-light); margin-bottom: 10px; font-size: 1.1rem;">
+                    <i class="fas fa-history"></i> <span id="history-title">Histórico Recente</span>
+                </h3>
+                <div id="historyList">
+                    <!-- Histórico será inserido aqui -->
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Anúncio AdSense -->
+    <div class="ad-container">
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2713105320249369" crossorigin="anonymous"></script>
+        <ins class="adsbygoogle"
+            style="display:block"
+            data-ad-client="ca-pub-2713105320249369"
+            data-ad-slot="0987654321"
+            data-ad-format="auto"
+            data-full-width-responsive="true"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+    
+    <!-- Seção de Validação -->
+    <h2 class="section-title" id="validation-title"><i class="fas fa-check-double"></i> Validador de CPF</h2>
+    
+    <div class="card">
+        <div class="input-group">
+            <label for="cpfToValidate" id="label-validate">Digite um CPF para validar:</label>
+            <input type="text" id="cpfToValidate" placeholder="000.000.000-00 ou 00000000000">
+            <div style="display: flex; gap: 10px; margin-top: 15px;">
+                <button class="btn btn-success" onclick="validateInputCPF()" id="btn-validate-input">
+                    <i class="fas fa-check-circle"></i> Validar CPF
+                </button>
+                <button class="btn btn-secondary" onclick="document.getElementById('cpfToValidate').value = ''">
+                    <i class="fas fa-times"></i> Limpar
+                </button>
+            </div>
+        </div>
+        
+        <div id="validationResult" style="margin-top: 20px;">
+            <!-- Resultado da validação será mostrado aqui -->
+        </div>
+    </div>
+    
+    <!-- Seção de Estatísticas -->
+    <h2 class="section-title" id="stats-title"><i class="fas fa-chart-bar"></i> Estatísticas</h2>
+    
+    <div class="stats-grid">
+        <div class="stat-card">
+            <div class="stat-value" id="statGenerated">0</div>
+            <div class="stat-label" id="stat-label-generated">CPFs Gerados</div>
+        </div>
+        
+        <div class="stat-card">
+            <div class="stat-value" id="statValidated">0</div>
+            <div class="stat-label" id="stat-label-validated">CPFs Validados</div>
+        </div>
+        
+        <div class="stat-card">
+            <div class="stat-value" id="statCopied">0</div>
+            <div class="stat-label" id="stat-label-copied">Vezes Copiados</div>
+        </div>
+        
+        <div class="stat-card">
+            <div class="stat-value" id="statExported">0</div>
+            <div class="stat-label" id="stat-label-exported">Arquivos Exportados</div>
+        </div>
+    </div>
+    
+    <!-- Informações Técnicas -->
+    <h2 class="section-title" id="info-title"><i class="fas fa-info-circle"></i> Informações Técnicas</h2>
+    
+    <div class="card">
+        <h3 style="color: var(--primary); margin-bottom: 15px;" id="algorithm-title">Algoritmo de Geração</h3>
+        <p id="algorithm-description">
+            O CPF (Cadastro de Pessoas Físicas) é um número de 11 dígitos onde os dois últimos são dígitos verificadores calculados através do algoritmo módulo 11. Para gerar um CPF válido:
+        </p>
+        <ol style="margin: 15px 0 15px 20px; color: var(--text-light);">
+            <li id="step1">São gerados 9 dígitos aleatórios (ou com base no estado selecionado)</li>
+            <li id="step2">Calcula-se o primeiro dígito verificador multiplicando cada um dos 9 dígitos por pesos decrescentes (10 a 2)</li>
+            <li id="step3">O resultado é multiplicado por 10 e dividido por 11; o resto define o dígito (se 10 ou 11, dígito = 0)</li>
+            <li id="step4">Para o segundo dígito, repete-se o processo incluindo o primeiro dígito e usando pesos de 11 a 2</li>
+        </ol>
+        <p id="algorithm-note">
+            Este método garante que apenas números válidos sejam gerados, seguindo exatamente a mesma lógica utilizada pela Receita Federal do Brasil.
+        </p>
+        
+        <div class="info-box" style="margin-top: 20px;">
+            <i class="fas fa-lock"></i> 
+            <strong id="security-title">Segurança e Privacidade:</strong> 
+            <span id="security-text">Esta ferramenta não armazena CPFs gerados em servidores externos. Todo o processamento é feito localmente no seu navegador.</span>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="footer-links">
+            <a href="https://seuip.org">
+                <i class="fas fa-home"></i> Página Inicial
+            </a>
+            <a href="#" onclick="showAbout()">
+                <i class="fas fa-info-circle"></i> Sobre
+            </a>
+            <a href="#" onclick="showPrivacy()">
+                <i class="fas fa-shield-alt"></i> Privacidade
+            </a>
+            <a href="#" onclick="showTerms()">
+                <i class="fas fa-file-contract"></i> Termos de Uso
+            </a>
+        </div>
+        
+        <p>&copy; 2023 SEUIP.ORG - Gerador de CPF Avançado</p>
+        
+        <div class="disclaimer" id="footer-disclaimer">
+            Este site não tem qualquer afiliação com a Receita Federal do Brasil. Os CPFs gerados são números fictícios para fins de teste e estudo. O uso indevido de informações pessoais é crime.
+        </div>
+    </footer>
+    
+    <!-- Toastify JS para notificações -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    
+    <script>
+        // Dados da aplicação
+        let currentCPF = '';
+        let cpfList = [];
+        let history = [];
+        let stats = {
+            generated: 0,
+            validated: 0,
+            copied: 0,
+            exported: 0
+        };
+        
+        // Carregar dados salvos
+        function loadSavedData() {
+            // Carregar estatísticas
+            const savedStats = localStorage.getItem('cpfGeneratorStats');
+            if (savedStats) {
+                stats = JSON.parse(savedStats);
+                updateStatsDisplay();
+            }
+            
+            // Carregar histórico
+            const savedHistory = localStorage.getItem('cpfGeneratorHistory');
+            if (savedHistory) {
+                history = JSON.parse(savedHistory);
+                updateHistoryDisplay();
+            }
+            
+            // Carregar lista
+            const savedList = localStorage.getItem('cpfGeneratorList');
+            if (savedList) {
+                cpfList = JSON.parse(savedList);
+                updateListDisplay();
+            }
+            
+            // Carregar configurações
+            const savedFormat = localStorage.getItem('cpfFormatOption');
+            if (savedFormat !== null) {
+                document.getElementById('formatOption').checked = savedFormat === 'true';
+            }
+            
+            const savedMask = localStorage.getItem('cpfMaskOption');
+            if (savedMask !== null) {
+                document.getElementById('maskOption').checked = savedMask === 'true';
+            }
+            
+            const savedState = localStorage.getItem('cpfStateOption');
+            if (savedState !== null) {
+                document.getElementById('stateOption').checked = savedState === 'true';
+            }
+        }
+        
+        // Salvar dados
+        function saveData() {
+            localStorage.setItem('cpfGeneratorStats', JSON.stringify(stats));
+            localStorage.setItem('cpfGeneratorHistory', JSON.stringify(history));
+            localStorage.setItem('cpfGeneratorList', JSON.stringify(cpfList));
+            localStorage.setItem('cpfFormatOption', document.getElementById('formatOption').checked);
+            localStorage.setItem('cpfMaskOption', document.getElementById('maskOption').checked);
+            localStorage.setItem('cpfStateOption', document.getElementById('stateOption').checked);
+        }
+        
+        // Atualizar estatísticas no display
+        function updateStatsDisplay() {
+            document.getElementById('statGenerated').textContent = stats.generated;
+            document.getElementById('statValidated').textContent = stats.validated;
+            document.getElementById('statCopied').textContent = stats.copied;
+            document.getElementById('statExported').textContent = stats.exported;
+        }
+        
+        // Atualizar histórico
+        function updateHistoryDisplay() {
+            const historyList = document.getElementById('historyList');
+            historyList.innerHTML = '';
+            
+            // Mostrar apenas os últimos 5 itens
+            const recentHistory = history.slice(-5).reverse();
+            
+            if (recentHistory.length === 0) {
+                historyList.innerHTML = '<div style="text-align: center; padding: 15px; color: #777;">' +
+                    '<i class="fas fa-history"></i><p id="empty-history-msg">Nenhum CPF no histórico</p></div>';
+                return;
+            }
+            
+            recentHistory.forEach(item => {
+                const historyItem = document.createElement('div');
+                historyItem.className = 'history-item';
+                
+                const time = new Date(item.time).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+                
+                historyItem.innerHTML = `
+                    <div>
+                        <div class="history-cpf">${item.cpf}</div>
+                        <div class="history-time">${item.date} às ${time}</div>
+                    </div>
+                    <button class="icon-btn" onclick="copyHistoryCPF('${item.cpf}')" title="Copiar">
+                        <i class="far fa-copy"></i>
+                    </button>
+                `;
+                
+                historyList.appendChild(historyItem);
+            });
+        }
+        
+        // Atualizar lista
+        function updateListDisplay() {
+            const cpfListElement = document.getElementById('cpfList');
+            cpfListElement.innerHTML = '';
+            
+            if (cpfList.length === 0) {
+                cpfListElement.innerHTML = '<div style="text-align: center; padding: 20px; color: #777;">' +
+                    '<i class="fas fa-list-alt fa-2x"></i><p id="empty-list-msg">Nenhum CPF na lista</p></div>';
+                return;
+            }
+            
+            cpfList.forEach((cpf, index) => {
+                const cpfItem = document.createElement('div');
+                cpfItem.className = 'cpf-item';
+                
+                cpfItem.innerHTML = `
+                    <div class="cpf-item-text">${cpf}</div>
+                    <div class="cpf-item-actions">
+                        <button class="icon-btn" onclick="copyListItem(${index})" title="Copiar">
+                            <i class="far fa-copy"></i>
+                        </button>
+                        <button class="icon-btn" onclick="validateListItem(${index})" title="Validar">
+                            <i class="fas fa-check-circle"></i>
+                        </button>
+                        <button class="icon-btn" onclick="removeListItem(${index})" title="Remover">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                `;
+                
+                cpfListElement.appendChild(cpfItem);
+            });
+        }
+        
+        // Gerar CPF principal
+        function generateCPF() {
+            const format = document.getElementById('formatOption').checked;
+            const mask = document.getElementById('maskOption').checked;
+            const byState = document.getElementById('stateOption').checked;
+            const state = document.getElementById('stateSelect').value;
+            
+            // Gerar os 9 primeiros dígitos
+            let digits = [];
+            
+            if (byState && state !== 'random') {
+                // Gerar com base no estado (primeiro dígito baseado no estado)
+                const stateDigits = {
+                    'SP': [0, 1], 'RJ': [2], 'MG': [6, 3], 'RS': [0], 
+                    'BA': [5], 'PR': [9], 'PE': [4], 'CE': [6], 'DF': [1]
+                };
+                
+                const stateDigit = stateDigits[state] ? 
+                    stateDigits[state][Math.floor(Math.random() * stateDigits[state].length)] : 
+                    Math.floor(Math.random() * 10);
+                
+                digits.push(stateDigit);
+                
+                // Gerar os outros 8 dígitos
+                for (let i = 0; i < 8; i++) {
+                    digits.push(Math.floor(Math.random() * 10));
+                }
+            } else {
+                // Gerar aleatoriamente
+                for (let i = 0; i < 9; i++) {
+                    digits.push(Math.floor(Math.random() * 10));
+                }
+            }
+            
+            // Calcular primeiro dígito verificador
+            let sum = 0;
+            for (let i = 0; i < 9; i++) {
+                sum += digits[i] * (10 - i);
+            }
+            
+            let firstDigit = 11 - (sum % 11);
+            if (firstDigit >= 10) firstDigit = 0;
+            
+            // Calcular segundo dígito verificador
+            sum = 0;
+            for (let i = 0; i < 9; i++) {
+                sum += digits[i] * (11 - i);
+            }
+            sum += firstDigit * 2;
+            
+            let secondDigit = 11 - (sum % 11);
+            if (secondDigit >= 10) secondDigit = 0;
+            
+            // Construir CPF
+            const cpf = digits.join('') + firstDigit + secondDigit;
+            
+            // Formatar se necessário
+            let formattedCPF = cpf;
+            if (format) {
+                formattedCPF = cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
+            }
+            
+            // Aplicar máscara se necessário
+            if (mask) {
+                formattedCPF = formattedCPF.replace(/(\d{3})\.(\d{3})\.(\d{3})-(\d{2})/, 'XXX.XXX.XXX-$4');
+            }
+            
+            // Atualizar display
+            currentCPF = cpf;
+            document.getElementById('cpfText').textContent = formattedCPF;
+            
+            // Adicionar ao histórico
+            const now = new Date();
+            history.push({
+                cpf: formattedCPF,
+                date: now.toLocaleDateString(),
+                time: now.getTime()
+            });
+            
+            // Atualizar estatísticas
+            stats.generated++;
+            
+            // Salvar e atualizar displays
+            saveData();
+            updateStatsDisplay();
+            updateHistoryDisplay();
+            
+            // Mostrar notificação
+            showNotification('CPF gerado com sucesso!', 'success');
+        }
+        
+        // Copiar CPF para área de transferência
+        function copyToClipboard() {
+            if (!currentCPF) {
+                showNotification('Gere um CPF primeiro!', 'warning');
+                return;
+            }
+            
+            let cpfToCopy = currentCPF;
+            if (document.getElementById('formatOption').checked) {
+                cpfToCopy = currentCPF.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
+            }
+            
+            navigator.clipboard.writeText(cpfToCopy).then(() => {
+                stats.copied++;
+                saveData();
+                updateStatsDisplay();
+                showNotification('CPF copiado para a área de transferência!', 'success');
+            }).catch(err => {
+                console.error('Erro ao copiar: ', err);
+                showNotification('Erro ao copiar. Tente novamente.', 'error');
+            });
+        }
+        
+        // Validar CPF
+        function validateCPF() {
+            if (!currentCPF) {
+                showNotification('Gere um CPF primeiro!', 'warning');
+                return;
+            }
+            
+            const isValid = validateCPFAlgorithm(currentCPF);
+            
+            if (isValid) {
+                showNotification('CPF válido!', 'success');
+                stats.validated++;
+                saveData();
+                updateStatsDisplay();
+            } else {
+                showNotification('CPF inválido!', 'error');
+            }
+        }
+        
+        // Compartilhar CPF
+        function shareCPF() {
+            if (!currentCPF) {
+                showNotification('Gere um CPF primeiro!', 'warning');
+                return;
+            }
+            
+            let cpfToShare = currentCPF;
+            if (document.getElementById('formatOption').checked) {
+                cpfToShare = currentCPF.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
+            }
+            
+            const shareText = `CPF gerado: ${cpfToShare}\nGerado em: ${new Date().toLocaleDateString()}\nVia SEUIP.ORG`;
+            
+            if (navigator.share) {
+                navigator.share({
+                    title: 'CPF Gerado',
+                    text: shareText,
+                    url: window.location.href
+                }).then(() => {
+                    showNotification('CPF compartilhado com sucesso!', 'success');
+                }).catch(err => {
+                    console.error('Erro ao compartilhar: ', err);
+                    copyShareText(shareText);
+                });
+            } else {
+                copyShareText(shareText);
+            }
+        }
+        
+        // Copiar texto para compartilhamento
+        function copyShareText(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                showNotification('Texto copiado para compartilhamento!', 'success');
+            });
+        }
+        
+        // Gerar lista de CPFs
+        function generateCPFList() {
+            const count = parseInt(document.getElementById('listCount').value) || 5;
+            
+            if (count < 1 || count > 100) {
+                showNotification('Digite um número entre 1 e 100', 'warning');
+                return;
+            }
+            
+            const format = document.getElementById('formatOption').checked;
+            cpfList = [];
+            
+            for (let i = 0; i < count; i++) {
+                // Gerar CPF
+                let digits = [];
+                for (let j = 0; j < 9; j++) {
+                    digits.push(Math.floor(Math.random() * 10));
+                }
+                
+                // Calcular primeiro dígito verificador
+                let sum = 0;
+                for (let j = 0; j < 9; j++) {
+                    sum += digits[j] * (10 - j);
+                }
+                
+                let firstDigit = 11 - (sum % 11);
+                if (firstDigit >= 10) firstDigit = 0;
+                
+                // Calcular segundo dígito verificador
+                sum = 0;
+                for (let j = 0; j < 9; j++) {
+                    sum += digits[j] * (11 - j);
+                }
+                sum += firstDigit * 2;
+                
+                let secondDigit = 11 - (sum % 11);
+                if (secondDigit >= 10) secondDigit = 0;
+                
+                // Construir CPF
+                let cpf = digits.join('') + firstDigit + secondDigit;
+                
+                // Formatar se necessário
+                if (format) {
+                    cpf = cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
+                }
+                
+                cpfList.push(cpf);
+                stats.generated++;
+            }
+            
+            // Atualizar display e salvar
+            updateListDisplay();
+            updateStatsDisplay();
+            saveData();
+            
+            showNotification(`${count} CPFs gerados na lista!`, 'success');
+        }
+        
+        // Exportar para CSV
+        function exportToCSV() {
+            if (cpfList.length === 0) {
+                showNotification('A lista está vazia!', 'warning');
+                return;
+            }
+            
+            let csvContent = "data:text/csv;charset=utf-8,CPF\n";
+            cpfList.forEach(cpf => {
+                // Remover formatação para CSV
+                const cleanCPF = cpf.replace(/\D/g, '');
+                csvContent += cleanCPF + "\n";
+            });
+            
+            const encodedUri = encodeURI(csvContent);
+            const link = document.createElement("a");
+            link.setAttribute("href", encodedUri);
+            link.setAttribute("download", "cpf_list.csv");
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            
+            stats.exported++;
+            saveData();
+            updateStatsDisplay();
+            
+            showNotification('Lista exportada como CSV!', 'success');
+        }
+        
+        // Exportar para TXT
+        function exportToTXT() {
+            if (cpfList.length === 0) {
+                showNotification('A lista está vazia!', 'warning');
+                return;
+            }
+            
+            let txtContent = "Lista de CPFs Gerados\n";
+            txtContent += "=====================\n\n";
+            cpfList.forEach((cpf, index) => {
+                txtContent += `${index + 1}. ${cpf}\n`;
+            });
+            txtContent += `\nTotal: ${cpfList.length} CPFs\nGerado em: ${new Date().toLocaleString()}`;
+            
+            const blob = new Blob([txtContent], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement("a");
+            link.href = url;
+            link.download = "cpf_list.txt";
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            URL.revokeObjectURL(url);
+            
+            stats.exported++;
+            saveData();
+            updateStatsDisplay();
+            
+            showNotification('Lista exportada como TXT!', 'success');
+        }
+        
+        // Limpar lista
+        function clearList() {
+            if (cpfList.length === 0) {
+                showNotification('A lista já está vazia!', 'info');
+                return;
+            }
+            
+            if (confirm('Tem certeza que deseja limpar a lista de CPFs?')) {
+                cpfList = [];
+                updateListDisplay();
+                saveData();
+                showNotification('Lista limpa!', 'success');
+            }
+        }
+        
+        // Validar CPF digitado
+        function validateInputCPF() {
+            const input = document.getElementById('cpfToValidate').value;
+            const cleanCPF = input.replace(/\D/g, '');
+            
+            if (cleanCPF.length !== 11 || /^(\d)\1{10}$/.test(cleanCPF)) {
+                showValidationResult(false, input);
+                return;
+            }
+            
+            const isValid = validateCPFAlgorithm(cleanCPF);
+            showValidationResult(isValid, input);
+            
+            if (isValid) {
+                stats.validated++;
+                saveData();
+                updateStatsDisplay();
+            }
+        }
+        
+        // Algoritmo de validação de CPF
+        function validateCPFAlgorithm(cpf) {
+            // Remover caracteres não numéricos
+            cpf = cpf.replace(/\D/g, '');
+            
+            // Verificar se tem 11 dígitos
+            if (cpf.length !== 11) return false;
+            
+            // Verificar se todos os dígitos são iguais
+            if (/^(\d)\1{10}$/.test(cpf)) return false;
+            
+            // Calcular primeiro dígito verificador
+            let sum = 0;
+            for (let i = 0; i < 9; i++) {
+                sum += parseInt(cpf.charAt(i)) * (10 - i);
+            }
+            
+            let remainder = sum % 11;
+            let firstDigit = remainder < 2 ? 0 : 11 - remainder;
+            
+            if (firstDigit !== parseInt(cpf.charAt(9))) return false;
+            
+            // Calcular segundo dígito verificador
+            sum = 0;
+            for (let i = 0; i < 10; i++) {
+                sum += parseInt(cpf.charAt(i)) * (11 - i);
+            }
+            
+            remainder = sum % 11;
+            let secondDigit = remainder < 2 ? 0 : 11 - remainder;
+            
+            return secondDigit === parseInt(cpf.charAt(10));
+        }
+        
+        // Mostrar resultado da validação
+        function showValidationResult(isValid, cpf) {
+            const resultDiv = document.getElementById('validationResult');
+            
+            if (isValid) {
+                resultDiv.innerHTML = `
+                    <div style="background: rgba(46, 213, 115, 0.1); border: 1px solid var(--info); 
+                                color: var(--info); padding: 15px; border-radius: 10px;">
+                        <i class="fas fa-check-circle"></i> 
+                        <strong>CPF VÁLIDO:</strong> ${cpf}
+                        <div style="margin-top: 10px; font-size: 0.9rem;">
+                            Este CPF segue a estrutura correta definida pela Receita Federal.
+                        </div>
+                    </div>
+                `;
+            } else {
+                resultDiv.innerHTML = `
+                    <div style="background: rgba(255, 71, 87, 0.1); border: 1px solid var(--danger); 
+                                color: var(--danger); padding: 15px; border-radius: 10px;">
+                        <i class="fas fa-times-circle"></i> 
+                        <strong>CPF INVÁLIDO:</strong> ${cpf}
+                        <div style="margin-top: 10px; font-size: 0.9rem;">
+                            Este CPF não é válido. Verifique se digitou corretamente ou gere um novo.
+                        </div>
+                    </div>
+                `;
+            }
+        }
+        
+        // Funções auxiliares da lista
+        function copyListItem(index) {
+            const cpf = cpfList[index];
+            const cleanCPF = cpf.replace(/\D/g, '');
+            
+            navigator.clipboard.writeText(cpf).then(() => {
+                stats.copied++;
+                saveData();
+                updateStatsDisplay();
+                showNotification('CPF copiado da lista!', 'success');
+            });
+        }
+        
+        function validateListItem(index) {
+            const cpf = cpfList[index];
+            const cleanCPF = cpf.replace(/\D/g, '');
+            const isValid = validateCPFAlgorithm(cleanCPF);
+            
+            if (isValid) {
+                showNotification('CPF da lista é válido!', 'success');
+                stats.validated++;
+                saveData();
+                updateStatsDisplay();
+            } else {
+                showNotification('CPF da lista é inválido!', 'error');
+            }
+        }
+        
+        function removeListItem(index) {
+            cpfList.splice(index, 1);
+            updateListDisplay();
+            saveData();
+            showNotification('CPF removido da lista!', 'success');
+        }
+        
+        function copyHistoryCPF(cpf) {
+            navigator.clipboard.writeText(cpf).then(() => {
+                stats.copied++;
+                saveData();
+                updateStatsDisplay();
+                showNotification('CPF copiado do histórico!', 'success');
+            });
+        }
+        
+        // Mostrar notificações
+        function showNotification(message, type = 'info') {
+            const backgroundColor = type === 'success' ? '#00ff99' : 
+                                  type === 'error' ? '#ff4757' : 
+                                  type === 'warning' ? '#ffa502' : '#2ed573';
+            
+            Toastify({
+                text: message,
+                duration: 3000,
+                gravity: "top",
+                position: "right",
+                backgroundColor: backgroundColor,
+                stopOnFocus: true,
+            }).showToast();
+        }
+        
+        // Funções de informações
+        function showAbout() {
+            alert('Gerador de CPF Avançado\nVersão 2.0\n\nDesenvolvido por SEUIP.ORG\n\nEsta ferramenta permite gerar CPFs válidos para fins de teste e desenvolvimento de software. Todos os números gerados são fictícios.');
+        }
+        
+        function showPrivacy() {
+            alert('Política de Privacidade\n\nEsta ferramenta não coleta, armazena ou compartilha dados pessoais. Todo o processamento é feito localmente no seu navegador. Cookies são usados apenas para salvar suas preferências localmente.');
+        }
+        
+        function showTerms() {
+            alert('Termos de Uso\n\n1. Esta ferramenta é fornecida apenas para fins educacionais e de teste\n2. Não use CPFs gerados para atividades ilegais\n3. Não nos responsabilizamos pelo uso indevido da ferramenta\n4. CPFs gerados são fictícios e não correspondem a pessoas reais');
+        }
+        
+        // Internacionalização (simplificada)
+        const translations = {
+            pt: {
+                // Títulos
+                'main-title': 'Gerador de CPF Avançado',
+                'main-subtitle': 'Gere, valide e gerencie CPFs válidos com todas as ferramentas profissionais',
+                'panel-title': 'Gerador Principal',
+                'list-title': 'Lista & Histórico',
+                'validation-title': 'Validador de CPF',
+                'stats-title': 'Estatísticas',
+                'info-title': 'Informações Técnicas',
+                'algorithm-title': 'Algoritmo de Geração',
+                'security-title': 'Segurança e Privacidade:',
+                
+                // Botões
+                'btn-generate': 'Gerar CPF',
+                'btn-copy': 'Copiar',
+                'btn-validate': 'Validar',
+                'btn-share': 'Compartilhar',
+                'btn-generate-list': 'Gerar Lista',
+                'btn-export-csv': 'Exportar CSV',
+                'btn-export-txt': 'Exportar TXT',
+                'btn-clear': 'Limpar Lista',
+                'btn-validate-input': 'Validar CPF',
+                
+                // Labels
+                'label-format': 'Com formatação (XXX.XXX.XXX-XX)',
+                'label-mask': 'Mascarar parte do CPF (XXX.XXX.XXX-XX)',
+                'label-state': 'Gerar por estado brasileiro',
+                'label-list-count': 'Quantidade de CPFs para gerar:',
+                'label-validate': 'Digite um CPF para validar:',
+                
+                // Estatísticas
+                'stat-label-generated': 'CPFs Gerados',
+                'stat-label-validated': 'CPFs Validados',
+                'stat-label-copied': 'Vezes Copiados',
+                'stat-label-exported': 'Arquivos Exportados',
+                
+                // Histórico
+                'history-title': 'Histórico Recente',
+                'empty-history-msg': 'Nenhum CPF no histórico',
+                'empty-list-msg': 'Nenhum CPF na lista',
+                
+                // Algoritmo
+                'algorithm-description': 'O CPF (Cadastro de Pessoas Físicas) é um número de 11 dígitos onde os dois últimos são dígitos verificadores calculados através do algoritmo módulo 11. Para gerar um CPF válido:',
+                'step1': 'São gerados 9 dígitos aleatórios (ou com base no estado selecionado)',
+                'step2': 'Calcula-se o primeiro dígito verificador multiplicando cada um dos 9 dígitos por pesos decrescentes (10 a 2)',
+                'step3': 'O resultado é multiplicado por 10 e dividido por 11; o resto define o dígito (se 10 ou 11, dígito = 0)',
+                'step4': 'Para o segundo dígito, repete-se o processo incluindo o primeiro dígito e usando pesos de 11 a 2',
+                'algorithm-note': 'Este método garante que apenas números válidos sejam gerados, seguindo exatamente a mesma lógica utilizada pela Receita Federal do Brasil.',
+                'security-text': 'Esta ferramenta não armazena CPFs gerados em servidores externos. Todo o processamento é feito localmente no seu navegador.',
+                
+                // Footer
+                'footer-disclaimer': 'Este site não tem qualquer afiliação com a Receita Federal do Brasil. Os CPFs gerados são números fictícios para fins de teste e estudo. O uso indevido de informações pessoais é crime.'
+            }
+            // Adicionar outras línguas conforme necessário
+        };
+        
+        function setLanguage(lang) {
+            // Por simplicidade, vamos manter apenas em português nesta versão
+            // Mas a estrutura está pronta para internacionalização completa
+            if (lang !== 'pt') {
+                showNotification('Em breve disponível em outros idiomas!', 'info');
+            }
+        }
+        
+        // Inicializar quando a página carregar
+        document.addEventListener('DOMContentLoaded', function() {
+            loadSavedData();
+            
+            // Gerar um CPF inicial
+            setTimeout(() => {
+                if (!currentCPF) {
+                    generateCPF();
+                }
+            }, 500);
+            
+            // Configurar eventos de salvamento automático
+            document.getElementById('formatOption').addEventListener('change', saveData);
+            document.getElementById('maskOption').addEventListener('change', saveData);
+            document.getElementById('stateOption').addEventListener('change', saveData);
+            document.getElementById('stateSelect').addEventListener('change', saveData);
+            document.getElementById('listCount').addEventListener('change', saveData);
+            
+            // Permitir Enter no campo de validação
+            document.getElementById('cpfToValidate').addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    validateInputCPF();
+                }
+            });
+        });
+    </script>
 </body>
 </html>
