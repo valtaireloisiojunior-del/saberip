@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Rastreamento de IP Completo | SEUIP.ORG</title>
+<meta name="description" content="Rastreie um endereço IP e descubra localização, ISP, ASN, navegador, sistema operacional e mais. Ferramenta gratuita do SEUIP.ORG.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="https://seuip.org/ip/rastreamento-ip.html">
+
+<style>
+body{
+    margin:0;
+    font-family:Arial,Helvetica,sans-serif;
+    background:#0d0d0d;
+    color:#fff;
+    padding:20px;
+    max-width:1000px;
+    margin:auto;
+}
+h1{color:#00ff99;text-align:center}
+.box{
+    background:#111;
+    border-radius:16px;
+    padding:25px;
+    margin:20px 0;
+    border:1px solid #222;
+}
+.label{color:#00ff99;font-weight:bold}
+.value{color:#ccc;margin-bottom:12px}
+button{
+    background:#00ff99;
+    color:#000;
+    border:none;
+    padding:14px 22px;
+    border-radius:10px;
+    font-size:16px;
+    cursor:pointer;
+}
+button:hover{background:#00cc77}
+footer{text-align:center;margin-top:40px}
+footer a{color:#00ff99;text-decoration:none}
+</style>
+</head>
+
+<body>
+
+<h1>🔍 Rastreamento Completo de IP</h1>
+
+<div class="box">
+    <button onclick="rastrearIP()">Rastrear Meu IP</button>
+</div>
+
+<div class="box" id="resultado" style="display:none"></div>
+
+<footer>
+<a href="https://seuip.org">← Voltar para SEUIP.ORG</a>
+</footer>
+
+<script>
+async function rastrearIP(){
+    const box = document.getElementById("resultado");
+    box.style.display = "block";
+    box.innerHTML = "Carregando dados do IP...";
+
+    try{
+        const res = await fetch("https://ipapi.co/json/");
+        const data = await res.json();
+
+        const ua = navigator.userAgent;
+        const lang = navigator.language;
+        const platform = navigator.platform;
+
+        box.innerHTML = `
+        <div class="label">IP Público</div>
+        <div class="value">${data.ip}</div>
+
+        <div class="label">Tipo</div>
+        <div class="value">${data.version}</div>
+
+        <div class="label">País</div>
+        <div class="value">${data.country_name} (${data.country_code})</div>
+
+        <div class="label">Região / Estado</div>
+        <div class="value">${data.region}</div>
+
+        <div class="label">Cidade</div>
+        <div class="value">${data.city}</div>
+
+        <div class="label">Latitude / Longitude</div>
+        <div class="value">${data.latitude}, ${data.longitude}</div>
+
+        <div class="label">Mapa</div>
+        <div class="value">
+        <a href="https://www.google.com/maps?q=${data.latitude},${data.longitude}" target="_blank" style="color:#00ff99">Abrir no Google Maps</a>
+        </div>
+
+        <div class="label">Provedor (ISP)</div>
+        <div class="value">${data.org}</div>
+
+        <div class="label">ASN</div>
+        <div class="value">${data.asn}</div>
+
+        <div class="label">Fuso Horário</div>
+        <div class="value">${data.timezone}</div>
+
+        <div class="label">Moeda</div>
+        <div class="value">${data.currency}</div>
+
+        <div class="label">Idioma do Navegador</div>
+        <div class="value">${lang}</div>
+
+        <div class="label">Sistema Operacional</div>
+        <div class="value">${platform}</div>
+
+        <div class="label">User-Agent</div>
+        <div class="value">${ua}</div>
+        `;
+    }catch(e){
+        box.innerHTML = "Erro ao rastrear IP.";
+    }
+}
+</script>
+
+</body>
+</html>
