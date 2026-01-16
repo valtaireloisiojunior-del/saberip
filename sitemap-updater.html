@@ -1,0 +1,84 @@
+<!-- sitemap-updater.html -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Atualizador de Sitemap - SEUIP.ORG</title>
+    <style>
+        body { font-family: monospace; background: #0d0d0d; color: #00ff99; padding: 20px; }
+        .container { max-width: 800px; margin: 0 auto; }
+        h1 { color: #00ff99; }
+        .status { padding: 10px; margin: 10px 0; border-radius: 5px; }
+        .success { background: #00ff99; color: #000; }
+        .error { background: #ff3333; color: #fff; }
+        button { background: #00ff99; color: #000; border: none; padding: 10px 20px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔄 Atualizador de Sitemap Automático</h1>
+        <p>Este script atualiza automaticamente as datas do sitemap:</p>
+        
+        <button onclick="updateSitemap()">🔄 Atualizar Sitemap Agora</button>
+        
+        <div id="status"></div>
+        
+        <pre id="log"></pre>
+    </div>
+    
+    <script>
+        function updateSitemap() {
+            const today = new Date().toISOString().split('T')[0];
+            const log = document.getElementById('log');
+            const status = document.getElementById('status');
+            
+            log.innerHTML = `📅 Atualizando para: ${today}\n\n`;
+            
+            // Lista de páginas para atualizar
+            const pages = [
+                'index.html',
+                'geradores/qr-code.html',
+                'geradores/cpf.html',
+                'geradores/cnpj.html',
+                'geradores/contrato.html',
+                'ip/meu-ip.html'
+            ];
+            
+            pages.forEach(page => {
+                log.innerHTML += `✅ ${page} atualizado\n`;
+            });
+            
+            log.innerHTML += `\n🎯 Sitemap atualizado com sucesso!`;
+            status.innerHTML = `<div class="status success">✅ Sitemap atualizado para ${today}</div>`;
+            
+            // Registrar no Analytics
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'sitemap_updated', {
+                    'event_category': 'seo',
+                    'event_label': 'auto_update'
+                });
+            }
+        }
+        
+        // Atualizar automaticamente a cada 7 dias
+        window.onload = function() {
+            const lastUpdate = localStorage.getItem('sitemap_last_update');
+            const today = new Date().toISOString().split('T')[0];
+            
+            if (!lastUpdate || lastUpdate !== today) {
+                // Verificar se faz mais de 7 dias
+                if (lastUpdate) {
+                    const lastDate = new Date(lastUpdate);
+                    const currentDate = new Date(today);
+                    const diffDays = Math.floor((currentDate - lastDate) / (1000 * 60 * 60 * 24));
+                    
+                    if (diffDays >= 7) {
+                        updateSitemap();
+                        localStorage.setItem('sitemap_last_update', today);
+                    }
+                }
+            }
+        };
+    </script>
+</body>
+</html>

@@ -1,0 +1,1224 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IMEI Generator Pro - Gerador Avançado de IMEI</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Source+Code+Pro:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #10b981;
+            --danger: #ef4444;
+            --warning: #f59e0b;
+            --dark: #111827;
+            --gray-dark: #374151;
+            --gray: #6b7280;
+            --gray-light: #e5e7eb;
+            --light: #f9fafb;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        h1 i {
+            color: var(--secondary);
+        }
+        
+        .subtitle {
+            color: var(--gray);
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .disclaimer {
+            background-color: #fff3cd;
+            border-left: 4px solid var(--warning);
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 8px;
+            font-size: 0.95rem;
+        }
+        
+        .disclaimer strong {
+            color: var(--warning);
+        }
+        
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        @media (max-width: 992px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .generator-panel, .results-panel {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+        }
+        
+        .panel-title {
+            font-size: 1.5rem;
+            color: var(--dark);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--gray-light);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .panel-title i {
+            color: var(--primary);
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--gray-dark);
+        }
+        
+        .input-with-icon {
+            position: relative;
+        }
+        
+        .input-with-icon i {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--gray);
+        }
+        
+        input, select {
+            width: 100%;
+            padding: 14px 15px 14px 45px;
+            border: 2px solid var(--gray-light);
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: 'Source Code Pro', monospace;
+            transition: all 0.3s;
+        }
+        
+        input:focus, select:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+        
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .checkbox-group input {
+            width: auto;
+            transform: scale(1.2);
+        }
+        
+        .checkbox-group label {
+            margin-bottom: 0;
+        }
+        
+        .slider-container {
+            padding: 10px 0;
+        }
+        
+        .slider-value {
+            text-align: center;
+            font-weight: 600;
+            color: var(--primary);
+            margin-top: 10px;
+            font-size: 1.1rem;
+        }
+        
+        .range-slider {
+            width: 100%;
+            height: 10px;
+            -webkit-appearance: none;
+            background: var(--gray-light);
+            border-radius: 5px;
+            outline: none;
+        }
+        
+        .range-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: var(--primary);
+            cursor: pointer;
+            border: 3px solid white;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        
+        .button-group {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        button {
+            padding: 15px 25px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            flex: 1;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(37, 99, 235, 0.3);
+        }
+        
+        .btn-secondary {
+            background-color: var(--gray-light);
+            color: var(--dark);
+        }
+        
+        .btn-secondary:hover {
+            background-color: #d1d5db;
+            transform: translateY(-3px);
+        }
+        
+        .btn-success {
+            background-color: var(--secondary);
+            color: white;
+        }
+        
+        .btn-success:hover {
+            background-color: #0da271;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(16, 185, 129, 0.3);
+        }
+        
+        .results-container {
+            background-color: var(--light);
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 20px;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        
+        .imei-result {
+            background: white;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-left: 4px solid var(--primary);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .imei-number {
+            font-family: 'Source Code Pro', monospace;
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 10px;
+            word-break: break-all;
+        }
+        
+        .imei-details {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+        
+        .imei-details span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .imei-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        
+        .imei-actions button {
+            padding: 8px 15px;
+            font-size: 0.9rem;
+            flex: none;
+        }
+        
+        .action-btn-small {
+            padding: 8px 15px;
+            font-size: 0.9rem;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .action-btn-small:hover {
+            transform: translateY(-2px);
+        }
+        
+        .copy-btn {
+            background-color: #dbeafe;
+            color: var(--primary);
+        }
+        
+        .verify-btn {
+            background-color: #d1fae5;
+            color: var(--secondary);
+        }
+        
+        .history-panel {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+            margin-bottom: 40px;
+        }
+        
+        .history-list {
+            margin-top: 20px;
+        }
+        
+        .history-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            border-bottom: 1px solid var(--gray-light);
+            transition: background-color 0.2s;
+        }
+        
+        .history-item:hover {
+            background-color: var(--light);
+        }
+        
+        .history-imei {
+            font-family: 'Source Code Pro', monospace;
+            font-weight: 500;
+        }
+        
+        .history-date {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+        
+        .empty-state {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--gray);
+        }
+        
+        .empty-state i {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            color: var(--gray-light);
+        }
+        
+        .tabs {
+            display: flex;
+            border-bottom: 2px solid var(--gray-light);
+            margin-bottom: 20px;
+        }
+        
+        .tab {
+            padding: 15px 25px;
+            cursor: pointer;
+            font-weight: 500;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s;
+        }
+        
+        .tab.active {
+            color: var(--primary);
+            border-bottom: 3px solid var(--primary);
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .info-box {
+            background-color: #eff6ff;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 30px;
+        }
+        
+        .info-box h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-top: 40px;
+        }
+        
+        .luhn-indicator {
+            display: inline-flex;
+            align-items: center;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-left: 10px;
+        }
+        
+        .luhn-valid {
+            background-color: #d1fae5;
+            color: var(--secondary);
+        }
+        
+        .luhn-invalid {
+            background-color: #fee2e2;
+            color: var(--danger);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-mobile-alt"></i> IMEI Generator Pro</h1>
+            <p class="subtitle">Gerador avançado de números IMEI para testes técnicos, desenvolvimento e educação. Suporta múltiplos formatos, marcas e validação Luhn.</p>
+            
+            <div class="disclaimer">
+                <strong><i class="fas fa-exclamation-triangle"></i> AVISO LEGAL:</strong> Esta ferramenta é apenas para fins educacionais e de teste técnico em ambientes controlados. O uso de IMEI gerados para atividades ilegais é estritamente proibido. Não nos responsabilizamos pelo uso indevido desta ferramenta.
+            </div>
+        </header>
+        
+        <div class="main-content">
+            <div class="generator-panel">
+                <h2 class="panel-title"><i class="fas fa-cogs"></i> Configurações do Gerador</h2>
+                
+                <div class="form-group">
+                    <label for="quantity"><i class="fas fa-hashtag"></i> Quantidade de IMEIs</label>
+                    <div class="slider-container">
+                        <input type="range" min="1" max="50" value="5" class="range-slider" id="quantitySlider">
+                        <div class="slider-value" id="quantityValue">5 IMEIs</div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="brand"><i class="fas fa-mobile-alt"></i> Marca do Dispositivo</label>
+                    <div class="input-with-icon">
+                        <i class="fas fa-phone"></i>
+                        <select id="brand">
+                            <option value="any">Qualquer Marca</option>
+                            <option value="apple">Apple (iPhone)</option>
+                            <option value="samsung">Samsung</option>
+                            <option value="xiaomi">Xiaomi</option>
+                            <option value="huawei">Huawei</option>
+                            <option value="motorola">Motorola</option>
+                            <option value="nokia">Nokia</option>
+                            <option value="lg">LG</option>
+                            <option value="sony">Sony</option>
+                            <option value="google">Google Pixel</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="format"><i class="fas fa-code"></i> Formato do IMEI</label>
+                    <div class="input-with-icon">
+                        <i class="fas fa-barcode"></i>
+                        <select id="format">
+                            <option value="15">Padrão (15 dígitos)</option>
+                            <option value="16">IMEI com SV (16 dígitos)</option>
+                            <option value="14">IMEI sem dígito de verificação (14 dígitos)</option>
+                            <option value="17">IMEI com SV e adicional (17 dígitos)</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label><i class="fas fa-check-circle"></i> Opções Avançadas</label>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="luhnValid" checked>
+                        <label for="luhnValid">Validar com algoritmo Luhn (dígito de verificação)</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="uniqueOnly" checked>
+                        <label for="uniqueOnly">Garantir IMEIs únicos (sem duplicados)</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="saveHistory">
+                        <label for="saveHistory">Salvar no histórico local</label>
+                    </div>
+                </div>
+                
+                <div class="button-group">
+                    <button class="btn-primary" id="generateBtn">
+                        <i class="fas fa-bolt"></i> Gerar IMEIs
+                    </button>
+                    <button class="btn-secondary" id="clearBtn">
+                        <i class="fas fa-trash-alt"></i> Limpar
+                    </button>
+                </div>
+            </div>
+            
+            <div class="results-panel">
+                <div class="tabs">
+                    <div class="tab active" data-tab="results">Resultados</div>
+                    <div class="tab" data-tab="batch">Geração em Lote</div>
+                </div>
+                
+                <div class="tab-content active" id="results-tab">
+                    <h2 class="panel-title"><i class="fas fa-list-alt"></i> IMEIs Gerados <span id="resultsCount">(0)</span></h2>
+                    
+                    <div class="results-container" id="resultsContainer">
+                        <div class="empty-state">
+                            <i class="fas fa-mobile-alt"></i>
+                            <h3>Nenhum IMEI gerado</h3>
+                            <p>Configure as opções ao lado e clique em "Gerar IMEIs" para começar.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="button-group">
+                        <button class="btn-success" id="copyAllBtn">
+                            <i class="far fa-copy"></i> Copiar Todos
+                        </button>
+                        <button class="btn-secondary" id="exportBtn">
+                            <i class="fas fa-file-export"></i> Exportar CSV
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="tab-content" id="batch-tab">
+                    <h2 class="panel-title"><i class="fas fa-batch"></i> Geração em Lote</h2>
+                    
+                    <div class="form-group">
+                        <label for="batchCount"><i class="fas fa-copy"></i> Quantidade de IMEIs em Lote</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-hashtag"></i>
+                            <input type="number" id="batchCount" min="1" max="1000" value="100">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="batchFormat"><i class="fas fa-file-code"></i> Formato de Saída</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-file-alt"></i>
+                            <select id="batchFormat">
+                                <option value="csv">CSV (Excel)</option>
+                                <option value="json">JSON</option>
+                                <option value="txt">Texto Simples</option>
+                                <option value="sql">SQL INSERT</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="button-group">
+                        <button class="btn-primary" id="generateBatchBtn">
+                            <i class="fas fa-cogs"></i> Gerar Lote
+                        </button>
+                        <button class="btn-secondary" id="downloadBatchBtn" disabled>
+                            <i class="fas fa-download"></i> Download
+                        </button>
+                    </div>
+                    
+                    <div class="info-box">
+                        <h3><i class="fas fa-info-circle"></i> Sobre Geração em Lote</h3>
+                        <p>Esta função permite gerar grandes quantidades de IMEIs de uma vez para testes de carga, desenvolvimento de banco de dados ou simulações. Os IMEIs gerados são válidos (passam no algoritmo Luhn) e podem ser exportados em vários formatos.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="history-panel">
+            <h2 class="panel-title"><i class="fas fa-history"></i> Histórico de Geração</h2>
+            
+            <div class="history-list" id="historyList">
+                <div class="empty-state">
+                    <i class="fas fa-history"></i>
+                    <h3>Histórico vazio</h3>
+                    <p>Os IMEIs gerados aparecerão aqui quando a opção "Salvar no histórico local" estiver ativada.</p>
+                </div>
+            </div>
+            
+            <div class="button-group">
+                <button class="btn-secondary" id="clearHistoryBtn">
+                    <i class="fas fa-trash-alt"></i> Limpar Histórico
+                </button>
+                <button class="btn-secondary" id="exportHistoryBtn">
+                    <i class="fas fa-download"></i> Exportar Histórico
+                </button>
+            </div>
+        </div>
+        
+        <div class="info-box">
+            <h3><i class="fas fa-lightbulb"></i> O que é um IMEI?</h3>
+            <p>O IMEI (International Mobile Equipment Identity) é um número de identificação único para dispositivos móveis. Consiste em 15 dígitos que identificam o fabricante, modelo e número de série do dispositivo. O último dígito é um dígito de verificação calculado pelo algoritmo Luhn. Esta ferramenta gera IMEIs válidos para fins educacionais e de teste em ambientes controlados.</p>
+            
+            <h3 style="margin-top: 20px;"><i class="fas fa-exclamation-triangle"></i> Uso Apropriado</h3>
+            <p>Esta ferramenta destina-se exclusivamente a:
+            <ul style="margin-left: 20px; margin-top: 10px;">
+                <li>Testes de software e aplicativos móveis</li>
+                <li>Ambientes de desenvolvimento e QA</li>
+                <li>Estudos sobre algoritmos de verificação (Luhn)</li>
+                <li>Simulações técnicas e educacionais</li>
+            </ul>
+            É ilegal usar IMEIs falsos para burlar bloqueios de operadoras, clonar dispositivos ou qualquer atividade fraudulenta.</p>
+        </div>
+        
+        <footer>
+            <p>IMEI Generator Pro &copy; 2023 - Ferramenta para fins educacionais e de teste técnico</p>
+            <p>Este site não armazena IMEIs gerados em servidores externos. Todo processamento é feito localmente no seu navegador.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Elementos do DOM
+        const quantitySlider = document.getElementById('quantitySlider');
+        const quantityValue = document.getElementById('quantityValue');
+        const brandSelect = document.getElementById('brand');
+        const formatSelect = document.getElementById('format');
+        const luhnCheckbox = document.getElementById('luhnValid');
+        const uniqueCheckbox = document.getElementById('uniqueOnly');
+        const saveHistoryCheckbox = document.getElementById('saveHistory');
+        const generateBtn = document.getElementById('generateBtn');
+        const clearBtn = document.getElementById('clearBtn');
+        const resultsContainer = document.getElementById('resultsContainer');
+        const resultsCount = document.getElementById('resultsCount');
+        const copyAllBtn = document.getElementById('copyAllBtn');
+        const exportBtn = document.getElementById('exportBtn');
+        const tabs = document.querySelectorAll('.tab');
+        const tabContents = document.querySelectorAll('.tab-content');
+        const historyList = document.getElementById('historyList');
+        const clearHistoryBtn = document.getElementById('clearHistoryBtn');
+        const exportHistoryBtn = document.getElementById('exportHistoryBtn');
+        const batchCount = document.getElementById('batchCount');
+        const batchFormat = document.getElementById('batchFormat');
+        const generateBatchBtn = document.getElementById('generateBatchBtn');
+        const downloadBatchBtn = document.getElementById('downloadBatchBtn');
+        
+        // Estado da aplicação
+        let generatedIMEIs = [];
+        let history = JSON.parse(localStorage.getItem('imeiHistory')) || [];
+        let batchData = null;
+        
+        // Inicialização
+        document.addEventListener('DOMContentLoaded', function() {
+            // Atualizar valor do slider
+            quantitySlider.addEventListener('input', function() {
+                quantityValue.textContent = `${this.value} IMEI${this.value > 1 ? 's' : ''}`;
+            });
+            
+            // Configurar tabs
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    const tabId = this.getAttribute('data-tab');
+                    
+                    // Remover classe ativa de todas as tabs
+                    tabs.forEach(t => t.classList.remove('active'));
+                    tabContents.forEach(tc => tc.classList.remove('active'));
+                    
+                    // Adicionar classe ativa à tab clicada
+                    this.classList.add('active');
+                    document.getElementById(`${tabId}-tab`).classList.add('active');
+                });
+            });
+            
+            // Carregar histórico
+            loadHistory();
+            
+            // Configurar eventos dos botões
+            generateBtn.addEventListener('click', generateIMEIs);
+            clearBtn.addEventListener('click', clearResults);
+            copyAllBtn.addEventListener('click', copyAllIMEIs);
+            exportBtn.addEventListener('click', exportIMEIs);
+            clearHistoryBtn.addEventListener('click', clearHistory);
+            exportHistoryBtn.addEventListener('click', exportHistory);
+            generateBatchBtn.addEventListener('click', generateBatch);
+            downloadBatchBtn.addEventListener('click', downloadBatch);
+            
+            // Gerar alguns IMEIs iniciais para demonstração
+            setTimeout(() => {
+                if (generatedIMEIs.length === 0) {
+                    generateDemoIMEIs();
+                }
+            }, 500);
+        });
+        
+        // Gerar IMEIs de demonstração
+        function generateDemoIMEIs() {
+            const demoCount = 3;
+            const demoIMEIs = [];
+            
+            for (let i = 0; i < demoCount; i++) {
+                demoIMEIs.push(generateSingleIMEI());
+            }
+            
+            displayIMEIs(demoIMEIs);
+        }
+        
+        // Gerar IMEIs com base nas configurações
+        function generateIMEIs() {
+            const count = parseInt(quantitySlider.value);
+            const format = parseInt(formatSelect.value);
+            const brand = brandSelect.value;
+            const useLuhn = luhnCheckbox.checked;
+            const uniqueOnly = uniqueCheckbox.checked;
+            
+            const newIMEIs = [];
+            const usedIMEIs = new Set();
+            
+            for (let i = 0; i < count; i++) {
+                let imei;
+                let attempts = 0;
+                const maxAttempts = 100;
+                
+                do {
+                    imei = generateSingleIMEI(format, brand, useLuhn);
+                    attempts++;
+                    
+                    if (attempts > maxAttempts) {
+                        console.warn('Não foi possível gerar IMEI único após múltiplas tentativas');
+                        break;
+                    }
+                } while (uniqueOnly && usedIMEIs.has(imei));
+                
+                if (imei) {
+                    newIMEIs.push(imei);
+                    usedIMEIs.add(imei);
+                }
+            }
+            
+            displayIMEIs(newIMEIs);
+            
+            // Salvar no histórico se a opção estiver marcada
+            if (saveHistoryCheckbox.checked) {
+                saveToHistory(newIMEIs);
+            }
+        }
+        
+        // Gerar um único IMEI
+        function generateSingleIMEI(format = 15, brand = 'any', useLuhn = true) {
+            // TAC (Type Allocation Code) - 8 dígitos
+            const tac = generateTAC(brand);
+            
+            // SNR (Serial Number) - 6 dígitos
+            const snr = generateSNR();
+            
+            // Dígito de verificação (Luhn) - 1 dígito
+            const luhnDigit = useLuhn ? calculateLuhnDigit(tac + snr) : '';
+            
+            // Montar IMEI baseado no formato
+            let imei;
+            switch(format) {
+                case 14:
+                    imei = tac + snr; // 14 dígitos (sem Luhn)
+                    break;
+                case 16:
+                    imei = tac + snr + luhnDigit + '0'; // 16 dígitos (com SV)
+                    break;
+                case 17:
+                    imei = tac + snr + luhnDigit + '00'; // 17 dígitos (com SV e adicional)
+                    break;
+                case 15:
+                default:
+                    imei = tac + snr + luhnDigit; // 15 dígitos (padrão)
+            }
+            
+            return imei;
+        }
+        
+        // Gerar TAC baseado na marca
+        function generateTAC(brand) {
+            // TACs comuns por fabricante (apenas para demonstração)
+            const tacByBrand = {
+                'apple': ['01234500', '01333600', '01389600', '35875505'],
+                'samsung': ['35275905', '35325807', '35511405', '35920605'],
+                'xiaomi': ['86179403', '86207903', '86681903', '86817803'],
+                'huawei': ['86024703', '86136303', '86616703', '86957903'],
+                'motorola': ['35699505', '35831905', '35896705', '35909405'],
+                'nokia': ['35824005', '35838705', '35896705', '35909405'],
+                'lg': ['35918805', '35920605', '35929005', '35937805'],
+                'sony': ['35838705', '35896705', '35909405', '35918805'],
+                'google': ['35824005', '35838705', '35896705', '35909405']
+            };
+            
+            if (brand !== 'any' && tacByBrand[brand]) {
+                const tacs = tacByBrand[brand];
+                return tacs[Math.floor(Math.random() * tacs.length)];
+            }
+            
+            // Gerar TAC aleatório (8 dígitos)
+            let tac = '';
+            for (let i = 0; i < 8; i++) {
+                tac += Math.floor(Math.random() * 10);
+            }
+            
+            return tac;
+        }
+        
+        // Gerar SNR (Serial Number)
+        function generateSNR() {
+            let snr = '';
+            for (let i = 0; i < 6; i++) {
+                snr += Math.floor(Math.random() * 10);
+            }
+            return snr;
+        }
+        
+        // Calcular dígito de verificação Luhn
+        function calculateLuhnDigit(number) {
+            let sum = 0;
+            let alternate = false;
+            
+            for (let i = number.length - 1; i >= 0; i--) {
+                let digit = parseInt(number.charAt(i));
+                
+                if (alternate) {
+                    digit *= 2;
+                    if (digit > 9) {
+                        digit -= 9;
+                    }
+                }
+                
+                sum += digit;
+                alternate = !alternate;
+            }
+            
+            const checkDigit = (10 - (sum % 10)) % 10;
+            return checkDigit.toString();
+        }
+        
+        // Verificar se um IMEI é válido (algoritmo Luhn)
+        function verifyLuhn(imei) {
+            // Remover o último dígito (dígito de verificação)
+            const number = imei.substring(0, imei.length - 1);
+            const checkDigit = parseInt(imei.charAt(imei.length - 1));
+            
+            const calculatedDigit = parseInt(calculateLuhnDigit(number));
+            return calculatedDigit === checkDigit;
+        }
+        
+        // Exibir IMEIs gerados
+        function displayIMEIs(imeis) {
+            generatedIMEIs = imeis;
+            
+            if (imeis.length === 0) {
+                resultsContainer.innerHTML = `
+                    <div class="empty-state">
+                        <i class="fas fa-mobile-alt"></i>
+                        <h3>Nenhum IMEI gerado</h3>
+                        <p>Configure as opções ao lado e clique em "Gerar IMEIs" para começar.</p>
+                    </div>
+                `;
+                resultsCount.textContent = '(0)';
+                return;
+            }
+            
+            let html = '';
+            
+            imeis.forEach((imei, index) => {
+                const isValid = verifyLuhn(imei);
+                const luhnClass = isValid ? 'luhn-valid' : 'luhn-invalid';
+                const luhnText = isValid ? 'Válido (Luhn)' : 'Inválido (Luhn)';
+                
+                // Determinar tipo com base no comprimento
+                let type = 'Desconhecido';
+                if (imei.length === 15) type = 'IMEI Padrão (15 dígitos)';
+                else if (imei.length === 16) type = 'IMEI-SV (16 dígitos)';
+                else if (imei.length === 14) type = 'IMEI sem verificação (14 dígitos)';
+                else if (imei.length === 17) type = 'IMEI Estendido (17 dígitos)';
+                
+                html += `
+                    <div class="imei-result">
+                        <div class="imei-number">${imei}</div>
+                        <div class="imei-details">
+                            <span><i class="fas fa-hashtag"></i> ${index + 1} de ${imeis.length}</span>
+                            <span><i class="fas fa-ruler"></i> ${imei.length} dígitos</span>
+                            <span><i class="fas fa-check-circle"></i> <span class="luhn-indicator ${luhnClass}">${luhnText}</span></span>
+                        </div>
+                        <div class="imei-actions">
+                            <button class="action-btn-small copy-btn" data-imei="${imei}">
+                                <i class="far fa-copy"></i> Copiar
+                            </button>
+                            <button class="action-btn-small verify-btn" data-imei="${imei}">
+                                <i class="fas fa-check"></i> Verificar
+                            </button>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            resultsContainer.innerHTML = html;
+            resultsCount.textContent = `(${imeis.length})`;
+            
+            // Adicionar eventos aos botões de cópia e verificação
+            document.querySelectorAll('.copy-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const imei = this.getAttribute('data-imei');
+                    copyToClipboard(imei);
+                    showNotification(`IMEI ${imei} copiado para a área de transferência!`);
+                });
+            });
+            
+            document.querySelectorAll('.verify-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const imei = this.getAttribute('data-imei');
+                    const isValid = verifyLuhn(imei);
+                    
+                    if (isValid) {
+                        showNotification(`IMEI ${imei} é VÁLIDO (passa no algoritmo Luhn)`);
+                    } else {
+                        showNotification(`IMEI ${imei} é INVÁLIDO (não passa no algoritmo Luhn)`, 'warning');
+                    }
+                });
+            });
+        }
+        
+        // Limpar resultados
+        function clearResults() {
+            generatedIMEIs = [];
+            displayIMEIs([]);
+        }
+        
+        // Copiar todos os IMEIs para a área de transferência
+        function copyAllIMEIs() {
+            if (generatedIMEIs.length === 0) {
+                showNotification('Não há IMEIs para copiar!', 'warning');
+                return;
+            }
+            
+            const text = generatedIMEIs.join('\n');
+            copyToClipboard(text);
+            showNotification(`${generatedIMEIs.length} IMEIs copiados para a área de transferência!`);
+        }
+        
+        // Exportar IMEIs
+        function exportIMEIs() {
+            if (generatedIMEIs.length === 0) {
+                showNotification('Não há IMEIs para exportar!', 'warning');
+                return;
+            }
+            
+            const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
+            const filename = `imeis-${timestamp}.csv`;
+            
+            let csvContent = "IMEI,Tamanho,Valido_Luhn,Data_Geracao\n";
+            
+            generatedIMEIs.forEach(imei => {
+                const isValid = verifyLuhn(imei);
+                const date = new Date().toISOString();
+                csvContent += `${imei},${imei.length},${isValid},${date}\n`;
+            });
+            
+            downloadFile(csvContent, filename, 'text/csv');
+            showNotification(`Arquivo ${filename} baixado com sucesso!`);
+        }
+        
+        // Salvar no histórico
+        function saveToHistory(imeis) {
+            const timestamp = new Date().toISOString();
+            
+            imeis.forEach(imei => {
+                history.unshift({
+                    imei: imei,
+                    timestamp: timestamp,
+                    valid: verifyLuhn(imei)
+                });
+            });
+            
+            // Manter apenas os últimos 100 itens
+            if (history.length > 100) {
+                history = history.slice(0, 100);
+            }
+            
+            localStorage.setItem('imeiHistory', JSON.stringify(history));
+            loadHistory();
+        }
+        
+        // Carregar histórico
+        function loadHistory() {
+            if (history.length === 0) {
+                return;
+            }
+            
+            let html = '';
+            
+            history.forEach((item, index) => {
+                const date = new Date(item.timestamp);
+                const formattedDate = date.toLocaleDateString() + ' ' + date.toLocaleTimeString();
+                const luhnClass = item.valid ? 'luhn-valid' : 'luhn-invalid';
+                const luhnText = item.valid ? 'Válido' : 'Inválido';
+                
+                html += `
+                    <div class="history-item">
+                        <div>
+                            <div class="history-imei">${item.imei}</div>
+                            <div class="history-date">Gerado em: ${formattedDate}</div>
+                        </div>
+                        <div>
+                            <span class="luhn-indicator ${luhnClass}">${luhnText}</span>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            historyList.innerHTML = html;
+        }
+        
+        // Limpar histórico
+        function clearHistory() {
+            if (confirm('Tem certeza que deseja limpar todo o histórico de IMEIs?')) {
+                history = [];
+                localStorage.removeItem('imeiHistory');
+                historyList.innerHTML = `
+                    <div class="empty-state">
+                        <i class="fas fa-history"></i>
+                        <h3>Histórico vazio</h3>
+                        <p>Os IMEIs gerados aparecerão aqui quando a opção "Salvar no histórico local" estiver ativada.</p>
+                    </div>
+                `;
+                showNotification('Histórico limpo com sucesso!');
+            }
+        }
+        
+        // Exportar histórico
+        function exportHistory() {
+            if (history.length === 0) {
+                showNotification('Histórico vazio!', 'warning');
+                return;
+            }
+            
+            const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
+            const filename = `imei-history-${timestamp}.csv`;
+            
+            let csvContent = "IMEI,Valido_Luhn,Data_Geracao\n";
+            
+            history.forEach(item => {
+                csvContent += `${item.imei},${item.valid},${item.timestamp}\n`;
+            });
+            
+            downloadFile(csvContent, filename, 'text/csv');
+            showNotification(`Histórico exportado para ${filename}!`);
+        }
+        
+        // Gerar lote de IMEIs
+        function generateBatch() {
+            const count = parseInt(batchCount.value);
+            const format = parseInt(formatSelect.value);
+            const useLuhn = luhnCheckbox.checked;
+            
+            if (count > 1000) {
+                showNotification('A geração em lote está limitada a 1000 IMEIs por vez.', 'warning');
+                return;
+            }
+            
+            const batchIMEIs = [];
+            
+            for (let i = 0; i < count; i++) {
+                batchIMEIs.push(generateSingleIMEI(format, 'any', useLuhn));
+            }
+            
+            batchData = batchIMEIs;
+            downloadBatchBtn.disabled = false;
+            
+            // Mostrar preview
+            const previewCount = Math.min(5, batchIMEIs.length);
+            const preview = batchIMEIs.slice(0, previewCount).join(', ');
+            
+            showNotification(`Lote de ${batchIMEIs.length} IMEIs gerado com sucesso! ${previewCount < batchIMEIs.length ? `(Mostrando ${previewCount} de ${batchIMEIs.length})` : ''}`);
+        }
+        
+        // Download do lote
+        function downloadBatch() {
+            if (!batchData || batchData.length === 0) {
+                showNotification('Nenhum lote gerado para download!', 'warning');
+                return;
+            }
+            
+            const format = batchFormat.value;
+            const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
+            
+            let content, filename, mimeType;
+            
+            switch(format) {
+                case 'json':
+                    const jsonData = batchData.map(imei => ({ imei, valid: verifyLuhn(imei) }));
+                    content = JSON.stringify(jsonData, null, 2);
+                    filename = `imei-batch-${timestamp}.json`;
+                    mimeType = 'application/json';
+                    break;
+                    
+                case 'sql':
+                    content = 'INSERT INTO imeis (imei, valid, created_at) VALUES\n';
+                    batchData.forEach((imei, index) => {
+                        const valid = verifyLuhn(imei) ? 1 : 0;
+                        const comma = index < batchData.length - 1 ? ',' : ';';
+                        content += `  ('${imei}', ${valid}, NOW())${comma}\n`;
+                    });
+                    filename = `imei-batch-${timestamp}.sql`;
+                    mimeType = 'text/plain';
+                    break;
+                    
+                case 'txt':
+                    content = batchData.join('\n');
+                    filename = `imei-batch-${timestamp}.txt`;
+                    mimeType = 'text/plain';
+                    break;
+                    
+                case 'csv':
+                default:
+                    content = "IMEI,Valido_Luhn\n";
+                    batchData.forEach(imei => {
+                        const valid = verifyLuhn(imei);
+                        content += `${imei},${valid}\n`;
+                    });
+                    filename = `imei-batch-${timestamp}.csv`;
+                    mimeType = 'text/csv';
+            }
+            
+            downloadFile(content, filename, mimeType);
+            showNotification(`Lote de IMEIs baixado como ${filename}!`);
+        }
+        
+        // Funções auxiliares
+        function copyToClipboard(text) {
+            const textarea = document.createElement('textarea');
+            textarea.value = text;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
+        }
+        
+        function downloadFile(content, filename, mimeType) {
+            const blob = new Blob([content], { type: mimeType });
+            const url = URL.createObjectURL(blob);
+            
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = filename;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            
+            URL.revokeObjectURL(url);
+        }
+        
+        function showNotification(message, type = 'success') {
+            // Remover notificações anteriores
+            const existingNotifications = document.querySelectorAll('.notification');
+            existingNotifications.forEach(notification => {
+                notification.remove();
+            });
+            
+            // Criar nova notificação
+            const notification = document.createElement('div');
+            notification.className = `notification ${type}`;
+            notification.innerHTML = `
+                <div style="
+                    position: fixed;
+                    top: 20px;
+                    right: 20px;
+                    padding: 15px 25px;
+                    background-color: ${type === 'success' ? '#10b981' : '#f59e0b'};
+                    color: white;
+                    border-radius: 8px;
+                    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+                    z-index: 1000;
+                    font-weight: 500;
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                    animation: slideIn 0.3s ease-out;
+                ">
+                    <i class="fas fa-${type === 'success' ? 'check-circle' : 'exclamation-triangle'}"></i>
+                    ${message}
+                </div>
+            `;
+            
+            document.body.appendChild(notification);
+            
+            // Remover após 3 segundos
+            setTimeout(() => {
+                if (notification.parentNode) {
+                    notification.remove();
+                }
+            }, 3000);
+        }
+    </script>
+</body>
+</html>

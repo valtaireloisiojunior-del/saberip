@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de Contrato Fictício</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 20px;
+            background: linear-gradient(135deg, #2c3e50, #4a6491);
+            color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        .main-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .form-container {
+            flex: 1;
+            min-width: 300px;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .contract-preview {
+            flex: 1;
+            min-width: 300px;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            overflow-y: auto;
+            max-height: 700px;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        
+        input, select, textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: border 0.3s;
+        }
+        
+        input:focus, select:focus, textarea:focus {
+            border-color: #4a6491;
+            outline: none;
+        }
+        
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        
+        .contract-type {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 10px;
+            margin-top: 10px;
+        }
+        
+        .contract-option {
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 15px 10px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .contract-option:hover {
+            border-color: #4a6491;
+            background-color: #f8fafd;
+        }
+        
+        .contract-option.selected {
+            border-color: #2c3e50;
+            background-color: #eef2f9;
+        }
+        
+        .contract-option i {
+            font-size: 24px;
+            margin-bottom: 8px;
+            color: #4a6491;
+        }
+        
+        .buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        button {
+            flex: 1;
+            padding: 15px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .generate-btn {
+            background-color: #2c3e50;
+            color: white;
+        }
+        
+        .generate-btn:hover {
+            background-color: #1a252f;
+        }
+        
+        .download-btn {
+            background-color: #27ae60;
+            color: white;
+        }
+        
+        .download-btn:hover {
+            background-color: #219653;
+        }
+        
+        .reset-btn {
+            background-color: #e74c3c;
+            color: white;
+        }
+        
+        .reset-btn:hover {
+            background-color: #c0392b;
+        }
+        
+        .contract-header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #eee;
+        }
+        
+        .contract-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+        
+        .contract-date {
+            color: #7f8c8d;
+            font-size: 16px;
+        }
+        
+        .contract-content {
+            font-size: 16px;
+            line-height: 1.8;
+        }
+        
+        .contract-clause {
+            margin-bottom: 20px;
+        }
+        
+        .contract-clause h3 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        
+        .signature-area {
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 2px solid #eee;
+        }
+        
+        .signature-line {
+            display: inline-block;
+            width: 250px;
+            border-bottom: 1px solid #333;
+            margin: 40px 20px 10px;
+        }
+        
+        .disclaimer {
+            text-align: center;
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #fff9e6;
+            border-radius: 8px;
+            border-left: 4px solid #f1c40f;
+            font-size: 14px;
+            color: #7d6608;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            color: #7f8c8d;
+            font-size: 14px;
+        }
+        
+        @media (max-width: 768px) {
+            .main-content {
+                flex-direction: column;
+            }
+            
+            .buttons {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-file-contract"></i> Gerador de Contrato Fictício</h1>
+            <p class="subtitle">Gere contratos personalizados para diferentes situações - uso exclusivo para simulação</p>
+        </header>
+        
+        <div class="main-content">
+            <div class="form-container">
+                <h2>Personalize seu contrato</h2>
+                <p>Preencha os dados abaixo para gerar um contrato fictício personalizado.</p>
+                
+                <div class="form-group">
+                    <label for="contractType">Tipo de Contrato</label>
+                    <div class="contract-type">
+                        <div class="contract-option" data-type="trabalho">
+                            <i class="fas fa-briefcase"></i>
+                            <div>Trabalho</div>
+                        </div>
+                        <div class="contract-option" data-type="locacao">
+                            <i class="fas fa-home"></i>
+                            <div>Locação</div>
+                        </div>
+                        <div class="contract-option" data-type="prestacao">
+                            <i class="fas fa-handshake"></i>
+                            <div>Prestação de Serviços</div>
+                        </div>
+                        <div class="contract-option" data-type="confidencialidade">
+                            <i class="fas fa-user-secret"></i>
+                            <div>Confidencialidade</div>
+                        </div>
+                    </div>
+                    <input type="hidden" id="contractType" value="trabalho">
+                </div>
+                
+                <div class="form-group">
+                    <label for="parte1">Nome da Parte 1 (Contratante)</label>
+                    <input type="text" id="parte1" placeholder="Ex: Empresa XYZ Ltda." value="Empresa ABC Ltda.">
+                </div>
+                
+                <div class="form-group">
+                    <label for="parte2">Nome da Parte 2 (Contratado)</label>
+                    <input type="text" id="parte2" placeholder="Ex: João da Silva" value="Carlos Alberto Souza">
+                </div>
+                
+                <div class="form-group">
+                    <label for="objeto">Objeto do Contrato</label>
+                    <textarea id="objeto" placeholder="Descreva o objeto do contrato...">Prestação de serviços especializados de consultoria em tecnologia da informação.</textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="valor">Valor do Contrato (R$)</label>
+                    <input type="text" id="valor" placeholder="Ex: 5.000,00" value="12.500,00">
+                </div>
+                
+                <div class="form-group">
+                    <label for="prazo">Prazo de Vigência</label>
+                    <input type="text" id="prazo" placeholder="Ex: 12 meses" value="24 meses">
+                </div>
+                
+                <div class="form-group">
+                    <label for="cidade">Cidade de Assinatura</label>
+                    <input type="text" id="cidade" placeholder="Ex: São Paulo" value="Rio de Janeiro">
+                </div>
+                
+                <div class="buttons">
+                    <button class="generate-btn" id="generateBtn">
+                        <i class="fas fa-magic"></i> Gerar Contrato
+                    </button>
+                    <button class="download-btn" id="downloadBtn">
+                        <i class="fas fa-download"></i> Baixar PDF
+                    </button>
+                    <button class="reset-btn" id="resetBtn">
+                        <i class="fas fa-redo"></i> Limpar
+                    </button>
+                </div>
+                
+                <div class="disclaimer">
+                    <p><i class="fas fa-exclamation-triangle"></i> <strong>Atenção:</strong> Este gerador cria apenas contratos fictícios para fins de simulação e estudo. Não possuem valor jurídico real. Para contratos oficiais, consulte um advogado.</p>
+                </div>
+            </div>
+            
+            <div class="contract-preview" id="contractPreview">
+                <div class="contract-header">
+                    <div class="contract-title" id="previewTitle">CONTRATO DE PRESTAÇÃO DE SERVIÇOS</div>
+                    <div class="contract-date" id="previewDate">Rio de Janeiro, 15 de outubro de 2023</div>
+                </div>
+                
+                <div class="contract-content" id="contractContent">
+                    <!-- O conteúdo do contrato será gerado aqui via JavaScript -->
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>Gerador de Contrato Fictício &copy; 2023 - Desenvolvido para fins educacionais</p>
+            <p>Este é um projeto de demonstração. Contratos gerados aqui não têm validade jurídica.</p>
+        </footer>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
+    <script>
+        // Selecionar tipo de contrato
+        const contractOptions = document.querySelectorAll('.contract-option');
+        const contractTypeInput = document.getElementById('contractType');
+        
+        contractOptions.forEach(option => {
+            option.addEventListener('click', function() {
+                // Remover seleção anterior
+                contractOptions.forEach(opt => opt.classList.remove('selected'));
+                
+                // Adicionar seleção atual
+                this.classList.add('selected');
+                
+                // Atualizar valor do input
+                const type = this.getAttribute('data-type');
+                contractTypeInput.value = type;
+                
+                // Atualizar automaticamente o contrato
+                generateContract();
+            });
+        });
+        
+        // Inicializar com a primeira opção selecionada
+        contractOptions[0].classList.add('selected');
+        
+        // Elementos do formulário
+        const parte1Input = document.getElementById('parte1');
+        const parte2Input = document.getElementById('parte2');
+        const objetoInput = document.getElementById('objeto');
+        const valorInput = document.getElementById('valor');
+        const prazoInput = document.getElementById('prazo');
+        const cidadeInput = document.getElementById('cidade');
+        
+        // Elementos de preview
+        const previewTitle = document.getElementById('previewTitle');
+        const previewDate = document.getElementById('previewDate');
+        const contractContent = document.getElementById('contractContent');
+        
+        // Data atual para o contrato
+        const today = new Date();
+        const formattedDate = today.toLocaleDateString('pt-BR', {
+            day: 'numeric',
+            month: 'long',
+            year: 'numeric'
+        });
+        
+        // Atualizar data no preview
+        previewDate.textContent = `${cidadeInput.value}, ${formattedDate}`;
+        
+        // Função para gerar o contrato
+        function generateContract() {
+            const type = contractTypeInput.value;
+            const parte1 = parte1Input.value || "________________";
+            const parte2 = parte2Input.value || "________________";
+            const objeto = objetoInput.value || "________________";
+            const valor = valorInput.value || "________________";
+            const prazo = prazoInput.value || "________________";
+            const cidade = cidadeInput.value || "________________";
+            
+            // Atualizar título baseado no tipo
+            let title = "";
+            switch(type) {
+                case "trabalho":
+                    title = "CONTRATO INDIVIDUAL DE TRABALHO";
+                    break;
+                case "locacao":
+                    title = "CONTRATO DE LOCAÇÃO RESIDENCIAL";
+                    break;
+                case "prestacao":
+                    title = "CONTRATO DE PRESTAÇÃO DE SERVIÇOS";
+                    break;
+                case "confidencialidade":
+                    title = "ACORDO DE CONFIDENCIALIDADE";
+                    break;
+            }
+            previewTitle.textContent = title;
+            
+            // Atualizar data com cidade
+            previewDate.textContent = `${cidade}, ${formattedDate}`;
+            
+            // Gerar conteúdo baseado no tipo de contrato
+            let content = "";
+            
+            switch(type) {
+                case "trabalho":
+                    content = `
+                        <div class="contract-clause">
+                            <h3>CLÁUSULA PRIMEIRA - DAS PARTES</h3>
+                            <p>Este contrato é celebrado entre <strong>${parte1}</strong>, com sede na cidade de ${cidade}, doravante denominada CONTRATANTE, e <strong>${parte2}</strong>, doravante denominado CONTRATADO.</p>
+                        </div>
+                        
+                        <div class="contract-clause">
+                            <h3>CLÁUSULA SEGUNDA - DO OBJETO</h3>
+                            <p>O objeto do presente contrato é a prestação de serviços especializados por parte do CONTRATADO à CONTRATANTE, consistindo em: ${objeto}.</p>
+                        </div>
+                        
+                        <div class="contract-clause">
+                            <h3>CLÁUSULA TERCEIRA - DA REMUNERAÇÃO</h3>
+                            <p>Pela prestação dos serviços objeto deste contrato, a CONTRATANTE pagará ao CONTRATADO a importância de <strong>R$ ${valor}</strong> (${extensoValor(valor)}), mensalmente.</p>
+                        </div>
+                        
+                        <div class="contract-clause">
+                            <h3>CLÁUSULA QUARTA - DO PRAZO</h3>
+                            <p>O presente contrato vigorará pelo prazo de <strong>${prazo}</strong>, iniciando-se na data de sua assinatura, podendo ser renovado por comum acordo entre as partes.</p>
+                        </div>
+                        
+                        <div class="contract-clause">
+                            <h3>CLÁUSULA QUINTA - DAS OBRIGAÇÕES DAS PARTES</h3>
+                            <p>O CONTRATADO compromete-se a executar os serviços com diligência e eficiência, enquanto a CONTRATANTE se obriga a fornecer os meios necessários e a remunerar os serviços dentro dos prazos estipulados.</p>
+                        </div>
+                        
+                        <div class="contract-clause">
+                            <h3>CLÁUSULA SEXTA - DA RESCISÃO</h3>
+                            <p>Este contrato poderá ser rescindido por qualquer das partes mediante aviso prévio de 30 (trinta) dias, sem prejuízo das obrigações já assumidas.</p>
+                        </div>
+                    `;
+                    break;
+                    
+                case "locacao":
+                    content = `
+                        <div class="contract-clause">
+                            <h3>CLÁUSULA PRIMEIRA - DAS PARTES</h3>
+                            <p>Locador: <strong>${parte1}</strong>, doravante denominado LOCADOR.</p>
+                            <p>Locatário: <strong>${parte2}</strong>, doravante denominado LOCATÁRIO.</p>
+                        </div>
+                        
+                        <div class="contract-clause">
+                            <h3>CLÁUSULA SEGUNDA - DO IMÓVEL</h3>
+                            <p>O LOCADOR cede em locação ao LOCATÁRIO o imóvel residencial localizado na ${objeto}.</p>
+                        </div>
+                        
+                        <div class="contract-clause">
+                            <h3>CLÁUSULA TERCEIRA - DO VALOR E FORMA DE PAGAMENTO</h3>
+                            <p>O aluguel mensal será de <strong>R$ ${valor}</strong> (${extensoValor(valor)}), a ser pago até o dia 10 (dez) de cada mês.</p>
+                        </div>
+                        
+                        <div class="contract-clause">
+                            <h3>CLÁUSULA QUARTA - DO PRAZO</h3>
+                            <p>A locação terá a duração de <strong>${prazo}</strong>, iniciando-se na data de assinatura deste contrato.</p>
+                        </div>
+                        
+                        <div class="contract-clause">
+                            <h3>CLÁUSULA QUINTA - DAS CONDIÇÕES</h3>
+                            <p>O LOCATÁRIO obriga-se a usar o imóvel apenas para fins residenciais, mantendo-o em bom estado de conservação. É vedada a sublocação sem autorização por escrito do LOCADOR.</p>
+                        </div>
+                        
+                        <div class="contract-clause">
+                            <h3>CLÁUSULA SEXTA - DA GARANTIA</h3>
+                            <p>Como garantia do fiel cumprimento das obrigações assumidas, o LOCATÁRIO depositará o equivalente a 2 (dois) meses de aluguel, a ser devolvido ao término do contrato, deduzidos eventuais débitos.</p>
+                        </div>
+                    `;
+                    break;
+                    
+                case "prestacao":
+                    content = `
+                        <div class="contract-clause">
+                            <h3>CLÁUSULA PRIMEIRA - DAS PARTES CONTRATANTES</h3>
+                            <p>CONTRATANTE: <strong>${parte1}</strong>, com sede na cidade de ${cidade}.</p>
+                            <p>CONTRATADO: <strong>${parte2}</strong>, prestador de serviços.</p>
+                        </div>
+                        
+                        <div class="contract-clause">
+                            <h3>CLÁUSULA SEGUNDA - DO OBJETO</h3>
+                            <p>O presente contrato tem por objeto a prestação de serviços de ${objeto}.</p>
+                        </div>
+                        
+                        <div class="contract-clause">
+                            <h3>CLÁUSULA TERCEIRA - DA REMUNERAÇÃO</h3>
+                            <p>Pelos serviços prestados, a CONTRATANTE pagará ao CONTRATADO o valor total de <strong>R$ ${valor}</strong> (${extensoValor(valor)}), conforme forma de pagamento acordada entre as partes.</p>
+                        </div>
+                        
+                        <div class="contract-clause">
+                            <h3>CLÁUSULA QUARTA - DO PRAZO</h3>
+                            <p>O presente contrato terá a duração de <strong>${prazo}</strong>, contados a partir da data de sua assinatura.</p>
+                        </div>
+                        
+                        <div class="contract-clause">
+                            <h3>CLÁUSULA QUINTA - DAS OBRIGAÇÕES DO CONTRATADO</h3>
+                            <p>O CONTRATADO obriga-se a executar os serviços com eficiência, habilidade e diligência, empregando os melhores recursos técnicos disponíveis, de acordo com as normas da arte.</p>
+                        </div>
+                        
+                        <div class="contract-clause">
+                            <h3>CLÁUSULA SEXTA - DAS OBRIGAÇÕES DA CONTRATANTE</h3>
+                            <p>A CONTRATANTE obriga-se a fornecer todas as informações necessárias à execução dos serviços, bem como a pagar a remuneração ajustada nos prazos estipulados.</p>
+                        </div>
+                    `;
+                    break;
+                    
+                case "confidencialidade":
+                    content = `
+                        <div class="contract-clause">
+                            <h3>CLÁUSULA PRIMEIRA - DAS PARTES</h3>
+                            <p>REVELADORA: <strong>${parte1}</strong>, doravante denominada REVELADORA.</p>
+                            <p>RECEPTORA: <strong>${parte2}</strong>, doravante denominada RECEPTORA.</p>
+                        </div>
+                        
+                        <div class="contract-clause">
+                            <h3>CLÁUSULA SEGUNDA - DO OBJETO</h3>
+                            <p>O presente acordo tem por objetivo proteger as informações confidenciais relativas a ${objeto}, que serão reveladas pela REVELADORA à RECEPTORA.</p>
+                        </div>
+                        
+                        <div class="contract-clause">
+                            <h3>CLÁUSULA TERCEIRA - DAS INFORMAÇÕES CONFIDENCIAIS</h3>
+                            <p>Consideram-se informações confidenciais, para os fins deste acordo, quaisquer dados, know-how, processos, técnicas, projetos, planos, estratégias ou informações comerciais e financeiras da REVELADORA.</p>
+                        </div>
+                        
+                        <div class="contract-clause">
+                            <h3>CLÁUSULA QUARTA - DO PRAZO DE VIGÊNCIA</h3>
+                            <p>Este acordo terá validade por <strong>${prazo}</strong>, contados a partir da data de sua assinatura, permanecendo em vigor mesmo após o término de qualquer relação contratual entre as partes.</p>
+                        </div>
+                        
+                        <div class="contract-clause">
+                            <h3>CLÁUSULA QUINTA - DAS OBRIGAÇÕES DA RECEPTORA</h3>
+                            <p>A RECEPTORA obriga-se a manter em sigilo as informações confidenciais, não as revelando a terceiros nem as utilizando para fins diversos daqueles previstos neste acordo, sob pena de responsabilização civil e criminal.</p>
+                        </div>
+                        
+                        <div class="contract-clause">
+                            <h3>CLÁUSULA SEXTA - DAS PENALIDADES</h3>
+                            <p>Em caso de violação das disposições deste acordo, a parte infratora pagará à outra parte uma multa no valor de <strong>R$ ${valor}</strong> (${extensoValor(valor)}), sem prejuízo de eventuais perdas e danos.</p>
+                        </div>
+                    `;
+                    break;
+            }
+            
+            // Adicionar assinaturas
+            content += `
+                <div class="signature-area">
+                    <p>E por estarem assim justas e acordadas, as partes assinam o presente contrato em duas vias de igual teor, na presença de duas testemunhas.</p>
+                    
+                    <div style="display: flex; justify-content: space-around; margin-top: 50px;">
+                        <div style="text-align: center;">
+                            <div class="signature-line"></div>
+                            <p><strong>${parte1}</strong><br>Contratante</p>
+                        </div>
+                        
+                        <div style="text-align: center;">
+                            <div class="signature-line"></div>
+                            <p><strong>${parte2}</strong><br>Contratado</p>
+                        </div>
+                    </div>
+                    
+                    <div style="display: flex; justify-content: space-around; margin-top: 60px;">
+                        <div style="text-align: center;">
+                            <div class="signature-line"></div>
+                            <p>Testemunha 1</p>
+                        </div>
+                        
+                        <div style="text-align: center;">
+                            <div class="signature-line"></div>
+                            <p>Testemunha 2</p>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            // Inserir conteúdo no preview
+            contractContent.innerHTML = content;
+        }
+        
+        // Função auxiliar para converter valor por extenso (simplificada)
+        function extensoValor(valor) {
+            if (!valor || valor === "________________") return "________________";
+            
+            // Limpar formatação
+            const num = parseFloat(valor.replace(/\./g, '').replace(',', '.'));
+            
+            if (isNaN(num)) return "________________";
+            
+            // Versão simplificada
+            const unidades = ["", "um", "dois", "três", "quatro", "cinco", "seis", "sete", "oito", "nove"];
+            const dezenas = ["", "dez", "vinte", "trinta", "quarenta", "cinquenta", "sessenta", "setenta", "oitenta", "noventa"];
+            const centenas = ["", "cento", "duzentos", "trezentos", "quatrocentos", "quinhentos", "seiscentos", "setecentos", "oitocentos", "novecentos"];
+            
+            if (num === 0) return "zero reais";
+            
+            let extenso = "";
+            let inteiro = Math.floor(num);
+            let decimal = Math.round((num - inteiro) * 100);
+            
+            // Parte inteira
+            if (inteiro > 0) {
+                if (inteiro === 100) {
+                    extenso += "cem";
+                } else if (inteiro < 10) {
+                    extenso += unidades[inteiro];
+                } else if (inteiro < 20) {
+                    const especiais = ["dez", "onze", "doze", "treze", "quatorze", "quinze", "dezesseis", "dezessete", "dezoito", "dezenove"];
+                    extenso += especiais[inteiro - 10];
+                } else if (inteiro < 100) {
+                    const dezena = Math.floor(inteiro / 10);
+                    const unidade = inteiro % 10;
+                    extenso += dezenas[dezena];
+                    if (unidade > 0) extenso += " e " + unidades[unidade];
+                } else if (inteiro < 1000) {
+                    const centena = Math.floor(inteiro / 100);
+                    const resto = inteiro % 100;
+                    extenso += centenas[centena];
+                    if (resto > 0) extenso += " e " + extensoValor(resto.toString()).replace(" reais", "");
+                } else {
+                    // Para números maiores, simplificamos
+                    extenso += inteiro.toString().replace('.', ',');
+                }
+                
+                extenso += " reais";
+            }
+            
+            // Parte decimal
+            if (decimal > 0) {
+                if (inteiro > 0) extenso += " e ";
+                
+                if (decimal < 10) {
+                    extenso += unidades[decimal];
+                } else if (decimal < 20) {
+                    const especiais = ["dez", "onze", "doze", "treze", "quatorze", "quinze", "dezesseis", "dezessete", "dezoito", "dezenove"];
+                    extenso += especiais[decimal - 10];
+                } else {
+                    const dezena = Math.floor(decimal / 10);
+                    const unidade = decimal % 10;
+                    extenso += dezenas[dezena];
+                    if (unidade > 0) extenso += " e " + unidades[unidade];
+                }
+                
+                extenso += " centavos";
+            }
+            
+            return extenso;
+        }
+        
+        // Gerar contrato inicial
+        generateContract();
+        
+        // Atualizar contrato quando os inputs mudam
+        const inputs = document.querySelectorAll('#parte1, #parte2, #objeto, #valor, #prazo, #cidade');
+        inputs.forEach(input => {
+            input.addEventListener('input', generateContract);
+        });
+        
+        // Botão Gerar Contrato
+        document.getElementById('generateBtn').addEventListener('click', generateContract);
+        
+        // Botão Limpar
+        document.getElementById('resetBtn').addEventListener('click', function() {
+            parte1Input.value = "";
+            parte2Input.value = "";
+            objetoInput.value = "";
+            valorInput.value = "";
+            prazoInput.value = "";
+            cidadeInput.value = "";
+            generateContract();
+        });
+        
+        // Botão Baixar PDF
+        document.getElementById('downloadBtn').addEventListener('click', function() {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+            
+            // Configurações do documento
+            doc.setFont("helvetica");
+            doc.setFontSize(16);
+            
+            // Título
+            doc.text(previewTitle.textContent, 105, 20, { align: 'center' });
+            
+            // Data
+            doc.setFontSize(12);
+            doc.text(previewDate.textContent, 105, 30, { align: 'center' });
+            
+            // Conteúdo do contrato (simplificado para PDF)
+            const content = contractContent.innerText;
+            const lines = doc.splitTextToSize(content, 180);
+            
+            doc.setFontSize(10);
+            doc.text(lines, 15, 45);
+            
+            // Salvar o PDF
+            doc.save('contrato-ficticio.pdf');
+            
+            // Mensagem de sucesso
+            alert("Contrato baixado com sucesso como 'contrato-ficticio.pdf'");
+        });
+    </script>
+</body>
+</html>
