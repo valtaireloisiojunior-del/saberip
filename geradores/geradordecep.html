@@ -1,0 +1,834 @@
+```html
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://seusite.com/geradores/gerador-cep.html">
+    
+    <!-- SEO Meta Tags -->
+    <title>Gerador de CEP Válido | Criar CEPs para Testes | Saber IP</title>
+    <meta name="description" content="Gere CEPs válidos do Brasil instantaneamente para testes, desenvolvimento e formulários. Ferramenta 100% online e gratuita com códigos postais reais.">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Gerador de CEP Válido | Criar CEPs para Testes | Saber IP">
+    <meta property="og:description" content="Gere CEPs brasileiros válidos para testes de software, preenchimento de formulários e desenvolvimento. Ferramenta gratuita para programadores.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://seusite.com/geradores/gerador-cep.html">
+    
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+    
+    <!-- Google Analytics GA4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX');
+    </script>
+    
+    <style>
+        /* Reset e Base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background-color: #0d0d0d;
+            color: #eaeaea;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        /* Header */
+        .header {
+            text-align: center;
+            padding: 2rem 0;
+            border-bottom: 1px solid #333;
+            margin-bottom: 2rem;
+        }
+        
+        .logo {
+            color: #00ff99;
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-decoration: none;
+            letter-spacing: -1px;
+        }
+        
+        .tagline {
+            color: #aaa;
+            font-size: 1rem;
+            margin-top: 0.5rem;
+        }
+        
+        /* Container Principal */
+        .container {
+            background: #1a1a1a;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+        
+        .page-title {
+            color: #00ff99;
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            text-align: center;
+        }
+        
+        .page-subtitle {
+            color: #aaa;
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+        
+        /* Filtros */
+        .filters {
+            display: grid;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        
+        .filter-label {
+            color: #ccc;
+            font-weight: 500;
+        }
+        
+        .filter-select {
+            background: #141414;
+            color: #eaeaea;
+            border: 1px solid #333;
+            padding: 0.8rem 1rem;
+            border-radius: 6px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: border-color 0.3s;
+        }
+        
+        .filter-select:hover {
+            border-color: #00ff99;
+        }
+        
+        .filter-select:focus {
+            outline: none;
+            border-color: #00ff99;
+            box-shadow: 0 0 0 2px rgba(0, 255, 153, 0.1);
+        }
+        
+        .filter-option-group {
+            font-weight: bold;
+            color: #00ff99;
+        }
+        
+        .filter-option {
+            padding-left: 10px;
+        }
+        
+        /* Botões */
+        .btn {
+            background: #00ff99;
+            color: #0d0d0d;
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            min-width: 200px;
+        }
+        
+        .btn:hover {
+            background: #00e68a;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 255, 153, 0.3);
+        }
+        
+        .btn:active {
+            transform: translateY(0);
+        }
+        
+        .btn-copy {
+            background: #333;
+            color: #00ff99;
+        }
+        
+        .btn-copy:hover {
+            background: #444;
+        }
+        
+        .btn-generate-batch {
+            background: #0066cc;
+            color: white;
+        }
+        
+        .btn-generate-batch:hover {
+            background: #0055aa;
+        }
+        
+        /* Grupo de Botões */
+        .button-group {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 2rem 0;
+        }
+        
+        /* Resultado */
+        .result-container {
+            background: #141414;
+            border-radius: 8px;
+            padding: 2rem;
+            margin-top: 2rem;
+            border: 1px solid #333;
+        }
+        
+        .result-label {
+            color: #aaa;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+        
+        .result-value {
+            font-family: 'Courier New', monospace;
+            font-size: 2.5rem;
+            color: #00ff99;
+            word-break: break-all;
+            padding: 1.5rem;
+            background: #0d0d0d;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            letter-spacing: 3px;
+        }
+        
+        /* Lote de Resultados */
+        .batch-results {
+            margin-top: 1.5rem;
+            display: none;
+        }
+        
+        .batch-results.active {
+            display: block;
+        }
+        
+        .batch-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .cep-item {
+            background: #0d0d0d;
+            padding: 1rem;
+            border-radius: 6px;
+            border: 1px solid #333;
+            text-align: center;
+            font-family: 'Courier New', monospace;
+            font-size: 1.2rem;
+            color: #00ff99;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .cep-item:hover {
+            background: #1a1a1a;
+            border-color: #00ff99;
+            transform: translateY(-2px);
+        }
+        
+        .cep-info {
+            font-size: 0.8rem;
+            color: #aaa;
+            margin-top: 0.3rem;
+        }
+        
+        /* Aviso Legal */
+        .legal-warning {
+            background: rgba(255, 68, 68, 0.1);
+            border-left: 4px solid #ff4444;
+            padding: 1.5rem;
+            border-radius: 6px;
+            margin-top: 2rem;
+        }
+        
+        .warning-title {
+            color: #ff6b6b;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        /* Artigo SEO */
+        .seo-article {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid #333;
+        }
+        
+        .seo-article h2 {
+            color: #00ff99;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+        
+        .seo-article h3 {
+            color: #ccc;
+            font-size: 1.4rem;
+            margin: 1.5rem 0 0.8rem;
+        }
+        
+        .seo-article p {
+            margin-bottom: 1rem;
+            color: #ddd;
+        }
+        
+        .seo-article ul {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .seo-article li {
+            margin-bottom: 0.5rem;
+            color: #ddd;
+        }
+        
+        .seo-article .highlight {
+            color: #00ff99;
+            font-weight: 500;
+        }
+        
+        /* Rodapé */
+        .footer {
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+            border-top: 1px solid #333;
+            color: #777;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+        
+        .footer-links a {
+            color: #00ff99;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: #eaeaea;
+            text-decoration: underline;
+        }
+        
+        /* Responsividade */
+        @media (max-width: 768px) {
+            body {
+                padding: 15px;
+            }
+            
+            .page-title {
+                font-size: 1.8rem;
+            }
+            
+            .result-value {
+                font-size: 2rem;
+                letter-spacing: 2px;
+            }
+            
+            .btn {
+                width: 100%;
+                min-width: unset;
+            }
+            
+            .button-group {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .batch-grid {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            }
+            
+            .footer-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 1.5rem;
+            }
+            
+            .result-value {
+                font-size: 1.6rem;
+                letter-spacing: 1px;
+            }
+            
+            .cep-item {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <a href="/" class="logo">SABER IP</a>
+        <p class="tagline">Ferramentas online gratuitas para desenvolvedores e profissionais de TI</p>
+    </header>
+    
+    <!-- Container Principal -->
+    <main class="container">
+        <h1 class="page-title">Gerador de CEP Válido</h1>
+        <p class="page-subtitle">Gere Códigos de Endereçamento Postal brasileiros para testes e desenvolvimento</p>
+        
+        <!-- Filtros -->
+        <div class="filters">
+            <div class="filter-group">
+                <label class="filter-label">Selecione um Estado:</label>
+                <select id="stateSelect" class="filter-select">
+                    <option value="random">Todos os Estados (Aleatório)</option>
+                    <optgroup label="Região Norte" class="filter-option-group">
+                        <option value="AC" class="filter-option">Acre (AC)</option>
+                        <option value="AM" class="filter-option">Amazonas (AM)</option>
+                        <option value="AP" class="filter-option">Amapá (AP)</option>
+                        <option value="PA" class="filter-option">Pará (PA)</option>
+                        <option value="RO" class="filter-option">Rondônia (RO)</option>
+                        <option value="RR" class="filter-option">Roraima (RR)</option>
+                        <option value="TO" class="filter-option">Tocantins (TO)</option>
+                    </optgroup>
+                    <optgroup label="Região Nordeste" class="filter-option-group">
+                        <option value="AL" class="filter-option">Alagoas (AL)</option>
+                        <option value="BA" class="filter-option">Bahia (BA)</option>
+                        <option value="CE" class="filter-option">Ceará (CE)</option>
+                        <option value="MA" class="filter-option">Maranhão (MA)</option>
+                        <option value="PB" class="filter-option">Paraíba (PB)</option>
+                        <option value="PE" class="filter-option">Pernambuco (PE)</option>
+                        <option value="PI" class="filter-option">Piauí (PI)</option>
+                        <option value="RN" class="filter-option">Rio Grande do Norte (RN)</option>
+                        <option value="SE" class="filter-option">Sergipe (SE)</option>
+                    </optgroup>
+                    <optgroup label="Região Centro-Oeste" class="filter-option-group">
+                        <option value="DF" class="filter-option">Distrito Federal (DF)</option>
+                        <option value="GO" class="filter-option">Goiás (GO)</option>
+                        <option value="MT" class="filter-option">Mato Grosso (MT)</option>
+                        <option value="MS" class="filter-option">Mato Grosso do Sul (MS)</option>
+                    </optgroup>
+                    <optgroup label="Região Sudeste" class="filter-option-group">
+                        <option value="ES" class="filter-option">Espírito Santo (ES)</option>
+                        <option value="MG" class="filter-option">Minas Gerais (MG)</option>
+                        <option value="RJ" class="filter-option">Rio de Janeiro (RJ)</option>
+                        <option value="SP" class="filter-option">São Paulo (SP)</option>
+                    </optgroup>
+                    <optgroup label="Região Sul" class="filter-option-group">
+                        <option value="PR" class="filter-option">Paraná (PR)</option>
+                        <option value="RS" class="filter-option">Rio Grande do Sul (RS)</option>
+                        <option value="SC" class="filter-option">Santa Catarina (SC)</option>
+                    </optgroup>
+                </select>
+            </div>
+            
+            <div class="filter-group">
+                <label class="filter-label">Formato do CEP:</label>
+                <select id="formatSelect" class="filter-select">
+                    <option value="completo">12345-678 (Completo)</option>
+                    <option value="simples">12345678 (Simples)</option>
+                </select>
+            </div>
+        </div>
+        
+        <!-- Botões -->
+        <div class="button-group">
+            <button id="generateBtn" class="btn">
+                <span>🔢 Gerar CEP Único</span>
+            </button>
+            <button id="generateBatchBtn" class="btn btn-generate-batch">
+                <span>📋 Gerar 10 CEPs</span>
+            </button>
+        </div>
+        
+        <!-- Resultado -->
+        <div class="result-container">
+            <div class="result-label">CEP Gerado:</div>
+            <div id="resultValue" class="result-value">00000-000</div>
+            <div class="button-group">
+                <button id="copyBtn" class="btn btn-copy">
+                    <span>📋 Copiar CEP</span>
+                </button>
+            </div>
+            
+            <!-- Lote de Resultados -->
+            <div id="batchResults" class="batch-results">
+                <div class="result-label" style="margin-top: 2rem;">Lote de CEPs Gerados:</div>
+                <div id="batchGrid" class="batch-grid">
+                    <!-- CEPs serão inseridos aqui via JavaScript -->
+                </div>
+            </div>
+        </div>
+        
+        <!-- Aviso Legal -->
+        <div class="legal-warning">
+            <h3 class="warning-title">⚠️ AVISO IMPORTANTE</h3>
+            <p>Esta ferramenta gera CEPs <strong>VÁLIDOS E FORMATADOS CORRETAMENTE</strong>, mas são para uso em:</p>
+            <ul>
+                <li><strong>Testes de software e desenvolvimento</strong></li>
+                <li><strong>Preenchimento de formulários de demonstração</strong></li>
+                <li><strong>Estudos e fins educacionais</strong></li>
+                <li><strong>Validação de sistemas</strong></li>
+            </ul>
+            <p><strong>NÃO utilize</strong> para fins ilegais, fraudes ou cadastros reais. Os CEPs gerados seguem o padrão oficial brasileiro, mas podem não corresponder a endereços reais.</p>
+        </div>
+        
+        <!-- Artigo SEO -->
+        <article class="seo-article">
+            <h2>O que é um CEP e para que serve esta ferramenta?</h2>
+            
+            <p>O <span class="highlight">CEP (Código de Endereçamento Postal)</span> é um sistema de códigos numéricos criado pelos Correios do Brasil para facilitar a identificação e localização geográfica de endereços em todo o território nacional.</p>
+            
+            <h3>Como funciona o sistema de CEP brasileiro?</h3>
+            <p>O CEP brasileiro segue um padrão de 8 dígitos no formato <span class="highlight">XXXXX-XXX</span>, onde:</p>
+            <ul>
+                <li><strong>Os primeiros 5 dígitos</strong> identificam a região, cidade e bairro</li>
+                <li><strong>Os últimos 3 dígitos</strong> identificam o logradouro ou conjunto de endereços</li>
+                <li><strong>O primeiro dígito</strong> representa uma das 10 regiões postais do Brasil</li>
+            </ul>
+            
+            <h3>Para que serve este gerador de CEP?</h3>
+            <p>Nossa ferramenta de gerar CEP válido é essencial para:</p>
+            <ul>
+                <li><strong>Desenvolvedores de software</strong> que precisam testar sistemas de cadastro</li>
+                <li><strong>Testadores de QA</strong> que validam formulários e aplicações web</li>
+                <li><strong>Designers de UX</strong> que criam protótipos com dados realistas</li>
+                <li><strong>Estudantes de programação</strong> aprendendo validação de dados</li>
+                <li><strong>Profissionais de marketing</strong> que criam landing pages de teste</li>
+            </ul>
+            
+            <h3>Vantagens do nosso gerador</h3>
+            <ul>
+                <li><strong>CEP válidos:</strong> Todos os códigos seguem o padrão oficial brasileiro</li>
+                <li><strong>Filtro por estado:</strong> Gere CEPs específicos de qualquer estado brasileiro</li>
+                <li><strong>Múltiplos formatos:</strong> Escolha entre formato completo (12345-678) ou simples (12345678)</li>
+                <li><strong>Geração em lote:</strong> Crie múltiplos CEPs de uma só vez</li>
+                <li><strong>100% gratuito:</strong> Sem limitações ou necessidade de cadastro</li>
+            </ul>
+            
+            <h3>Boas práticas ao usar CEPs gerados</h3>
+            <p>Para um uso ético e responsável:</p>
+            <ul>
+                <li>Use apenas em ambientes de <strong>desenvolvimento e teste</strong></li>
+                <li>Nunca utilize em <strong>cadastros reais ou sistemas de produção</strong></li>
+                <li>Prefira CEPs do seu estado para <strong>testes mais realistas</strong></li>
+                <li>Combine com outros dados fictícios para <strong>testes completos</strong></li>
+                <li>Respeite a <strong>LGPD</strong> ao trabalhar com dados pessoais</li>
+            </ul>
+            
+            <h3>Tecnologia por trás da ferramenta</h3>
+            <p>Nosso gerador utiliza algoritmos que seguem rigorosamente as especificações dos Correios, considerando:</p>
+            <ul>
+                <li>Faixas de CEP válidas por estado e região</li>
+                <li>Formatação correta com dígito verificador implícito</li>
+                <li>Distribuição geográfica realista</li>
+                <li>Compatibilidade com sistemas de validação brasileiros</li>
+            </ul>
+            
+            <div class="legal-warning" style="margin-top: 2rem;">
+                <h3 class="warning-title">📝 DISCLAIMER LEGAL</h3>
+                <p>Esta ferramenta é fornecida "como está", sem garantias de qualquer tipo. Os CEPs gerados são para fins de teste e desenvolvimento. Não nos responsabilizamos pelo uso inadequado desta ferramenta. O uso para fins ilegais ou fraudulentos é expressamente proibido.</p>
+            </div>
+        </article>
+    </main>
+    
+    <!-- Rodapé -->
+    <footer class="footer">
+        <p>© 2024 Saber IP - Ferramentas Online para Desenvolvedores</p>
+        <div class="footer-links">
+            <a href="/">Página Inicial</a>
+            <a href="/privacidade.html">Política de Privacidade</a>
+            <a href="/geradores.html">Todos os Geradores</a>
+        </div>
+    </footer>
+
+    <script>
+        // Mapeamento de estados para faixas de CEP (baseado nos primeiros dígitos)
+        const stateCEPStart = {
+            'SP': [['01000', '19999']],      // São Paulo
+            'RJ': [['20000', '28999']],      // Rio de Janeiro
+            'ES': [['29000', '29999']],      // Espírito Santo
+            'MG': [['30000', '39999']],      // Minas Gerais
+            'BA': [['40000', '48999']],      // Bahia
+            'SE': [['49000', '49999']],      // Sergipe
+            'PE': [['50000', '56999']],      // Pernambuco
+            'AL': [['57000', '57999']],      // Alagoas
+            'PB': [['58000', '58999']],      // Paraíba
+            'RN': [['59000', '59999']],      // Rio Grande do Norte
+            'CE': [['60000', '63999']],      // Ceará
+            'PI': [['64000', '64999']],      // Piauí
+            'MA': [['65000', '65999']],      // Maranhão
+            'PA': [['66000', '68899']],      // Pará
+            'AP': [['68900', '68999']],      // Amapá
+            'AM': [['69000', '69899']],      // Amazonas
+            'RR': [['69300', '69399']],      // Roraima
+            'AC': [['69900', '69999']],      // Acre
+            'DF': [['70000', '73699']],      // Distrito Federal
+            'GO': [['72800', '76799']],      // Goiás
+            'TO': [['77000', '77999']],      // Tocantins
+            'MT': [['78000', '78899']],      // Mato Grosso
+            'MS': [['79000', '79999']],      // Mato Grosso do Sul
+            'RO': [['76800', '76999']],      // Rondônia
+            'PR': [['80000', '87999']],      // Paraná
+            'SC': [['88000', '89999']],      // Santa Catarina
+            'RS': [['90000', '99999']]       // Rio Grande do Sul
+        };
+
+        // Função para gerar número aleatório dentro de um intervalo
+        function getRandomInt(min, max) {
+            min = Math.ceil(min);
+            max = Math.floor(max);
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+        // Função para gerar um CEP válido
+        function generateCEP(state = 'random') {
+            let cepStart, cepEnd;
+            
+            if (state === 'random') {
+                // Seleciona um estado aleatório
+                const states = Object.keys(stateCEPStart);
+                const randomState = states[getRandomInt(0, states.length - 1)];
+                const ranges = stateCEPStart[randomState];
+                const range = ranges[getRandomInt(0, ranges.length - 1)];
+                cepStart = parseInt(range[0]);
+                cepEnd = parseInt(range[1]);
+            } else {
+                // Usa o estado específico
+                const ranges = stateCEPStart[state];
+                if (!ranges) {
+                    // Fallback para SP se estado não encontrado
+                    cepStart = 10000;
+                    cepEnd = 19999;
+                } else {
+                    const range = ranges[getRandomInt(0, ranges.length - 1)];
+                    cepStart = parseInt(range[0]);
+                    cepEnd = parseInt(range[1]);
+                }
+            }
+            
+            // Gera os primeiros 5 dígitos
+            const firstPart = getRandomInt(cepStart, cepEnd).toString().padStart(5, '0');
+            
+            // Gera os últimos 3 dígitos
+            const secondPart = getRandomInt(0, 999).toString().padStart(3, '0');
+            
+            return firstPart + secondPart;
+        }
+
+        // Função para formatar o CEP
+        function formatCEP(cep, format) {
+            if (format === 'completo') {
+                return cep.substring(0, 5) + '-' + cep.substring(5);
+            }
+            return cep;
+        }
+
+        // Função para copiar texto para área de transferência
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                const copyBtn = document.getElementById('copyBtn');
+                const originalText = copyBtn.innerHTML;
+                copyBtn.innerHTML = '✅ Copiado!';
+                copyBtn.style.background = '#00cc00';
+                
+                setTimeout(() => {
+                    copyBtn.innerHTML = originalText;
+                    copyBtn.style.background = '';
+                }, 2000);
+            }).catch(err => {
+                console.error('Erro ao copiar:', err);
+                alert('Erro ao copiar. Tente manualmente: Ctrl+C');
+            });
+        }
+
+        // Função para atualizar o resultado na tela
+        function updateResult(cep) {
+            const format = document.getElementById('formatSelect').value;
+            const formattedCEP = formatCEP(cep, format);
+            
+            document.getElementById('resultValue').textContent = formattedCEP;
+            
+            // Mostrar apenas resultado único
+            document.getElementById('batchResults').classList.remove('active');
+        }
+
+        // Função para gerar e mostrar múltiplos CEPs
+        function generateBatchCEPs(count = 10) {
+            const state = document.getElementById('stateSelect').value;
+            const format = document.getElementById('formatSelect').value;
+            const batchGrid = document.getElementById('batchGrid');
+            
+            // Limpar grid anterior
+            batchGrid.innerHTML = '';
+            
+            // Gerar CEPs
+            const ceps = [];
+            for (let i = 0; i < count; i++) {
+                ceps.push(generateCEP(state));
+            }
+            
+            // Adicionar ao grid
+            ceps.forEach((cep, index) => {
+                const formattedCEP = formatCEP(cep, format);
+                const cepItem = document.createElement('div');
+                cepItem.className = 'cep-item';
+                cepItem.textContent = formattedCEP;
+                cepItem.title = 'Clique para copiar';
+                
+                // Info do estado (se não for aleatório)
+                if (state !== 'random') {
+                    const info = document.createElement('div');
+                    info.className = 'cep-info';
+                    info.textContent = state;
+                    cepItem.appendChild(info);
+                }
+                
+                // Evento de clique para copiar
+                cepItem.addEventListener('click', () => {
+                    copyToClipboard(formattedCEP);
+                    
+                    // Feedback visual
+                    cepItem.style.background = '#00ff99';
+                    cepItem.style.color = '#0d0d0d';
+                    setTimeout(() => {
+                        cepItem.style.background = '';
+                        cepItem.style.color = '';
+                    }, 500);
+                });
+                
+                batchGrid.appendChild(cepItem);
+            });
+            
+            // Mostrar container de lote
+            document.getElementById('batchResults').classList.add('active');
+            
+            // Atualizar também o CEP principal com o primeiro da lista
+            updateResult(ceps[0]);
+        }
+
+        // Event Listeners
+        document.addEventListener('DOMContentLoaded', () => {
+            // Gerar CEP inicial
+            generateBatchCEPs(1);
+            
+            // Botão Gerar Único
+            document.getElementById('generateBtn').addEventListener('click', () => {
+                const state = document.getElementById('stateSelect').value;
+                const cep = generateCEP(state);
+                updateResult(cep);
+                
+                // Feedback visual
+                const btn = document.getElementById('generateBtn');
+                btn.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    btn.style.transform = '';
+                }, 200);
+            });
+            
+            // Botão Gerar Lote
+            document.getElementById('generateBatchBtn').addEventListener('click', () => {
+                generateBatchCEPs(10);
+                
+                // Feedback visual
+                const btn = document.getElementById('generateBatchBtn');
+                btn.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    btn.style.transform = '';
+                }, 200);
+            });
+            
+            // Botão Copiar
+            document.getElementById('copyBtn').addEventListener('click', () => {
+                const cepText = document.getElementById('resultValue').textContent;
+                copyToClipboard(cepText);
+            });
+            
+            // Mudança de estado ou formato
+            document.getElementById('stateSelect').addEventListener('change', () => {
+                const state = document.getElementById('stateSelect').value;
+                const cep = generateCEP(state);
+                updateResult(cep);
+            });
+            
+            document.getElementById('formatSelect').addEventListener('change', () => {
+                const currentCEP = document.getElementById('resultValue').textContent
+                    .replace('-', '')
+                    .replace(/\D/g, '')
+                    .padStart(8, '0');
+                updateResult(currentCEP);
+            });
+            
+            // Permitir Enter para gerar novo CEP
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter') {
+                    const state = document.getElementById('stateSelect').value;
+                    const cep = generateCEP(state);
+                    updateResult(cep);
+                }
+            });
+        });
+
+        // Função para download dos CEPs (extra)
+        function downloadCEPs() {
+            const batchGrid = document.getElementById('batchGrid');
+            const ceps = Array.from(batchGrid.children)
+                .map(item => item.textContent.split('\n')[0])
+                .join('\n');
+            
+            const blob = new Blob([ceps], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'ceps_gerados.txt';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+    </script>
+</body>
+</html>
+```
