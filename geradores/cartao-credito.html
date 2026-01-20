@@ -1,29 +1,27 @@
-```html
 <!DOCTYPE html>
-<html lang="pt-BR" prefix="og: https://ogp.me/ns#">
+<html lang="pt-BR">
 <head>
 
 <!-- Google AdSense -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2713105320249369"
-        crossorigin="anonymous"></script>
+ crossorigin="anonymous"></script>
 
 <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Gerador de Cartão de Crédito Válido para Testes com Dados Fictícios | SEUIP.ORG</title>
+<title>Gerador de Cartão de Crédito para Testes | Gerar Cartão Válido Online</title>
 
-<meta name="description" content="Gerador de cartão de crédito válido para testes com dados completos de personagem fictício. Gere cartão fake com nome, CPF, endereço, CVV e validade.">
+<meta name="description" content="Gerador de Cartão de Crédito para testes e desenvolvimento. Gere cartões válidos com BIN customizado, histórico local e validação Luhn. Gratuito e online.">
 <meta name="robots" content="index, follow">
-<meta name="author" content="SEUIP.ORG">
+<link rel="canonical" href="https://seuip.org/geradores/gerador-cartao-credito.html">
 
-<link rel="canonical" href="https://seuip.org/geradores/cartao-credito.html">
-
-<meta property="og:title" content="Gerador de Cartão de Crédito Fake com Dados Completos">
-<meta property="og:description" content="Ferramenta gratuita para gerar cartão de crédito válido para testes com dados completos fictícios.">
+<!-- Open Graph -->
+<meta property="og:title" content="Gerador de Cartão de Crédito para Testes Online">
+<meta property="og:description" content="Gere cartões válidos com BIN por banco, histórico e animação premium. Ferramenta gratuita para testes.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://seuip.org/geradores/cartao-credito.html">
+<meta property="og:url" content="https://seuip.org/geradores/gerador-cartao-credito.html">
 
+<!-- GA4 -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-MCNWEQ8XMH"></script>
 <script>
 window.dataLayer = window.dataLayer || [];
@@ -33,117 +31,170 @@ gtag('config', 'G-MCNWEQ8XMH');
 </script>
 
 <style>
-body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#0d0d0d;color:#eaeaea}
-header{text-align:center;padding:20px}
-header a{color:#00ff99;text-decoration:none;font-weight:bold;font-size:22px}
-h1{text-align:center;color:#00ff99;font-size:32px}
-p{text-align:center;color:#ccc}
-.container{background:#111;max-width:900px;margin:30px auto;padding:30px;border-radius:16px}
-.campo{background:#0d0d0d;padding:15px;margin:10px 0;border-radius:12px}
-.campo strong{color:#00ff99}
-.btn{width:100%;padding:15px;font-size:18px;border:none;border-radius:10px;cursor:pointer;margin:10px 0}
-.btn-gerar{background:#00ff99;color:#000}
-.btn-copiar{background:#222;color:#00ff99;border:2px solid #00ff99}
-.alerta{background:#1a1a1a;border-left:4px solid #ff5555;padding:18px;font-size:14px;margin-top:30px}
-.termo{background:#101010;border-left:4px solid #00ff99;padding:20px;margin-top:30px;font-size:14px}
-footer{text-align:center;color:#777;margin:50px 0}
-footer a{color:#00ff99;text-decoration:none;margin:0 10px}
+body{
+margin:0;
+font-family:Arial,Helvetica,sans-serif;
+background:#0d0d0d;
+color:#eaeaea;
+}
+header{text-align:center;padding:20px;font-size:22px}
+header a{color:#00ff99;text-decoration:none;font-weight:bold}
+h1{text-align:center;color:#00ff99}
+.container{
+max-width:420px;
+margin:20px auto;
+background:#111;
+padding:20px;
+border-radius:18px;
+}
+select,button{
+width:100%;
+padding:14px;
+margin:8px 0;
+border-radius:12px;
+border:none;
+font-size:16px;
+}
+button{
+background:#00ff99;
+color:#000;
+font-weight:bold;
+cursor:pointer;
+}
+button.secondary{
+background:#222;
+color:#00ff99;
+border:1px solid #00ff99;
+}
+.card{
+margin-top:15px;
+padding:20px;
+border-radius:16px;
+background:linear-gradient(135deg,#00ff99,#0f5132);
+color:#000;
+animation:flip 0.6s ease;
+}
+@keyframes flip{
+from{transform:rotateY(90deg);opacity:0}
+to{transform:rotateY(0);opacity:1}
+}
+.history{
+font-size:14px;
+margin-top:10px;
+}
+.history div{
+padding:8px;
+border-bottom:1px solid #222;
+}
+.notice{
+font-size:13px;
+background:#0a0a0a;
+border-left:4px solid #00ff99;
+padding:12px;
+margin-top:20px;
+}
+footer{text-align:center;font-size:13px;color:#777;margin:40px 0}
+footer a{color:#00ff99;text-decoration:none;margin:0 8px}
 </style>
-</head>
 
-<body>
-
-<header>
-  <a href="/">SEUIP.ORG</a>
-</header>
-
-<h1>Gerador de Cartão de Crédito Fake com Dados Completos</h1>
-<p>Gere cartão válido para testes com <strong>personagem fictício completo</strong></p>
-
-<div class="container" id="resultado">
-  Clique em gerar para criar um cartão com dados completos fictícios.
-</div>
-
-<div class="container">
-  <button class="btn btn-gerar" onclick="gerarCartao()">💳 Gerar Cartão + Personagem</button>
-  <button class="btn btn-copiar" onclick="copiarTudo()">📋 Copiar Tudo</button>
-</div>
-
-<div class="container alerta">
-⚠️ Uso exclusivo para testes, estudos e desenvolvimento. Dados totalmente fictícios.
-</div>
-
-<div class="container termo">
-<h2>Termo de Responsabilidade</h2>
-<p>
-Os dados gerados nesta página são completamente fictícios e não pertencem a nenhuma pessoa real.
-O SEUIP.ORG não se responsabiliza por qualquer uso indevido.
-</p>
-</div>
-
-<script>
-const nomes = ["Lucas","Mateus","Rafael","Bruno","Carlos","Fernanda","Juliana","Mariana","Aline","Patricia"];
-const sobrenomes = ["Silva","Santos","Oliveira","Pereira","Costa","Rodrigues","Almeida"];
-const ruas = ["Rua das Flores","Av Brasil","Rua Central","Rua São Paulo","Av Independência"];
-const cidades = ["São Paulo","Rio de Janeiro","Belo Horizonte","Curitiba","Porto Alegre"];
-const estados = ["SP","RJ","MG","PR","RS"];
-
-function gerarNumeroCartao() {
-  let cartao=[4];
-  for(let i=1;i<15;i++) cartao.push(Math.floor(Math.random()*10));
-  let soma=0;
-  for(let i=0;i<cartao.length;i++){
-    let num=cartao[cartao.length-1-i];
-    if(i%2===0){num*=2;if(num>9)num-=9;}
-    soma+=num;
-  }
-  cartao.push((10-(soma%10))%10);
-  return cartao.join('');
-}
-
-function gerarCPF(){
-  let n=[];
-  for(let i=0;i<9;i++)n.push(Math.floor(Math.random()*9));
-  let d1=0,d2=0;
-  for(let i=0;i<9;i++)d1+=n[i]*(10-i);
-  d1=11-(d1%11); if(d1>=10)d1=0;
-  for(let i=0;i<9;i++)d2+=n[i]*(11-i);
-  d2+=d1*2; d2=11-(d2%11); if(d2>=10)d2=0;
-  return n.join('')+d1+d2;
-}
-
-function gerarCartao(){
-  const nome = `${nomes[Math.floor(Math.random()*nomes.length)]} ${sobrenomes[Math.floor(Math.random()*sobrenomes.length)]}`;
-  const cpf = gerarCPF();
-  const endereco = `${ruas[Math.floor(Math.random()*ruas.length)]}, ${Math.floor(Math.random()*999)}`;
-  const cidade = cidades[Math.floor(Math.random()*cidades.length)];
-  const estado = estados[Math.floor(Math.random()*estados.length)];
-  const numero = gerarNumeroCartao();
-  const validade = `${String(Math.floor(Math.random()*12+1)).padStart(2,'0')}/${Math.floor(Math.random()*5+26)}`;
-  const cvv = Math.floor(100 + Math.random() * 900);
-
-  document.getElementById("resultado").innerHTML = `
-    <div class="campo"><strong>Nome:</strong> ${nome}</div>
-    <div class="campo"><strong>CPF:</strong> ${cpf}</div>
-    <div class="campo"><strong>Endereço:</strong> ${endereco}</div>
-    <div class="campo"><strong>Cidade/UF:</strong> ${cidade} - ${estado}</div>
-    <div class="campo"><strong>Cartão:</strong> ${numero}</div>
-    <div class="campo"><strong>Validade:</strong> ${validade}</div>
-    <div class="campo"><strong>CVV:</strong> ${cvv}</div>
-  `;
-}
-
-function copiarTudo(){
-  navigator.clipboard.writeText(document.getElementById("resultado").innerText)
-  .then(()=>alert("Dados copiados com sucesso!"));
+<!-- FAQ Schema -->
+<script type="application/ld+json">
+{
+"@context":"https://schema.org",
+"@type":"FAQPage",
+"mainEntity":[{
+"@type":"Question",
+"name":"Este gerador cria cartões reais?",
+"acceptedAnswer":{"@type":"Answer","text":"Não. Os cartões são fictícios e servem apenas para testes e desenvolvimento."}
+},{
+"@type":"Question",
+"name":"Os cartões passam no algoritmo Luhn?",
+"acceptedAnswer":{"@type":"Answer","text":"Sim. Todos os cartões gerados seguem a validação matemática Luhn."}
+}]
 }
 </script>
 
+</head>
+<body>
+
+<header><a href="/">SEUIP.ORG</a></header>
+
+<h1>Gerador de Cartão de Crédito</h1>
+
+<div class="container">
+
+<select id="bin">
+<option value="4">Visa (BIN 4)</option>
+<option value="5">Mastercard (BIN 5)</option>
+<option value="34">Amex (BIN 34)</option>
+<option value="6">Discover (BIN 6)</option>
+</select>
+
+<button onclick="gerar()">💳 Gerar Cartão</button>
+<button class="secondary" onclick="limpar()">🧹 Limpar Histórico</button>
+
+<div id="resultado"></div>
+
+<div class="history" id="historico"></div>
+
+<div class="notice">
+⚠️ <strong>Termo de Responsabilidade:</strong><br>
+Os dados gerados são totalmente fictícios e destinados exclusivamente para testes, estudos e desenvolvimento de software. É proibido o uso para qualquer finalidade ilegal.
+</div>
+
+</div>
+
 <footer>
-  <a href="/">Início</a> |
-  <a href="/privacidade.html">Privacidade</a>
+<a href="/">Início</a>
+<a href="/privacidade.html">Privacidade</a>
 </footer>
+
+<script>
+function luhn(base){
+let sum=0,alt=false;
+for(let i=base.length-1;i>=0;i--){
+let n=parseInt(base[i]);
+if(alt){n*=2;if(n>9)n-=9;}
+sum+=n;alt=!alt;
+}
+return (10-(sum%10))%10;
+}
+
+function gerar(){
+let bin=document.getElementById("bin").value;
+let num=bin;
+while(num.length<15)num+=Math.floor(Math.random()*10);
+num+=luhn(num);
+
+let validade=("0"+(Math.random()*12+1|0)).slice(-2)+"/"+(26+Math.random()*5|0);
+let cvv=Math.floor(100+Math.random()*900);
+
+let html=`<div class="card">
+<strong>Número:</strong> ${num}<br>
+<strong>Validade:</strong> ${validade}<br>
+<strong>CVV:</strong> ${cvv}
+</div>`;
+
+document.getElementById("resultado").innerHTML=html;
+
+let hist=JSON.parse(localStorage.getItem("cc_hist")||"[]");
+hist.unshift(num);
+hist=hist.slice(0,5);
+localStorage.setItem("cc_hist",JSON.stringify(hist));
+renderHist();
+}
+
+function renderHist(){
+let h=JSON.parse(localStorage.getItem("cc_hist")||"[]");
+document.getElementById("historico").innerHTML=
+"<strong>Histórico:</strong>"+h.map(n=>"<div>"+n+"</div>").join("");
+}
+function limpar(){
+localStorage.removeItem("cc_hist");
+renderHist();
+}
+renderHist();
+</script>
 
 </body>
 </html>
-```

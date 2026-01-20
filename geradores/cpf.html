@@ -1,279 +1,210 @@
-```html
 <!DOCTYPE html>
-<html lang="pt-BR" prefix="og: https://ogp.me/ns#">
+<html lang="pt-BR">
 <head>
-
-<!-- Google AdSense -->
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2713105320249369"
-        crossorigin="anonymous"></script>
-
 <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Gerador de Cartão de Crédito Fake Válido para Testes (Dados Completos) | SEUIP.ORG</title>
+<title>Gerador de Cartão de Crédito para Testes Online | Saber IP</title>
 
-<meta name="description" content="Gerador profissional de cartão de crédito fake válido para testes com dados completos fictícios: nome, CPF, endereço, CVV e validade. Ferramenta avançada para desenvolvedores.">
+<meta name="description" content="Gerador de cartão de crédito válido para testes com Visa, MasterCard, Elo e Amex. Gere número, CVV e validade online grátis.">
 <meta name="robots" content="index, follow">
-
-<link rel="canonical" href="https://seuip.org/geradores/cartao-credito.html">
-
-<meta property="og:title" content="Gerador de Cartão de Crédito Fake Válido com Dados Completos">
-<meta property="og:description" content="Gere cartão de crédito fake para testes com personagem fictício completo. Online, grátis e profissional.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://seuip.org/geradores/cartao-credito.html">
-
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-MCNWEQ8XMH"></script>
-<script>
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', 'G-MCNWEQ8XMH');
-</script>
 
 <style>
 :root{
   --bg:#0d0d0d;
-  --card:#111;
+  --card:#151515;
   --accent:#00ff99;
-  --text:#eaeaea;
+  --text:#f1f1f1;
   --muted:#888;
 }
 *{box-sizing:border-box}
 body{
   margin:0;
-  font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;
   background:var(--bg);
   color:var(--text);
 }
-header{
+.container{
+  max-width:420px;
+  margin:auto;
   padding:20px;
-  text-align:center;
-}
-header a{
-  color:var(--accent);
-  font-size:22px;
-  font-weight:700;
-  text-decoration:none;
 }
 h1{
   text-align:center;
-  font-size:34px;
   color:var(--accent);
-  margin:10px 0;
+  font-size:26px;
 }
 .subtitle{
   text-align:center;
   color:#bbb;
-  max-width:700px;
-  margin:0 auto 30px;
+  font-size:14px;
+  margin-bottom:20px;
 }
-.wrapper{
-  max-width:980px;
-  margin:0 auto;
-  padding:0 16px;
-}
-.grid{
-  display:grid;
-  grid-template-columns:1fr;
-  gap:20px;
-}
-@media(min-width:768px){
-  .grid{grid-template-columns:1.2fr .8fr}
-}
-.card{
-  background:var(--card);
+.card-visual{
+  background:linear-gradient(135deg,#1f1f1f,#0b0b0b);
   border-radius:18px;
-  padding:25px;
+  padding:20px;
+  margin-bottom:20px;
+  box-shadow:0 0 20px #000;
 }
-.card-title{
+.card-visual .brand{
+  text-align:right;
+  font-weight:700;
   color:var(--accent);
+}
+.card-number{
   font-size:20px;
-  margin-bottom:15px;
+  letter-spacing:2px;
+  margin:25px 0;
 }
-.data{
-  display:grid;
-  grid-template-columns:1fr;
-  gap:10px;
-}
-.field{
-  background:#0b0b0b;
-  padding:14px 16px;
-  border-radius:12px;
+.card-footer{
   display:flex;
   justify-content:space-between;
-  gap:10px;
-  word-break:break-all;
+  font-size:14px;
 }
-.field span{
+.box{
+  background:var(--card);
+  border-radius:16px;
+  padding:16px;
+  margin-bottom:15px;
+}
+label{
+  font-size:13px;
   color:var(--muted);
 }
-.field strong{
-  color:var(--accent);
+select,button{
+  width:100%;
+  padding:14px;
+  border-radius:12px;
+  border:none;
+  margin-top:8px;
+  font-size:15px;
 }
-.actions{
-  display:flex;
-  flex-direction:column;
-  gap:12px;
+select{
+  background:#0b0b0b;
+  color:var(--text);
 }
 button{
-  padding:16px;
-  border:none;
-  border-radius:14px;
-  font-size:17px;
-  font-weight:600;
-  cursor:pointer;
-}
-.btn-generate{
   background:var(--accent);
   color:#000;
+  font-weight:700;
+  cursor:pointer;
 }
-.btn-copy{
-  background:#1c1c1c;
+button.secondary{
+  background:#111;
   color:var(--accent);
   border:2px solid var(--accent);
 }
-button:hover{opacity:.9}
+.actions{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+}
+.share{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+  margin-top:10px;
+}
 .notice{
-  margin-top:30px;
-  background:#121212;
+  font-size:13px;
+  color:#aaa;
+  margin-top:20px;
   border-left:4px solid #ff5555;
-  padding:18px;
-  border-radius:10px;
-  font-size:14px;
-  color:#ccc;
-}
-.term{
-  margin-top:25px;
-  background:#101010;
-  border-left:4px solid var(--accent);
-  padding:18px;
-  border-radius:10px;
-  font-size:14px;
-}
-footer{
-  text-align:center;
-  margin:50px 0 30px;
-  font-size:14px;
-  color:#777;
-}
-footer a{
-  color:var(--accent);
-  text-decoration:none;
-  margin:0 10px;
+  padding-left:12px;
 }
 </style>
 </head>
 
 <body>
+<div class="container">
 
-<header>
-  <a href="/">SEUIP.ORG</a>
-</header>
+<h1>Gerador de Cartão de Crédito</h1>
+<p class="subtitle">Cartão válido para <strong>testes e desenvolvimento</strong></p>
 
-<h1>Gerador de Cartão de Crédito Fake Profissional</h1>
-<p class="subtitle">
-Ferramenta avançada para <strong>desenvolvedores, QA e estudos</strong>.  
-Gere cartão válido com <strong>personagem fictício completo</strong>, pronto para testes reais de sistemas.
-</p>
-
-<div class="wrapper">
-  <div class="grid">
-    
-    <div class="card">
-      <div class="card-title">📄 Personagem Fictício</div>
-      <div class="data" id="dados">
-        <div class="field"><span>Status</span><strong>Pronto para gerar</strong></div>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-title">⚙️ Ações</div>
-      <div class="actions">
-        <button class="btn-generate" onclick="gerarTudo()">⚡ Gerar Dados Completos</button>
-        <button class="btn-copy" onclick="copiar()">📋 Copiar Tudo</button>
-      </div>
-    </div>
-
-  </div>
-
-  <div class="notice">
-    ⚠️ <strong>Aviso Legal:</strong> Todos os dados gerados são totalmente fictícios, sem qualquer vínculo
-    com pessoas ou instituições reais. Uso exclusivo para testes, estudos e desenvolvimento.
-  </div>
-
-  <div class="term">
-    <strong>Termo de Responsabilidade:</strong><br><br>
-    Ao utilizar esta ferramenta, o usuário declara ciência de que os dados são simulados.
-    O SEUIP.ORG não se responsabiliza por qualquer uso indevido, ilegal ou fraudulento.
-    É proibido utilizar os dados gerados para compras, cadastros reais ou tentativas de fraude.
+<div class="card-visual">
+  <div class="brand" id="brand">VISA</div>
+  <div class="card-number" id="numero">#### #### #### ####</div>
+  <div class="card-footer">
+    <div>Val: <span id="validade">MM/AA</span></div>
+    <div>CVV: <span id="cvv">***</span></div>
   </div>
 </div>
 
-<footer>
-  <a href="/">Início</a> |
-  <a href="/geradores/cpf.html">Gerador de CPF</a> |
-  <a href="/privacidade.html">Privacidade</a>
-</footer>
+<div class="box">
+  <label>Bandeira</label>
+  <select id="bandeira">
+    <option value="visa">Visa</option>
+    <option value="master">MasterCard</option>
+    <option value="amex">American Express</option>
+    <option value="elo">Elo</option>
+  </select>
+</div>
+
+<div class="actions">
+  <button onclick="gerar()">Gerar Cartão</button>
+  <button class="secondary" onclick="copiar()">Copiar</button>
+</div>
+
+<div class="share">
+  <button class="secondary" onclick="share('whatsapp')">WhatsApp</button>
+  <button class="secondary" onclick="share('twitter')">Twitter</button>
+</div>
+
+<div class="notice">
+⚠️ <strong>Termo de Responsabilidade:</strong><br>
+Os dados gerados são fictícios e destinados exclusivamente para testes, estudos e desenvolvimento.
+É proibido utilizar para compras reais ou qualquer atividade ilegal.
+</div>
+
+</div>
 
 <script>
-const nomes=["Lucas","Rafael","Bruno","Carlos","Mateus","Juliana","Mariana","Fernanda","Aline","Patricia"];
-const sobrenomes=["Silva","Santos","Oliveira","Pereira","Costa","Rodrigues","Almeida","Lima"];
-const ruas=["Rua das Flores","Av Brasil","Rua Central","Rua São Paulo","Av Independência"];
-const cidades=["São Paulo","Rio de Janeiro","Belo Horizonte","Curitiba","Porto Alegre"];
-const estados=["SP","RJ","MG","PR","RS"];
-
-function rand(arr){return arr[Math.floor(Math.random()*arr.length)]}
-
-function gerarCPF(){
-  let n=[];for(let i=0;i<9;i++)n.push(Math.floor(Math.random()*9));
-  let d1=0,d2=0;
-  for(let i=0;i<9;i++)d1+=n[i]*(10-i);
-  d1=11-(d1%11);if(d1>=10)d1=0;
-  for(let i=0;i<9;i++)d2+=n[i]*(11-i);
-  d2+=d1*2;d2=11-(d2%11);if(d2>=10)d2=0;
-  return n.join('')+d1+d2;
-}
-
-function gerarCartao(){
-  let c=[4];
-  for(let i=1;i<15;i++)c.push(Math.floor(Math.random()*10));
-  let s=0;
-  for(let i=0;i<c.length;i++){
-    let n=c[c.length-1-i];
-    if(i%2===0){n*=2;if(n>9)n-=9}
-    s+=n;
+function luhn(num){
+  let sum=0,alt=false;
+  for(let i=num.length-1;i>=0;i--){
+    let n=parseInt(num[i]);
+    if(alt){n*=2;if(n>9)n-=9}
+    sum+=n;alt=!alt;
   }
-  c.push((10-(s%10))%10);
-  return c.join('');
+  return (10-(sum%10))%10;
 }
 
-function gerarTudo(){
-  const nome=`${rand(nomes)} ${rand(sobrenomes)}`;
-  const cpf=gerarCPF();
-  const endereco=`${rand(ruas)}, ${Math.floor(Math.random()*999)}`;
-  const cidade=`${rand(cidades)} - ${rand(estados)}`;
-  const cartao=gerarCartao();
-  const validade=`${String(Math.floor(Math.random()*12+1)).padStart(2,'0')}/${Math.floor(Math.random()*5+26)}`;
-  const cvv=Math.floor(100+Math.random()*900);
+function gerar(){
+  const tipo=document.getElementById("bandeira").value;
+  let prefixo="4",len=16,cvvLen=3;
 
-  document.getElementById("dados").innerHTML=`
-    <div class="field"><span>Nome</span><strong>${nome}</strong></div>
-    <div class="field"><span>CPF</span><strong>${cpf}</strong></div>
-    <div class="field"><span>Endereço</span><strong>${endereco}</strong></div>
-    <div class="field"><span>Cidade</span><strong>${cidade}</strong></div>
-    <div class="field"><span>Cartão</span><strong>${cartao}</strong></div>
-    <div class="field"><span>Validade</span><strong>${validade}</strong></div>
-    <div class="field"><span>CVV</span><strong>${cvv}</strong></div>
-  `;
+  if(tipo==="master") prefixo="5";
+  if(tipo==="elo") prefixo="6";
+  if(tipo==="amex"){prefixo="34";len=15;cvvLen=4}
+
+  let num=prefixo;
+  while(num.length<len-1) num+=Math.floor(Math.random()*10);
+  num+=luhn(num);
+
+  let formatado=num.match(/.{1,4}/g).join(" ");
+  let cvv=Math.floor(Math.random()*Math.pow(10,cvvLen));
+  let mes=String(Math.floor(Math.random()*12+1)).padStart(2,"0");
+  let ano=Math.floor(Math.random()*5+26);
+
+  document.getElementById("numero").innerText=formatado;
+  document.getElementById("cvv").innerText=String(cvv).padStart(cvvLen,"0");
+  document.getElementById("validade").innerText=`${mes}/${ano}`;
+  document.getElementById("brand").innerText=tipo.toUpperCase();
 }
 
 function copiar(){
-  navigator.clipboard.writeText(document.getElementById("dados").innerText)
-  .then(()=>alert("Dados copiados com sucesso"));
+  const txt=`Cartão: ${numero.innerText}\nValidade: ${validade.innerText}\nCVV: ${cvv.innerText}`;
+  navigator.clipboard.writeText(txt);
+  alert("Copiado com sucesso!");
+}
+
+function share(tipo){
+  const txt=encodeURIComponent("Gerador de cartão para testes 👉 seuip.org");
+  if(tipo==="whatsapp") window.open(`https://wa.me/?text=${txt}`);
+  if(tipo==="twitter") window.open(`https://twitter.com/intent/tweet?text=${txt}`);
 }
 </script>
 
 </body>
 </html>
-```
