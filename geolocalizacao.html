@@ -82,6 +82,34 @@
     .tools strong:first-child {
       margin-top: 0;
     }
+    
+    /* Loading */
+    .loading {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      border: 2px solid #f3f3f3;
+      border-top: 2px solid #00ff99;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin-right: 10px;
+    }
+    
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    
+    /* Botões melhorados */
+    .btn-main:hover {
+      background: #00cc77;
+      transform: translateY(-2px);
+      transition: all 0.3s ease;
+    }
+    
+    .btn-outline:hover {
+      background: rgba(0, 255, 153, 0.1);
+    }
   </style>
 </head>
 
@@ -90,10 +118,14 @@
 <h1>Seu IP Agora</h1>
 
 <div class="ip-box">
-  <div class="ip" id="ip">Carregando...</div>
+  <div class="ip" id="ip">
+    <div class="loading" style="display:inline-block;"></div> Detectando IP...
+  </div>
   <button class="btn btn-main" onclick="copiarIP()">📋 Copiar IP</button>
-  <div class="info" id="geo">Obtendo localização...</div>
-  <div id="map"></div>
+  <div class="info" id="geo">
+    <div class="loading" style="display:inline-block;"></div> Obtendo localização...
+  </div>
+  <div id="map" style="display:none;"></div>
 </div>
 
 <h2>🛠 Ferramentas Saber IP</h2>
@@ -179,45 +211,289 @@
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
 let userIP = "";
+let map = null;
 
-// Função para pegar IP via API
+// Função para pegar IP via API com múltiplos fallbacks
 async function pegarIP() {
+  const ipElement = document.getElementById("ip");
+  const geoElement = document.getElementById("geo");
+  const mapElement = document.getElementById("map");
+  
   try {
-    const res = await fetch("https://api64.ipify.org?format=json");
-    const dataIP = await res.json();
-    userIP = dataIP.ip;
-    document.getElementById("ip").innerText = userIP;
-
-    // Geolocalização
-    const geoRes = await fetch(`https://ipapi.co/${userIP}/json/`);
-    const geo = await geoRes.json();
-
-    document.getElementById("geo").innerText =
-      `${geo.city}, ${geo.region}, ${geo.country_name} | ISP: ${geo.org}`;
-
-    const map = L.map('map').setView([geo.latitude, geo.longitude], 12);
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '© OpenStreetMap'
-    }).addTo(map);
-
-    L.marker([geo.latitude, geo.longitude]).addTo(map)
-      .bindPopup("Localização aproximada do IP")
-      .openPopup();
-
+    // Tentativa 1: ipify (mais confiável)
+    let response = await fetch("https://api.ipify.org?format=json", {
+      timeout: 5000
+    });
+    
+    if (!response.ok) {
+      // Tentativa 2: api64.ipify
+      response = await fetch("https://api64.ipify.org?format=json", {
+        timeout: 5000
+      });
+    }
+    
+    if (!response.ok) {
+      // Tentativa 3: api.my-ip.io
+      response = await fetch("https://api.my-ip.io/v2/ip.json", {
+        timeout: 5000
+      });
+    }
+    
+    const data = await response.json();
+    userIP = data.ip || data.ipAddress || data.ipv4;
+    
+    if (userIP) {
+      ipElement.innerHTML = `<span style="color:#00ff99">${userIP}</span>`;
+      ipElement.style.color = "#00ff99";
+      
+      // Buscar geolocalização
+      buscarGeolocalizacao(userIP);
+    } else {
+      throw new Error("IP não encontrado");
+    }
+    
   } catch (err) {
-    document.getElementById("ip").innerText = "Não foi possível obter IP";
-    document.getElementById("geo").innerText = "";
-    console.error(err);
+    console.error("Erro ao obter IP:", err);
+    ipElement.innerHTML = "Não foi possível obter seu IP";
+    ipElement.style.color = "#ff6b6b";
+    geoElement.innerHTML = "Localização indisponível";
   }
 }
 
-function copiarIP(){
-  if(!userIP) return alert("IP ainda não carregado!");
-  navigator.clipboard.writeText(userIP).then(()=>{alert("IP copiado!")});
+// Função para buscar geolocalização com múltiplos fallbacks
+async function buscarGeolocalizacao(ip) {
+  const geoElement = document.getElementById("geo");
+  const mapElement = document.getElementById("map");
+  
+  try {
+    // Tentativa 1: ipapi.co
+    let response = await fetch(`https://ipapi.co/${ip}/json/`, {
+      headers: {
+        'User-Agent': 'Mozilla/5.0'
+      }
+    });
+    
+    let geoData;
+    
+    if (response.ok) {
+      geoData = await response.json();
+    } else {
+      // Tentativa 2: ip-api.com (requer CORS proxy ou backend)
+      response = await fetch(`https://ipwhois.app/json/${ip}`);
+      if (response.ok) {
+        geoData = await response.json();
+      } else {
+        // Tentativa 3: ipinfo.io (mais simples)
+        response = await fetch(`https://ipinfo.io/${ip}/json?token=free`, {
+          headers: {
+            'Accept': 'application/json'
+          }
+        });
+        if (response.ok) {
+          geoData = await response.json();
+        }
+      }
+    }
+    
+    if (geoData && (geoData.latitude || geoData.lat)) {
+      const lat = geoData.latitude || geoData.lat;
+      const lon = geoData.longitude || geoData.lon || geoData.lng;
+      const city = geoData.city || "Desconhecida";
+      const region = geoData.region || geoData.regionName || "Desconhecida";
+      const country = geoData.country_name || geoData.country || "Desconhecido";
+      const isp = geoData.org || geoData.isp || geoData.asn || "Desconhecido";
+      
+      geoElement.innerHTML = `
+        <strong>📍 Localização:</strong> ${city}, ${region}, ${country}<br>
+        <strong>📡 Provedor:</strong> ${isp}<br>
+        <strong>🌐 Coordenadas:</strong> ${lat.toFixed(4)}, ${lon.toFixed(4)}
+      `;
+      
+      // Inicializar mapa
+      mapElement.style.display = "block";
+      
+      if (!map) {
+        map = L.map('map').setView([lat, lon], 10);
+        
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          attribution: '© OpenStreetMap contributors',
+          maxZoom: 19
+        }).addTo(map);
+      } else {
+        map.setView([lat, lon], 10);
+      }
+      
+      // Adicionar marcador
+      L.marker([lat, lon]).addTo(map)
+        .bindPopup(`
+          <strong>${city}, ${region}</strong><br>
+          IP: ${userIP}<br>
+          País: ${country}<br>
+          Provedor: ${isp}
+        `)
+        .openPopup();
+        
+      // Adicionar círculo de precisão
+      L.circle([lat, lon], {
+        color: '#00ff99',
+        fillColor: '#00ff99',
+        fillOpacity: 0.2,
+        radius: 5000
+      }).addTo(map);
+      
+    } else {
+      // Fallback: usar localização do navegador
+      geoElement.innerHTML = `
+        <div style="color:#ff9900">
+          <strong>⚠️ Localização aproximada:</strong> Baseada apenas no IP<br>
+          <button onclick="usarGeolocalizacaoNavegador()" 
+                  style="background:#00ff99;color:#000;border:none;padding:8px 16px;border-radius:6px;margin-top:10px;cursor:pointer">
+            📍 Usar minha localização exata
+          </button>
+        </div>
+      `;
+    }
+    
+  } catch (err) {
+    console.error("Erro na geolocalização:", err);
+    geoElement.innerHTML = `
+      <div style="color:#ff6b6b">
+        ❌ Não foi possível obter localização precisa<br>
+        <small>API de geolocalização temporariamente indisponível</small>
+      </div>
+    `;
+  }
 }
 
-// Chama ao carregar
-pegarIP();
+// Função para usar geolocalização do navegador
+function usarGeolocalizacaoNavegador() {
+  if (!navigator.geolocation) {
+    alert("Seu navegador não suporta geolocalização");
+    return;
+  }
+  
+  const geoElement = document.getElementById("geo");
+  geoElement.innerHTML = '<div class="loading"></div> Obtendo sua localização...';
+  
+  navigator.geolocation.getCurrentPosition(
+    (position) => {
+      const lat = position.coords.latitude;
+      const lon = position.coords.longitude;
+      const accuracy = position.coords.accuracy;
+      
+      geoElement.innerHTML = `
+        <strong>📍 Sua localização exata:</strong><br>
+        <strong>🌐 Coordenadas:</strong> ${lat.toFixed(6)}, ${lon.toFixed(6)}<br>
+        <strong>📏 Precisão:</strong> ±${Math.round(accuracy)} metros<br>
+        <small style="color:#aaa">(Localização do seu dispositivo)</small>
+      `;
+      
+      // Atualizar mapa com localização exata
+      if (map) {
+        map.remove();
+      }
+      
+      const mapElement = document.getElementById("map");
+      mapElement.style.display = "block";
+      
+      map = L.map('map').setView([lat, lon], 15);
+      
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '© OpenStreetMap contributors'
+      }).addTo(map);
+      
+      L.marker([lat, lon]).addTo(map)
+        .bindPopup(`
+          <strong>Sua localização exata</strong><br>
+          Latitude: ${lat.toFixed(6)}<br>
+          Longitude: ${lon.toFixed(6)}
+        `)
+        .openPopup();
+        
+      // Círculo de precisão
+      L.circle([lat, lon], {
+        color: '#ff9900',
+        fillColor: '#ff9900',
+        fillOpacity: 0.2,
+        radius: accuracy
+      }).addTo(map);
+    },
+    (error) => {
+      console.error("Erro na geolocalização:", error);
+      geoElement.innerHTML = `
+        <div style="color:#ff6b6b">
+          ❌ Permissão de localização negada<br>
+          <small>Ative a localização no seu navegador para melhor precisão</small>
+        </div>
+      `;
+    },
+    {
+      enableHighAccuracy: true,
+      timeout: 10000,
+      maximumAge: 0
+    }
+  );
+}
+
+// Função para copiar IP
+function copiarIP() {
+  if (!userIP) {
+    alert("IP ainda não carregado! Aguarde alguns segundos.");
+    return;
+  }
+  
+  navigator.clipboard.writeText(userIP).then(() => {
+    const btn = document.querySelector('.btn-main');
+    const originalText = btn.innerHTML;
+    btn.innerHTML = '✅ IP Copiado!';
+    btn.style.background = '#00cc77';
+    
+    setTimeout(() => {
+      btn.innerHTML = originalText;
+      btn.style.background = '';
+    }, 2000);
+  }).catch(err => {
+    console.error("Erro ao copiar:", err);
+    alert("Não foi possível copiar. Tente selecionar e copiar manualmente.");
+  });
+}
+
+// Função para detectar se é IPv4 ou IPv6
+function detectarTipoIP(ip) {
+  if (ip.includes(':')) {
+    return 'IPv6';
+  } else {
+    return 'IPv4';
+  }
+}
+
+// Inicializar ao carregar a página
+document.addEventListener('DOMContentLoaded', () => {
+  pegarIP();
+  
+  // Atualizar a cada 30 segundos
+  setInterval(() => {
+    if (!userIP) {
+      pegarIP();
+    }
+  }, 30000);
+});
+
+// Fallback manual se as APIs falharem
+setTimeout(() => {
+  if (!userIP) {
+    fetch('https://api.my-ip.io/ip')
+      .then(r => r.text())
+      .then(ip => {
+        if (ip) {
+          userIP = ip.trim();
+          document.getElementById("ip").innerHTML = `<span style="color:#00ff99">${userIP}</span>`;
+          document.getElementById("ip").style.color = "#00ff99";
+          document.getElementById("geo").innerHTML = "Localização aproximada pelo IP";
+        }
+      });
+  }
+}, 5000);
 </script>
 
 </body>
