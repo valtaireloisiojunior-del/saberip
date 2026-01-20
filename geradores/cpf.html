@@ -1,0 +1,221 @@
+```html
+<!DOCTYPE html>
+<html lang="pt-BR" prefix="og: https://ogp.me/ns#">
+<head>
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2713105320249369" crossorigin="anonymous"></script>
+
+  <!-- Google Analytics GA4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO -->
+  <title>Gerador de CPF Válido Online Grátis | Gerar CPF para Testes | Saber IP</title>
+  <meta name="description" content="Gerador de CPF válido online grátis. Gere CPF para testes, sistemas e estudos, com ou sem pontuação. Rápido, seguro e 100% online.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Gerador de CPF Válido Online Grátis | Saber IP">
+  <meta property="og:description" content="Gere CPF válido para testes e estudos. Ferramenta gratuita, rápida e compatível com mobile.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #0d0d0d;
+      color: #eaeaea;
+    }
+    .container {
+      max-width: 600px;
+      margin: auto;
+      padding: 20px;
+      text-align: center;
+    }
+    h1 {
+      color: #00ff99;
+      font-size: 1.8rem;
+    }
+    p {
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+    .box {
+      background: #141414;
+      border-radius: 10px;
+      padding: 20px;
+      margin-top: 20px;
+    }
+    button {
+      width: 100%;
+      padding: 14px;
+      margin-top: 10px;
+      font-size: 1rem;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      background: #00ff99;
+      color: #0d0d0d;
+      cursor: pointer;
+    }
+    button.secondary {
+      background: #1f1f1f;
+      color: #00ff99;
+      border: 1px solid #00ff99;
+    }
+    .result {
+      margin-top: 15px;
+      font-size: 1.4rem;
+      word-break: break-all;
+    }
+    .options {
+      text-align: left;
+      margin-top: 10px;
+      font-size: 0.95rem;
+    }
+    .options label {
+      display: block;
+      margin-bottom: 5px;
+    }
+    .share {
+      margin-top: 15px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .share button {
+      flex: 1;
+      font-size: 0.9rem;
+    }
+    .alert {
+      margin-top: 30px;
+      padding: 15px;
+      border-left: 4px solid #ff5555;
+      background: #1a1a1a;
+      text-align: left;
+      font-size: 0.9rem;
+    }
+    footer {
+      margin-top: 40px;
+      font-size: 0.85rem;
+    }
+    footer a {
+      color: #00ff99;
+      text-decoration: none;
+      margin: 0 5px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Gerador de CPF Válido Online Grátis</h1>
+    <p>Gere <strong>CPF válido para testes</strong>, sistemas e estudos. Ferramenta gratuita, rápida e otimizada para celular.</p>
+
+    <div class="box">
+      <div class="options">
+        <label><input type="checkbox" id="pontuacao" checked> Gerar CPF com pontuação</label>
+        <label><input type="checkbox" id="copiarAuto"> Copiar automaticamente</label>
+      </div>
+
+      <button onclick="gerarCPF()">Gerar CPF Agora</button>
+      <div class="result" id="resultado">---</div>
+
+      <button class="secondary" onclick="copiarCPF()">Copiar CPF</button>
+
+      <div class="share">
+        <button onclick="compartilhar('whatsapp')">WhatsApp</button>
+        <button onclick="compartilhar('facebook')">Facebook</button>
+        <button onclick="compartilhar('twitter')">X / Twitter</button>
+      </div>
+    </div>
+
+    <div class="alert">
+      ⚠️ <strong>Aviso Legal:</strong> Esta ferramenta gera CPFs válidos apenas para <strong>testes, estudos e fins educacionais</strong>.
+      O uso para fraudes ou atividades ilegais é estritamente proibido.
+    </div>
+
+    <article>
+      <h2>O que é um Gerador de CPF?</h2>
+      <p>O gerador de CPF é uma ferramenta online que cria números de CPF matematicamente válidos, respeitando o cálculo dos dígitos verificadores.</p>
+
+      <h2>Para que serve o CPF gerado?</h2>
+      <p>É utilizado principalmente por desenvolvedores, estudantes e analistas para testar formulários, sistemas e validações sem usar dados reais.</p>
+
+      <h2>Como funciona o cálculo do CPF?</h2>
+      <p>O CPF possui 11 dígitos. Os dois últimos são dígitos verificadores calculados a partir dos nove primeiros usando um algoritmo oficial da Receita Federal.</p>
+
+      <h2>Boas práticas</h2>
+      <p>Nunca utilize CPFs gerados aqui para cadastros reais, compras, contratos ou qualquer ação que envolva dados pessoais verdadeiros.</p>
+
+      <h2>Aviso final</h2>
+      <p>O Saber IP não se responsabiliza pelo uso indevido desta ferramenta.</p>
+    </article>
+
+    <footer>
+      <a href="/">Início</a> |
+      <a href="/privacidade.html">Política de Privacidade</a>
+    </footer>
+  </div>
+
+  <script>
+    const canonical = document.querySelector('link[rel="canonical"]');
+    const ogUrl = document.querySelector('meta[property="og:url"]');
+    canonical.href = window.location.href;
+    ogUrl.content = window.location.href;
+
+    function gerarCPF() {
+      let cpf = [];
+      for (let i = 0; i < 9; i++) {
+        cpf.push(Math.floor(Math.random() * 9));
+      }
+
+      let d1 = cpf.reduce((s, n, i) => s + n * (10 - i), 0) * 10 % 11;
+      if (d1 === 10) d1 = 0;
+      cpf.push(d1);
+
+      let d2 = cpf.reduce((s, n, i) => s + n * (11 - i), 0) * 10 % 11;
+      if (d2 === 10) d2 = 0;
+      cpf.push(d2);
+
+      let cpfFinal = cpf.join('');
+      if (document.getElementById('pontuacao').checked) {
+        cpfFinal = cpfFinal.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
+      }
+
+      document.getElementById('resultado').innerText = cpfFinal;
+
+      if (document.getElementById('copiarAuto').checked) {
+        navigator.clipboard.writeText(cpfFinal);
+      }
+    }
+
+    function copiarCPF() {
+      const texto = document.getElementById('resultado').innerText;
+      navigator.clipboard.writeText(texto);
+      alert('CPF copiado com sucesso!');
+    }
+
+    function compartilhar(rede) {
+      const texto = encodeURIComponent('Gerador de CPF válido online grátis 👉 ' + window.location.href);
+      let url = '';
+      if (rede === 'whatsapp') url = 'https://wa.me/?text=' + texto;
+      if (rede === 'facebook') url = 'https://www.facebook.com/sharer/sharer.php?u=' + window.location.href;
+      if (rede === 'twitter') url = 'https://twitter.com/intent/tweet?text=' + texto;
+      window.open(url, '_blank');
+    }
+  </script>
+</body>
+</html>
+```
