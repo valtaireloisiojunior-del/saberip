@@ -1,0 +1,38 @@
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2713105320249369"
+        crossorigin="anonymous"></script>
+
+<!-- Básico -->
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- SEO -->
+<title>SEUIP.ORG – GERADOR DE CEP VALIDO | Ferramentas Online Gratuitas</title>
+<meta name="description" content="Descubra seu IP público, localização, DNS, navegador e utilize ferramentas online gratuitas no SEUIP.ORG. Rápido, seguro e sem cadastro.">
+<meta name="robots" content="index, follow">
+<meta name="author" content="SEUIP.ORG">
+
+<!-- Canonical -->
+<link rel="canonical" href="https://seuip.org/">
+
+<!-- Open Graph (Facebook, WhatsApp, LinkedIn) -->
+<meta property="og:title" content="SEUIP.ORG – Descubra Seu IP Agora">
+<meta property="og:description" content="Ferramentas online gratuitas para consultar IP, localização, DNS, navegador e muito mais.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://seuip.org/">
+<meta property="og:site_name" content="SEUIP.ORG">
+
+<!-- Twitter Cards -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="SEUIP.ORG – Descubra Seu IP Agora">
+<meta name="twitter:description" content="Consulte seu IP, localização e utilize ferramentas online gratuitas.">
+
+<!-- Google Analytics GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MCNWEQ8XMH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-MCNWEQ8XMH');
+</script>

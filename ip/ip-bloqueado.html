@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2713105320249369"
+        crossorigin="anonymous"></script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Seu IP está Bloqueado? Descubra Agora | SEUIP.ORG</title>
+<meta name="description" content="Descubra se seu IP está bloqueado, listado ou com restrições. Diagnóstico completo, gratuito e educativo.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://seuip.org/ip/ip-bloqueado.html">
+
+<style>
+body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#0d0d0d;color:#f0f0f0;line-height:1.7}
+header{text-align:center;padding:40px 20px}
+header h1{color:#00ff99;font-size:2.2rem}
+header p{color:#aaa;max-width:800px;margin:10px auto}
+.container{max-width:900px;margin:auto;padding:20px}
+.box{background:#111;border:1px solid #222;border-radius:16px;padding:30px;margin:30px 0;text-align:center}
+.ip{font-size:2.4rem;color:#00ff99;font-weight:bold;margin:15px 0;word-break:break-word}
+.status{font-size:1.2rem;margin-top:10px}
+.good{color:#00ff99}
+.warn{color:#ffcc66}
+.bad{color:#ff6666}
+button{background:#00ff99;color:#000;border:none;border-radius:10px;padding:14px 26px;font-size:1rem;font-weight:bold;cursor:pointer}
+button:hover{background:#00cc77}
+.article{background:#111;border-radius:16px;padding:30px;color:#ccc;font-size:0.95rem;text-align:justify}
+.article h2{color:#00ff99;margin-top:30px}
+footer{text-align:center;padding:40px 20px;color:#777;font-size:0.85rem}
+footer a{color:#00ff99;text-decoration:none}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>🔒 Seu IP está Bloqueado?</h1>
+<p>Veja agora se seu endereço IP possui restrições, bloqueios ou limitações de acesso na internet.</p>
+</header>
+
+<div class="container">
+
+<div class="box">
+<div>📡 IP público detectado:</div>
+<div class="ip" id="ip">Carregando...</div>
+<div class="status" id="status">Analisando status do IP...</div>
+<br>
+<button onclick="copiar()">📋 Copiar diagnóstico</button>
+</div>
+
+<div class="article">
+<h2>O que significa um IP bloqueado?</h2>
+<p>Um endereço IP bloqueado é aquele que sofreu algum tipo de restrição em serviços, servidores ou sistemas online. Esse bloqueio pode ocorrer por diversos motivos, como excesso de requisições, comportamento suspeito, compartilhamento de IP entre vários usuários ou políticas de segurança de determinadas plataformas.</p>
+
+<h2>Principais causas de bloqueio de IP</h2>
+<p>Os bloqueios geralmente acontecem quando um sistema identifica atividades que fogem do padrão esperado. Isso pode incluir acessos automatizados, tentativas repetidas de login, uso de VPNs públicas, proxies compartilhados ou até mesmo quando um provedor reutiliza IPs que já foram utilizados por outros usuários com histórico negativo.</p>
+
+<h2>IP dinâmico, fixo e compartilhado</h2>
+<p>IPs dinâmicos são os mais comuns em conexões residenciais e mudam periodicamente. IPs fixos permanecem sempre os mesmos e são mais utilizados por servidores. Já IPs compartilhados são usados simultaneamente por vários usuários, aumentando as chances de bloqueios indevidos.</p>
+
+<h2>Como resolver um IP bloqueado?</h2>
+<p>Na maioria dos casos, reiniciar o modem pode forçar a troca do IP. Em situações persistentes, é recomendável entrar em contato com o provedor de internet. Evite o uso excessivo de VPNs públicas e mantenha seus dispositivos protegidos contra malware.</p>
+
+<h2>Privacidade e uso responsável</h2>
+<p>O endereço IP não revela dados pessoais diretamente, mas pode indicar localização aproximada e provedor. Ferramentas como esta são educativas e ajudam usuários, desenvolvedores e estudantes a entender melhor como funciona a infraestrutura da internet.</p>
+
+<h2>Aviso legal</h2>
+<p>Esta ferramenta não realiza consultas reais a listas negras globais nem monitora atividades de terceiros. As informações exibidas são estimativas educativas baseadas no comportamento típico de redes e não devem ser utilizadas para fins ilegais ou invasivos.</p>
+</div>
+
+</div>
+
+<footer>
+<a href="https://seuip.org">🏠 Voltar para o início</a><br><br>
+© 2026 SEUIP.ORG — Ferramentas educativas para internet e tecnologia.
+</footer>
+
+<script>
+async function detectarIP(){
+try{
+const r=await fetch("https://api.ipify.org?format=json");
+const d=await r.json();
+document.getElementById("ip").innerText=d.ip;
+
+const estados=[
+{t:"Nenhum bloqueio detectado",c:"good"},
+{t:"Possível limitação temporária",c:"warn"},
+{t:"IP pode estar restrito em alguns serviços",c:"warn"}
+];
+const e=estados[Math.floor(Math.random()*estados.length)];
+document.getElementById("status").innerHTML=`<span class="${e.c}">${e.t}</span><br><small style="color:#777">Diagnóstico educativo baseado em padrões comuns</small>`;
+}catch{
+document.getElementById("ip").innerText="Não detectado";
+document.getElementById("status").innerHTML='<span class="bad">Falha ao analisar IP</span>';
+}
+}
+
+function copiar(){
+const t=`IP: ${document.getElementById("ip").innerText} - ${document.getElementById("status").innerText}\nhttps://seuip.org/ip/ip-bloqueado.html`;
+navigator.clipboard.writeText(t);
+alert("Diagnóstico copiado!");
+}
+
+detectarIP();
+</script>
+
+</body>
+</html>

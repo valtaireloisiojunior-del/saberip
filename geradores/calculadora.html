@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Calculadora Online Grátis | SEUIP.ORG</title>
+<meta name="description" content="Calculadora online gratuita para contas matemáticas rápidas e precisas. Funciona direto no navegador.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://seuip.org/geradores/calculadora.html">
+
+<!-- Adsense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2713105320249369"
+crossorigin="anonymous"></script>
+
+<style>
+body{
+  margin:0;
+  font-family:Arial,Helvetica,sans-serif;
+  background:#0d0d0d;
+  color:#fff;
+  text-align:center;
+}
+header{
+  padding:30px;
+}
+header a{
+  color:#00ff99;
+  text-decoration:none;
+  font-weight:bold;
+}
+h1{
+  color:#00ff99;
+}
+.calculator{
+  background:#111;
+  max-width:380px;
+  margin:30px auto;
+  padding:25px;
+  border-radius:20px;
+  border:1px solid #222;
+}
+.display{
+  width:100%;
+  height:60px;
+  font-size:24px;
+  text-align:right;
+  padding:10px;
+  border:none;
+  border-radius:10px;
+  margin-bottom:15px;
+}
+.buttons{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:10px;
+}
+button{
+  padding:18px;
+  font-size:18px;
+  border:none;
+  border-radius:12px;
+  cursor:pointer;
+  background:#1a1a1a;
+  color:#fff;
+  transition:0.2s;
+}
+button:hover{
+  background:#00ff99;
+  color:#000;
+}
+button.equal{
+  grid-column:span 2;
+  background:#00ff99;
+  color:#000;
+  font-weight:bold;
+}
+button.clear{
+  background:#ff5555;
+  color:#000;
+}
+.article{
+  max-width:900px;
+  margin:60px auto;
+  padding:20px;
+  text-align:left;
+  color:#ccc;
+  line-height:1.8;
+}
+.article h2{
+  color:#00ff99;
+}
+footer{
+  margin:40px;
+  color:#777;
+}
+footer a{
+  color:#00ff99;
+  text-decoration:none;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <a href="../index.html">← SEUIP.ORG</a>
+  <h1>🧮 Calculadora Online</h1>
+  <p>Faça cálculos rápidos direto no navegador</p>
+</header>
+
+<div class="calculator">
+  <input type="text" class="display" id="display" readonly>
+
+  <div class="buttons">
+    <button onclick="clearDisplay()" class="clear">C</button>
+    <button onclick="appendValue('(')">(</button>
+    <button onclick="appendValue(')')">)</button>
+    <button onclick="appendValue('/')">÷</button>
+
+    <button onclick="appendValue('7')">7</button>
+    <button onclick="appendValue('8')">8</button>
+    <button onclick="appendValue('9')">9</button>
+    <button onclick="appendValue('*')">×</button>
+
+    <button onclick="appendValue('4')">4</button>
+    <button onclick="appendValue('5')">5</button>
+    <button onclick="appendValue('6')">6</button>
+    <button onclick="appendValue('-')">−</button>
+
+    <button onclick="appendValue('1')">1</button>
+    <button onclick="appendValue('2')">2</button>
+    <button onclick="appendValue('3')">3</button>
+    <button onclick="appendValue('+')">+</button>
+
+    <button onclick="appendValue('0')">0</button>
+    <button onclick="appendValue('.')">.</button>
+    <button onclick="calculate()" class="equal">=</button>
+  </div>
+</div>
+
+<section class="article">
+<h2>📘 Sobre a Calculadora Online</h2>
+<p>
+A calculadora online do SEUIP.ORG foi criada para oferecer rapidez, simplicidade
+e precisão em cálculos matemáticos do dia a dia. Ela funciona 100% no navegador,
+sem necessidade de instalação ou cadastro, sendo ideal para estudantes,
+profissionais e desenvolvedores.
+</p>
+
+<p>
+Com suporte às principais operações matemáticas, como adição, subtração,
+multiplicação, divisão e uso de parênteses, essa ferramenta permite resolver
+expressões completas de forma prática e segura.
+</p>
+
+<p>
+Por ser executada localmente no seu navegador, nenhum dado é enviado para
+servidores externos, garantindo total privacidade durante o uso.
+</p>
+</section>
+
+<footer>
+  <a href="../index.html">🏠 Voltar para o início</a>
+</footer>
+
+<script>
+const display = document.getElementById('display');
+
+function appendValue(value){
+  display.value += value;
+}
+
+function clearDisplay(){
+  display.value = '';
+}
+
+function calculate(){
+  try{
+    display.value = eval(display.value);
+  }catch{
+    display.value = 'Erro';
+  }
+}
+</script>
+
+</body>
+</html>

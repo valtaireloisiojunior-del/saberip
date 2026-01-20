@@ -1,0 +1,1304 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2713105320249369" crossorigin="anonymous"></script>
+
+    <!-- Básico -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="theme-color" content="#00ff99">
+
+    <!-- SEO -->
+    <title>🌍 Mapa de Rede Visual | Visualize Sua Conexão Internet | SEUIP.ORG</title>
+    <meta name="description" content="Mapa interativo da sua conexão com a internet. Visualize servidores, roteamento e performance em tempo real com geolocalização.">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="🌍 Mapa de Rede Visual | SEUIP.ORG">
+    <meta property="og:description" content="Visualize sua conexão com servidores pelo mundo em mapa interativo 3D">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://seuip.org/mapa-rede.html">
+    
+    <!-- Canonical -->
+    <link rel="canonical" href="https://seuip.org/mapa-rede.html">
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MCNWEQ8XMH"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-MCNWEQ8XMH');
+    </script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Three.js para efeitos 3D -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+    <!-- CSS Otimizado -->
+    <style>
+        /* 🌙 VARIÁVEIS */
+        :root {
+            --green: #00ff99;
+            --green-dark: #00cc77;
+            --green-glow: rgba(0, 255, 153, 0.3);
+            --bg: #0d0d0d;
+            --bg-card: #111;
+            --text: #ffffff;
+            --gray: #a4b0be;
+            --border: #222;
+        }
+
+        /* 📱 RESET MOBILE */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        html {
+            font-size: 16px;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.5;
+            min-height: 100vh;
+            padding: 0;
+            overflow-x: hidden;
+            touch-action: manipulation;
+        }
+
+        /* 🔥 HEADER */
+        .mobile-header {
+            text-align: center;
+            padding: 20px 15px;
+            background: rgba(13, 13, 13, 0.95);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 2px solid rgba(0, 255, 153, 0.2);
+        }
+
+        .site-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(0, 255, 153, 0.1);
+            color: var(--green);
+            padding: 6px 15px;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            margin-bottom: 10px;
+            border: 1px solid rgba(0, 255, 153, 0.3);
+        }
+
+        .page-title {
+            font-size: 1.8rem;
+            color: var(--green);
+            margin-bottom: 5px;
+            font-weight: 900;
+        }
+
+        .page-subtitle {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        /* 🌍 CONTAINER DO MAPA 3D */
+        .map-container {
+            width: 100%;
+            height: 60vh;
+            min-height: 400px;
+            position: relative;
+            background: #000;
+            overflow: hidden;
+        }
+
+        #networkMap3D {
+            width: 100%;
+            height: 100%;
+        }
+
+        .map-overlay {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            right: 15px;
+            display: flex;
+            justify-content: space-between;
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        .map-stats {
+            background: rgba(13, 13, 13, 0.9);
+            padding: 10px 15px;
+            border-radius: 10px;
+            border: 1px solid rgba(0, 255, 153, 0.3);
+            backdrop-filter: blur(10px);
+            pointer-events: auto;
+        }
+
+        .map-controls {
+            display: flex;
+            gap: 10px;
+        }
+
+        .map-btn {
+            width: 40px;
+            height: 40px;
+            background: rgba(13, 13, 13, 0.9);
+            border: 1px solid rgba(0, 255, 153, 0.3);
+            border-radius: 8px;
+            color: var(--green);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            backdrop-filter: blur(10px);
+            pointer-events: auto;
+            transition: all 0.2s;
+        }
+
+        .map-btn:active {
+            background: rgba(0, 255, 153, 0.2);
+            transform: scale(0.95);
+        }
+
+        /* 📊 ESTATÍSTICAS */
+        .stats-section {
+            padding: 20px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .stat-card {
+            background: rgba(26, 26, 46, 0.8);
+            border-radius: 15px;
+            padding: 20px;
+            border: 1px solid rgba(0, 255, 153, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .stat-icon {
+            font-size: 2rem;
+            color: var(--green);
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--green);
+            text-align: center;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            color: var(--gray);
+            font-size: 0.9rem;
+            text-align: center;
+        }
+
+        /* 🎯 SERVIDORES CONECTADOS */
+        .servers-section {
+            padding: 20px;
+        }
+
+        .server-list {
+            background: rgba(13, 13, 13, 0.8);
+            border-radius: 15px;
+            padding: 20px;
+            margin-top: 15px;
+            border: 1px solid rgba(0, 255, 153, 0.1);
+            backdrop-filter: blur(10px);
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        .server-item {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .server-item:last-child {
+            border-bottom: none;
+        }
+
+        .server-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(0, 255, 153, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--green);
+            margin-right: 15px;
+            font-size: 1.2rem;
+        }
+
+        .server-info {
+            flex: 1;
+        }
+
+        .server-name {
+            font-weight: 600;
+            margin-bottom: 3px;
+        }
+
+        .server-location {
+            color: var(--gray);
+            font-size: 0.85rem;
+        }
+
+        .server-ping {
+            color: var(--green);
+            font-weight: 600;
+            font-family: 'Courier New', monospace;
+        }
+
+        /* 🔧 CONTROLES */
+        .controls-section {
+            padding: 20px;
+        }
+
+        .control-buttons {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 18px;
+            border: none;
+            border-radius: 15px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s;
+            text-align: center;
+            cursor: pointer;
+            min-height: 55px;
+        }
+
+        .btn:active {
+            transform: scale(0.98);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--green), var(--green-dark));
+            color: #000;
+        }
+
+        .btn-secondary {
+            background: rgba(0, 255, 153, 0.1);
+            color: var(--green);
+            border: 2px solid rgba(0, 255, 153, 0.3);
+        }
+
+        /* 📊 GRÁFICO */
+        .chart-section {
+            padding: 20px;
+        }
+
+        .chart-container {
+            background: rgba(13, 13, 13, 0.8);
+            border-radius: 15px;
+            padding: 20px;
+            margin-top: 15px;
+            border: 1px solid rgba(0, 255, 153, 0.1);
+            backdrop-filter: blur(10px);
+            height: 200px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #networkChart {
+            width: 100%;
+            height: 100%;
+        }
+
+        /* ⚠️ AVISO */
+        .warning-box {
+            background: rgba(255, 71, 87, 0.1);
+            border: 2px solid rgba(255, 71, 87, 0.3);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px;
+            font-size: 0.85rem;
+        }
+
+        .warning-title {
+            color: #ff4757;
+            font-weight: 900;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* 📱 FOOTER */
+        .mobile-footer {
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .footer-link {
+            color: var(--green);
+            text-decoration: none;
+            font-size: 0.9rem;
+            padding: 8px 15px;
+            background: rgba(0, 255, 153, 0.1);
+            border-radius: 20px;
+        }
+
+        .copyright {
+            color: var(--gray);
+            font-size: 0.8rem;
+            margin-top: 20px;
+            line-height: 1.4;
+        }
+
+        /* 🌐 NODES 3D */
+        .node-tooltip {
+            position: absolute;
+            background: rgba(13, 13, 13, 0.95);
+            border: 2px solid var(--green);
+            border-radius: 10px;
+            padding: 15px;
+            color: white;
+            font-size: 0.9rem;
+            z-index: 1000;
+            pointer-events: none;
+            display: none;
+            backdrop-filter: blur(10px);
+            max-width: 300px;
+        }
+
+        /* 📱 RESPONSIVIDADE */
+        @media (min-width: 768px) {
+            .stats-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+            
+            .control-buttons {
+                grid-template-columns: repeat(4, 1fr);
+            }
+            
+            .map-container {
+                height: 70vh;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .page-title {
+                font-size: 1.5rem;
+            }
+            
+            .stat-value {
+                font-size: 1.5rem;
+            }
+            
+            .server-item {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .server-icon {
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+        }
+
+        /* 🌟 ANIMAÇÕES */
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        @keyframes glow {
+            0%, 100% { box-shadow: 0 0 10px var(--green-glow); }
+            50% { box-shadow: 0 0 20px var(--green-glow); }
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        .glow {
+            animation: glow 3s infinite;
+        }
+
+        /* 🎮 SCROLL PERSONALIZADO */
+        .server-list::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .server-list::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 4px;
+        }
+
+        .server-list::-webkit-scrollbar-thumb {
+            background: var(--green);
+            border-radius: 4px;
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- 🔥 HEADER -->
+<header class="mobile-header">
+    <a href="/" style="text-decoration: none; color: inherit;">
+        <div class="site-badge">
+            <i class="fas fa-satellite"></i>
+            MAPA DE REDE 3D
+        </div>
+        
+        <h1 class="page-title">
+            <i class="fas fa-globe-americas"></i>
+            Mapa de Rede
+        </h1>
+        
+        <p class="page-subtitle">
+            Visualize sua conexão com servidores pelo mundo
+        </p>
+    </a>
+</header>
+
+<!-- 🌍 MAPA 3D -->
+<section class="map-container">
+    <div id="networkMap3D"></div>
+    
+    <div class="map-overlay">
+        <div class="map-stats">
+            <div style="color: var(--green); font-weight: 600; font-size: 0.9rem;">
+                <i class="fas fa-satellite"></i> <span id="nodeCount">12</span> nós ativos
+            </div>
+        </div>
+        
+        <div class="map-controls">
+            <button class="map-btn" onclick="rotateMap()" title="Rotacionar">
+                <i class="fas fa-sync-alt"></i>
+            </button>
+            <button class="map-btn" onclick="zoomIn()" title="Aumentar zoom">
+                <i class="fas fa-search-plus"></i>
+            </button>
+            <button class="map-btn" onclick="zoomOut()" title="Diminuir zoom">
+                <i class="fas fa-search-minus"></i>
+            </button>
+            <button class="map-btn" onclick="resetView()" title="Resetar vista">
+                <i class="fas fa-crosshairs"></i>
+            </button>
+        </div>
+    </div>
+</section>
+
+<!-- 📊 ESTATÍSTICAS -->
+<section class="stats-section">
+    <h2 style="color: var(--green); margin-bottom: 15px;">
+        <i class="fas fa-chart-bar"></i> Estatísticas em Tempo Real
+    </h2>
+    
+    <div class="stats-grid">
+        <div class="stat-card">
+            <div class="stat-icon">
+                <i class="fas fa-bolt"></i>
+            </div>
+            <div class="stat-value" id="pingValue">32ms</div>
+            <div class="stat-label">Latência Média</div>
+        </div>
+        
+        <div class="stat-card">
+            <div class="stat-icon">
+                <i class="fas fa-download"></i>
+            </div>
+            <div class="stat-value" id="downloadValue">85.4</div>
+            <div class="stat-label">Download Mbps</div>
+        </div>
+        
+        <div class="stat-card">
+            <div class="stat-icon">
+                <i class="fas fa-upload"></i>
+            </div>
+            <div class="stat-value" id="uploadValue">42.8</div>
+            <div class="stat-label">Upload Mbps</div>
+        </div>
+        
+        <div class="stat-card">
+            <div class="stat-icon">
+                <i class="fas fa-shield-alt"></i>
+            </div>
+            <div class="stat-value" id="stabilityValue">99.7%</div>
+            <div class="stat-label">Estabilidade</div>
+        </div>
+    </div>
+</section>
+
+<!-- 🎯 SERVIDORES CONECTADOS -->
+<section class="servers-section">
+    <h2 style="color: var(--green); margin-bottom: 15px;">
+        <i class="fas fa-server"></i> Servidores Conectados
+    </h2>
+    
+    <div class="server-list" id="serverList">
+        <!-- Servidores serão carregados via JavaScript -->
+    </div>
+</section>
+
+<!-- 📊 GRÁFICO DE PERFORMANCE -->
+<section class="chart-section">
+    <h2 style="color: var(--green); margin-bottom: 15px;">
+        <i class="fas fa-chart-line"></i> Performance da Rede
+    </h2>
+    
+    <div class="chart-container">
+        <canvas id="networkChart"></canvas>
+    </div>
+</section>
+
+<!-- 🔧 CONTROLES -->
+<section class="controls-section">
+    <h2 style="color: var(--green); margin-bottom: 15px;">
+        <i class="fas fa-sliders-h"></i> Controles
+    </h2>
+    
+    <div class="control-buttons">
+        <button class="btn btn-primary" onclick="startScan()">
+            <i class="fas fa-play"></i>
+            Iniciar Scan
+        </button>
+        
+        <button class="btn btn-secondary" onclick="testConnection()">
+            <i class="fas fa-bolt"></i>
+            Testar Conexão
+        </button>
+        
+        <button class="btn btn-secondary" onclick="exportData()">
+            <i class="fas fa-download"></i>
+            Exportar Dados
+        </button>
+        
+        <button class="btn btn-secondary" onclick="shareMap()">
+            <i class="fas fa-share-alt"></i>
+            Compartilhar
+        </button>
+    </div>
+</section>
+
+<!-- ⚠️ AVISO LEGAL -->
+<section class="warning-box">
+    <div class="warning-title">
+        <i class="fas fa-info-circle"></i>
+        Informação Importante
+    </div>
+    <p style="color: var(--gray); line-height: 1.4;">
+        Este mapa é uma representação visual simulada da sua conexão de rede. 
+        Os dados são gerados localmente no seu navegador para fins educacionais 
+        e de demonstração. Nenhuma informação real é coletada ou armazenada.
+    </p>
+</section>
+
+<!-- 📱 FOOTER -->
+<footer class="mobile-footer">
+    <div class="site-badge" style="margin-bottom: 20px;">
+        <i class="fas fa-heart"></i>
+        DESENVOLVIDO POR SEUIP.ORG
+    </div>
+    
+    <div class="footer-links">
+        <a href="/" class="footer-link">🏠 Início</a>
+        <a href="fbi-rastreamento-ip.html" class="footer-link">🔍 Rastrear IP</a>
+        <a href="teste-velocidade.html" class="footer-link">🚀 Velocidade</a>
+        <a href="geolocalizacao.html" class="footer-link">📍 Geolocalização</a>
+    </div>
+    
+    <div class="copyright">
+        © 2024 <strong style="color: var(--green);">SEUIP.ORG</strong><br>
+        Mapa de Rede Interativo • Versão 3D<br>
+        <small style="color: #666;">Tecnologia WebGL • Three.js</small>
+    </div>
+</section>
+
+<!-- 💰 ADVERTISEMENT -->
+<div style="margin: 20px auto; text-align: center; max-width: 320px; padding: 0 20px;">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-2713105320249369"
+         data-ad-slot="1234567890"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+</div>
+
+<!-- 🌐 NODE TOOLTIP -->
+<div class="node-tooltip" id="nodeTooltip"></div>
+
+<!-- 📱 SCRIPTS -->
+<script>
+// ============================================
+// 🌍 MAPA 3D COM THREE.JS
+// ============================================
+let scene, camera, renderer, controls;
+let nodes = [];
+let connections = [];
+let rotationSpeed = 0.002;
+let isRotating = true;
+
+function init3DMap() {
+    // Configurar cena
+    scene = new THREE.Scene();
+    scene.fog = new THREE.Fog(0x000000, 10, 50);
+    
+    // Configurar câmera
+    camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    camera.position.z = 30;
+    
+    // Configurar renderer
+    renderer = new THREE.WebGLRenderer({ 
+        antialias: true,
+        alpha: true 
+    });
+    renderer.setSize(document.querySelector('.map-container').offsetWidth, 
+                     document.querySelector('.map-container').offsetHeight);
+    renderer.setPixelRatio(window.devicePixelRatio);
+    document.getElementById('networkMap3D').appendChild(renderer.domElement);
+    
+    // Adicionar luzes
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.3);
+    scene.add(ambientLight);
+    
+    const directionalLight = new THREE.DirectionalLight(0x00ff99, 0.8);
+    directionalLight.position.set(10, 10, 5);
+    scene.add(directionalLight);
+    
+    // Criar esfera da Terra
+    const earthGeometry = new THREE.SphereGeometry(15, 32, 32);
+    const earthMaterial = new THREE.MeshPhongMaterial({
+        color: 0x003300,
+        emissive: 0x001100,
+        shininess: 100
+    });
+    const earth = new THREE.Mesh(earthGeometry, earthMaterial);
+    scene.add(earth);
+    
+    // Adicionar pontos de luz (cidades)
+    const cityLights = new THREE.Group();
+    
+    const cities = [
+        { lat: -23.55, lon: -46.63, name: "São Paulo", color: 0x00ff99 },
+        { lat: -22.91, lon: -43.17, name: "Rio de Janeiro", color: 0x00ff99 },
+        { lat: 40.71, lon: -74.01, name: "Nova York", color: 0x00a8ff },
+        { lat: 51.51, lon: -0.13, name: "Londres", color: 0xff00ff },
+        { lat: 35.68, lon: 139.69, name: "Tóquio", color: 0xff9900 },
+        { lat: 37.77, lon: -122.42, name: "São Francisco", color: 0xff4757 },
+        { lat: 1.35, lon: 103.82, name: "Singapura", color: 0x9c88ff },
+        { lat: 48.86, lon: 2.35, name: "Paris", color: 0x00ffff }
+    ];
+    
+    cities.forEach(city => {
+        const phi = (90 - city.lat) * Math.PI / 180;
+        const theta = (city.lon + 180) * Math.PI / 180;
+        
+        const x = 16 * Math.sin(phi) * Math.cos(theta);
+        const y = 16 * Math.cos(phi);
+        const z = 16 * Math.sin(phi) * Math.sin(theta);
+        
+        // Ponto de luz
+        const lightGeometry = new THREE.SphereGeometry(0.3, 8, 8);
+        const lightMaterial = new THREE.MeshBasicMaterial({ 
+            color: city.color,
+            emissive: city.color,
+            emissiveIntensity: 0.5
+        });
+        const lightPoint = new THREE.Mesh(lightGeometry, lightMaterial);
+        lightPoint.position.set(x, y, z);
+        lightPoint.userData = { name: city.name, type: 'city' };
+        cityLights.add(lightPoint);
+        
+        // Adicionar ao array de nós
+        nodes.push({
+            mesh: lightPoint,
+            name: city.name,
+            type: 'city',
+            lat: city.lat,
+            lon: city.lon
+        });
+    });
+    
+    scene.add(cityLights);
+    
+    // Criar seu ponto (usuário)
+    const userGeometry = new THREE.SphereGeometry(0.5, 16, 16);
+    const userMaterial = new THREE.MeshPhongMaterial({
+        color: 0x00ff99,
+        emissive: 0x00ff99,
+        emissiveIntensity: 1,
+        shininess: 100
+    });
+    const userPoint = new THREE.Mesh(userGeometry, userMaterial);
+    
+    // Posição aleatória para demonstração
+    const userLat = -15.78 + Math.random() * 20 - 10;
+    const userLon = -47.92 + Math.random() * 20 - 10;
+    const userPhi = (90 - userLat) * Math.PI / 180;
+    const userTheta = (userLon + 180) * Math.PI / 180;
+    
+    const userX = 16.5 * Math.sin(userPhi) * Math.cos(userTheta);
+    const userY = 16.5 * Math.cos(userPhi);
+    const userZ = 16.5 * Math.sin(userPhi) * Math.sin(userTheta);
+    
+    userPoint.position.set(userX, userY, userZ);
+    userPoint.userData = { name: 'Você', type: 'user' };
+    scene.add(userPoint);
+    
+    nodes.push({
+        mesh: userPoint,
+        name: 'Você',
+        type: 'user',
+        lat: userLat,
+        lon: userLon
+    });
+    
+    // Criar conexões
+    createConnections();
+    
+    // Raycaster para interação
+    const raycaster = new THREE.Raycaster();
+    const mouse = new THREE.Vector2();
+    
+    // Event listeners
+    window.addEventListener('resize', onWindowResize);
+    renderer.domElement.addEventListener('mousemove', onMouseMove);
+    renderer.domElement.addEventListener('click', onNodeClick);
+    
+    // Animação
+    animate();
+}
+
+function createConnections() {
+    // Conectar usuário às cidades
+    const userNode = nodes.find(n => n.type === 'user');
+    
+    if (userNode) {
+        const cityNodes = nodes.filter(n => n.type === 'city');
+        
+        // Conectar a 3-5 cidades aleatórias
+        const connectedCities = cityNodes
+            .sort(() => Math.random() - 0.5)
+            .slice(0, Math.floor(Math.random() * 3) + 3);
+        
+        connectedCities.forEach(city => {
+            const lineGeometry = new THREE.BufferGeometry();
+            const points = [
+                userNode.mesh.position,
+                city.mesh.position
+            ];
+            
+            lineGeometry.setFromPoints(points);
+            
+            const lineMaterial = new THREE.LineBasicMaterial({ 
+                color: 0x00ff99,
+                transparent: true,
+                opacity: 0.5,
+                linewidth: 2
+            });
+            
+            const line = new THREE.Line(lineGeometry, lineMaterial);
+            scene.add(line);
+            
+            connections.push({
+                line: line,
+                from: userNode,
+                to: city,
+                latency: Math.floor(Math.random() * 100) + 20
+            });
+        });
+    }
+    
+    // Atualizar contador
+    document.getElementById('nodeCount').textContent = nodes.length;
+}
+
+function onWindowResize() {
+    const container = document.querySelector('.map-container');
+    camera.aspect = container.offsetWidth / container.offsetHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(container.offsetWidth, container.offsetHeight);
+}
+
+function onMouseMove(event) {
+    const rect = renderer.domElement.getBoundingClientRect();
+    mouse.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
+    mouse.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
+    
+    raycaster.setFromCamera(mouse, camera);
+    const intersects = raycaster.intersectObjects(nodes.map(n => n.mesh));
+    
+    const tooltip = document.getElementById('nodeTooltip');
+    
+    if (intersects.length > 0) {
+        const object = intersects[0].object;
+        tooltip.style.display = 'block';
+        tooltip.style.left = (event.clientX + 10) + 'px';
+        tooltip.style.top = (event.clientY + 10) + 'px';
+        
+        const node = nodes.find(n => n.mesh === object);
+        if (node) {
+            const connection = connections.find(c => c.from === node || c.to === node);
+            const latency = connection ? connection.latency : Math.floor(Math.random() * 100) + 20;
+            
+            tooltip.innerHTML = `
+                <strong style="color: var(--green);">${node.name}</strong><br>
+                <span style="color: var(--gray); font-size: 0.8rem;">
+                    Tipo: ${node.type === 'user' ? 'Seu dispositivo' : 'Servidor'}<br>
+                    Latência: ${latency}ms<br>
+                    ${node.lat ? `Local: ${node.lat.toFixed(2)}°, ${node.lon.toFixed(2)}°` : ''}
+                </span>
+            `;
+        }
+    } else {
+        tooltip.style.display = 'none';
+    }
+}
+
+function onNodeClick(event) {
+    const rect = renderer.domElement.getBoundingClientRect();
+    mouse.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
+    mouse.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
+    
+    raycaster.setFromCamera(mouse, camera);
+    const intersects = raycaster.intersectObjects(nodes.map(n => n.mesh));
+    
+    if (intersects.length > 0) {
+        const object = intersects[0].object;
+        const node = nodes.find(n => n.mesh === object);
+        
+        if (node) {
+            showNotification(`🎯 Nó selecionado: ${node.name}`);
+            
+            // Destaque o nó
+            node.mesh.material.emissiveIntensity = 2;
+            setTimeout(() => {
+                node.mesh.material.emissiveIntensity = node.type === 'user' ? 1 : 0.5;
+            }, 1000);
+        }
+    }
+}
+
+function animate() {
+    requestAnimationFrame(animate);
+    
+    if (isRotating) {
+        scene.rotation.y += rotationSpeed;
+    }
+    
+    // Animar conexões
+    connections.forEach(conn => {
+        const pulse = Math.sin(Date.now() * 0.002) * 0.3 + 0.7;
+        conn.line.material.opacity = pulse * 0.5;
+    });
+    
+    renderer.render(scene, camera);
+}
+
+// ============================================
+// 📊 SERVIDORES CONECTADOS
+// ============================================
+const serverData = [
+    { name: "Google DNS", location: "Mountain View, EUA", ping: 32, status: "excelente" },
+    { name: "Cloudflare", location: "São Paulo, Brasil", ping: 18, status: "excelente" },
+    { name: "Akamai CDN", location: "Miami, EUA", ping: 45, status: "bom" },
+    { name: "AWS", location: "Dublin, Irlanda", ping: 78, status: "medio" },
+    { name: "Microsoft Azure", location: "Amsterdã, Holanda", ping: 85, status: "medio" },
+    { name: "Linode", location: "Tóquio, Japão", ping: 120, status: "lento" },
+    { name: "DigitalOcean", location: "Singapura", ping: 95, status: "medio" },
+    { name: "Vultr", location: "Londres, UK", ping: 65, status: "bom" }
+];
+
+function loadServers() {
+    const serverList = document.getElementById('serverList');
+    let html = '';
+    
+    serverData.forEach(server => {
+        const statusColor = {
+            excelente: 'var(--green)',
+            bom: '#00a8ff',
+            medio: '#ff9900',
+            lento: '#ff4757'
+        }[server.status];
+        
+        html += `
+            <div class="server-item">
+                <div class="server-icon">
+                    <i class="fas fa-server"></i>
+                </div>
+                <div class="server-info">
+                    <div class="server-name">${server.name}</div>
+                    <div class="server-location">${server.location}</div>
+                </div>
+                <div class="server-ping" style="color: ${statusColor}">
+                    ${server.ping}ms
+                </div>
+            </div>
+        `;
+    });
+    
+    serverList.innerHTML = html;
+}
+
+// ============================================
+// 📈 GRÁFICO DE PERFORMANCE
+// ============================================
+function initChart() {
+    const ctx = document.getElementById('networkChart').getContext('2d');
+    
+    // Gerar dados de exemplo
+    const labels = [];
+    const pingData = [];
+    const downloadData = [];
+    const uploadData = [];
+    
+    for (let i = 0; i < 24; i++) {
+        labels.push(`${i}:00`);
+        pingData.push(Math.floor(Math.random() * 40) + 20);
+        downloadData.push(Math.floor(Math.random() * 40) + 60);
+        uploadData.push(Math.floor(Math.random() * 30) + 20);
+    }
+    
+    new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: labels,
+            datasets: [
+                {
+                    label: 'Ping (ms)',
+                    data: pingData,
+                    borderColor: '#00ff99',
+                    backgroundColor: 'rgba(0, 255, 153, 0.1)',
+                    fill: true,
+                    tension: 0.4
+                },
+                {
+                    label: 'Download (Mbps)',
+                    data: downloadData,
+                    borderColor: '#00a8ff',
+                    backgroundColor: 'rgba(0, 168, 255, 0.1)',
+                    fill: true,
+                    tension: 0.4
+                },
+                {
+                    label: 'Upload (Mbps)',
+                    data: uploadData,
+                    borderColor: '#ff00ff',
+                    backgroundColor: 'rgba(255, 0, 255, 0.1)',
+                    fill: true,
+                    tension: 0.4
+                }
+            ]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    labels: {
+                        color: '#fff'
+                    }
+                }
+            },
+            scales: {
+                x: {
+                    grid: {
+                        color: 'rgba(255, 255, 255, 0.1)'
+                    },
+                    ticks: {
+                        color: '#aaa'
+                    }
+                },
+                y: {
+                    grid: {
+                        color: 'rgba(255, 255, 255, 0.1)'
+                    },
+                    ticks: {
+                        color: '#aaa'
+                    }
+                }
+            }
+        }
+    });
+}
+
+// ============================================
+// 🎮 CONTROLES DO MAPA
+// ============================================
+function rotateMap() {
+    isRotating = !isRotating;
+    showNotification(isRotating ? '🔄 Rotação ativada' : '⏸️ Rotação pausada');
+}
+
+function zoomIn() {
+    camera.position.z = Math.max(camera.position.z - 5, 10);
+    showNotification('🔍 Zoom aumentado');
+}
+
+function zoomOut() {
+    camera.position.z = Math.min(camera.position.z + 5, 50);
+    showNotification('🔎 Zoom diminuído');
+}
+
+function resetView() {
+    camera.position.z = 30;
+    scene.rotation.x = 0;
+    scene.rotation.y = 0;
+    showNotification('🎯 Vista resetada');
+}
+
+// ============================================
+// 🔧 FUNÇÕES DOS BOTÕES
+// ============================================
+function startScan() {
+    showNotification('🔍 Iniciando scan de rede...');
+    
+    // Simular scan
+    setTimeout(() => {
+        // Atualizar estatísticas
+        document.getElementById('pingValue').textContent = `${Math.floor(Math.random() * 30) + 20}ms`;
+        document.getElementById('downloadValue').textContent = (Math.random() * 40 + 60).toFixed(1);
+        document.getElementById('uploadValue').textContent = (Math.random() * 30 + 20).toFixed(1);
+        document.getElementById('stabilityValue').textContent = `${(Math.random() * 0.5 + 99.5).toFixed(1)}%`;
+        
+        // Adicionar novos nós
+        const newCities = [
+            { lat: 34.05, lon: -118.24, name: "Los Angeles", color: 0xff9900 },
+            { lat: -33.87, lon: 151.21, name: "Sydney", color: 0x00ffff }
+        ];
+        
+        newCities.forEach(city => {
+            const phi = (90 - city.lat) * Math.PI / 180;
+            const theta = (city.lon + 180) * Math.PI / 180;
+            
+            const x = 16 * Math.sin(phi) * Math.cos(theta);
+            const y = 16 * Math.cos(phi);
+            const z = 16 * Math.sin(phi) * Math.sin(theta);
+            
+            const lightGeometry = new THREE.SphereGeometry(0.3, 8, 8);
+            const lightMaterial = new THREE.MeshBasicMaterial({ 
+                color: city.color,
+                emissive: city.color,
+                emissiveIntensity: 0.5
+            });
+            const lightPoint = new THREE.Mesh(lightGeometry, lightMaterial);
+            lightPoint.position.set(x, y, z);
+            lightPoint.userData = { name: city.name, type: 'city' };
+            scene.add(lightPoint);
+            
+            nodes.push({
+                mesh: lightPoint,
+                name: city.name,
+                type: 'city',
+                lat: city.lat,
+                lon: city.lon
+            });
+        });
+        
+        // Atualizar contador
+        document.getElementById('nodeCount').textContent = nodes.length;
+        
+        showNotification('✅ Scan completado! Novos nós adicionados.');
+    }, 2000);
+}
+
+function testConnection() {
+    showNotification('⚡ Testando conexão...');
+    
+    // Simular teste
+    setTimeout(() => {
+        const ping = Math.floor(Math.random() * 40) + 10;
+        const download = (Math.random() * 50 + 50).toFixed(1);
+        const upload = (Math.random() * 40 + 10).toFixed(1);
+        
+        document.getElementById('pingValue').textContent = `${ping}ms`;
+        document.getElementById('downloadValue').textContent = download;
+        document.getElementById('uploadValue').textContent = upload;
+        
+        let quality = '';
+        if (ping < 30) quality = 'Excelente';
+        else if (ping < 60) quality = 'Boa';
+        else if (ping < 100) quality = 'Regular';
+        else quality = 'Ruim';
+        
+        showNotification(`✅ Teste completado: ${quality} (${ping}ms)`);
+    }, 1500);
+}
+
+function exportData() {
+    showNotification('📊 Exportando dados da rede...');
+    
+    // Simular exportação
+    setTimeout(() => {
+        const data = {
+            nodes: nodes.length,
+            connections: connections.length,
+            timestamp: new Date().toISOString(),
+            stats: {
+                ping: document.getElementById('pingValue').textContent,
+                download: document.getElementById('downloadValue').textContent,
+                upload: document.getElementById('uploadValue').textContent,
+                stability: document.getElementById('stabilityValue').textContent
+            }
+        };
+        
+        const dataStr = JSON.stringify(data, null, 2);
+        const dataBlob = new Blob([dataStr], { type: 'application/json' });
+        
+        if (navigator.share) {
+            navigator.share({
+                title: 'Dados da Rede - SEUIP.ORG',
+                text: 'Dados do mapa de rede exportados',
+                files: [new File([dataBlob], 'rede-data.json', { type: 'application/json' })]
+            });
+        } else {
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(dataBlob);
+            link.download = 'rede-data.json';
+            link.click();
+            showNotification('💾 Dados exportados como JSON!');
+        }
+    }, 1000);
+}
+
+function shareMap() {
+    if (navigator.share) {
+        navigator.share({
+            title: 'Mapa de Rede 3D - SEUIP.ORG',
+            text: 'Confira este mapa interativo da sua conexão com a internet!',
+            url: window.location.href
+        });
+    } else {
+        navigator.clipboard.writeText(window.location.href);
+        showNotification('📋 Link copiado para compartilhar!');
+    }
+}
+
+// ============================================
+// 💬 NOTIFICAÇÃO
+// ============================================
+function showNotification(message) {
+    // Criar notificação temporária
+    const notification = document.createElement('div');
+    notification.style.cssText = `
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%) translateY(100px);
+        background: rgba(0, 255, 153, 0.9);
+        color: #000;
+        padding: 12px 24px;
+        border-radius: 50px;
+        font-weight: 600;
+        z-index: 10000;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+        transition: transform 0.3s ease-out;
+        white-space: nowrap;
+        max-width: 90%;
+        text-align: center;
+    `;
+    
+    notification.textContent = message;
+    document.body.appendChild(notification);
+    
+    // Animar entrada
+    setTimeout(() => {
+        notification.style.transform = 'translateX(-50%) translateY(0)';
+    }, 10);
+    
+    // Remover após 3 segundos
+    setTimeout(() => {
+        notification.style.transform = 'translateX(-50%) translateY(100px)';
+        setTimeout(() => notification.remove(), 300);
+    }, 3000);
+}
+
+// ============================================
+// 📱 INICIALIZAÇÃO
+// ============================================
+document.addEventListener('DOMContentLoaded', function() {
+    // Inicializar mapa 3D
+    init3DMap();
+    
+    // Carregar servidores
+    loadServers();
+    
+    // Inicializar gráfico
+    initChart();
+    
+    // Track pageview
+    if (typeof gtag === 'function') {
+        gtag('event', 'page_view', {
+            'page_title': 'Mapa_Rede',
+            'page_location': window.location.href
+        });
+    }
+    
+    // Mostrar mensagem de boas-vindas
+    setTimeout(() => {
+        showNotification('🌍 Mapa de rede 3D carregado!');
+    }, 1000);
+});
+
+// ============================================
+// 🎮 RAYCASTER (para interação)
+// ============================================
+let raycaster = new THREE.Raycaster();
+let mouse = new THREE.Vector2();
+
+// Inicializar raycaster após a cena ser criada
+setTimeout(() => {
+    const canvas = renderer.domElement;
+    canvas.addEventListener('mousemove', onMouseMove);
+    canvas.addEventListener('click', onNodeClick);
+}, 1000);
+</script>
+
+<!-- 📊 CHART.JS -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</body>
+</html>

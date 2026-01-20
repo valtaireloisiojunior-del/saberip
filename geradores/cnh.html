@@ -2,118 +2,222 @@
 <html lang="pt-BR">
 <head>
 
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2713105320249369"
+        crossorigin="anonymous"></script>
 
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <!-- Básico -->
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- SEO -->
-  <title><!-- TITULO DA FERRAMENTA --> | Saber IP</title>
-  <meta name="description" content="<!-- DESCRIÇÃO ÚNICA DA FERRAMENTA -->">
-  <meta name="robots" content="index, follow">
-  <meta name="author" content="Saber IP">
-
-  <!-- Canonical automático -->
-  <link rel="canonical" href="">
-  <script>
-    (function () {
-      const base = 'https://valtaireloisiojunior-del.github.io/saberip/';
-      const path = window.location.pathname.replace('/saberip/', '');
-      document.querySelector('link[rel="canonical"]').href = base + path;
-    })();
-  </script>
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="<!-- TITULO DA FERRAMENTA --> | Saber IP">
-  <meta property="og:description" content="<!-- DESCRIÇÃO ÚNICA DA FERRAMENTA -->">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="">
-
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      document.querySelector('meta[property="og:url"]').content = window.location.href;
-    });
-  </script>
-
-  <!-- Google AdSense -->
-  <script async
-    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2713105320249369"
-    crossorigin="anonymous"></script>
-
-  <!-- Google Analytics GA4 -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-MCNWEQ8XMH"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-MCNWEQ8XMH');
-  </script>
-
-
-
-
+<!-- Básico -->
 <meta charset="UTF-8">
-<title>Gerador de CNH — Saber IP</title>
-<meta name="description" content="Gere números de CNH fictícios válidos para testes de forma rápida e gratuita.">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- SEO -->
+<title>Gerador de CNH para Testes | Estrutura e Validação | SEUIP.ORG</title>
+<meta name="description" content="Entenda como funciona a estrutura numérica da CNH brasileira e gere números fictícios válidos para testes de sistemas e estudos acadêmicos.">
+<meta name="robots" content="index, follow">
+<meta name="author" content="SEUIP.ORG">
+
+<!-- Canonical -->
+<link rel="canonical" href="https://seuip.org/geradores/cnh.html">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Gerador de CNH para Testes | SEUIP.ORG">
+<meta property="og:description" content="Artigo técnico explicando a estrutura, cálculo e validação da CNH brasileira.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://seuip.org/geradores/cnh.html">
+<meta property="og:site_name" content="SEUIP.ORG">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Gerador de CNH para Testes | SEUIP.ORG">
+<meta name="twitter:description" content="Como funciona a numeração e validação da CNH brasileira.">
+
+<!-- Google Analytics GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MCNWEQ8XMH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-MCNWEQ8XMH');
+</script>
+
 <style>
-body {margin:0;font-family:Arial, Helvetica, sans-serif;background:#0d0d0d;color:#fff;text-align:center;}
-header {padding:40px 20px;}
-h1 {font-size:36px;color:#00ff99;margin-bottom:10px;}
-p {color:#ccc;font-size:18px;}
-.input-box {margin:20px auto;max-width:500px;}
-button {background:#00ff99;color:#000;border:none;padding:12px 25px;font-size:18px;border-radius:10px;cursor:pointer;margin-top:10px;}
-button:hover{opacity:0.9;}
-.result-box{margin:20px auto;background:#111;padding:20px;border-radius:12px;max-width:400px;font-size:24px;word-break:break-all;}
-footer {margin:40px 0;font-size:14px;color:#777;}
-footer a {color:#00ff99;text-decoration:none;margin:0 10px;}
+body {
+  margin:0;
+  font-family:Arial, Helvetica, sans-serif;
+  background:#0d0d0d;
+  color:#fff;
+  text-align:center;
+}
+header {
+  padding:30px 20px;
+}
+header a {
+  color:#00ff99;
+  text-decoration:none;
+  font-size:22px;
+  font-weight:bold;
+}
+h1 {
+  font-size:36px;
+  color:#00ff99;
+  margin-bottom:10px;
+}
+p {
+  color:#ccc;
+  font-size:18px;
+}
+.input-box {
+  margin:20px auto;
+  max-width:500px;
+}
+button {
+  background:#00ff99;
+  color:#000;
+  border:none;
+  padding:14px 28px;
+  font-size:18px;
+  border-radius:10px;
+  cursor:pointer;
+  margin:8px;
+}
+button:hover {opacity:0.9;}
+.result-box {
+  margin:20px auto;
+  background:#111;
+  padding:20px;
+  border-radius:12px;
+  max-width:420px;
+  font-size:26px;
+  word-break:break-all;
+}
+.article {
+  max-width:900px;
+  margin:40px auto;
+  background:#111;
+  padding:30px 25px;
+  border-radius:16px;
+  text-align:left;
+}
+.article h2 {
+  color:#00ff99;
+  margin-top:30px;
+}
+.article p {
+  line-height:1.6;
+}
+footer {
+  margin:50px 0 30px;
+  font-size:14px;
+  color:#777;
+}
+footer a {
+  color:#00ff99;
+  text-decoration:none;
+  margin:0 10px;
+}
 </style>
 </head>
+
 <body>
 
 <header>
-<h1>Gerador de CNH</h1>
-<p>Gere números de CNH fictícios válidos para testes</p>
+  <a href="/index.html">SEUIP.ORG</a>
 </header>
 
+<h1>Gerador de CNH</h1>
+<p>Gere números de CNH fictícios válidos para testes</p>
+
 <div class="input-box">
-<button onclick="gerarCNH()">📝 Gerar CNH</button>
-<button onclick="copiarCNH()">📋 Copiar CNH</button>
+  <button onclick="gerarCNH()">📝 Gerar CNH</button>
+  <button onclick="copiarCNH()">📋 Copiar CNH</button>
 </div>
 
 <div class="result-box" id="cnh">Aqui aparecerá a CNH</div>
 
+<div class="article">
+  <h2>Estrutura da Carteira Nacional de Habilitação</h2>
+  <p>
+    A Carteira Nacional de Habilitação (CNH) é um documento oficial que autoriza
+    cidadãos a conduzirem veículos automotores no Brasil. Seu número é composto
+    por uma sequência numérica padronizada, projetada para permitir validações
+    automáticas e reduzir erros em registros administrativos.
+  </p>
+
+  <h2>Composição Numérica</h2>
+  <p>
+    A CNH é formada por onze dígitos numéricos. Os nove primeiros representam
+    a base do registro do condutor, enquanto os dois últimos correspondem
+    aos dígitos verificadores, calculados matematicamente para garantir
+    a integridade do número.
+  </p>
+
+  <h2>Cálculo do Dígito Verificador</h2>
+  <p>
+    O dígito verificador é obtido por meio de uma soma ponderada dos dígitos
+    anteriores. Cada posição possui um peso específico, e o resultado dessa
+    soma é submetido a uma operação modular. Caso o valor final ultrapasse
+    determinado limite, regras de ajuste são aplicadas para padronização.
+  </p>
+
+  <p>
+    Esse método permite que sistemas identifiquem rapidamente números inválidos,
+    evitando cadastros incorretos e inconsistências em bases de dados.
+  </p>
+
+  <h2>Geração de CNHs para Testes</h2>
+  <p>
+    Em ambientes acadêmicos e de desenvolvimento de software, é comum a
+    necessidade de testar formulários e sistemas sem utilizar dados reais.
+    Para isso, são gerados números fictícios que respeitam a estrutura e
+    a lógica matemática da CNH, sem corresponder a registros oficiais.
+  </p>
+
+  <h2>Importância Acadêmica</h2>
+  <p>
+    O estudo da estrutura da CNH é utilizado em cursos de tecnologia,
+    matemática aplicada e sistemas de informação, pois demonstra a aplicação
+    prática de algoritmos de validação e controle de integridade de dados.
+  </p>
+
+  <h2>Uso Responsável</h2>
+  <p>
+    Números de CNH gerados para testes não devem ser utilizados em cadastros
+    reais, documentos oficiais ou processos legais. Seu uso é restrito a
+    fins educacionais, simulações e validações técnicas.
+  </p>
+</div>
+
+<div class="input-box">
+  <button onclick="location.href='/index.html'">Voltar para a Home</button>
+</div>
+
 <footer>
-<a href="../index.html">Início</a> |
-<a href="../privacidade.html">Privacidade</a> |
-<a href="../contato.html">Contato</a>
+  <a href="/index.html">Início</a> |
+  <a href="/privacidade.html">Privacidade</a> |
+  <a href="/contato.html">Contato</a>
 </footer>
 
 <script>
-// Função para gerar CNH fictícia
 function gerarCNH(){
-  let cnh = "";
-  // Primeiro 9 números aleatórios
+  let base = "";
   for(let i=0;i<9;i++){
-    cnh += Math.floor(Math.random()*10);
+    base += Math.floor(Math.random()*10);
   }
-  // Calcula o dígito verificador simples
-  let soma=0;
-  for(let i=0;i<9;i++){soma += parseInt(cnh[i])*(i+1);}
+  let soma = 0;
+  for(let i=0;i<9;i++){
+    soma += parseInt(base[i]) * (i + 1);
+  }
   let dv = soma % 11;
-  if(dv > 9) dv = 0;
-  cnh += dv;
-  document.getElementById("cnh").innerText = cnh;
+  if(dv >= 10) dv = 0;
+  document.getElementById("cnh").innerText = base + dv;
 }
 
-// Copiar CNH
 function copiarCNH(){
   const cnh = document.getElementById("cnh").innerText;
-  navigator.clipboard.writeText(cnh).then(()=>alert("CNH copiada: " + cnh));
+  navigator.clipboard.writeText(cnh).then(()=>{
+    alert("CNH copiada!");
+  });
 }
 </script>
 

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR" prefix="og: https://ogp.me/ns#">
 <head>
@@ -8,14 +9,12 @@
 <meta name="theme-color" content="#00ff99">
 
 <!-- 🎯 SEO Grátis -->
-<title>⚡ SEUIP.ORG | Meu IP – Descubra qual é o seu IP real! | GERADORES DE DAD0S FULL!</title>
-<meta name="description" content="🚀 SEUIP.ORG |MeuIP - Qual é o meu ip?
-  Meu IP – Descubra qual é o seu IP real! | GERADORES DE DAD0S FULL! Portal Grátis com 80+ ferramentas 100% GRÁTIS: IP, CEP, CPF, Senha, QR Code, WhatsApp, Mapas e MUITO MAIS! Tudo em um só lugar!">
+<title>⚡ SEUIP.ORG | +80 Ferramentas Online GRÁTIS 2026 | Todas Juntas!</title>
+<meta name="description" content="🚀 Portal Grátis com 80+ ferramentas 100% GRÁTIS: IP, CEP, CPF, Senha, QR Code, WhatsApp, Mapas e MUITO MAIS! Tudo em um só lugar!">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 
 <!-- 🎪 OPEN GRAPH -->
-<meta property="og:title" content="⚡ SEUIP.ORG |MeuIP - Qual é o meu ip?
-  SEUIP.ORG | Meu IP – Descubra qual é o seu IP real! | GERADORES DE DAD0S FULL! Portal Grátis com 80+ Ferramentas GRÁTIS">
+<meta property="og:title" content="⚡ SEUIP.ORG | Portal Grátis com 80+ Ferramentas GRÁTIS">
 <meta property="og:description" content="TODAS as ferramentas online que você precisa em um único lugar! 100% gratuito e sem cadastro!">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://seuip.org/">
@@ -29,11 +28,9 @@
 {
   "@context": "https://schema.org",
   "@type": "WebSite",
-  "name": "SEUIP.ORG - MeuIP - Qual é o meu ip?
- Portal Grátis de Ferramentas",
+  "name": "SEUIP.ORG - Portal Grátis de Ferramentas",
   "url": "https://seuip.org/",
-  "description": "SEUIP.ORG | MeuIP - Qual é o meu ip?
- Meu IP – Descubra qual é o seu IP real! | GERADORES DE DAD0S FULL!: IP, CEP, CPF, CNPJ, Senha, QR Code, WhatsApp, Mapas e muito mais!",
+  "description": "Portal com +80 ferramentas online gratuitas: IP, CEP, CPF, CNPJ, Senha, QR Code, WhatsApp, Mapas e muito mais!",
   "potentialAction": {
     "@type": "SearchAction",
     "target": "https://seuip.org/#search={search_term_string}",
@@ -1188,13 +1185,6 @@ body {
         <div class="tool-title">RASTREAR IP</div>
         <div class="tool-desc">Informações detalhadas sobre qualquer endereço IP público com mapa</div>
         <a href="rastreamento-ip.html" class="tool-btn">Rastrear IP</a>
-      </div>
-	  
-	  <div class="tool-card new">
-        <div class="tool-icon">🔍</div>
-        <div class="tool-title">RASTREAR IP(FBI IP TRACKER) MODO FBI</div>
-        <div class="tool-desc">Informações detalhadas sobre qualquer endereço IP público (FBI MODE)</div>
-        <a href="fbi-rastreamento-ip.html" class="tool-btn">Rastrear IP</a>
       </div>
       
       <div class="tool-card">

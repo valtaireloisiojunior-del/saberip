@@ -2,94 +2,201 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<title>Gerador de QR Code</title>
-<meta name="description" content="Gere QR Codes a partir de textos ou URLs. Ferramenta gratuita e pronta para uso.">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+<title>📱 Gerador de QR Code GRÁTIS | SEUIP.ORG</title>
+<meta name="description" content="Crie QR Codes personalizados para URLs, WhatsApp, Wi-Fi, Contatos e muito mais. 100% gratuito!">
+<script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
 <style>
-body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#0d0d0d;color:#fff;text-align:center;}
-a.home{display:inline-block;background:#00ff99;color:#000;font-weight:bold;font-size:20px;padding:12px 25px;margin:20px 0;border-radius:12px;text-decoration:none;cursor:pointer;}
-h1{font-size:36px;color:#00ff99;margin-top:20px;}
-p{color:#ccc;font-size:18px;}
-.container{background:#111;max-width:600px;margin:20px auto;padding:30px 20px;border-radius:16px;}
-.campo{background:#0d0d0d;padding:15px;margin:12px 0;border-radius:12px;font-size:20px;text-align:center;word-break:break-word;}
-.campo strong{color:#00ff99;}
-input{width:90%;padding:12px;margin:12px 0;font-size:18px;border-radius:10px;border:none;}
-.btn{display:block;width:100%;margin:10px 0;padding:15px;font-size:20px;border-radius:10px;border:none;cursor:pointer;}
-.btn-gerar{background:#00ff99;color:#000;}
-.btn-copiar{background:#222;color:#00ff99;border:2px solid #00ff99;}
-.btn-download{background:#00ff99;color:#000;border:2px solid #00ff99;}
-.btn:hover{opacity:0.9;}
-footer{margin:40px 0;font-size:14px;color:#777;}
-footer a{color:#00ff99;text-decoration:none;margin:0 10px;}
-canvas{margin-top:20px;border:1px solid #00ff99;border-radius:12px;}
+:root{
+  --primary:#00ff99;
+  --bg:#0d0d0d;
+  --text:#fff;
+  --text-secondary:#aaa;
+  --border:#222;
+}
+body{
+  margin:0;padding:20px;font-family:sans-serif;background:var(--bg);color:var(--text);display:flex;flex-direction:column;align-items:center;
+}
+h1,h2{color:var(--primary);}
+input,select,textarea,button{padding:10px;margin:5px 0;border-radius:8px;border:1px solid var(--border);background:#111;color:#fff;width:100%;box-sizing:border-box;}
+button{cursor:pointer;border:none;}
+.container{display:flex;flex-wrap:wrap;gap:20px;max-width:1200px;width:100%;}
+.panel, .preview{flex:1 1 400px;padding:20px;background:#111;border-radius:20px;border:2px solid var(--primary);}
+.tabs{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px;}
+.tab{padding:10px 15px;border-radius:15px;background:#111;border:2px solid var(--border);cursor:pointer;}
+.tab.active{background:rgba(0,255,153,0.2);border-color:var(--primary);}
+.qr-container{width:300px;height:300px;background:#fff;border-radius:15px;margin:10px auto;display:flex;align-items:center;justify-content:center;}
+.qr-actions{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:10px;}
+@media(max-width:768px){.container{flex-direction:column;}}
 </style>
 </head>
-
 <body>
 
-<!-- BOTÃO HOME -->
-<a class="home" href="https://valtaireloisiojunior-del.github.io/saberip/index.html">🏠 Home</a>
-
-<h1>Gerador de QR Code</h1>
-<p>Insira um texto ou URL e gere um QR Code instantaneamente</p>
+<h1>📱 Gerador de QR Code</h1>
+<div>🚀 QR Codes gerados hoje: <span id="counter">8543</span></div>
 
 <div class="container">
-  <input type="text" id="texto" placeholder="Digite aqui seu texto ou URL">
-  <button class="btn btn-gerar" onclick="gerarQR()">📷 Gerar QR Code</button>
-  <button class="btn btn-copiar" onclick="copiarTexto()">📋 Copiar Texto</button>
+  <div class="panel">
+    <h2>⚙️ Configurações</h2>
+    <div class="tabs">
+      <div class="tab active" data-type="url">URL</div>
+      <div class="tab" data-type="wifi">Wi-Fi</div>
+      <div class="tab" data-type="whatsapp">WhatsApp</div>
+      <div class="tab" data-type="contact">Contato</div>
+      <div class="tab" data-type="text">Texto</div>
+      <div class="tab" data-type="email">E-mail</div>
+    </div>
+    
+    <div id="forms">
+      <div class="form" data-form="url">
+        <label>🔗 URL</label>
+        <input type="url" id="input-url" placeholder="https://exemplo.com">
+      </div>
+      <div class="form" data-form="wifi" style="display:none;">
+        <label>📡 SSID</label>
+        <input type="text" id="wifi-ssid" placeholder="MinhaRedeWiFi">
+        <label>🔑 Senha</label>
+        <input type="text" id="wifi-pass" placeholder="MinhaSenha">
+        <label>🔒 Segurança</label>
+        <select id="wifi-security">
+          <option value="WPA">WPA/WPA2</option>
+          <option value="WEP">WEP</option>
+          <option value="nopass">Sem senha</option>
+        </select>
+      </div>
+      <div class="form" data-form="whatsapp" style="display:none;">
+        <label>📱 Número (DDD)</label>
+        <input type="tel" id="wa-number" placeholder="11999999999">
+        <label>💬 Mensagem</label>
+        <textarea id="wa-message" placeholder="Olá!"></textarea>
+      </div>
+      <div class="form" data-form="contact" style="display:none;">
+        <label>👤 Nome</label>
+        <input type="text" id="c-name">
+        <label>📞 Telefone</label>
+        <input type="tel" id="c-phone">
+        <label>📧 E-mail</label>
+        <input type="email" id="c-email">
+      </div>
+      <div class="form" data-form="text" style="display:none;">
+        <label>📝 Texto</label>
+        <textarea id="text-input"></textarea>
+      </div>
+      <div class="form" data-form="email" style="display:none;">
+        <label>📧 Para</label>
+        <input type="email" id="e-to">
+        <label>Assunto</label>
+        <input type="text" id="e-subject">
+        <label>Corpo</label>
+        <textarea id="e-body"></textarea>
+      </div>
+    </div>
+
+    <label>Tamanho</label>
+    <select id="qr-size">
+      <option value="200">200x200</option>
+      <option value="300" selected>300x300</option>
+      <option value="400">400x400</option>
+    </select>
+    <label>Cor</label>
+    <input type="color" id="qr-color" value="#000000">
+    <label>Fundo</label>
+    <input type="color" id="qr-bg" value="#ffffff">
+    <label>Margem</label>
+    <select id="qr-margin">
+      <option value="1" selected>Pequena</option>
+      <option value="2">Média</option>
+      <option value="4">Grande</option>
+    </select>
+
+    <button onclick="generateQR()">⚡ Gerar QR Code</button>
+    <button onclick="resetForm()">🔄 Limpar</button>
+  </div>
+
+  <div class="preview">
+    <h2>👁️ Preview</h2>
+    <div class="qr-container">
+      <canvas id="qrCanvas"></canvas>
+    </div>
+    <div class="qr-actions">
+      <button onclick="downloadQR()">💾 Baixar</button>
+      <button onclick="copyQR()">📋 Copiar</button>
+    </div>
+  </div>
 </div>
 
-<div class="container" id="qrcode">QR Code aparecerá aqui</div>
-
-<div class="container">
-  <button class="btn btn-download" onclick="baixarQR()">💾 Baixar QR Code</button>
-  <button class="btn btn-copiar" onclick="copiarLink()">🔗 Copiar Link da Imagem</button>
-</div>
-
-<footer>
-<a href="../index.html">Início</a> |
-<a href="lorem-ipsum.html">Gerador de Lorem Ipsum</a> |
-<a href="../privacidade.html">Privacidade</a>
-</footer>
-
-<script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
 <script>
-let ultimoCanvas = null;
+let currentType='url';
+let counter=parseInt(localStorage.getItem('qrCount')||'8543');
+document.getElementById('counter').textContent=counter;
 
-function gerarQR(){
-  const texto = document.getElementById("texto").value.trim();
-  if(!texto){alert("Digite algum texto ou URL!"); return;}
-  
-  const container = document.getElementById("qrcode");
-  container.innerHTML = "";
-  
-  const canvas = document.createElement('canvas');
-  QRCode.toCanvas(canvas, texto, {width:250}, function(err){
-    if(err){alert("Erro ao gerar QR Code"); return;}
-    container.appendChild(canvas);
-    ultimoCanvas = canvas;
+document.querySelectorAll('.tab').forEach(tab=>{
+  tab.addEventListener('click',()=>{
+    currentType=tab.dataset.type;
+    document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+    tab.classList.add('active');
+    document.querySelectorAll('.form').forEach(f=>f.style.display='none');
+    document.querySelector(`[data-form="${currentType}"]`).style.display='block';
   });
+});
+
+function generateQR(){
+  let data='';
+  switch(currentType){
+    case 'url': data=document.getElementById('input-url').value.trim(); break;
+    case 'wifi':
+      const ssid=document.getElementById('wifi-ssid').value;
+      const pass=document.getElementById('wifi-pass').value;
+      const sec=document.getElementById('wifi-security').value;
+      if(!ssid){alert('Digite SSID');return;}
+      data=`WIFI:S:${ssid};T:${sec};P:${pass};;`; break;
+    case 'whatsapp':
+      const num=document.getElementById('wa-number').value.replace(/\D/g,'');
+      const msg=document.getElementById('wa-message').value;
+      data=`https://wa.me/55${num}${msg?`?text=${encodeURIComponent(msg)}`:''}`; break;
+    case 'contact':
+      const name=document.getElementById('c-name').value;
+      const phone=document.getElementById('c-phone').value;
+      const email=document.getElementById('c-email').value;
+      data=`BEGIN:VCARD\nVERSION:3.0\nFN:${name}\nTEL:${phone}\nEMAIL:${email}\nEND:VCARD`; break;
+    case 'text': data=document.getElementById('text-input').value; break;
+    case 'email':
+      const to=document.getElementById('e-to').value;
+      const sub=document.getElementById('e-subject').value;
+      const body=document.getElementById('e-body').value;
+      data=`mailto:${to}?subject=${encodeURIComponent(sub)}&body=${encodeURIComponent(body)}`; break;
+  }
+
+  const canvas=document.getElementById('qrCanvas');
+  const size=parseInt(document.getElementById('qr-size').value);
+  const color=document.getElementById('qr-color').value;
+  const bg=document.getElementById('qr-bg').value;
+  const margin=parseInt(document.getElementById('qr-margin').value);
+
+  QRCode.toCanvas(canvas,data,{width:size,color:{dark:color,light:bg},margin:margin},function(err){if(err)console.error(err);});
+
+  counter++;localStorage.setItem('qrCount',counter);document.getElementById('counter').textContent=counter;
 }
 
-function copiarTexto(){
-  const texto = document.getElementById("texto").value.trim();
-  if(!texto){alert("Nada para copiar!"); return;}
-  navigator.clipboard.writeText(texto).then(()=>{alert("Texto copiado!")});
-}
-
-function baixarQR(){
-  if(!ultimoCanvas){alert("Gere primeiro o QR Code!"); return;}
-  const link = document.createElement('a');
-  link.download = 'qrcode.png';
-  link.href = ultimoCanvas.toDataURL("image/png");
+function downloadQR(){
+  const canvas=document.getElementById('qrCanvas');
+  const link=document.createElement('a');
+  link.href=canvas.toDataURL('image/png');
+  link.download='qrcode.png';
   link.click();
 }
 
-function copiarLink(){
-  if(!ultimoCanvas){alert("Gere primeiro o QR Code!"); return;}
-  const url = ultimoCanvas.toDataURL("image/png");
-  navigator.clipboard.writeText(url).then(()=>{alert("Link da imagem copiado!")});
+function copyQR(){
+  const canvas=document.getElementById('qrCanvas');
+  canvas.toBlob(blob=>{
+    navigator.clipboard.write([new ClipboardItem({'image/png':blob})]);
+    alert('QR Code copiado!');
+  });
+}
+
+function resetForm(){
+  document.querySelectorAll('input,textarea').forEach(i=>i.value='');
+  document.getElementById('qrCanvas').getContext('2d').clearRect(0,0,300,300);
 }
 </script>
 
