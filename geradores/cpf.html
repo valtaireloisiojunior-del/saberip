@@ -1,210 +1,1416 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Gerador de Cartão de Crédito para Testes Online | Saber IP</title>
-
-<meta name="description" content="Gerador de cartão de crédito válido para testes com Visa, MasterCard, Elo e Amex. Gere número, CVV e validade online grátis.">
-<meta name="robots" content="index, follow">
-
-<style>
-:root{
-  --bg:#0d0d0d;
-  --card:#151515;
-  --accent:#00ff99;
-  --text:#f1f1f1;
-  --muted:#888;
-}
-*{box-sizing:border-box}
-body{
-  margin:0;
-  font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;
-  background:var(--bg);
-  color:var(--text);
-}
-.container{
-  max-width:420px;
-  margin:auto;
-  padding:20px;
-}
-h1{
-  text-align:center;
-  color:var(--accent);
-  font-size:26px;
-}
-.subtitle{
-  text-align:center;
-  color:#bbb;
-  font-size:14px;
-  margin-bottom:20px;
-}
-.card-visual{
-  background:linear-gradient(135deg,#1f1f1f,#0b0b0b);
-  border-radius:18px;
-  padding:20px;
-  margin-bottom:20px;
-  box-shadow:0 0 20px #000;
-}
-.card-visual .brand{
-  text-align:right;
-  font-weight:700;
-  color:var(--accent);
-}
-.card-number{
-  font-size:20px;
-  letter-spacing:2px;
-  margin:25px 0;
-}
-.card-footer{
-  display:flex;
-  justify-content:space-between;
-  font-size:14px;
-}
-.box{
-  background:var(--card);
-  border-radius:16px;
-  padding:16px;
-  margin-bottom:15px;
-}
-label{
-  font-size:13px;
-  color:var(--muted);
-}
-select,button{
-  width:100%;
-  padding:14px;
-  border-radius:12px;
-  border:none;
-  margin-top:8px;
-  font-size:15px;
-}
-select{
-  background:#0b0b0b;
-  color:var(--text);
-}
-button{
-  background:var(--accent);
-  color:#000;
-  font-weight:700;
-  cursor:pointer;
-}
-button.secondary{
-  background:#111;
-  color:var(--accent);
-  border:2px solid var(--accent);
-}
-.actions{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:10px;
-}
-.share{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:10px;
-  margin-top:10px;
-}
-.notice{
-  font-size:13px;
-  color:#aaa;
-  margin-top:20px;
-  border-left:4px solid #ff5555;
-  padding-left:12px;
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de CPF Completo - Todas as Opções</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1a237e, #0d47a1);
+            color: #333;
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        header {
+            text-align: center;
+            color: white;
+            padding: 30px 0;
+            margin-bottom: 30px;
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .app-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .config-panel {
+            flex: 1;
+            min-width: 350px;
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .results-panel {
+            flex: 1;
+            min-width: 350px;
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .section-title {
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            color: #1a237e;
+            border-bottom: 2px solid #1a237e;
+            padding-bottom: 10px;
+        }
+        
+        .results-title {
+            color: #1565c0;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #444;
+        }
+        
+        select, input, .checkbox-group, .radio-group {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        
+        select:focus, input:focus {
+            border-color: #1a237e;
+            outline: none;
+        }
+        
+        .checkbox-group, .radio-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            border: none;
+            padding: 0;
+        }
+        
+        .checkbox-item, .radio-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+        
+        .checkbox-item input, .radio-item input {
+            width: auto;
+        }
+        
+        .slider-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .slider-value {
+            min-width: 40px;
+            text-align: center;
+            font-weight: bold;
+            color: #1a237e;
+        }
+        
+        input[type="range"] {
+            flex: 1;
+            height: 8px;
+            -webkit-appearance: none;
+            background: #ddd;
+            border-radius: 4px;
+        }
+        
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 22px;
+            height: 22px;
+            background: #1a237e;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        
+        .button-group {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        button {
+            flex: 1;
+            padding: 15px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .generate-btn {
+            background: #1a237e;
+            color: white;
+        }
+        
+        .generate-btn:hover {
+            background: #283593;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .validate-btn {
+            background: #2e7d32;
+            color: white;
+        }
+        
+        .validate-btn:hover {
+            background: #388e3c;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .copy-btn {
+            background: #1565c0;
+            color: white;
+        }
+        
+        .copy-btn:hover {
+            background: #1976d2;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .reset-btn {
+            background: #c62828;
+            color: white;
+        }
+        
+        .reset-btn:hover {
+            background: #d32f2f;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .results-container {
+            flex: 1;
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            overflow: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .cpf-display {
+            font-size: 1.8rem;
+            font-weight: bold;
+            text-align: center;
+            padding: 20px;
+            background: #e3f2fd;
+            border-radius: 8px;
+            border: 2px dashed #1a237e;
+            margin: 10px 0;
+            word-break: break-all;
+        }
+        
+        .cpf-list {
+            max-height: 300px;
+            overflow-y: auto;
+            padding: 10px;
+            background: #f5f5f5;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
+        
+        .cpf-list::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        .cpf-list::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        
+        .cpf-list::-webkit-scrollbar-thumb {
+            background: #1a237e;
+            border-radius: 4px;
+        }
+        
+        .cpf-item {
+            padding: 8px 12px;
+            border-bottom: 1px solid #eee;
+            font-family: monospace;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .cpf-item:last-child {
+            border-bottom: none;
+        }
+        
+        .cpf-item .copy-icon {
+            color: #1a237e;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
+        
+        .cpf-item .copy-icon:hover {
+            color: #0d47a1;
+        }
+        
+        .validation-result {
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 10px;
+            text-align: center;
+            font-weight: bold;
+            display: none;
+        }
+        
+        .valid {
+            background: #c8e6c9;
+            color: #2e7d32;
+            border: 1px solid #81c784;
+            display: block;
+        }
+        
+        .invalid {
+            background: #ffcdd2;
+            color: #c62828;
+            border: 1px solid #e57373;
+            display: block;
+        }
+        
+        .info-panel {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+        
+        .info-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .info-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .info-card i {
+            font-size: 2.5rem;
+            color: #1a237e;
+            margin-bottom: 15px;
+        }
+        
+        .info-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: #1a237e;
+        }
+        
+        footer {
+            text-align: center;
+            color: white;
+            padding: 30px 0;
+            margin-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .disclaimer {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .app-container {
+                flex-direction: column;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .button-group {
+                flex-direction: column;
+            }
+            
+            .cpf-display {
+                font-size: 1.5rem;
+            }
+        }
+        
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #2e7d32;
+            color: white;
+            padding: 15px 25px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transform: translateX(150%);
+            transition: transform 0.5s;
+            z-index: 1000;
+        }
+        
+        .notification.show {
+            transform: translateX(0);
+        }
+        
+        .notification.error {
+            background: #c62828;
+        }
+        
+        .tabs {
+            display: flex;
+            border-bottom: 2px solid #e0e0e0;
+            margin-bottom: 20px;
+        }
+        
+        .tab {
+            padding: 12px 20px;
+            cursor: pointer;
+            font-weight: 600;
+            color: #666;
+            transition: all 0.3s;
+            border-bottom: 2px solid transparent;
+            margin-bottom: -2px;
+        }
+        
+        .tab.active {
+            color: #1a237e;
+            border-bottom: 2px solid #1a237e;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .state-selector {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-top: 10px;
+        }
+        
+        .state-btn {
+            padding: 10px;
+            border: 2px solid #ddd;
+            border-radius: 6px;
+            background: white;
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.3s;
+            font-size: 0.9rem;
+        }
+        
+        .state-btn.active {
+            border-color: #1a237e;
+            background: #e8eaf6;
+            color: #1a237e;
+            font-weight: bold;
+        }
+        
+        .highlight {
+            background: #fff9c4;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+    </style>
 </head>
-
 <body>
-<div class="container">
-
-<h1>Gerador de Cartão de Crédito</h1>
-<p class="subtitle">Cartão válido para <strong>testes e desenvolvimento</strong></p>
-
-<div class="card-visual">
-  <div class="brand" id="brand">VISA</div>
-  <div class="card-number" id="numero">#### #### #### ####</div>
-  <div class="card-footer">
-    <div>Val: <span id="validade">MM/AA</span></div>
-    <div>CVV: <span id="cvv">***</span></div>
-  </div>
-</div>
-
-<div class="box">
-  <label>Bandeira</label>
-  <select id="bandeira">
-    <option value="visa">Visa</option>
-    <option value="master">MasterCard</option>
-    <option value="amex">American Express</option>
-    <option value="elo">Elo</option>
-  </select>
-</div>
-
-<div class="actions">
-  <button onclick="gerar()">Gerar Cartão</button>
-  <button class="secondary" onclick="copiar()">Copiar</button>
-</div>
-
-<div class="share">
-  <button class="secondary" onclick="share('whatsapp')">WhatsApp</button>
-  <button class="secondary" onclick="share('twitter')">Twitter</button>
-</div>
-
-<div class="notice">
-⚠️ <strong>Termo de Responsabilidade:</strong><br>
-Os dados gerados são fictícios e destinados exclusivamente para testes, estudos e desenvolvimento.
-É proibido utilizar para compras reais ou qualquer atividade ilegal.
-</div>
-
-</div>
-
-<script>
-function luhn(num){
-  let sum=0,alt=false;
-  for(let i=num.length-1;i>=0;i--){
-    let n=parseInt(num[i]);
-    if(alt){n*=2;if(n>9)n-=9}
-    sum+=n;alt=!alt;
-  }
-  return (10-(sum%10))%10;
-}
-
-function gerar(){
-  const tipo=document.getElementById("bandeira").value;
-  let prefixo="4",len=16,cvvLen=3;
-
-  if(tipo==="master") prefixo="5";
-  if(tipo==="elo") prefixo="6";
-  if(tipo==="amex"){prefixo="34";len=15;cvvLen=4}
-
-  let num=prefixo;
-  while(num.length<len-1) num+=Math.floor(Math.random()*10);
-  num+=luhn(num);
-
-  let formatado=num.match(/.{1,4}/g).join(" ");
-  let cvv=Math.floor(Math.random()*Math.pow(10,cvvLen));
-  let mes=String(Math.floor(Math.random()*12+1)).padStart(2,"0");
-  let ano=Math.floor(Math.random()*5+26);
-
-  document.getElementById("numero").innerText=formatado;
-  document.getElementById("cvv").innerText=String(cvv).padStart(cvvLen,"0");
-  document.getElementById("validade").innerText=`${mes}/${ano}`;
-  document.getElementById("brand").innerText=tipo.toUpperCase();
-}
-
-function copiar(){
-  const txt=`Cartão: ${numero.innerText}\nValidade: ${validade.innerText}\nCVV: ${cvv.innerText}`;
-  navigator.clipboard.writeText(txt);
-  alert("Copiado com sucesso!");
-}
-
-function share(tipo){
-  const txt=encodeURIComponent("Gerador de cartão para testes 👉 seuip.org");
-  if(tipo==="whatsapp") window.open(`https://wa.me/?text=${txt}`);
-  if(tipo==="twitter") window.open(`https://twitter.com/intent/tweet?text=${txt}`);
-}
-</script>
-
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-id-card"></i> Gerador de CPF Completo</h1>
+            <p class="subtitle">Gere, valide e formate CPFs válidos com todas as opções possíveis. Configure estado emissor, formatação, máscaras e muito mais.</p>
+        </header>
+        
+        <div class="app-container">
+            <div class="config-panel">
+                <div class="tabs">
+                    <div class="tab active" data-tab="generation">Geração</div>
+                    <div class="tab" data-tab="formatting">Formatação</div>
+                    <div class="tab" data-tab="advanced">Avançado</div>
+                </div>
+                
+                <div id="generation" class="tab-content active">
+                    <h2 class="section-title">Configurações de Geração</h2>
+                    
+                    <div class="form-group">
+                        <label for="cpfQuantity">Quantidade de CPFs:</label>
+                        <div class="slider-container">
+                            <input type="range" id="cpfQuantity" min="1" max="50" value="1" step="1">
+                            <span id="quantityValue" class="slider-value">1</span>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Estado Emissor (Primeiro Dígito):</label>
+                        <div class="state-selector" id="stateSelector">
+                            <!-- Estados serão gerados por JavaScript -->
+                        </div>
+                        <input type="text" id="customState" placeholder="Ou digite um dígito (0-9)" style="margin-top: 10px; width: 100%;">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Formato de Saída:</label>
+                        <div class="radio-group">
+                            <div class="radio-item">
+                                <input type="radio" id="formatFormatted" name="format" value="formatted" checked>
+                                <label for="formatFormatted">Formatado (XXX.XXX.XXX-XX)</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" id="formatRaw" name="format" value="raw">
+                                <label for="formatRaw">Apenas números</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="cpfPrefix">Prefixo Personalizado (opcional):</label>
+                        <input type="text" id="cpfPrefix" placeholder="Ex: 123" maxlength="8">
+                        <small>Digite os primeiros dígitos (até 8) para gerar CPFs com esse prefixo</small>
+                    </div>
+                </div>
+                
+                <div id="formatting" class="tab-content">
+                    <h2 class="section-title">Configurações de Formatação</h2>
+                    
+                    <div class="form-group">
+                        <label>Máscara de Exibição:</label>
+                        <div class="radio-group">
+                            <div class="radio-item">
+                                <input type="radio" id="maskDefault" name="mask" value="default" checked>
+                                <label for="maskDefault">Padrão (XXX.XXX.XXX-XX)</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" id="maskNoSeparators" name="mask" value="no-separators">
+                                <label for="maskNoSeparators">Sem separadores</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" id="maskCustom" name="mask" value="custom">
+                                <label for="maskCustom">Personalizada</label>
+                            </div>
+                        </div>
+                        <input type="text" id="customMask" placeholder="Ex: XX.XXX.XXX/XX" style="margin-top: 10px; display: none; width: 100%;">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Opções de Exibição:</label>
+                        <div class="checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="optionShowDigits" checked>
+                                <label for="optionShowDigits">Mostrar dígitos verificadores destacados</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="optionShowState">
+                                <label for="optionShowState">Mostrar estado emissor</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="optionShowValidation" checked>
+                                <label for="optionShowValidation">Mostrar fórmula de validação</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="advanced" class="tab-content">
+                    <h2 class="section-title">Configurações Avançadas</h2>
+                    
+                    <div class="form-group">
+                        <label>Tipo de Geração:</label>
+                        <div class="radio-group">
+                            <div class="radio-item">
+                                <input type="radio" id="typeRandom" name="generationType" value="random" checked>
+                                <label for="typeRandom">Aleatório</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" id="typeSequential" name="generationType" value="sequential">
+                                <label for="typeSequential">Sequencial</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group" id="sequentialOptions" style="display: none;">
+                        <label for="startNumber">Número Inicial (opcional):</label>
+                        <input type="text" id="startNumber" placeholder="Ex: 123456">
+                        <small>Começar a sequência a partir deste número</small>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Opções Adicionais:</label>
+                        <div class="checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="optionRepeat" checked>
+                                <label for="optionRepeat">Permitir CPFs repetidos</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="optionRealistic">
+                                <label for="optionRealistic">Gerar apenas CPFs "realistas"</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="optionSaveSettings">
+                                <label for="optionSaveSettings">Salvar configurações</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="button-group">
+                    <button class="generate-btn" id="generateBtn">
+                        <i class="fas fa-cogs"></i> Gerar CPF
+                    </button>
+                    <button class="validate-btn" id="validateBtn">
+                        <i class="fas fa-check-circle"></i> Validar CPF
+                    </button>
+                    <button class="reset-btn" id="resetBtn">
+                        <i class="fas fa-redo"></i> Limpar Tudo
+                    </button>
+                </div>
+            </div>
+            
+            <div class="results-panel">
+                <h2 class="section-title results-title">Resultados</h2>
+                
+                <div class="results-container">
+                    <div id="singleCpfContainer">
+                        <div class="cpf-display" id="cpfDisplay">
+                            Aguardando geração...
+                        </div>
+                        <div id="validationResult" class="validation-result"></div>
+                    </div>
+                    
+                    <div id="multipleCpfContainer" style="display: none;">
+                        <h3>CPFs Gerados: <span id="cpfCount">0</span></h3>
+                        <div class="cpf-list" id="cpfList">
+                            <!-- Lista de CPFs será gerada aqui -->
+                        </div>
+                    </div>
+                    
+                    <div id="cpfInfo" style="display: none;">
+                        <h3>Informações do CPF:</h3>
+                        <div id="cpfDetails">
+                            <!-- Detalhes do CPF serão gerados aqui -->
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="button-group">
+                    <button class="copy-btn" id="copySingleBtn">
+                        <i class="fas fa-copy"></i> Copiar CPF
+                    </button>
+                    <button class="copy-btn" id="copyAllBtn" style="display: none;">
+                        <i class="fas fa-copy"></i> Copiar Todos
+                    </button>
+                    <button class="generate-btn" id="exportBtn">
+                        <i class="fas fa-file-export"></i> Exportar
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="info-panel">
+            <div class="info-card">
+                <i class="fas fa-calculator"></i>
+                <h3>Como é calculado?</h3>
+                <p>O CPF válido é gerado usando o algoritmo oficial de dígitos verificadores, garantindo que todos os CPFs gerados sejam matematicamente válidos.</p>
+            </div>
+            
+            <div class="info-card">
+                <i class="fas fa-map-marker-alt"></i>
+                <h3>Estados Emissores</h3>
+                <p>O primeiro dígito após o traço indica o estado de emissão. RS, DF, GO, MS, TO e MT usam o dígito 1, por exemplo.</p>
+            </div>
+            
+            <div class="info-card">
+                <i class="fas fa-shield-alt"></i>
+                <h3>Uso Responsável</h3>
+                <p>Este gerador cria CPFs <strong>fictícios</strong> para testes de software. Não use para atividades ilegais ou fraudes.</p>
+            </div>
+            
+            <div class="info-card">
+                <i class="fas fa-code"></i>
+                <h3>Para Desenvolvedores</h3>
+                <p>Use os CPFs gerados para testar sistemas, validar formulários e implementar funções de verificação de documentos.</p>
+            </div>
+        </div>
+        
+        <div class="disclaimer">
+            <h3><i class="fas fa-exclamation-triangle"></i> Aviso Legal</h3>
+            <p>Este gerador produz números de CPF <strong>fictícios e válidos apenas matematicamente</strong>. Estes números não correspondem a pessoas reais e devem ser usados apenas para fins de teste, desenvolvimento de software, estudos ou demonstrações. O uso indevido para atividades fraudulentas é crime e será de total responsabilidade do usuário.</p>
+        </div>
+        
+        <footer>
+            <p>Gerador de CPF Completo &copy; 2023 - Para fins educacionais e de desenvolvimento</p>
+            <p>Algoritmo oficial de validação conforme normas da Receita Federal</p>
+        </footer>
+    </div>
+    
+    <div class="notification" id="notification">
+        CPF copiado para a área de transferência!
+    </div>
+    
+    <script>
+        // Elementos DOM
+        const cpfQuantity = document.getElementById('cpfQuantity');
+        const quantityValue = document.getElementById('quantityValue');
+        const stateSelector = document.getElementById('stateSelector');
+        const customState = document.getElementById('customState');
+        const cpfPrefix = document.getElementById('cpfPrefix');
+        const customMask = document.getElementById('customMask');
+        const optionShowDigits = document.getElementById('optionShowDigits');
+        const optionShowState = document.getElementById('optionShowState');
+        const optionShowValidation = document.getElementById('optionShowValidation');
+        const optionRepeat = document.getElementById('optionRepeat');
+        const optionRealistic = document.getElementById('optionRealistic');
+        const startNumber = document.getElementById('startNumber');
+        
+        const generateBtn = document.getElementById('generateBtn');
+        const validateBtn = document.getElementById('validateBtn');
+        const resetBtn = document.getElementById('resetBtn');
+        const copySingleBtn = document.getElementById('copySingleBtn');
+        const copyAllBtn = document.getElementById('copyAllBtn');
+        const exportBtn = document.getElementById('exportBtn');
+        
+        const cpfDisplay = document.getElementById('cpfDisplay');
+        const validationResult = document.getElementById('validationResult');
+        const singleCpfContainer = document.getElementById('singleCpfContainer');
+        const multipleCpfContainer = document.getElementById('multipleCpfContainer');
+        const cpfList = document.getElementById('cpfList');
+        const cpfCount = document.getElementById('cpfCount');
+        const cpfInfo = document.getElementById('cpfInfo');
+        const cpfDetails = document.getElementById('cpfDetails');
+        
+        const notification = document.getElementById('notification');
+        
+        // Estados brasileiros e seus dígitos
+        const estados = [
+            { digit: '0', name: 'RS', fullName: 'Rio Grande do Sul' },
+            { digit: '1', name: 'DF, GO, MS, MT, TO', fullName: 'Distrito Federal, Goiás, Mato Grosso, Mato Grosso do Sul, Tocantins' },
+            { digit: '2', name: 'AC, AM, AP, PA, RO, RR', fullName: 'Acre, Amazonas, Amapá, Pará, Rondônia, Roraima' },
+            { digit: '3', name: 'CE, MA, PI', fullName: 'Ceará, Maranhão, Piauí' },
+            { digit: '4', name: 'AL, PB, PE, RN', fullName: 'Alagoas, Paraíba, Pernambuco, Rio Grande do Norte' },
+            { digit: '5', name: 'BA, SE', fullName: 'Bahia, Sergipe' },
+            { digit: '6', name: 'MG', fullName: 'Minas Gerais' },
+            { digit: '7', name: 'ES, RJ', fullName: 'Espírito Santo, Rio de Janeiro' },
+            { digit: '8', name: 'SP', fullName: 'São Paulo' },
+            { digit: '9', name: 'PR, SC', fullName: 'Paraná, Santa Catarina' }
+        ];
+        
+        // Variáveis globais
+        let generatedCpfs = [];
+        let currentStateDigit = null;
+        let sequentialCounter = 100000;
+        
+        // Inicialização
+        function init() {
+            // Atualizar valor do slider
+            cpfQuantity.addEventListener('input', function() {
+                quantityValue.textContent = this.value;
+                updateUIForQuantity(parseInt(this.value));
+            });
+            
+            // Criar botões de estado
+            createStateButtons();
+            
+            // Configurar tabs
+            setupTabs();
+            
+            // Configurar eventos de rádio
+            setupRadioEvents();
+            
+            // Configurar eventos de checkbox
+            setupCheckboxEvents();
+            
+            // Configurar botões
+            setupButtons();
+            
+            // Gerar primeiro CPF
+            generateSingleCPF();
+            
+            // Restaurar configurações salvas
+            restoreSettings();
+        }
+        
+        // Criar botões de seleção de estado
+        function createStateButtons() {
+            estados.forEach(estado => {
+                const button = document.createElement('div');
+                button.className = 'state-btn';
+                button.textContent = `${estado.digit} - ${estado.name}`;
+                button.title = estado.fullName;
+                button.dataset.digit = estado.digit;
+                
+                button.addEventListener('click', function() {
+                    // Remover classe active de todos os botões
+                    document.querySelectorAll('.state-btn').forEach(btn => {
+                        btn.classList.remove('active');
+                    });
+                    
+                    // Adicionar classe active ao botão clicado
+                    this.classList.add('active');
+                    
+                    // Limpar campo personalizado
+                    customState.value = '';
+                    
+                    // Definir dígito do estado
+                    currentStateDigit = estado.digit;
+                });
+                
+                stateSelector.appendChild(button);
+            });
+            
+            // Selecionar primeiro estado por padrão
+            stateSelector.querySelector('.state-btn').click();
+            
+            // Configurar campo personalizado
+            customState.addEventListener('input', function() {
+                // Remover seleção dos botões de estado
+                document.querySelectorAll('.state-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                
+                // Definir dígito personalizado
+                const digit = this.value.replace(/\D/g, '');
+                if (digit.length === 1 && digit >= '0' && digit <= '9') {
+                    currentStateDigit = digit;
+                } else if (digit.length > 1) {
+                    this.value = digit.charAt(0);
+                    currentStateDigit = digit.charAt(0);
+                }
+            });
+        }
+        
+        // Configurar tabs
+        function setupTabs() {
+            const tabs = document.querySelectorAll('.tab');
+            const tabContents = document.querySelectorAll('.tab-content');
+            
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    const tabId = this.dataset.tab;
+                    
+                    // Remover classe active de todas as tabs
+                    tabs.forEach(t => t.classList.remove('active'));
+                    tabContents.forEach(c => c.classList.remove('active'));
+                    
+                    // Adicionar classe active à tab clicada
+                    this.classList.add('active');
+                    document.getElementById(tabId).classList.add('active');
+                });
+            });
+        }
+        
+        // Configurar eventos de rádio
+        function setupRadioEvents() {
+            // Mostrar/ocultar campo de máscara personalizada
+            document.querySelectorAll('input[name="mask"]').forEach(radio => {
+                radio.addEventListener('change', function() {
+                    customMask.style.display = this.value === 'custom' ? 'block' : 'none';
+                });
+            });
+            
+            // Mostrar/ocultar opções sequenciais
+            document.querySelectorAll('input[name="generationType"]').forEach(radio => {
+                radio.addEventListener('change', function() {
+                    const sequentialOptions = document.getElementById('sequentialOptions');
+                    sequentialOptions.style.display = this.value === 'sequential' ? 'block' : 'none';
+                });
+            });
+            
+            // Configurar campo de máscara personalizada
+            customMask.addEventListener('input', function() {
+                // Permitir apenas X e caracteres especiais
+                this.value = this.value.replace(/[^X.\-/]/gi, '');
+            });
+        }
+        
+        // Configurar eventos de checkbox
+        function setupCheckboxEvents() {
+            // Configurar checkbox de permitir repetidos
+            optionRepeat.addEventListener('change', function() {
+                if (!this.checked) {
+                    showNotification('Ao desativar repetidos, CPFs gerados serão únicos na sessão');
+                }
+            });
+        }
+        
+        // Configurar botões
+        function setupButtons() {
+            // Gerar CPF
+            generateBtn.addEventListener('click', function() {
+                const quantity = parseInt(cpfQuantity.value);
+                
+                if (quantity === 1) {
+                    generateSingleCPF();
+                } else {
+                    generateMultipleCPFs(quantity);
+                }
+                
+                // Salvar configurações
+                saveSettings();
+            });
+            
+            // Validar CPF
+            validateBtn.addEventListener('click', function() {
+                const cpfToValidate = prompt("Digite o CPF para validar (com ou sem formatação):");
+                
+                if (cpfToValidate) {
+                    const isValid = validateCPF(cpfToValidate);
+                    const formattedCpf = formatCPF(cpfToValidate);
+                    
+                    validationResult.className = `validation-result ${isValid ? 'valid' : 'invalid'}`;
+                    validationResult.textContent = isValid 
+                        ? `✓ CPF ${formattedCpf} é VÁLIDO` 
+                        : `✗ CPF ${formattedCpf} é INVÁLIDO`;
+                    
+                    // Mostrar por 5 segundos
+                    setTimeout(() => {
+                        validationResult.style.display = 'none';
+                    }, 5000);
+                }
+            });
+            
+            // Copiar CPF único
+            copySingleBtn.addEventListener('click', function() {
+                const cpfText = cpfDisplay.textContent;
+                copyToClipboard(cpfText.replace(/\s*\[.*?\]\s*/g, ''));
+            });
+            
+            // Copiar todos os CPFs
+            copyAllBtn.addEventListener('click', function() {
+                const allCpfs = generatedCpfs.map(cpf => cpf.formatted).join('\n');
+                copyToClipboard(allCpfs);
+            });
+            
+            // Exportar CPFs
+            exportBtn.addEventListener('click', function() {
+                exportCpfs();
+            });
+            
+            // Limpar tudo
+            resetBtn.addEventListener('click', function() {
+                if (confirm("Tem certeza que deseja limpar todos os CPFs gerados e redefinir as configurações?")) {
+                    resetAll();
+                }
+            });
+        }
+        
+        // Atualizar UI baseado na quantidade
+        function updateUIForQuantity(quantity) {
+            if (quantity === 1) {
+                singleCpfContainer.style.display = 'block';
+                multipleCpfContainer.style.display = 'none';
+                copyAllBtn.style.display = 'none';
+                cpfInfo.style.display = 'block';
+            } else {
+                singleCpfContainer.style.display = 'none';
+                multipleCpfContainer.style.display = 'block';
+                copyAllBtn.style.display = 'flex';
+                cpfInfo.style.display = 'none';
+            }
+        }
+        
+        // Gerar um único CPF
+        function generateSingleCPF() {
+            const cpf = generateValidCPF();
+            generatedCpfs = [cpf];
+            
+            displayCPF(cpf);
+            displayCPFDetails(cpf);
+        }
+        
+        // Gerar múltiplos CPFs
+        function generateMultipleCPFs(quantity) {
+            generatedCpfs = [];
+            const usedCpfs = new Set();
+            
+            for (let i = 0; i < quantity; i++) {
+                let cpf;
+                let attempts = 0;
+                const maxAttempts = 100;
+                
+                do {
+                    cpf = generateValidCPF();
+                    attempts++;
+                } while (!optionRepeat.checked && usedCpfs.has(cpf.numeric) && attempts < maxAttempts);
+                
+                if (attempts < maxAttempts) {
+                    usedCpfs.add(cpf.numeric);
+                    generatedCpfs.push(cpf);
+                } else {
+                    showNotification('Não foi possível gerar CPFs únicos. Tente permitir repetidos.', true);
+                    break;
+                }
+            }
+            
+            displayMultipleCPFs();
+            cpfCount.textContent = generatedCpfs.length;
+        }
+        
+        // Gerar CPF válido
+        function generateValidCPF() {
+            // Determinar dígito do estado
+            let stateDigit;
+            if (currentStateDigit !== null) {
+                stateDigit = currentStateDigit;
+            } else if (customState.value) {
+                stateDigit = customState.value.charAt(0);
+            } else {
+                // Aleatório
+                stateDigit = Math.floor(Math.random() * 10).toString();
+            }
+            
+            // Gerar os 8 primeiros dígitos (ou usar prefixo)
+            let prefix = '';
+            if (cpfPrefix.value) {
+                prefix = cpfPrefix.value.replace(/\D/g, '').substring(0, 8);
+            }
+            
+            // Completar com números aleatórios se necessário
+            let base = '';
+            if (prefix.length === 8) {
+                base = prefix;
+            } else {
+                // Verificar se estamos no modo sequencial
+                const isSequential = document.querySelector('input[name="generationType"]:checked').value === 'sequential';
+                
+                if (isSequential && startNumber.value) {
+                    const seqNum = parseInt(startNumber.value) + sequentialCounter;
+                    sequentialCounter++;
+                    base = seqNum.toString().padStart(8, '0').substring(0, 8);
+                } else {
+                    // Primeiro dígito é o estado
+                    base = stateDigit;
+                    
+                    // Adicionar prefixo se houver
+                    if (prefix.length > 0) {
+                        base += prefix;
+                    }
+                    
+                    // Completar com números aleatórios
+                    while (base.length < 8) {
+                        base += Math.floor(Math.random() * 10);
+                    }
+                    
+                    // Garantir que temos 8 dígitos
+                    base = base.substring(0, 8);
+                }
+            }
+            
+            // Garantir que o primeiro dígito seja o do estado selecionado
+            if (stateDigit && base.charAt(0) !== stateDigit) {
+                base = stateDigit + base.substring(1);
+            }
+            
+            // Calcular primeiro dígito verificador
+            let sum = 0;
+            for (let i = 0; i < 9; i++) {
+                sum += parseInt(base.charAt(i)) * (10 - i);
+            }
+            
+            let remainder = sum % 11;
+            let firstDigit = remainder < 2 ? 0 : 11 - remainder;
+            
+            // Calcular segundo dígito verificador
+            sum = 0;
+            for (let i = 0; i < 9; i++) {
+                sum += parseInt(base.charAt(i)) * (11 - i);
+            }
+            sum += firstDigit * 2;
+            
+            remainder = sum % 11;
+            let secondDigit = remainder < 2 ? 0 : 11 - remainder;
+            
+            // CPF numérico completo
+            const numericCPF = base + firstDigit + secondDigit;
+            
+            // Formatar CPF
+            const formatted = formatCPF(numericCPF);
+            
+            return {
+                numeric: numericCPF,
+                formatted: formatted,
+                base: base,
+                firstDigit: firstDigit,
+                secondDigit: secondDigit,
+                stateDigit: stateDigit
+            };
+        }
+        
+        // Formatar CPF
+        function formatCPF(cpf) {
+            // Remover não dígitos
+            const numbers = cpf.replace(/\D/g, '');
+            
+            // Verificar qual formato usar
+            const formatType = document.querySelector('input[name="format"]:checked').value;
+            
+            if (formatType === 'raw') {
+                return numbers;
+            }
+            
+            // Verificar qual máscara usar
+            const maskType = document.querySelector('input[name="mask"]:checked').value;
+            
+            if (maskType === 'no-separators') {
+                return numbers;
+            } else if (maskType === 'custom' && customMask.value) {
+                let result = '';
+                let maskIndex = 0;
+                let cpfIndex = 0;
+                
+                while (maskIndex < customMask.value.length && cpfIndex < numbers.length) {
+                    if (customMask.value.charAt(maskIndex) === 'X') {
+                        result += numbers.charAt(cpfIndex);
+                        cpfIndex++;
+                    } else {
+                        result += customMask.value.charAt(maskIndex);
+                    }
+                    maskIndex++;
+                }
+                
+                return result;
+            }
+            
+            // Formato padrão: XXX.XXX.XXX-XX
+            return numbers.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
+        }
+        
+        // Validar CPF
+        function validateCPF(cpf) {
+            // Remover caracteres não numéricos
+            const numbers = cpf.replace(/\D/g, '');
+            
+            // Verificar se tem 11 dígitos
+            if (numbers.length !== 11) return false;
+            
+            // Verificar se todos os dígitos são iguais (CPF inválido)
+            if (/^(\d)\1{10}$/.test(numbers)) return false;
+            
+            // Calcular primeiro dígito verificador
+            let sum = 0;
+            for (let i = 0; i < 9; i++) {
+                sum += parseInt(numbers.charAt(i)) * (10 - i);
+            }
+            
+            let remainder = sum % 11;
+            let firstDigit = remainder < 2 ? 0 : 11 - remainder;
+            
+            if (firstDigit !== parseInt(numbers.charAt(9))) return false;
+            
+            // Calcular segundo dígito verificador
+            sum = 0;
+            for (let i = 0; i < 10; i++) {
+                sum += parseInt(numbers.charAt(i)) * (11 - i);
+            }
+            
+            remainder = sum % 11;
+            let secondDigit = remainder < 2 ? 0 : 11 - remainder;
+            
+            if (secondDigit !== parseInt(numbers.charAt(10))) return false;
+            
+            return true;
+        }
+        
+        // Exibir CPF único
+        function displayCPF(cpf) {
+            let displayText = cpf.formatted;
+            
+            // Destacar dígitos verificadores se opção ativa
+            if (optionShowDigits.checked) {
+                const parts = cpf.formatted.split('');
+                const lastTwoIndexes = [];
+                
+                // Encontrar índices dos dois últimos dígitos
+                let digitCount = 0;
+                for (let i = parts.length - 1; i >= 0; i--) {
+                    if (/\d/.test(parts[i])) {
+                        digitCount++;
+                        lastTwoIndexes.unshift(i);
+                        if (digitCount === 2) break;
+                    }
+                }
+                
+                // Destacar os dois últimos dígitos
+                lastTwoIndexes.forEach(index => {
+                    parts[index] = `<span class="highlight">${parts[index]}</span>`;
+                });
+                
+                displayText = parts.join('');
+            }
+            
+            cpfDisplay.innerHTML = displayText;
+        }
+        
+        // Exibir detalhes do CPF
+        function displayCPFDetails(cpf) {
+            let details = `<p><strong>CPF Numérico:</strong> ${cpf.numeric}</p>`;
+            
+            if (optionShowState.checked) {
+                const estado = estados.find(e => e.digit === cpf.stateDigit);
+                details += `<p><strong>Estado Emissor:</strong> ${estado ? estado.fullName : 'Desconhecido'} (dígito ${cpf.stateDigit})</p>`;
+            }
+            
+            if (optionShowValidation.checked) {
+                details += `
+                    <p><strong>Dígitos Verificadores:</strong> ${cpf.firstDigit} e ${cpf.secondDigit}</p>
+                    <p><strong>Validação Matemática:</strong> 
+                    <br>1º dígito: (${cpf.base.split('').map((d, i) => `${d}×${10-i}`).join(' + ')}) mod 11 = ${cpf.firstDigit}
+                    <br>2º dígito: (${cpf.base.split('').map((d, i) => `${d}×${11-i}`).join(' + ')} + ${cpf.firstDigit}×2) mod 11 = ${cpf.secondDigit}</p>`;
+            }
+            
+            cpfDetails.innerHTML = details;
+            cpfInfo.style.display = 'block';
+        }
+        
+        // Exibir múltiplos CPFs
+        function displayMultipleCPFs() {
+            cpfList.innerHTML = '';
+            
+            generatedCpfs.forEach((cpf, index) => {
+                const item = document.createElement('div');
+                item.className = 'cpf-item';
+                
+                const cpfText = document.createElement('span');
+                cpfText.textContent = `${index + 1}. ${cpf.formatted}`;
+                
+                const copyIcon = document.createElement('i');
+                copyIcon.className = 'fas fa-copy copy-icon';
+                copyIcon.title = 'Copiar este CPF';
+                copyIcon.addEventListener('click', () => {
+                    copyToClipboard(cpf.formatted);
+                });
+                
+                item.appendChild(cpfText);
+                item.appendChild(copyIcon);
+                cpfList.appendChild(item);
+            });
+        }
+        
+        // Copiar para área de transferência
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text)
+                .then(() => {
+                    showNotification('CPF copiado para a área de transferência!');
+                })
+                .catch(err => {
+                    console.error('Erro ao copiar: ', err);
+                    showNotification('Erro ao copiar CPF', true);
+                });
+        }
+        
+        // Exportar CPFs
+        function exportCpfs() {
+            if (generatedCpfs.length === 0) {
+                showNotification('Nenhum CPF para exportar!', true);
+                return;
+            }
+            
+            let content = `CPFs Gerados - ${new Date().toLocaleString()}\n`;
+            content += `Quantidade: ${generatedCpfs.length}\n`;
+            content += `Formato: ${document.querySelector('input[name="format"]:checked').value}\n`;
+            content += `Estado emissor: ${currentStateDigit}\n`;
+            content += '='.repeat(30) + '\n\n';
+            
+            generatedCpfs.forEach((cpf, index) => {
+                content += `${index + 1}. ${cpf.formatted}\n`;
+            });
+            
+            const blob = new Blob([content], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `cpfs_${new Date().getTime()}.txt`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+            
+            showNotification('CPFs exportados com sucesso!');
+        }
+        
+        // Mostrar notificação
+        function showNotification(message, isError = false) {
+            notification.textContent = message;
+            notification.className = `notification ${isError ? 'error' : ''}`;
+            notification.classList.add('show');
+            
+            setTimeout(() => {
+                notification.classList.remove('show');
+            }, 3000);
+        }
+        
+        // Salvar configurações
+        function saveSettings() {
+            if (!document.getElementById('optionSaveSettings').checked) return;
+            
+            const settings = {
+                quantity: cpfQuantity.value,
+                stateDigit: currentStateDigit,
+                format: document.querySelector('input[name="format"]:checked').value,
+                mask: document.querySelector('input[name="mask"]:checked').value,
+                customMask: customMask.value,
+                prefix: cpfPrefix.value,
+                showDigits: optionShowDigits.checked,
+                showState: optionShowState.checked,
+                showValidation: optionShowValidation.checked,
+                generationType: document.querySelector('input[name="generationType"]:checked').value,
+                startNumber: startNumber.value,
+                allowRepeat: optionRepeat.checked,
+                realistic: optionRealistic.checked
+            };
+            
+            localStorage.setItem('cpfGeneratorSettings', JSON.stringify(settings));
+        }
+        
+        // Restaurar configurações
+        function restoreSettings() {
+            const saved = localStorage.getItem('cpfGeneratorSettings');
+            
+            if (saved) {
+                try {
+                    const settings = JSON.parse(saved);
+                    
+                    cpfQuantity.value = settings.quantity;
+                    quantityValue.textContent = settings.quantity;
+                    updateUIForQuantity(parseInt(settings.quantity));
+                    
+                    if (settings.stateDigit) {
+                        currentStateDigit = settings.stateDigit;
+                        // Selecionar botão correspondente
+                        const stateBtn = document.querySelector(`.state-btn[data-digit="${settings.stateDigit}"]`);
+                        if (stateBtn) {
+                            stateBtn.click();
+                        } else {
+                            customState.value = settings.stateDigit;
+                        }
+                    }
+                    
+                    // Restaurar outras configurações
+                    document.querySelector(`input[name="format"][value="${settings.format}"]`).checked = true;
+                    document.querySelector(`input[name="mask"][value="${settings.mask}"]`).checked = true;
+                    customMask.value = settings.customMask;
+                    customMask.style.display = settings.mask === 'custom' ? 'block' : 'none';
+                    cpfPrefix.value = settings.prefix;
+                    optionShowDigits.checked = settings.showDigits;
+                    optionShowState.checked = settings.showState;
+                    optionShowValidation.checked = settings.showValidation;
+                    document.querySelector(`input[name="generationType"][value="${settings.generationType}"]`).checked = true;
+                    
+                    const sequentialOptions = document.getElementById('sequentialOptions');
+                    sequentialOptions.style.display = settings.generationType === 'sequential' ? 'block' : 'none';
+                    
+                    startNumber.value = settings.startNumber;
+                    optionRepeat.checked = settings.allowRepeat;
+                    optionRealistic.checked = settings.realistic;
+                    
+                    showNotification('Configurações restauradas!');
+                } catch (e) {
+                    console.error('Erro ao restaurar configurações:', e);
+                }
+            }
+        }
+        
+        // Resetar tudo
+        function resetAll() {
+            // Resetar configurações
+            cpfQuantity.value = 1;
+            quantityValue.textContent = '1';
+            updateUIForQuantity(1);
+            
+            // Selecionar primeiro estado
+            stateSelector.querySelector('.state-btn').click();
+            customState.value = '';
+            
+            // Resetar outros campos
+            cpfPrefix.value = '';
+            document.querySelector('input[name="format"][value="formatted"]').checked = true;
+            document.querySelector('input[name="mask"][value="default"]').checked = true;
+            customMask.value = '';
+            customMask.style.display = 'none';
+            
+            // Resetar checkboxes
+            optionShowDigits.checked = true;
+            optionShowState.checked = false;
+            optionShowValidation.checked = true;
+            document.querySelector('input[name="generationType"][value="random"]').checked = true;
+            document.getElementById('sequentialOptions').style.display = 'none';
+            startNumber.value = '';
+            optionRepeat.checked = true;
+            optionRealistic.checked = false;
+            
+            // Limpar resultados
+            generatedCpfs = [];
+            cpfDisplay.textContent = 'Aguardando geração...';
+            cpfList.innerHTML = '';
+            cpfCount.textContent = '0';
+            cpfDetails.innerHTML = '';
+            validationResult.style.display = 'none';
+            
+            // Limpar localStorage
+            localStorage.removeItem('cpfGeneratorSettings');
+            
+            // Gerar novo CPF
+            generateSingleCPF();
+            
+            showNotification('Configurações redefinidas com sucesso!');
+        }
+        
+        // Inicializar aplicação
+        init();
+    </script>
 </body>
 </html>

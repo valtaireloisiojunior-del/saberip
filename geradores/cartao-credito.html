@@ -1,199 +1,210 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-
-<!-- Google AdSense -->
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2713105320249369"
- crossorigin="anonymous"></script>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Gerador de Cartão de Crédito para Testes | Gerar Cartão Válido Online</title>
+<title>Gerador de Cartão de Crédito para Testes Online | Saber IP</title>
 
-<meta name="description" content="Gerador de Cartão de Crédito para testes e desenvolvimento. Gere cartões válidos com BIN customizado, histórico local e validação Luhn. Gratuito e online.">
+<meta name="description" content="Gerador de cartão de crédito válido para testes com Visa, MasterCard, Elo e Amex. Gere número, CVV e validade online grátis.">
 <meta name="robots" content="index, follow">
-<link rel="canonical" href="https://seuip.org/geradores/gerador-cartao-credito.html">
-
-<!-- Open Graph -->
-<meta property="og:title" content="Gerador de Cartão de Crédito para Testes Online">
-<meta property="og:description" content="Gere cartões válidos com BIN por banco, histórico e animação premium. Ferramenta gratuita para testes.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://seuip.org/geradores/gerador-cartao-credito.html">
-
-<!-- GA4 -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-MCNWEQ8XMH"></script>
-<script>
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', 'G-MCNWEQ8XMH');
-</script>
 
 <style>
-body{
-margin:0;
-font-family:Arial,Helvetica,sans-serif;
-background:#0d0d0d;
-color:#eaeaea;
+:root{
+  --bg:#0d0d0d;
+  --card:#151515;
+  --accent:#00ff99;
+  --text:#f1f1f1;
+  --muted:#888;
 }
-header{text-align:center;padding:20px;font-size:22px}
-header a{color:#00ff99;text-decoration:none;font-weight:bold}
-h1{text-align:center;color:#00ff99}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;
+  background:var(--bg);
+  color:var(--text);
+}
 .container{
-max-width:420px;
-margin:20px auto;
-background:#111;
-padding:20px;
-border-radius:18px;
+  max-width:420px;
+  margin:auto;
+  padding:20px;
+}
+h1{
+  text-align:center;
+  color:var(--accent);
+  font-size:26px;
+}
+.subtitle{
+  text-align:center;
+  color:#bbb;
+  font-size:14px;
+  margin-bottom:20px;
+}
+.card-visual{
+  background:linear-gradient(135deg,#1f1f1f,#0b0b0b);
+  border-radius:18px;
+  padding:20px;
+  margin-bottom:20px;
+  box-shadow:0 0 20px #000;
+}
+.card-visual .brand{
+  text-align:right;
+  font-weight:700;
+  color:var(--accent);
+}
+.card-number{
+  font-size:20px;
+  letter-spacing:2px;
+  margin:25px 0;
+}
+.card-footer{
+  display:flex;
+  justify-content:space-between;
+  font-size:14px;
+}
+.box{
+  background:var(--card);
+  border-radius:16px;
+  padding:16px;
+  margin-bottom:15px;
+}
+label{
+  font-size:13px;
+  color:var(--muted);
 }
 select,button{
-width:100%;
-padding:14px;
-margin:8px 0;
-border-radius:12px;
-border:none;
-font-size:16px;
+  width:100%;
+  padding:14px;
+  border-radius:12px;
+  border:none;
+  margin-top:8px;
+  font-size:15px;
+}
+select{
+  background:#0b0b0b;
+  color:var(--text);
 }
 button{
-background:#00ff99;
-color:#000;
-font-weight:bold;
-cursor:pointer;
+  background:var(--accent);
+  color:#000;
+  font-weight:700;
+  cursor:pointer;
 }
 button.secondary{
-background:#222;
-color:#00ff99;
-border:1px solid #00ff99;
+  background:#111;
+  color:var(--accent);
+  border:2px solid var(--accent);
 }
-.card{
-margin-top:15px;
-padding:20px;
-border-radius:16px;
-background:linear-gradient(135deg,#00ff99,#0f5132);
-color:#000;
-animation:flip 0.6s ease;
+.actions{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
 }
-@keyframes flip{
-from{transform:rotateY(90deg);opacity:0}
-to{transform:rotateY(0);opacity:1}
-}
-.history{
-font-size:14px;
-margin-top:10px;
-}
-.history div{
-padding:8px;
-border-bottom:1px solid #222;
+.share{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+  margin-top:10px;
 }
 .notice{
-font-size:13px;
-background:#0a0a0a;
-border-left:4px solid #00ff99;
-padding:12px;
-margin-top:20px;
+  font-size:13px;
+  color:#aaa;
+  margin-top:20px;
+  border-left:4px solid #ff5555;
+  padding-left:12px;
 }
-footer{text-align:center;font-size:13px;color:#777;margin:40px 0}
-footer a{color:#00ff99;text-decoration:none;margin:0 8px}
 </style>
-
-<!-- FAQ Schema -->
-<script type="application/ld+json">
-{
-"@context":"https://schema.org",
-"@type":"FAQPage",
-"mainEntity":[{
-"@type":"Question",
-"name":"Este gerador cria cartões reais?",
-"acceptedAnswer":{"@type":"Answer","text":"Não. Os cartões são fictícios e servem apenas para testes e desenvolvimento."}
-},{
-"@type":"Question",
-"name":"Os cartões passam no algoritmo Luhn?",
-"acceptedAnswer":{"@type":"Answer","text":"Sim. Todos os cartões gerados seguem a validação matemática Luhn."}
-}]
-}
-</script>
-
 </head>
+
 <body>
-
-<header><a href="/">SEUIP.ORG</a></header>
-
-<h1>Gerador de Cartão de Crédito</h1>
-
 <div class="container">
 
-<select id="bin">
-<option value="4">Visa (BIN 4)</option>
-<option value="5">Mastercard (BIN 5)</option>
-<option value="34">Amex (BIN 34)</option>
-<option value="6">Discover (BIN 6)</option>
-</select>
+<h1>Gerador de Cartão de Crédito</h1>
+<p class="subtitle">Cartão válido para <strong>testes e desenvolvimento</strong></p>
 
-<button onclick="gerar()">💳 Gerar Cartão</button>
-<button class="secondary" onclick="limpar()">🧹 Limpar Histórico</button>
+<div class="card-visual">
+  <div class="brand" id="brand">VISA</div>
+  <div class="card-number" id="numero">#### #### #### ####</div>
+  <div class="card-footer">
+    <div>Val: <span id="validade">MM/AA</span></div>
+    <div>CVV: <span id="cvv">***</span></div>
+  </div>
+</div>
 
-<div id="resultado"></div>
+<div class="box">
+  <label>Bandeira</label>
+  <select id="bandeira">
+    <option value="visa">Visa</option>
+    <option value="master">MasterCard</option>
+    <option value="amex">American Express</option>
+    <option value="elo">Elo</option>
+  </select>
+</div>
 
-<div class="history" id="historico"></div>
+<div class="actions">
+  <button onclick="gerar()">Gerar Cartão</button>
+  <button class="secondary" onclick="copiar()">Copiar</button>
+</div>
+
+<div class="share">
+  <button class="secondary" onclick="share('whatsapp')">WhatsApp</button>
+  <button class="secondary" onclick="share('twitter')">Twitter</button>
+</div>
 
 <div class="notice">
 ⚠️ <strong>Termo de Responsabilidade:</strong><br>
-Os dados gerados são totalmente fictícios e destinados exclusivamente para testes, estudos e desenvolvimento de software. É proibido o uso para qualquer finalidade ilegal.
+Os dados gerados são fictícios e destinados exclusivamente para testes, estudos e desenvolvimento.
+É proibido utilizar para compras reais ou qualquer atividade ilegal.
 </div>
 
 </div>
-
-<footer>
-<a href="/">Início</a>
-<a href="/privacidade.html">Privacidade</a>
-</footer>
 
 <script>
-function luhn(base){
-let sum=0,alt=false;
-for(let i=base.length-1;i>=0;i--){
-let n=parseInt(base[i]);
-if(alt){n*=2;if(n>9)n-=9;}
-sum+=n;alt=!alt;
-}
-return (10-(sum%10))%10;
+function luhn(num){
+  let sum=0,alt=false;
+  for(let i=num.length-1;i>=0;i--){
+    let n=parseInt(num[i]);
+    if(alt){n*=2;if(n>9)n-=9}
+    sum+=n;alt=!alt;
+  }
+  return (10-(sum%10))%10;
 }
 
 function gerar(){
-let bin=document.getElementById("bin").value;
-let num=bin;
-while(num.length<15)num+=Math.floor(Math.random()*10);
-num+=luhn(num);
+  const tipo=document.getElementById("bandeira").value;
+  let prefixo="4",len=16,cvvLen=3;
 
-let validade=("0"+(Math.random()*12+1|0)).slice(-2)+"/"+(26+Math.random()*5|0);
-let cvv=Math.floor(100+Math.random()*900);
+  if(tipo==="master") prefixo="5";
+  if(tipo==="elo") prefixo="6";
+  if(tipo==="amex"){prefixo="34";len=15;cvvLen=4}
 
-let html=`<div class="card">
-<strong>Número:</strong> ${num}<br>
-<strong>Validade:</strong> ${validade}<br>
-<strong>CVV:</strong> ${cvv}
-</div>`;
+  let num=prefixo;
+  while(num.length<len-1) num+=Math.floor(Math.random()*10);
+  num+=luhn(num);
 
-document.getElementById("resultado").innerHTML=html;
+  let formatado=num.match(/.{1,4}/g).join(" ");
+  let cvv=Math.floor(Math.random()*Math.pow(10,cvvLen));
+  let mes=String(Math.floor(Math.random()*12+1)).padStart(2,"0");
+  let ano=Math.floor(Math.random()*5+26);
 
-let hist=JSON.parse(localStorage.getItem("cc_hist")||"[]");
-hist.unshift(num);
-hist=hist.slice(0,5);
-localStorage.setItem("cc_hist",JSON.stringify(hist));
-renderHist();
+  document.getElementById("numero").innerText=formatado;
+  document.getElementById("cvv").innerText=String(cvv).padStart(cvvLen,"0");
+  document.getElementById("validade").innerText=`${mes}/${ano}`;
+  document.getElementById("brand").innerText=tipo.toUpperCase();
 }
 
-function renderHist(){
-let h=JSON.parse(localStorage.getItem("cc_hist")||"[]");
-document.getElementById("historico").innerHTML=
-"<strong>Histórico:</strong>"+h.map(n=>"<div>"+n+"</div>").join("");
+function copiar(){
+  const txt=`Cartão: ${numero.innerText}\nValidade: ${validade.innerText}\nCVV: ${cvv.innerText}`;
+  navigator.clipboard.writeText(txt);
+  alert("Copiado com sucesso!");
 }
-function limpar(){
-localStorage.removeItem("cc_hist");
-renderHist();
+
+function share(tipo){
+  const txt=encodeURIComponent("Gerador de cartão para testes 👉 seuip.org");
+  if(tipo==="whatsapp") window.open(`https://wa.me/?text=${txt}`);
+  if(tipo==="twitter") window.open(`https://twitter.com/intent/tweet?text=${txt}`);
 }
-renderHist();
 </script>
 
 </body>
