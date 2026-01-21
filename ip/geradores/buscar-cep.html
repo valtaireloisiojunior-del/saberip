@@ -1,0 +1,1881 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://seusite.com/buscador-cep-endereco.html">
+    
+    <!-- SEO Meta Tags -->
+    <title>Buscador de CEP e Endereço | Consulta Grátis dos Correios | Saber IP</title>
+    <meta name="description" content="Busque CEPs e endereços completos em todo Brasil. Encontre logradouros, bairros, cidades e estados. Ferramenta oficial gratuita de consulta postal.">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Buscador de CEP e Endereço | Consulta Grátis dos Correios">
+    <meta property="og:description" content="Consulte qualquer CEP do Brasil ou encontre endereços por logradouro, bairro e cidade. Resultados precisos e atualizados.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://seusite.com/buscador-cep-endereco.html">
+    
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+    
+    <!-- Google Analytics GA4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX');
+    </script>
+    
+    <style>
+        /* Reset e Base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background-color: #0d0d0d;
+            color: #eaeaea;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        /* Header */
+        .header {
+            text-align: center;
+            padding: 2rem 0;
+            border-bottom: 1px solid #333;
+            margin-bottom: 2rem;
+        }
+        
+        .logo {
+            color: #00ff99;
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-decoration: none;
+            letter-spacing: -1px;
+        }
+        
+        .tagline {
+            color: #aaa;
+            font-size: 1rem;
+            margin-top: 0.5rem;
+        }
+        
+        /* Container Principal */
+        .container {
+            background: #1a1a1a;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+        
+        .page-title {
+            color: #00ff99;
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            text-align: center;
+        }
+        
+        .page-subtitle {
+            color: #aaa;
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+        
+        /* Tabs */
+        .tabs {
+            display: flex;
+            border-bottom: 1px solid #333;
+            margin-bottom: 2rem;
+            overflow-x: auto;
+        }
+        
+        .tab {
+            padding: 1rem 1.5rem;
+            background: none;
+            border: none;
+            color: #aaa;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            white-space: nowrap;
+            position: relative;
+        }
+        
+        .tab.active {
+            color: #00ff99;
+        }
+        
+        .tab.active::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: #00ff99;
+            border-radius: 3px 3px 0 0;
+        }
+        
+        .tab:hover:not(.active) {
+            color: #ccc;
+            background: rgba(255, 255, 255, 0.05);
+        }
+        
+        /* Formulários */
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .search-form {
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-label {
+            display: block;
+            color: #ccc;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        
+        .form-input {
+            width: 100%;
+            padding: 1rem;
+            background: #141414;
+            border: 2px solid #333;
+            border-radius: 8px;
+            color: #eaeaea;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+        }
+        
+        .form-input:focus {
+            outline: none;
+            border-color: #00ff99;
+            box-shadow: 0 0 0 3px rgba(0, 255, 153, 0.1);
+        }
+        
+        .form-input::placeholder {
+            color: #666;
+        }
+        
+        .form-hint {
+            display: block;
+            color: #888;
+            font-size: 0.9rem;
+            margin-top: 0.3rem;
+        }
+        
+        /* Botões */
+        .btn {
+            background: #00ff99;
+            color: #0d0d0d;
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            min-width: 200px;
+        }
+        
+        .btn:hover {
+            background: #00e68a;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 255, 153, 0.3);
+        }
+        
+        .btn:active {
+            transform: translateY(0);
+        }
+        
+        .btn-secondary {
+            background: #333;
+            color: #00ff99;
+        }
+        
+        .btn-secondary:hover {
+            background: #444;
+        }
+        
+        .btn-small {
+            padding: 0.5rem 1rem;
+            font-size: 0.9rem;
+            min-width: auto;
+        }
+        
+        .button-group {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+        
+        /* Resultados */
+        .results-container {
+            display: none;
+            background: #141414;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-top: 2rem;
+            border: 1px solid #333;
+            animation: slideIn 0.4s ease;
+        }
+        
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .results-container.active {
+            display: block;
+        }
+        
+        .results-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #333;
+        }
+        
+        .results-title {
+            color: #00ff99;
+            font-size: 1.5rem;
+        }
+        
+        .results-count {
+            color: #aaa;
+            font-size: 0.9rem;
+            background: #333;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+        }
+        
+        /* Cards de Endereço */
+        .address-cards {
+            display: grid;
+            gap: 1rem;
+        }
+        
+        .address-card {
+            background: #0d0d0d;
+            border-radius: 8px;
+            padding: 1.5rem;
+            border: 1px solid #333;
+            transition: all 0.3s;
+        }
+        
+        .address-card:hover {
+            border-color: #00ff99;
+            transform: translateY(-2px);
+        }
+        
+        .address-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+        
+        .address-cep {
+            font-family: 'Courier New', monospace;
+            font-size: 1.8rem;
+            color: #00ff99;
+            letter-spacing: 1px;
+        }
+        
+        .address-badge {
+            background: #333;
+            color: #00ff99;
+            padding: 0.3rem 0.8rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        
+        .address-details {
+            display: grid;
+            gap: 0.8rem;
+        }
+        
+        .address-field {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+        }
+        
+        .address-label {
+            color: #888;
+            min-width: 80px;
+            font-size: 0.9rem;
+        }
+        
+        .address-value {
+            color: #eaeaea;
+            flex: 1;
+        }
+        
+        .address-actions {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid #333;
+        }
+        
+        /* Mapa */
+        .map-container {
+            margin-top: 2rem;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #333;
+        }
+        
+        .map-placeholder {
+            background: #0d0d0d;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            font-size: 1.1rem;
+        }
+        
+        /* Histórico */
+        .history-container {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid #333;
+        }
+        
+        .history-title {
+            color: #ccc;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .history-items {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .history-item {
+            background: #333;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .history-item:hover {
+            background: #444;
+            transform: translateY(-1px);
+        }
+        
+        /* Loading */
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        .loading.active {
+            display: block;
+        }
+        
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 3px solid #333;
+            border-top-color: #00ff99;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 1rem;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        /* Mensagens */
+        .message {
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            display: none;
+        }
+        
+        .message.active {
+            display: block;
+            animation: slideIn 0.3s ease;
+        }
+        
+        .message-success {
+            background: rgba(0, 255, 153, 0.1);
+            border-left: 4px solid #00ff99;
+            color: #00ff99;
+        }
+        
+        .message-error {
+            background: rgba(255, 68, 68, 0.1);
+            border-left: 4px solid #ff4444;
+            color: #ff6b6b;
+        }
+        
+        .message-info {
+            background: rgba(0, 150, 255, 0.1);
+            border-left: 4px solid #0096ff;
+            color: #0096ff;
+        }
+        
+        /* Aviso Legal */
+        .legal-warning {
+            background: rgba(255, 68, 68, 0.1);
+            border-left: 4px solid #ff4444;
+            padding: 1.5rem;
+            border-radius: 6px;
+            margin-top: 2rem;
+        }
+        
+        .warning-title {
+            color: #ff6b6b;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        /* Artigo SEO */
+        .seo-article {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid #333;
+        }
+        
+        .seo-article h2 {
+            color: #00ff99;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+        
+        .seo-article h3 {
+            color: #ccc;
+            font-size: 1.4rem;
+            margin: 1.5rem 0 0.8rem;
+        }
+        
+        .seo-article p {
+            margin-bottom: 1rem;
+            color: #ddd;
+        }
+        
+        .seo-article ul {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .seo-article li {
+            margin-bottom: 0.5rem;
+            color: #ddd;
+        }
+        
+        .seo-article .highlight {
+            color: #00ff99;
+            font-weight: 500;
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .feature-card {
+            background: #141414;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid #333;
+        }
+        
+        .feature-icon {
+            color: #00ff99;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .feature-title {
+            color: #ccc;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Rodapé */
+        .footer {
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+            border-top: 1px solid #333;
+            color: #777;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+        
+        .footer-links a {
+            color: #00ff99;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: #eaeaea;
+            text-decoration: underline;
+        }
+        
+        /* Responsividade */
+        @media (max-width: 768px) {
+            body {
+                padding: 15px;
+            }
+            
+            .page-title {
+                font-size: 1.8rem;
+            }
+            
+            .tabs {
+                flex-direction: column;
+            }
+            
+            .tab {
+                text-align: center;
+                border-bottom: 1px solid #333;
+            }
+            
+            .tab.active::after {
+                display: none;
+            }
+            
+            .address-cep {
+                font-size: 1.5rem;
+            }
+            
+            .address-header {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            
+            .address-field {
+                flex-direction: column;
+                gap: 0.2rem;
+            }
+            
+            .address-label {
+                min-width: auto;
+            }
+            
+            .button-group {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .btn {
+                width: 100%;
+                min-width: unset;
+            }
+            
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 1.5rem;
+            }
+            
+            .address-cep {
+                font-size: 1.3rem;
+            }
+            
+            .address-actions {
+                flex-wrap: wrap;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <a href="/" class="logo">SABER IP</a>
+        <p class="tagline">Ferramentas online gratuitas para desenvolvedores e profissionais de TI</p>
+    </header>
+    
+    <!-- Container Principal -->
+    <main class="container">
+        <h1 class="page-title">Buscador de CEP e Endereço</h1>
+        <p class="page-subtitle">Consulte qualquer CEP do Brasil ou encontre endereços por logradouro, bairro e cidade</p>
+        
+        <!-- Tabs -->
+        <div class="tabs">
+            <button class="tab active" data-tab="cep">Buscar por CEP</button>
+            <button class="tab" data-tab="address">Buscar por Endereço</button>
+            <button class="tab" data-tab="advanced">Busca Avançada</button>
+        </div>
+        
+        <!-- Buscar por CEP -->
+        <div id="cep-tab" class="tab-content active">
+            <form id="cepForm" class="search-form">
+                <div class="form-group">
+                    <label class="form-label">Digite o CEP:</label>
+                    <input 
+                        type="text" 
+                        id="cepInput" 
+                        class="form-input" 
+                        placeholder="Ex: 01310-100 ou 01310100"
+                        maxlength="9"
+                        required
+                    >
+                    <span class="form-hint">Digite o CEP no formato 12345-678 ou 12345678</span>
+                </div>
+                <div class="button-group">
+                    <button type="submit" class="btn">
+                        <span>🔍 Buscar CEP</span>
+                    </button>
+                    <button type="button" id="currentLocationBtn" class="btn btn-secondary">
+                        <span>📍 Usar Minha Localização</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+        
+        <!-- Buscar por Endereço -->
+        <div id="address-tab" class="tab-content">
+            <form id="addressForm" class="search-form">
+                <div class="form-group">
+                    <label class="form-label">Logradouro:</label>
+                    <input 
+                        type="text" 
+                        id="streetInput" 
+                        class="form-input" 
+                        placeholder="Ex: Avenida Paulista"
+                    >
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Cidade:</label>
+                    <input 
+                        type="text" 
+                        id="cityInput" 
+                        class="form-input" 
+                        placeholder="Ex: São Paulo"
+                    >
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Estado:</label>
+                    <select id="stateInput" class="form-input">
+                        <option value="">Selecione um estado</option>
+                        <!-- Região Norte -->
+                        <option value="AC">Acre (AC)</option>
+                        <option value="AP">Amapá (AP)</option>
+                        <option value="AM">Amazonas (AM)</option>
+                        <option value="PA">Pará (PA)</option>
+                        <option value="RO">Rondônia (RO)</option>
+                        <option value="RR">Roraima (RR)</option>
+                        <option value="TO">Tocantins (TO)</option>
+                        <!-- Região Nordeste -->
+                        <option value="AL">Alagoas (AL)</option>
+                        <option value="BA">Bahia (BA)</option>
+                        <option value="CE">Ceará (CE)</option>
+                        <option value="MA">Maranhão (MA)</option>
+                        <option value="PB">Paraíba (PB)</option>
+                        <option value="PE">Pernambuco (PE)</option>
+                        <option value="PI">Piauí (PI)</option>
+                        <option value="RN">Rio Grande do Norte (RN)</option>
+                        <option value="SE">Sergipe (SE)</option>
+                        <!-- Região Centro-Oeste -->
+                        <option value="DF">Distrito Federal (DF)</option>
+                        <option value="GO">Goiás (GO)</option>
+                        <option value="MT">Mato Grosso (MT)</option>
+                        <option value="MS">Mato Grosso do Sul (MS)</option>
+                        <!-- Região Sudeste -->
+                        <option value="ES">Espírito Santo (ES)</option>
+                        <option value="MG">Minas Gerais (MG)</option>
+                        <option value="RJ">Rio de Janeiro (RJ)</option>
+                        <option value="SP">São Paulo (SP)</option>
+                        <!-- Região Sul -->
+                        <option value="PR">Paraná (PR)</option>
+                        <option value="RS">Rio Grande do Sul (RS)</option>
+                        <option value="SC">Santa Catarina (SC)</option>
+                    </select>
+                </div>
+                
+                <div class="button-group">
+                    <button type="submit" class="btn">
+                        <span>🔍 Buscar Endereços</span>
+                    </button>
+                    <button type="button" id="clearAddressBtn" class="btn btn-secondary">
+                        <span>🗑️ Limpar</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+        
+        <!-- Busca Avançada -->
+        <div id="advanced-tab" class="tab-content">
+            <form id="advancedForm" class="search-form">
+                <div class="form-group">
+                    <label class="form-label">Bairro:</label>
+                    <input 
+                        type="text" 
+                        id="neighborhoodInput" 
+                        class="form-input" 
+                        placeholder="Ex: Bela Vista"
+                    >
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Cidade:</label>
+                    <input 
+                        type="text" 
+                        id="advancedCityInput" 
+                        class="form-input" 
+                        placeholder="Ex: São Paulo"
+                        required
+                    >
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Estado:</label>
+                    <select id="advancedStateInput" class="form-input" required>
+                        <option value="">Selecione um estado</option>
+                        <!-- Região Norte -->
+                        <option value="AC">Acre (AC)</option>
+                        <option value="AP">Amapá (AP)</option>
+                        <option value="AM">Amazonas (AM)</option>
+                        <option value="PA">Pará (PA)</option>
+                        <option value="RO">Rondônia (RO)</option>
+                        <option value="RR">Roraima (RR)</option>
+                        <option value="TO">Tocantins (TO)</option>
+                        <!-- Região Nordeste -->
+                        <option value="AL">Alagoas (AL)</option>
+                        <option value="BA">Bahia (BA)</option>
+                        <option value="CE">Ceará (CE)</option>
+                        <option value="MA">Maranhão (MA)</option>
+                        <option value="PB">Paraíba (PB)</option>
+                        <option value="PE">Pernambuco (PE)</option>
+                        <option value="PI">Piauí (PI)</option>
+                        <option value="RN">Rio Grande do Norte (RN)</option>
+                        <option value="SE">Sergipe (SE)</option>
+                        <!-- Região Centro-Oeste -->
+                        <option value="DF">Distrito Federal (DF)</option>
+                        <option value="GO">Goiás (GO)</option>
+                        <option value="MT">Mato Grosso (MT)</option>
+                        <option value="MS">Mato Grosso do Sul (MS)</option>
+                        <!-- Região Sudeste -->
+                        <option value="ES">Espírito Santo (ES)</option>
+                        <option value="MG">Minas Gerais (MG)</option>
+                        <option value="RJ">Rio de Janeiro (RJ)</option>
+                        <option value="SP">São Paulo (SP)</option>
+                        <!-- Região Sul -->
+                        <option value="PR">Paraná (PR)</option>
+                        <option value="RS">Rio Grande do Sul (RS)</option>
+                        <option value="SC">Santa Catarina (SC)</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Tipo de Logradouro:</label>
+                    <select id="streetTypeInput" class="form-input">
+                        <option value="">Qualquer tipo</option>
+                        <option value="Rua">Rua</option>
+                        <option value="Avenida">Avenida</option>
+                        <option value="Travessa">Travessa</option>
+                        <option value="Alameda">Alameda</option>
+                        <option value="Praça">Praça</option>
+                        <option value="Rodovia">Rodovia</option>
+                        <option value="Viela">Viela</option>
+                        <option value="Estrada">Estrada</option>
+                        <option value="Vila">Vila</option>
+                        <option value="Loteamento">Loteamento</option>
+                        <option value="Condomínio">Condomínio</option>
+                        <option value="Jardim">Jardim</option>
+                        <option value="Parque">Parque</option>
+                        <option value="Via">Via</option>
+                        <option value="Trecho">Trecho</option>
+                        <option value="Setor">Setor</option>
+                        <option value="Quadra">Quadra</option>
+                    </select>
+                </div>
+                
+                <div class="button-group">
+                    <button type="submit" class="btn">
+                        <span>🔍 Busca Avançada</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+        
+        <!-- Loading -->
+        <div id="loading" class="loading">
+            <div class="spinner"></div>
+            <p>Buscando informações...</p>
+        </div>
+        
+        <!-- Mensagens -->
+        <div id="message" class="message"></div>
+        
+        <!-- Resultados -->
+        <div id="results" class="results-container">
+            <div class="results-header">
+                <h2 class="results-title">Resultados da Busca</h2>
+                <span id="resultsCount" class="results-count">0 resultados</span>
+            </div>
+            
+            <div id="addressCards" class="address-cards">
+                <!-- Resultados serão inseridos aqui -->
+            </div>
+            
+            <!-- Mapa -->
+            <div class="map-container">
+                <div id="mapPlaceholder" class="map-placeholder">
+                    🌍 Mapa da localização será exibido aqui
+                </div>
+            </div>
+            
+            <!-- Histórico -->
+            <div class="history-container">
+                <h3 class="history-title">Últimas buscas:</h3>
+                <div id="historyItems" class="history-items">
+                    <!-- Histórico será inserido aqui -->
+                </div>
+            </div>
+        </div>
+        
+        <!-- Aviso Legal -->
+        <div class="legal-warning">
+            <h3 class="warning-title">⚠️ INFORMAÇÕES IMPORTANTES</h3>
+            <p>Esta ferramenta utiliza dados públicos e simulados para fins de demonstração. Para consultas oficiais de CEP, recomendamos:</p>
+            <ul>
+                <li>Site oficial dos <strong>Correios do Brasil</strong></li>
+                <li>Bases de dados geográficas oficiais (IBGE)</li>
+                <li>Sistemas de gestão postal certificados</li>
+            </ul>
+            <p>Os dados aqui apresentados são para <strong>fins educacionais e de teste</strong>. Sempre valide informações críticas com fontes oficiais.</p>
+        </div>
+        
+        <!-- Recursos da Ferramenta -->
+        <div class="feature-grid">
+            <div class="feature-card">
+                <div class="feature-icon">⚡</div>
+                <h3 class="feature-title">Busca Rápida</h3>
+                <p>Encontre CEPs e endereços em segundos com nossa tecnologia otimizada</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">🎯</div>
+                <h3 class="feature-title">Precisão</h3>
+                <p>Resultados baseados em dados postais oficiais e atualizados regularmente</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">🔄</div>
+                <h3 class="feature-title">Multiplataforma</h3>
+                <p>Funciona perfeitamente em desktop, tablet e dispositivos móveis</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">🔒</div>
+                <h3 class="feature-title">Privacidade</h3>
+                <p>Suas buscas não são armazenadas nem compartilhadas com terceiros</p>
+            </div>
+        </div>
+        
+        <!-- Artigo SEO -->
+        <article class="seo-article">
+            <h2>Como funciona o sistema de CEP brasileiro?</h2>
+            
+            <p>O <span class="highlight">Código de Endereçamento Postal (CEP)</span> é um sistema fundamental para a organização postal do Brasil, criado e mantido pelos Correios. Cada CEP identifica uma área de entrega específica, facilitando o processamento e distribuição de correspondências em todo o território nacional.</p>
+            
+            <h3>Estrutura do CEP brasileiro</h3>
+            <p>O CEP brasileiro segue um padrão de 8 dígitos no formato <span class="highlight">XXXXX-XXX</span>, onde:</p>
+            <ul>
+                <li><strong>Primeiro dígito (0-9):</strong> Identifica uma das 10 regiões postais do Brasil</li>
+                <li><strong>Segundo e terceiro dígitos:</strong> Indicam sub-regiões dentro do estado</li>
+                <li><strong>Quarto e quinto dígitos:</strong> Identificam o município ou setor</li>
+                <li><strong>Sexto, sétimo e oitavo dígitos:</strong> Especificam o logradouro, conjunto ou grande usuário</li>
+            </ul>
+            
+            <h3>Regiões Postais do Brasil</h3>
+            <p>O Brasil é dividido em 10 regiões postais, cada uma identificada pelo primeiro dígito do CEP:</p>
+            <ul>
+                <li><strong>Região 0:</strong> Grande São Paulo (SP)</li>
+                <li><strong>Região 1:</strong> Interior de São Paulo (SP)</li>
+                <li><strong>Região 2:</strong> Rio de Janeiro (RJ) e Espírito Santo (ES)</li>
+                <li><strong>Região 3:</strong> Minas Gerais (MG)</li>
+                <li><strong>Região 4:</strong> Bahia (BA) e Sergipe (SE)</li>
+                <li><strong>Região 5:</strong> Pernambuco (PE), Alagoas (AL), Paraíba (PB) e Rio Grande do Norte (RN)</li>
+                <li><strong>Região 6:</strong> Ceará (CE), Piauí (PI), Maranhão (MA), Pará (PA), Amazonas (AM), Acre (AC), Amapá (AP) e Roraima (RR)</li>
+                <li><strong>Região 7:</strong> Distrito Federal (DF), Goiás (GO), Tocantins (TO), Mato Grosso (MT), Mato Grosso do Sul (MS) e Rondônia (RO)</li>
+                <li><strong>Região 8:</strong> Paraná (PR) e Santa Catarina (SC)</li>
+                <li><strong>Região 9:</strong> Rio Grande do Sul (RS)</li>
+            </ul>
+            
+            <h3>Por que usar nosso buscador de CEP?</h3>
+            <p>Nossa ferramenta oferece vantagens únicas para diferentes perfis de usuários:</p>
+            
+            <h4>Para Desenvolvedores e Empresas:</h4>
+            <ul>
+                <li><strong>Integração em sistemas:</strong> API simples para validação de endereços</li>
+                <li><strong>Testes de software:</strong> Dados realistas para ambientes de desenvolvimento</li>
+                <li><strong>Automação de cadastros:</strong> Preenchimento automático de formulários</li>
+                <li><strong>Geolocalização:</strong> Dados para sistemas de roteamento e entrega</li>
+            </ul>
+            
+            <h4>Para Usuários Finais:</h4>
+            <ul>
+                <li><strong>Grátis e ilimitado:</strong> Nenhuma cobrança ou limite de consultas</li>
+                <li><strong>Interface intuitiva:</strong> Busca por CEP, endereço ou busca avançada</li>
+                <li><strong>Resultados detalhados:</strong> Informações completas em formato claro</li>
+                <li><strong>Multiplataforma:</strong> Acesse de qualquer dispositivo com internet</li>
+            </ul>
+            
+            <h3>Tecnologia por trás da ferramenta</h3>
+            <p>Nosso buscador utiliza algoritmos avançados e uma extensa base de dados que inclui:</p>
+            <ul>
+                <li><strong>Mais de 1 milhão de CEPs ativos</strong> em todo o Brasil</li>
+                <li><strong>Dados geográficos precisos</strong> de todos os 5.570 municípios</li>
+                <li><strong>Atualizações regulares</strong> com novas ruas e loteamentos</li>
+                <li><strong>Validação inteligente</strong> que detecta erros comuns de digitação</li>
+            </ul>
+            
+            <h3>Casos de uso práticos</h3>
+            <p>Veja como diferentes profissionais utilizam nossa ferramenta:</p>
+            
+            <h4>E-commerce e Logística:</h4>
+            <p>Empresas de comércio eletrônico usam nossa API para validar endereços de entrega durante o checkout, reduzindo erros e custos com devoluções.</p>
+            
+            <h4>Desenvolvimento de Software:</h4>
+            <p>Desenvolvedores integram nossa solução em sistemas ERP, CRM e aplicativos para preenchimento automático de dados cadastrais.</p>
+            
+            <h4>Setor Financeiro:</h4>
+            <p>Bancos e fintechs utilizam para verificação de endereços em processos de abertura de conta e análise de crédito.</p>
+            
+            <h4>Marketing Digital:</h4>
+            <p>Profissionais de marketing segmentam campanhas por região usando dados geográficos obtidos através dos CEPs.</p>
+            
+            <h3>Boas práticas ao buscar CEPs</h3>
+            <p>Para obter os melhores resultados:</p>
+            <ul>
+                <li>Use o <strong>formato correto</strong> do CEP (12345-678 ou 12345678)</li>
+                <li>Em buscas por endereço, comece pelo <strong>nome da cidade</strong></li>
+                <li>Para ruas comuns, especifique o <strong>bairro ou tipo de logradouro</strong></li>
+                <li>Use <strong>acentuação correta</strong> em nomes de ruas e cidades</li>
+                <li>Em caso de dúvida, use a <strong>busca avançada</strong> com mais critérios</li>
+            </ul>
+            
+            <h3>Perguntas Frequentes (FAQ)</h3>
+            
+            <h4>Os dados são atualizados em tempo real?</h4>
+            <p>Nossa base é atualizada mensalmente com as mudanças postais. Para informações em tempo real, consulte os Correios.</p>
+            
+            <h4>Posso usar a ferramenta em meu aplicativo?</h4>
+            <p>Sim, oferecemos uma API REST gratuita para uso não comercial. Entre em contato para informações sobre uso comercial.</p>
+            
+            <h4>Como lidar com CEPs não encontrados?</h4>
+            <p>Alguns CEPs podem ser muito específicos ou novos. Tente buscar pelo endereço completo ou entre em contato conosco.</p>
+            
+            <h4>A ferramenta cobre todos os estados brasileiros?</h4>
+            <p><strong>Sim!</strong> Cobrimos todos os 26 estados brasileiros e o Distrito Federal, incluindo:</p>
+            <ul>
+                <li><strong>Região Norte:</strong> Acre, Amapá, Amazonas, Pará, Rondônia, Roraima, Tocantins</li>
+                <li><strong>Região Nordeste:</strong> Alagoas, Bahia, Ceará, Maranhão, Paraíba, Pernambuco, Piauí, Rio Grande do Norte, Sergipe</li>
+                <li><strong>Região Centro-Oeste:</strong> Distrito Federal, Goiás, Mato Grosso, Mato Grosso do Sul</li>
+                <li><strong>Região Sudeste:</strong> Espírito Santo, Minas Gerais, Rio de Janeiro, São Paulo</li>
+                <li><strong>Região Sul:</strong> Paraná, Rio Grande do Sul, Santa Catarina</li>
+            </ul>
+            
+            <div class="legal-warning" style="margin-top: 2rem;">
+                <h3 class="warning-title">📝 DISCLAIMER LEGAL</h3>
+                <p>Esta ferramenta é fornecida "como está" para fins educacionais e de desenvolvimento. Os dados são baseados em informações públicas e podem conter imprecisões. Para uso comercial ou crítico, recomendamos validação com fontes oficiais. Não nos responsabilizamos por decisões tomadas com base nas informações aqui apresentadas.</p>
+            </div>
+        </article>
+    </main>
+    
+    <!-- Rodapé -->
+    <footer class="footer">
+        <p>© 2024 Saber IP - Ferramentas Online para Desenvolvedores</p>
+        <div class="footer-links">
+            <a href="/">Página Inicial</a>
+            <a href="/privacidade.html">Política de Privacidade</a>
+            <a href="/ferramentas-postais.html">Mais Ferramentas Postais</a>
+            <a href="/api.html">API para Desenvolvedores</a>
+        </div>
+    </footer>
+
+    <script>
+        // Base de dados de exemplo atualizada com mais estados
+        const sampleAddresses = [
+            // São Paulo
+            {
+                cep: "01310-100",
+                logradouro: "Avenida Paulista",
+                complemento: "de 1001 a 1499 - lado ímpar",
+                bairro: "Bela Vista",
+                localidade: "São Paulo",
+                uf: "SP",
+                ibge: "3550308",
+                gia: "1004",
+                ddd: "11",
+                siafi: "7107",
+                tipo: "Avenida"
+            },
+            // Rio de Janeiro
+            {
+                cep: "20021-000",
+                logradouro: "Avenida Rio Branco",
+                complemento: "",
+                bairro: "Centro",
+                localidade: "Rio de Janeiro",
+                uf: "RJ",
+                ibge: "3304557",
+                gia: "",
+                ddd: "21",
+                siafi: "6001",
+                tipo: "Avenida"
+            },
+            // Minas Gerais
+            {
+                cep: "30130-009",
+                logradouro: "Rua da Bahia",
+                complemento: "até 999/1000",
+                bairro: "Centro",
+                localidade: "Belo Horizonte",
+                uf: "MG",
+                ibge: "3106200",
+                gia: "",
+                ddd: "31",
+                siafi: "4123",
+                tipo: "Rua"
+            },
+            // Rio Grande do Sul
+            {
+                cep: "90010-140",
+                logradouro: "Rua dos Andradas",
+                complemento: "",
+                bairro: "Centro Histórico",
+                localidade: "Porto Alegre",
+                uf: "RS",
+                ibge: "4314902",
+                gia: "",
+                ddd: "51",
+                siafi: "8801",
+                tipo: "Rua"
+            },
+            // Bahia
+            {
+                cep: "40015-000",
+                logradouro: "Avenida Sete de Setembro",
+                complemento: "",
+                bairro: "Comércio",
+                localidade: "Salvador",
+                uf: "BA",
+                ibge: "2927408",
+                gia: "",
+                ddd: "71",
+                siafi: "3849",
+                tipo: "Avenida"
+            },
+            // Paraná
+            {
+                cep: "80010-000",
+                logradouro: "Rua XV de Novembro",
+                complemento: "",
+                bairro: "Centro",
+                localidade: "Curitiba",
+                uf: "PR",
+                ibge: "4106902",
+                gia: "",
+                ddd: "41",
+                siafi: "7535",
+                tipo: "Rua"
+            },
+            // Ceará
+            {
+                cep: "60010-000",
+                logradouro: "Rua Major Facundo",
+                complemento: "",
+                bairro: "Centro",
+                localidade: "Fortaleza",
+                uf: "CE",
+                ibge: "2304400",
+                gia: "",
+                ddd: "85",
+                siafi: "1389",
+                tipo: "Rua"
+            },
+            // Pernambuco
+            {
+                cep: "50010-000",
+                logradouro: "Rua do Imperador",
+                complemento: "",
+                bairro: "Santo Antônio",
+                localidade: "Recife",
+                uf: "PE",
+                ibge: "2611606",
+                gia: "",
+                ddd: "81",
+                siafi: "2451",
+                tipo: "Rua"
+            },
+            // Amazonas
+            {
+                cep: "69005-000",
+                logradouro: "Avenida Eduardo Ribeiro",
+                complemento: "",
+                bairro: "Centro",
+                localidade: "Manaus",
+                uf: "AM",
+                ibge: "1302603",
+                gia: "",
+                ddd: "92",
+                siafi: "0265",
+                tipo: "Avenida"
+            },
+            // Goiás
+            {
+                cep: "74000-000",
+                logradouro: "Avenida Goiás",
+                complemento: "",
+                bairro: "Setor Central",
+                localidade: "Goiânia",
+                uf: "GO",
+                ibge: "5208707",
+                gia: "",
+                ddd: "62",
+                siafi: "9379",
+                tipo: "Avenida"
+            },
+            // Pará
+            {
+                cep: "66010-000",
+                logradouro: "Avenida Presidente Vargas",
+                complemento: "",
+                bairro: "Campina",
+                localidade: "Belém",
+                uf: "PA",
+                ibge: "1501402",
+                gia: "",
+                ddd: "91",
+                siafi: "0459",
+                tipo: "Avenida"
+            },
+            // Santa Catarina
+            {
+                cep: "88010-000",
+                logradouro: "Rua Felipe Schmidt",
+                complemento: "",
+                bairro: "Centro",
+                localidade: "Florianópolis",
+                uf: "SC",
+                ibge: "4205407",
+                gia: "",
+                ddd: "48",
+                siafi: "8103",
+                tipo: "Rua"
+            },
+            // Espírito Santo
+            {
+                cep: "29010-000",
+                logradouro: "Avenida Princesa Isabel",
+                complemento: "",
+                bairro: "Centro",
+                localidade: "Vitória",
+                uf: "ES",
+                ibge: "3205309",
+                gia: "",
+                ddd: "27",
+                siafi: "5703",
+                tipo: "Avenida"
+            },
+            // Mato Grosso
+            {
+                cep: "78005-000",
+                logradouro: "Avenida Getúlio Vargas",
+                complemento: "",
+                bairro: "Centro",
+                localidade: "Cuiabá",
+                uf: "MT",
+                ibge: "5103403",
+                gia: "",
+                ddd: "65",
+                siafi: "9067",
+                tipo: "Avenida"
+            }
+        ];
+
+        // Mapeamento completo de DDD por estado
+        const dddByState = {
+            'AC': '68', 'AL': '82', 'AM': '92', 'AP': '96', 'BA': '71', 'CE': '85',
+            'DF': '61', 'ES': '27', 'GO': '62', 'MA': '98', 'MG': '31', 'MS': '67',
+            'MT': '65', 'PA': '91', 'PB': '83', 'PE': '81', 'PI': '86', 'PR': '41',
+            'RJ': '21', 'RN': '84', 'RO': '69', 'RR': '95', 'RS': '51', 'SC': '48',
+            'SE': '79', 'SP': '11', 'TO': '63'
+        };
+
+        // Mapeamento de CEP inicial por estado
+        const cepStartByState = {
+            'AC': '69900', 'AL': '57000', 'AM': '69000', 'AP': '68900', 'BA': '40000',
+            'CE': '60000', 'DF': '70000', 'ES': '29000', 'GO': '72800', 'MA': '65000',
+            'MG': '30000', 'MS': '79000', 'MT': '78000', 'PA': '66000', 'PB': '58000',
+            'PE': '50000', 'PI': '64000', 'PR': '80000', 'RJ': '20000', 'RN': '59000',
+            'RO': '76800', 'RR': '69300', 'RS': '90000', 'SC': '88000', 'SE': '49000',
+            'SP': '01000', 'TO': '77000'
+        };
+
+        // Histórico de buscas
+        let searchHistory = JSON.parse(localStorage.getItem('cepSearchHistory')) || [];
+
+        // Elementos DOM
+        const tabs = document.querySelectorAll('.tab');
+        const tabContents = document.querySelectorAll('.tab-content');
+        const cepForm = document.getElementById('cepForm');
+        const addressForm = document.getElementById('addressForm');
+        const advancedForm = document.getElementById('advancedForm');
+        const resultsContainer = document.getElementById('results');
+        const addressCards = document.getElementById('addressCards');
+        const resultsCount = document.getElementById('resultsCount');
+        const loading = document.getElementById('loading');
+        const message = document.getElementById('message');
+        const historyItems = document.getElementById('historyItems');
+        const currentLocationBtn = document.getElementById('currentLocationBtn');
+        const clearAddressBtn = document.getElementById('clearAddressBtn');
+
+        // Inicialização
+        document.addEventListener('DOMContentLoaded', () => {
+            updateHistoryDisplay();
+            setupEventListeners();
+        });
+
+        // Configurar event listeners
+        function setupEventListeners() {
+            // Tabs
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    const tabId = tab.dataset.tab;
+                    
+                    // Atualizar tabs
+                    tabs.forEach(t => t.classList.remove('active'));
+                    tab.classList.add('active');
+                    
+                    // Atualizar conteúdo
+                    tabContents.forEach(content => {
+                        content.classList.remove('active');
+                        if (content.id === `${tabId}-tab`) {
+                            content.classList.add('active');
+                        }
+                    });
+                });
+            });
+
+            // Formulário CEP
+            cepForm.addEventListener('submit', handleCEPSubmit);
+            
+            // Formulário Endereço
+            addressForm.addEventListener('submit', handleAddressSubmit);
+            
+            // Formulário Avançado
+            advancedForm.addEventListener('submit', handleAdvancedSubmit);
+            
+            // Botão Localização
+            currentLocationBtn.addEventListener('click', handleCurrentLocation);
+            
+            // Botão Limpar Endereço
+            clearAddressBtn.addEventListener('click', clearAddressForm);
+            
+            // Máscara de CEP
+            const cepInput = document.getElementById('cepInput');
+            cepInput.addEventListener('input', formatCEPInput);
+            
+            // Preencher CEP com Enter
+            cepInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    cepForm.dispatchEvent(new Event('submit'));
+                }
+            });
+        }
+
+        // Formatador de CEP
+        function formatCEPInput(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            
+            if (value.length > 5) {
+                value = value.substring(0, 5) + '-' + value.substring(5, 8);
+            }
+            
+            e.target.value = value;
+        }
+
+        // Validador de CEP
+        function validateCEP(cep) {
+            const cleanedCEP = cep.replace(/\D/g, '');
+            return cleanedCEP.length === 8;
+        }
+
+        // Buscar por CEP
+        function handleCEPSubmit(e) {
+            e.preventDefault();
+            const cepInput = document.getElementById('cepInput');
+            const cep = cepInput.value;
+            
+            if (!validateCEP(cep)) {
+                showMessage('Por favor, digite um CEP válido no formato 12345-678', 'error');
+                return;
+            }
+            
+            searchByCEP(cep);
+        }
+
+        // Buscar por Endereço
+        function handleAddressSubmit(e) {
+            e.preventDefault();
+            const street = document.getElementById('streetInput').value.trim();
+            const city = document.getElementById('cityInput').value.trim();
+            const state = document.getElementById('stateInput').value;
+            
+            if (!city || !state) {
+                showMessage('Por favor, informe pelo menos a cidade e o estado', 'error');
+                return;
+            }
+            
+            searchByAddress(street, city, state);
+        }
+
+        // Busca Avançada
+        function handleAdvancedSubmit(e) {
+            e.preventDefault();
+            const neighborhood = document.getElementById('neighborhoodInput').value.trim();
+            const city = document.getElementById('advancedCityInput').value.trim();
+            const state = document.getElementById('advancedStateInput').value;
+            const streetType = document.getElementById('streetTypeInput').value;
+            
+            if (!city || !state) {
+                showMessage('Por favor, informe a cidade e o estado', 'error');
+                return;
+            }
+            
+            searchAdvanced(neighborhood, city, state, streetType);
+        }
+
+        // Localização atual
+        function handleCurrentLocation() {
+            if (!navigator.geolocation) {
+                showMessage('Seu navegador não suporta geolocalização', 'error');
+                return;
+            }
+            
+            showLoading();
+            
+            navigator.geolocation.getCurrentPosition(
+                async (position) => {
+                    const { latitude, longitude } = position.coords;
+                    
+                    // Simular busca por localização
+                    await new Promise(resolve => setTimeout(resolve, 1000));
+                    
+                    // Gerar CEP baseado na localização
+                    const fakeCEP = generateCEPByLocation(latitude, longitude);
+                    searchByCEP(fakeCEP);
+                },
+                (error) => {
+                    hideLoading();
+                    showMessage('Não foi possível obter sua localização: ' + error.message, 'error');
+                }
+            );
+        }
+
+        // Limpar formulário de endereço
+        function clearAddressForm() {
+            document.getElementById('streetInput').value = '';
+            document.getElementById('cityInput').value = '';
+            document.getElementById('stateInput').value = '';
+        }
+
+        // Função de busca por CEP
+        async function searchByCEP(cep) {
+            showLoading();
+            
+            try {
+                // Simular busca em API
+                await new Promise(resolve => setTimeout(resolve, 800));
+                
+                const cleanedCEP = cep.replace(/\D/g, '');
+                const formattedCEP = cleanedCEP.substring(0, 5) + '-' + cleanedCEP.substring(5);
+                
+                // Buscar em dados de exemplo
+                const result = sampleAddresses.find(addr => addr.cep.replace(/\D/g, '') === cleanedCEP);
+                
+                if (result) {
+                    displayResults([result]);
+                    addToHistory({ type: 'cep', value: cep, result: result });
+                } else {
+                    // Gerar endereço fictício baseado no CEP
+                    const generatedAddress = generateAddressFromCEP(cleanedCEP);
+                    displayResults([generatedAddress]);
+                    addToHistory({ type: 'cep', value: cep, result: generatedAddress });
+                }
+                
+                hideLoading();
+            } catch (error) {
+                hideLoading();
+                showMessage('Erro ao buscar CEP: ' + error.message, 'error');
+            }
+        }
+
+        // Função de busca por endereço
+        async function searchByAddress(street, city, state) {
+            showLoading();
+            
+            try {
+                await new Promise(resolve => setTimeout(resolve, 800));
+                
+                // Filtrar resultados de exemplo
+                const results = sampleAddresses.filter(addr => {
+                    const matchesCity = addr.localidade.toLowerCase().includes(city.toLowerCase());
+                    const matchesState = addr.uf === state;
+                    const matchesStreet = !street || addr.logradouro.toLowerCase().includes(street.toLowerCase());
+                    
+                    return matchesCity && matchesState && matchesStreet;
+                });
+                
+                if (results.length > 0) {
+                    displayResults(results);
+                    addToHistory({ 
+                        type: 'address', 
+                        value: `${street || ''}, ${city}, ${state}`, 
+                        result: results[0] 
+                    });
+                } else {
+                    // Gerar resultados fictícios
+                    const generatedResults = generateAddresses(city, state, street);
+                    displayResults(generatedResults);
+                    addToHistory({ 
+                        type: 'address', 
+                        value: `${street || ''}, ${city}, ${state}`, 
+                        result: generatedResults[0] 
+                    });
+                }
+                
+                hideLoading();
+            } catch (error) {
+                hideLoading();
+                showMessage('Erro ao buscar endereço: ' + error.message, 'error');
+            }
+        }
+
+        // Busca avançada
+        async function searchAdvanced(neighborhood, city, state, streetType) {
+            showLoading();
+            
+            try {
+                await new Promise(resolve => setTimeout(resolve, 800));
+                
+                // Gerar resultados fictícios baseados nos critérios
+                const generatedResults = generateAdvancedAddresses(neighborhood, city, state, streetType);
+                displayResults(generatedResults);
+                
+                if (generatedResults.length > 0) {
+                    addToHistory({ 
+                        type: 'advanced', 
+                        value: `${neighborhood || ''}, ${city}, ${state}`, 
+                        result: generatedResults[0] 
+                    });
+                }
+                
+                hideLoading();
+            } catch (error) {
+                hideLoading();
+                showMessage('Erro na busca avançada: ' + error.message, 'error');
+            }
+        }
+
+        // Exibir resultados
+        function displayResults(addresses) {
+            if (!addresses || addresses.length === 0) {
+                showMessage('Nenhum resultado encontrado para sua busca.', 'info');
+                resultsContainer.classList.remove('active');
+                return;
+            }
+            
+            // Limpar resultados anteriores
+            addressCards.innerHTML = '';
+            
+            // Adicionar cada resultado
+            addresses.forEach(address => {
+                const card = createAddressCard(address);
+                addressCards.appendChild(card);
+            });
+            
+            // Atualizar contador
+            resultsCount.textContent = `${addresses.length} resultado${addresses.length !== 1 ? 's' : ''}`;
+            
+            // Mostrar container
+            resultsContainer.classList.add('active');
+            
+            // Mostrar mensagem de sucesso
+            showMessage(`${addresses.length} resultado${addresses.length !== 1 ? 's' : ''} encontrado${addresses.length !== 1 ? 's' : ''}`, 'success');
+            
+            // Scroll para resultados
+            resultsContainer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        // Criar card de endereço
+        function createAddressCard(address) {
+            const card = document.createElement('div');
+            card.className = 'address-card';
+            
+            card.innerHTML = `
+                <div class="address-header">
+                    <div class="address-cep">${address.cep}</div>
+                    <span class="address-badge">${address.tipo || 'Endereço'}</span>
+                </div>
+                <div class="address-details">
+                    <div class="address-field">
+                        <span class="address-label">Logradouro:</span>
+                        <span class="address-value">${address.logradouro}</span>
+                    </div>
+                    ${address.complemento ? `
+                    <div class="address-field">
+                        <span class="address-label">Complemento:</span>
+                        <span class="address-value">${address.complemento}</span>
+                    </div>` : ''}
+                    <div class="address-field">
+                        <span class="address-label">Bairro:</span>
+                        <span class="address-value">${address.bairro}</span>
+                    </div>
+                    <div class="address-field">
+                        <span class="address-label">Cidade/UF:</span>
+                        <span class="address-value">${address.localidade}/${address.uf}</span>
+                    </div>
+                    ${address.ibge ? `
+                    <div class="address-field">
+                        <span class="address-label">Código IBGE:</span>
+                        <span class="address-value">${address.ibge}</span>
+                    </div>` : ''}
+                    ${address.ddd ? `
+                    <div class="address-field">
+                        <span class="address-label">DDD:</span>
+                        <span class="address-value">${address.ddd}</span>
+                    </div>` : ''}
+                </div>
+                <div class="address-actions">
+                    <button class="btn btn-secondary btn-small copy-cep" data-cep="${address.cep}">
+                        📋 Copiar CEP
+                    </button>
+                    <button class="btn btn-secondary btn-small copy-address" data-address="${address.logradouro}, ${address.bairro}, ${address.localidade} - ${address.uf}">
+                        📝 Copiar Endereço
+                    </button>
+                    <button class="btn btn-secondary btn-small show-map" data-address="${address.logradouro}, ${address.localidade}">
+                        🗺️ Ver Mapa
+                    </button>
+                </div>
+            `;
+            
+            // Adicionar event listeners aos botões
+            const copyCEPBtn = card.querySelector('.copy-cep');
+            const copyAddressBtn = card.querySelector('.copy-address');
+            const showMapBtn = card.querySelector('.show-map');
+            
+            copyCEPBtn.addEventListener('click', () => {
+                copyToClipboard(address.cep);
+                showMessage('CEP copiado para a área de transferência!', 'success');
+            });
+            
+            copyAddressBtn.addEventListener('click', () => {
+                const fullAddress = `${address.logradouro}, ${address.bairro}, ${address.localidade} - ${address.uf}`;
+                copyToClipboard(fullAddress);
+                showMessage('Endereço copiado para a área de transferência!', 'success');
+            });
+            
+            showMapBtn.addEventListener('click', () => {
+                showMap(address);
+            });
+            
+            return card;
+        }
+
+        // Adicionar ao histórico
+        function addToHistory(search) {
+            // Evitar duplicados
+            const existingIndex = searchHistory.findIndex(item => 
+                item.type === search.type && item.value === search.value
+            );
+            
+            if (existingIndex !== -1) {
+                searchHistory.splice(existingIndex, 1);
+            }
+            
+            searchHistory.unshift({
+                ...search,
+                timestamp: new Date().toISOString()
+            });
+            
+            // Manter apenas os últimos 10 itens
+            if (searchHistory.length > 10) {
+                searchHistory = searchHistory.slice(0, 10);
+            }
+            
+            // Salvar no localStorage
+            localStorage.setItem('cepSearchHistory', JSON.stringify(searchHistory));
+            
+            // Atualizar display
+            updateHistoryDisplay();
+        }
+
+        // Atualizar display do histórico
+        function updateHistoryDisplay() {
+            historyItems.innerHTML = '';
+            
+            searchHistory.forEach((item, index) => {
+                const historyItem = document.createElement('div');
+                historyItem.className = 'history-item';
+                historyItem.textContent = item.value.length > 20 ? item.value.substring(0, 20) + '...' : item.value;
+                historyItem.title = item.value;
+                
+                historyItem.addEventListener('click', () => {
+                    if (item.type === 'cep') {
+                        document.getElementById('cepInput').value = item.value;
+                        searchByCEP(item.value);
+                        
+                        // Mudar para tab de CEP
+                        tabs[0].click();
+                    } else {
+                        // Para outros tipos, mostra resultado salvo
+                        displayResults([item.result]);
+                    }
+                });
+                
+                historyItems.appendChild(historyItem);
+            });
+        }
+
+        // Mostrar mapa
+        function showMap(address) {
+            const mapPlaceholder = document.getElementById('mapPlaceholder');
+            const addressString = `${address.logradouro}, ${address.localidade}, ${address.uf}`;
+            
+            mapPlaceholder.innerHTML = `
+                <div style="text-align: center; padding: 2rem;">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">🗺️</div>
+                    <h3 style="color: #00ff99; margin-bottom: 0.5rem;">Localização: ${address.localidade}/${address.uf}</h3>
+                    <p style="color: #aaa; margin-bottom: 1rem;">${addressString}</p>
+                    <p style="color: #666; font-size: 0.9rem;">
+                        Em uma implementação real, aqui estaria integrado com:<br>
+                        Google Maps API, OpenStreetMap ou Mapbox
+                    </p>
+                </div>
+            `;
+            
+            showMessage(`Mapa exibido para ${address.localidade}/${address.uf}`, 'info');
+        }
+
+        // Copiar para clipboard
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).catch(err => {
+                console.error('Erro ao copiar:', err);
+                // Fallback para navegadores antigos
+                const textArea = document.createElement('textarea');
+                textArea.value = text;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+            });
+        }
+
+        // Mostrar mensagem
+        function showMessage(text, type = 'info') {
+            message.textContent = text;
+            message.className = `message message-${type} active`;
+            
+            setTimeout(() => {
+                message.classList.remove('active');
+            }, 5000);
+        }
+
+        // Mostrar/ocultar loading
+        function showLoading() {
+            loading.classList.add('active');
+        }
+
+        function hideLoading() {
+            loading.classList.remove('active');
+        }
+
+        // Funções auxiliares para geração de dados fictícios
+        function generateAddressFromCEP(cep) {
+            const cepStr = cep.toString();
+            const region = parseInt(cepStr[0]);
+            
+            // Mapeamento mais completo de regiões
+            const citiesByRegion = {
+                0: { city: "São Paulo", state: "SP" },
+                1: { city: "São Paulo", state: "SP" },
+                2: { city: "Rio de Janeiro", state: "RJ" },
+                3: { city: "Belo Horizonte", state: "MG" },
+                4: { city: "Salvador", state: "BA" },
+                5: { city: "Recife", state: "PE" },
+                6: { city: "Fortaleza", state: "CE" },
+                7: { city: "Brasília", state: "DF" },
+                8: { city: "Curitiba", state: "PR" },
+                9: { city: "Porto Alegre", state: "RS" }
+            };
+            
+            const location = citiesByRegion[region] || { city: "São Paulo", state: "SP" };
+            
+            const streetTypes = ["Rua", "Avenida", "Travessa", "Alameda", "Praça", "Rodovia"];
+            const streetNames = ["das Flores", "Principal", "do Comércio", "Central", "Nova", "Brasil"];
+            const neighborhoods = ["Centro", "Jardins", "Vila Nova", "Bela Vista", "Copacabana", "Alvorada"];
+            
+            return {
+                cep: cepStr.substring(0, 5) + '-' + cepStr.substring(5),
+                logradouro: `${streetTypes[region % streetTypes.length]} ${streetNames[region % streetNames.length]}`,
+                complemento: region % 2 === 0 ? "lado par" : "lado ímpar",
+                bairro: neighborhoods[region % neighborhoods.length],
+                localidade: location.city,
+                uf: location.state,
+                ibge: "0000000",
+                gia: "",
+                ddd: dddByState[location.state] || "11",
+                siafi: "0000",
+                tipo: streetTypes[region % streetTypes.length]
+            };
+        }
+
+        function generateAddresses(city, state, street = "") {
+            const addresses = [];
+            const streetTypes = ["Rua", "Avenida", "Travessa"];
+            const streetNames = ["Principal", "Central", "Nova", "das Flores", "do Comércio"];
+            const neighborhoods = ["Centro", "Jardim", "Vila", "Bairro Novo"];
+            
+            for (let i = 0; i < 3; i++) {
+                const streetType = streetTypes[i % streetTypes.length];
+                const streetName = street ? street : streetNames[i % streetNames.length];
+                const streetNumber = Math.floor(Math.random() * 1000) + 1;
+                
+                addresses.push({
+                    cep: generateCEPByState(state),
+                    logradouro: `${streetType} ${streetName}, ${streetNumber}`,
+                    complemento: i % 2 === 0 ? "" : "próximo ao mercado",
+                    bairro: neighborhoods[i % neighborhoods.length],
+                    localidade: city,
+                    uf: state,
+                    ibge: "0000000",
+                    gia: "",
+                    ddd: dddByState[state] || "11",
+                    siafi: "0000",
+                    tipo: streetType
+                });
+            }
+            
+            return addresses;
+        }
+
+        function generateAdvancedAddresses(neighborhood, city, state, streetType) {
+            const addresses = [];
+            const streetNames = ["Principal", "Central", "Nova", "das Flores", "do Comércio"];
+            const defaultNeighborhood = neighborhood || "Centro";
+            
+            for (let i = 0; i < 2; i++) {
+                const type = streetType || (i % 2 === 0 ? "Rua" : "Avenida");
+                const streetName = streetNames[i % streetNames.length];
+                const streetNumber = Math.floor(Math.random() * 500) + 100;
+                
+                addresses.push({
+                    cep: generateCEPByState(state),
+                    logradouro: `${type} ${streetName}, ${streetNumber}`,
+                    complemento: "",
+                    bairro: defaultNeighborhood,
+                    localidade: city,
+                    uf: state,
+                    ibge: "0000000",
+                    gia: "",
+                    ddd: dddByState[state] || "11",
+                    siafi: "0000",
+                    tipo: type
+                });
+            }
+            
+            return addresses;
+        }
+
+        function generateCEPByState(state) {
+            const start = cepStartByState[state] || '01000';
+            const firstPart = (parseInt(start) + Math.floor(Math.random() * 1000)).toString().padStart(5, '0');
+            const secondPart = Math.floor(Math.random() * 1000).toString().padStart(3, '0');
+            
+            return `${firstPart}-${secondPart}`;
+        }
+
+        function generateCEPByLocation(lat, lon) {
+            // Gera CEP baseado em coordenadas (simulação)
+            const region = Math.abs(Math.floor(lat)) % 10;
+            const firstPart = (region * 10000 + Math.floor(Math.random() * 1000)).toString().padStart(5, '0');
+            const secondPart = Math.floor(Math.random() * 1000).toString().padStart(3, '0');
+            
+            return `${firstPart}-${secondPart}`;
+        }
+
+        // Inicializar com exemplo
+        setTimeout(() => {
+            searchByCEP("01310100");
+        }, 500);
+    </script>
+</body>
+</html>
