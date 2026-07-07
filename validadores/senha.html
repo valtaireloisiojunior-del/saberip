@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Validador de Senha | SEUIP.ORG</title>
+<meta name="description" content="Verifique a força da senha e veja o que melhorar">
+<style>:root{--primary:#00ff99;--primary-dark:#00cc77;--bg:#0d0d0d;--bg-card:#1a1a1a;--text:#fff;--text-secondary:#aaa;--border:#333;--radius:12px}*{margin:0;padding:0;box-sizing:border-box}body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;display:flex;flex-direction:column}.header{background:linear-gradient(180deg,rgba(0,255,153,0.1) 0%,transparent 100%);padding:1.5rem;text-align:center;border-bottom:1px solid var(--border)}.header a{color:var(--primary);font-size:1.5rem;font-weight:900;text-decoration:none;letter-spacing:-1px}.header p{color:var(--text-secondary);font-size:.9rem;margin-top:.5rem}.container{max-width:800px;margin:0 auto;padding:2rem 1rem;flex:1;width:100%}.tool-title{font-size:1.5rem;color:var(--primary);margin-bottom:.5rem;display:flex;align-items:center;gap:.5rem}.tool-desc{color:var(--text-secondary);margin-bottom:1.5rem}.card{background:var(--bg-card);border-radius:var(--radius);padding:1.5rem;border:1px solid var(--border)}.input-group{margin-bottom:1rem}.input-group label{display:block;color:var(--primary);font-weight:600;margin-bottom:.5rem;font-size:.9rem}input,select,textarea{width:100%;padding:.8rem 1rem;background:rgba(0,0,0,0.3);border:1px solid var(--border);border-radius:8px;color:var(--text);font-size:1rem;font-family:inherit}input:focus,select:focus,textarea:focus{outline:none;border-color:var(--primary);box-shadow:0 0 0 3px rgba(0,255,153,0.1)}.btn{background:var(--primary);color:var(--bg);border:none;border-radius:8px;padding:.8rem 1.5rem;font-size:1rem;font-weight:700;cursor:pointer;transition:all .2s;display:inline-flex;align-items:center;gap:.5rem}.btn:hover{background:var(--primary-dark);transform:translateY(-2px)}.btn-secondary{background:rgba(0,255,153,0.1);color:var(--primary);border:1px solid rgba(0,255,153,0.3)}.btn-secondary:hover{background:rgba(0,255,153,0.2)}.actions{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:1rem}.result{margin-top:1rem;padding:1rem;background:rgba(0,255,153,0.05);border:1px solid rgba(0,255,153,0.2);border-radius:8px;font-family:'Courier New',monospace;word-break:break-all;display:none}.result.show{display:block}.footer{text-align:center;padding:1.5rem;border-top:1px solid var(--border);color:var(--text-secondary);font-size:.85rem}.footer a{color:var(--primary);text-decoration:none}</style>
+</head>
+<body>
+<header class="header"><a href="../index.html">SEUIP.ORG</a><p>Ferramentas online grátis</p></header>
+<main class="container">
+<h1 class="tool-title">🔒 Validador de Senha</h1>
+<p class="tool-desc">Verifique a força da senha e veja o que melhorar</p>
+<div class="card">
+<div class="input-group"><label>Senha</label><div style="display:flex;gap:.5rem"><input type="password" id="senha" placeholder="Digite a senha..."><button class="btn btn-secondary" onclick="toggle()" style="white-space:nowrap">👁</button></div></div>
+<div class="actions"><button class="btn" onclick="validar()">✅ Analisar</button></div>
+<div id="forca" style="margin-top:1rem;height:8px;border-radius:4px;background:var(--border);overflow:hidden;display:none"><div id="barra" style="height:100%;width:0;transition:all .3s;border-radius:4px"></div></div>
+<div class="result" id="result"></div>
+</div>
+</main>
+<footer class="footer"><p>© 2024 <a href="../index.html">SEUIP.ORG</a> | <a href="../sobre.html">Sobre</a> | <a href="../privacidade.html">Privacidade</a></p></footer>
+<script>
+function toggle(){const s=document.getElementById("senha");s.type=s.type==="password"?"text":"password";}
+function validar(){const s=document.getElementById("senha").value;let pts=0;const checks=[];if(s.length>=8)pts+=20;else checks.push("Mínimo 8 caracteres");if(/[A-Z]/.test(s))pts+=20;else checks.push("Letra maiúscula");if(/[a-z]/.test(s))pts+=20;else checks.push("Letra minúscula");if(/[0-9]/.test(s))pts+=20;else checks.push("Número");if(/[^A-Za-z0-9]/.test(s))pts+=20;else checks.push("Caractere especial");const el=document.getElementById("result");const barra=document.getElementById("barra");const forca=document.getElementById("forca");forca.style.display="block";barra.style.width=pts+"%";let cor,txt;if(pts<=20){cor="#ff4444";txt="❌ Muito fraca";}else if(pts<=40){cor="#ff6b6b";txt="⚠️ Fraca";}else if(pts<=60){cor="#ffd93d";txt="⚡ Média";}else if(pts<=80){cor="#6bcb77";txt="✅ Forte";}else{cor="#00ff99";txt="🔒 Muito forte";}barra.style.background=cor;el.innerHTML=txt+(checks.length?`<br><small style="color:var(--text-secondary)">Faltando: ${checks.join(", ")}</small>`:"");el.classList.add("show");el.style.borderColor=cor;el.style.background=cor+"10";}
+document.getElementById("senha").addEventListener("input",validar);
+</script>
+</body>
+</html>

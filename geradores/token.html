@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gerador de Token | SEUIP.ORG</title>
+<meta name="description" content="Tokens seguros para autenticação em diversos formatos">
+<style>:root{--primary:#00ff99;--primary-dark:#00cc77;--bg:#0d0d0d;--bg-card:#1a1a1a;--text:#fff;--text-secondary:#aaa;--border:#333;--radius:12px}*{margin:0;padding:0;box-sizing:border-box}body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;display:flex;flex-direction:column}.header{background:linear-gradient(180deg,rgba(0,255,153,0.1) 0%,transparent 100%);padding:1.5rem;text-align:center;border-bottom:1px solid var(--border)}.header a{color:var(--primary);font-size:1.5rem;font-weight:900;text-decoration:none;letter-spacing:-1px}.header p{color:var(--text-secondary);font-size:.9rem;margin-top:.5rem}.container{max-width:800px;margin:0 auto;padding:2rem 1rem;flex:1;width:100%}.tool-title{font-size:1.5rem;color:var(--primary);margin-bottom:.5rem;display:flex;align-items:center;gap:.5rem}.tool-desc{color:var(--text-secondary);margin-bottom:1.5rem}.card{background:var(--bg-card);border-radius:var(--radius);padding:1.5rem;border:1px solid var(--border)}.input-group{margin-bottom:1rem}.input-group label{display:block;color:var(--primary);font-weight:600;margin-bottom:.5rem;font-size:.9rem}input,select,textarea{width:100%;padding:.8rem 1rem;background:rgba(0,0,0,0.3);border:1px solid var(--border);border-radius:8px;color:var(--text);font-size:1rem;font-family:inherit}input:focus,select:focus,textarea:focus{outline:none;border-color:var(--primary);box-shadow:0 0 0 3px rgba(0,255,153,0.1)}.btn{background:var(--primary);color:var(--bg);border:none;border-radius:8px;padding:.8rem 1.5rem;font-size:1rem;font-weight:700;cursor:pointer;transition:all .2s;display:inline-flex;align-items:center;gap:.5rem}.btn:hover{background:var(--primary-dark);transform:translateY(-2px)}.btn-secondary{background:rgba(0,255,153,0.1);color:var(--primary);border:1px solid rgba(0,255,153,0.3)}.btn-secondary:hover{background:rgba(0,255,153,0.2)}.actions{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:1rem}.result{margin-top:1rem;padding:1rem;background:rgba(0,255,153,0.05);border:1px solid rgba(0,255,153,0.2);border-radius:8px;font-family:'Courier New',monospace;word-break:break-all;display:none}.result.show{display:block}.footer{text-align:center;padding:1.5rem;border-top:1px solid var(--border);color:var(--text-secondary);font-size:.85rem}.footer a{color:var(--primary);text-decoration:none}</style>
+</head>
+<body>
+<header class="header"><a href="../index.html">SEUIP.ORG</a><p>Ferramentas online grátis</p></header>
+<main class="container">
+<h1 class="tool-title">🔑 Gerador de Token</h1>
+<p class="tool-desc">Tokens seguros para autenticação em diversos formatos</p>
+<div class="card">
+<div class="input-group"><label>Tamanho (bytes)</label><input type="number" id="tam" value="32" min="8" max="128"></div>
+<div class="input-group"><label>Formato</label><select id="fmt"><option value="hex">Hexadecimal</option><option value="b64">Base64</option><option value="uuid">UUID v4</option><option value="urlsafe">URL-safe</option><option value="numeric">Numérico</option></select></div>
+<div class="actions"><button class="btn" onclick="gerar()">🔑 Gerar Token</button><button class="btn btn-secondary" onclick="copiar()">📋 Copiar</button></div>
+<div class="result" id="result"></div>
+</div>
+</main>
+<footer class="footer"><p>© 2024 <a href="../index.html">SEUIP.ORG</a> | <a href="../sobre.html">Sobre</a> | <a href="../privacidade.html">Privacidade</a></p></footer>
+<script>
+function gerar(){const t=+document.getElementById("tam").value;const f=document.getElementById("fmt").value;let r="";const a=new Uint8Array(t);crypto.getRandomValues(a);switch(f){case"hex":r=Array.from(a).map(b=>b.toString(16).padStart(2,"0")).join("");break;case"b64":r=btoa(String.fromCharCode(...a));break;case"uuid":r=crypto.randomUUID();break;case"urlsafe":r=btoa(String.fromCharCode(...a)).replace(/\+/g,"-").replace(/\//g,"_").replace(/=/g,"");break;case"numeric":r=Array.from(a).map(b=>b%10).join("");break;}const el=document.getElementById("result");el.textContent=r;el.classList.add("show");}
+function copiar(){const t=document.getElementById("result").textContent;if(t)navigator.clipboard.writeText(t);}
+</script>
+</body>
+</html>
