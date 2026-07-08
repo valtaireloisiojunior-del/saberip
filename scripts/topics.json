@@ -1,0 +1,1141 @@
+[
+  {
+    "slug": "como-proteger-sua-privacidade-online",
+    "title": "Como Proteger sua Privacidade Online — Guia Completo de Seguranca Digital",
+    "description": "Aprenda a proteger sua privacidade na internet. VPN, navegadores seguros, senhas fortes e configuracoes essenciais.",
+    "keywords": ["proteger privacidade online", "seguranca digital", "navegacao anonima", "VPN gratis", "privacidade internet"],
+    "category": "Seguranca",
+    "emoji": "🔒",
+    "reading_time": "6 min",
+    "related": [
+      {"title": "Como Descobrir Meu IP", "link": "/blog/como-descobrir-meu-ip.html"},
+      {"title": "Como Testar Velocidade da Internet", "link": "/blog/como-testar-velocidade-internet.html"}
+    ],
+    "tools": [
+      {"title": "Gerador de Senha", "link": "/geradores/senha.html"},
+      {"title": "Meu IP", "link": "/meu-ip.html"}
+    ]
+  },
+  {
+    "slug": "melhores-gerenciadores-de-senhas-2024",
+    "title": "Melhores Gerenciadores de Senhas Gratuitos em 2024",
+    "description": "Compare os melhores gerenciadores de senha gratuitos. Bitwarden, KeePass, NordPass e mais. Seguranca sem pagar nada.",
+    "keywords": ["gerenciador de senhas gratis", "melhor password manager", "senhas seguras", "Bitwarden gratis", "salvar senhas"],
+    "category": "Seguranca",
+    "emoji": "🔐",
+    "reading_time": "5 min",
+    "related": [
+      {"title": "Como Proteger sua Privacidade Online", "link": "/blog/como-proteger-sua-privacidade-online.html"},
+      {"title": "O que e CPF", "link": "/blog/o-que-e-cpf.html"}
+    ],
+    "tools": [
+      {"title": "Gerador de Senha", "link": "/geradores/senha.html"},
+      {"title": "Validador de Email", "link": "/validadores/email.html"}
+    ]
+  },
+  {
+    "slug": "como-escolher-provedor-internet",
+    "title": "Como Escolher o Melhor Provedor de Internet para sua Casa",
+    "description": "Fibra otica, cabo, 4G ou 5G? Aprenda a comparar provedores, velocidade real, preco e atendimento antes de assinar.",
+    "keywords": ["melhor provedor internet", "fibra otica vs cabo", "comparar internet", "velocidade internet residencial", "escolher provedor"],
+    "category": "Internet",
+    "emoji": "🌐",
+    "reading_time": "6 min",
+    "related": [
+      {"title": "Como Testar Velocidade da Internet", "link": "/blog/como-testar-velocidade-internet.html"},
+      {"title": "Como Descobrir Meu IP", "link": "/blog/como-descobrir-meu-ip.html"}
+    ],
+    "tools": [
+      {"title": "Teste de Velocidade", "link": "/teste-velocidade.html"},
+      {"title": "Meu IP", "link": "/meu-ip.html"}
+    ]
+  },
+  {
+    "slug": "como-funciona-dns",
+    "title": "Como Funciona o DNS — Entenda a Internet em 5 Minutos",
+    "description": "DNS explicado de forma simples. Entenda como nomes de dominio funcionam, o que e cache DNS e como melhorar sua navegacao.",
+    "keywords": ["como funciona DNS", "o que e DNS", "servidor DNS", "cache DNS", "DNS gratis"],
+    "category": "Internet",
+    "emoji": "🌐",
+    "reading_time": "5 min",
+    "related": [
+      {"title": "Como Descobrir Meu IP", "link": "/blog/como-descobrir-meu-ip.html"},
+      {"title": "Como Escolher Provedor de Internet", "link": "/blog/como-escolher-provedor-internet.html"}
+    ],
+    "tools": [
+      {"title": "Meu IP", "link": "/meu-ip.html"},
+      {"title": "Conversor de Unidades", "link": "/conversor.html"}
+    ]
+  },
+  {
+    "slug": "guia-completo-whatsapp-business",
+    "title": "Guia Completo do WhatsApp Business — Venda Mais Pelo Celular",
+    "description": "Aprenda a usar o WhatsApp Business para vender mais. Catalogo, automacao, etiquetas e estrategias de atendimento.",
+    "keywords": ["WhatsApp Business", "vender pelo WhatsApp", "catalogo WhatsApp", "automatizar WhatsApp", "WhatsApp empresa"],
+    "category": "Marketing",
+    "emoji": "💬",
+    "reading_time": "7 min",
+    "related": [
+      {"title": "Como Criar Link do WhatsApp", "link": "/blog/como-criar-link-whatsapp.html"},
+      {"title": "Como Gerar CPF Valido", "link": "/blog/como-gerar-cpf-valido.html"}
+    ],
+    "tools": [
+      {"title": "Gerar Link WhatsApp", "link": "/link-whatsapp.html"},
+      {"title": "Gerador de CPF", "link": "/geradorcpf.html"}
+    ]
+  },
+  {
+    "slug": "como-gerar-cnpj-valido",
+    "title": "Como Gerar CNPJ Valido para Testes — Online e Gratis",
+    "description": "Gere CNPJs validos com digitos verificadores corretos para testes de software. Entenda o algoritmo de validacao do CNPJ.",
+    "keywords": ["gerar CNPJ valido", "CNPJ para testes", "validar CNPJ", "gerador CNPJ", "CNPJ algoritmo"],
+    "category": "Documentos",
+    "emoji": "🏢",
+    "reading_time": "4 min",
+    "related": [
+      {"title": "O que e CNPJ", "link": "/blog/o-que-e-cnpj.html"},
+      {"title": "Como Gerar CPF Valido", "link": "/blog/como-gerar-cpf-valido.html"}
+    ],
+    "tools": [
+      {"title": "Gerador de CNPJ", "link": "/gerarcnpj.html"},
+      {"title": "Validar CNPJ", "link": "/validar-cnpj.html"}
+    ]
+  },
+  {
+    "slug": "como-melhorar-wifi-casa",
+    "title": "Como Melhorar o WiFi da Sua Casa — 10 Dicas que Funcionam",
+    "description": "WiFi lento? Veja 10 dicas praticas para melhorar o sinal do seu roteador, eliminar pontos cegos e navegar mais rapido.",
+    "keywords": ["melhorar wifi", "wifi lento solucao", "aumentar sinal wifi", "roteador melhor posicao", "wifi 5GHz vs 2.4GHz"],
+    "category": "Internet",
+    "emoji": "📶",
+    "reading_time": "6 min",
+    "related": [
+      {"title": "Como Testar Velocidade da Internet", "link": "/blog/como-testar-velocidade-internet.html"},
+      {"title": "Como Escolher Provedor de Internet", "link": "/blog/como-escolher-provedor-internet.html"}
+    ],
+    "tools": [
+      {"title": "Teste de Velocidade", "link": "/teste-velocidade.html"},
+      {"title": "Meu IP", "link": "/meu-ip.html"}
+    ]
+  },
+  {
+    "slug": "o-que-e-endereco-mac",
+    "title": "O que e Endereco MAC e Para Que Serve?",
+    "description": "Entenda o que e endereco MAC, como encontrar no seu dispositivo, filtragem MAC e sua importancia para seguranca de rede.",
+    "keywords": ["o que e MAC address", "endereco MAC", "como encontrar MAC", "filtragem MAC", "MAC WiFi"],
+    "category": "Redes",
+    "emoji": "📡",
+    "reading_time": "4 min",
+    "related": [
+      {"title": "Como Descobrir Meu IP", "link": "/blog/como-descobrir-meu-ip.html"},
+      {"title": "Como Funciona o DNS", "link": "/blog/como-funciona-dns.html"}
+    ],
+    "tools": [
+      {"title": "Meu IP", "link": "/meu-ip.html"},
+      {"title": "Teste de Velocidade", "link": "/teste-velocidade.html"}
+    ]
+  },
+  {
+    "slug": "como-fazer-mkt-digital-gratis",
+    "title": "Marketing Digital Gratis — Estrategias que Funcionam em 2024",
+    "description": "Aprenda a fazer marketing digital sem gastar nada. SEO, redes sociais, WhatsApp e estrategias organicas que geram resultados.",
+    "keywords": ["marketing digital gratis", "divulgar empresa gratis", "SEO gratis", "marketing organico", "vender online sem investir"],
+    "category": "Marketing",
+    "emoji": "📢",
+    "reading_time": "7 min",
+    "related": [
+      {"title": "Guia do WhatsApp Business", "link": "/blog/guia-completo-whatsapp-business.html"},
+      {"title": "Como Criar Link do WhatsApp", "link": "/blog/como-criar-link-whatsapp.html"}
+    ],
+    "tools": [
+      {"title": "Link WhatsApp", "link": "/link-whatsapp.html"},
+      {"title": "Gerador de QR Code", "link": "/qr-code.html"}
+    ]
+  },
+  {
+    "slug": "como-consultar-ip-por-cidade",
+    "title": "Como Consultar IP por Cidade e Estado — Geolocalizacao",
+    "description": "Descubra como funciona a geolocalizacao por IP. Consulte a cidade, estado e provedor associado a qualquer endereco IP.",
+    "keywords": ["consultar IP por cidade", "geolocalizacao IP", "rastrear IP localizacao", "IP estado cidade", "localizar IP"],
+    "category": "IP & Rede",
+    "emoji": "🗺️",
+    "reading_time": "4 min",
+    "related": [
+      {"title": "Como Descobrir Meu IP", "link": "/blog/como-descobrir-meu-ip.html"},
+      {"title": "O que e Endereco MAC", "link": "/blog/o-que-e-endereco-mac.html"}
+    ],
+    "tools": [
+      {"title": "Meu IP", "link": "/meu-ip.html"},
+      {"title": "Localizar IP", "link": "/localizar-ip.html"}
+    ]
+  },
+  {
+    "slug": "guia-navegadores-seguros",
+    "title": "Navegadores Mais Seguros em 2024 — Privacidade Comparada",
+    "description": "Compare Firefox, Brave, Tor, Safari e Chrome em termos de privacidade. Qual o melhor navegador para quem quer anonimato?",
+    "keywords": ["navegador mais seguro", "navegador privacidade", "Brave vs Firefox", "Tor browser", "navegador anonimo"],
+    "category": "Seguranca",
+    "emoji": "🦊",
+    "reading_time": "6 min",
+    "related": [
+      {"title": "Como Proteger sua Privacidade Online", "link": "/blog/como-proteger-sua-privacidade-online.html"},
+      {"title": "Melhores Gerenciadores de Senhas", "link": "/blog/melhores-gerenciadores-de-senhas-2024.html"}
+    ],
+    "tools": [
+      {"title": "Gerador de Senha", "link": "/geradores/senha.html"},
+      {"title": "Validador de Email", "link": "/validadores/email.html"}
+    ]
+  },
+  {
+    "slug": "como-abrir-mei-passo-a-passo",
+    "title": "Como Abrir MEI Passo a Passo em 2024 — Guia Completo",
+    "description": "Aprenda a abrir seu MEI sozinho, pelo celular, em menos de 10 minutos. Documentos necessarios, custos e obrigacoes.",
+    "keywords": ["como abrir MEI", "MEI passo a passo", "formalizar MEI", "microempreendedor individual", "abrir MEI online"],
+    "category": "Empreendedorismo",
+    "emoji": "💼",
+    "reading_time": "6 min",
+    "related": [
+      {"title": "O que e CNPJ", "link": "/blog/o-que-e-cnpj.html"},
+      {"title": "Marketing Digital Gratis", "link": "/blog/como-fazer-mkt-digital-gratis.html"}
+    ],
+    "tools": [
+      {"title": "Gerador de CNPJ", "link": "/gerarcnpj.html"},
+      {"title": "Consultar CNPJ", "link": "/validar-cnpj.html"}
+    ]
+  },
+  {
+    "slug": "o-que-e-proxy-e-vpn",
+    "title": "O que e Proxy e VPN? Diferencas, Vantagens e Quando Usar",
+    "description": "Entenda a diferenca entre proxy e VPN. Qual oferece mais seguranca? Quando usar cada um? Guia completo com comparativo.",
+    "keywords": ["proxy vs VPN", "diferenca proxy VPN", "o que e proxy", "para que serve VPN", "VPN gratis segura"],
+    "category": "Seguranca",
+    "emoji": "🛡️",
+    "reading_time": "5 min",
+    "related": [
+      {"title": "Como Proteger sua Privacidade Online", "link": "/blog/como-proteger-sua-privacidade-online.html"},
+      {"title": "Navegadores Mais Seguros", "link": "/blog/guia-navegadores-seguros.html"}
+    ],
+    "tools": [
+      {"title": "Meu IP", "link": "/meu-ip.html"},
+      {"title": "Teste de Velocidade", "link": "/teste-velocidade.html"}
+    ]
+  },
+  {
+    "slug": "como-criar-senhas-seguras",
+    "title": "Como Criar Senhas Seguras e Memoraveis — Sem Repetir",
+    "description": "Crie senhas fortes que voce consegue lembrar. Tecnica da frase-secreta, gerenciadores e erros comuns a evitar.",
+    "keywords": ["criar senha segura", "senha forte", "senha memoravel", "tecnica senha segura", "erros senha"],
+    "category": "Seguranca",
+    "emoji": "🔑",
+    "reading_time": "5 min",
+    "related": [
+      {"title": "Melhores Gerenciadores de Senhas", "link": "/blog/melhores-gerenciadores-de-senhas-2024.html"},
+      {"title": "Como Proteger sua Privacidade Online", "link": "/blog/como-proteger-sua-privacidade-online.html"}
+    ],
+    "tools": [
+      {"title": "Gerador de Senha", "link": "/geradores/senha.html"},
+      {"title": "Validador de Senha", "link": "/validadores/senha.html"}
+    ]
+  },
+  {
+    "slug": "como-funciona-ipv6",
+    "title": "O que e IPv6 e Por Que Voce Deveria se Importar",
+    "description": "IPv6 esta substituindo o IPv4. Entenda por que, como funciona e se seu provedor ja oferece suporte a IPv6.",
+    "keywords": ["o que e IPv6", "IPv6 vs IPv4", "provedor IPv6", "IPv6 Brasil", "vantagens IPv6"],
+    "category": "IP & Rede",
+    "emoji": "🌐",
+    "reading_time": "5 min",
+    "related": [
+      {"title": "Como Descobrir Meu IP", "link": "/blog/como-descobrir-meu-ip.html"},
+      {"title": "Como Funciona o DNS", "link": "/blog/como-funciona-dns.html"}
+    ],
+    "tools": [
+      {"title": "Meu IP", "link": "/meu-ip.html"},
+      {"title": "Teste IPv6", "link": "/teste-ipv6.html"}
+    ]
+  },
+  {
+    "slug": "como-usar-chatgpt-para-trabalho",
+    "title": "Como Usar ChatGPT para Aumentar sua Produtividade no Trabalho",
+    "description": "30 prompts praticos para usar IA no trabalho. Email, planilhas, apresentacoes e automacao de tarefas repetitivas.",
+    "keywords": ["ChatGPT para trabalho", "usar IA produtividade", "prompts ChatGPT", "automatizar tarefas IA", "ChatGPT dicas"],
+    "category": "Produtividade",
+    "emoji": "🤖",
+    "reading_time": "7 min",
+    "related": [
+      {"title": "Marketing Digital Gratis", "link": "/blog/como-fazer-mkt-digital-gratis.html"},
+      {"title": "Como Abrir MEI", "link": "/blog/como-abrir-mei-passo-a-passo.html"}
+    ],
+    "tools": [
+      {"title": "Editor de Texto", "link": "/geradores/editor-texto.html"},
+      {"title": "Contador de Caracteres", "link": "/contador-caracteres.html"}
+    ]
+  },
+  {
+    "slug": "como-acelerar-internet-celular",
+    "title": "Como Acelerar a Internet do Celular — 4G e 5G Mais Rapido",
+    "description": "Internet do celular lenta? Veja como melhorar a velocidade do 4G e 5G. Dicas de operadora, APN e configuracoes.",
+    "keywords": ["acelerar internet celular", "4G lento", "melhorar sinal 4G", "configurar APN", "internet movel rapida"],
+    "category": "Internet",
+    "emoji": "📱",
+    "reading_time": "5 min",
+    "related": [
+      {"title": "Como Testar Velocidade da Internet", "link": "/blog/como-testar-velocidade-internet.html"},
+      {"title": "Como Melhorar WiFi", "link": "/blog/como-melhorar-wifi-casa.html"}
+    ],
+    "tools": [
+      {"title": "Teste de Velocidade", "link": "/teste-velocidade.html"},
+      {"title": "Meu IP", "link": "/meu-ip.html"}
+    ]
+  },
+  {
+    "slug": "o-que-e-ping-e-latencia",
+    "title": "O que e Ping e Latencia? Como Reduzir para Jogar Melhor",
+    "description": "Entenda ping, latencia e jitter. Como medir e reduzir o ping para jogos online e videochamadas sem lag.",
+    "keywords": ["o que e ping", "latencia internet", "ping alto jogo", "como diminuir ping", "jitter internet"],
+    "category": "Internet",
+    "emoji": "🎮",
+    "reading_time": "4 min",
+    "related": [
+      {"title": "Como Testar Velocidade da Internet", "link": "/blog/como-testar-velocidade-internet.html"},
+      {"title": "Como Escolher Provedor", "link": "/blog/como-escolher-provedor-internet.html"}
+    ],
+    "tools": [
+      {"title": "Teste de Velocidade", "link": "/teste-velocidade.html"},
+      {"title": "Meu IP", "link": "/meu-ip.html"}
+    ]
+  },
+  {
+    "slug": "como-fazer-backup-dados",
+    "title": "Como Fazer Backup dos seus Dados — Guia Completo",
+    "description": "Nao perca seus arquivos! Aprenda a fazer backup na nuvem, HD externo e NAS. Estrategia 3-2-1 explicada.",
+    "keywords": ["como fazer backup", "backup nuvem gratis", "salvar arquivos nuvem", "backup automatico", "recuperar arquivos"],
+    "category": "Tecnologia",
+    "emoji": "💾",
+    "reading_time": "6 min",
+    "related": [
+      {"title": "Como Proteger sua Privacidade Online", "link": "/blog/como-proteger-sua-privacidade-online.html"},
+      {"title": "Melhores Gerenciadores de Senhas", "link": "/blog/melhores-gerenciadores-de-senhas-2024.html"}
+    ],
+    "tools": [
+      {"title": "Gerador de Senha", "link": "/geradores/senha.html"},
+      {"title": "Conversor de Unidades", "link": "/conversor.html"}
+    ]
+  },
+  {
+    "slug": "como-configurar-roteador-wifi",
+    "title": "Como Configurar Roteador WiFi — Guia para Iniciantes",
+    "description": "Aprenda a configurar seu roteador do zero. Troque senha, nome da rede, canal e ative recursos de seguranca.",
+    "keywords": ["configurar roteador", "mudar senha wifi", "nome da rede wifi", "canal roteador", "configuracao router"],
+    "category": "Internet",
+    "emoji": "⚙️",
+    "reading_time": "6 min",
+    "related": [
+      {"title": "Como Melhorar WiFi", "link": "/blog/como-melhorar-wifi-casa.html"},
+      {"title": "Como Escolher Provedor", "link": "/blog/como-escolher-provedor-internet.html"}
+    ],
+    "tools": [
+      {"title": "Teste de Velocidade", "link": "/teste-velocidade.html"},
+      {"title": "Meu IP", "link": "/meu-ip.html"}
+    ]
+  },
+  {
+    "slug": "o-que-e-phishing-como-evitar",
+    "title": "O que e Phishing? Como Identificar e Evitar Golpes Online",
+    "description": "Aprenda a identificar emails, sites e mensagens falsas. Proteja-se contra phishing, smishing e vishing.",
+    "keywords": ["o que e phishing", "como evitar phishing", "email falso", "golpe online", "seguranca email"],
+    "category": "Seguranca",
+    "emoji": "🎣",
+    "reading_time": "5 min",
+    "related": [
+      {"title": "Como Proteger sua Privacidade Online", "link": "/blog/como-proteger-sua-privacidade-online.html"},
+      {"title": "Como Criar Senhas Seguras", "link": "/blog/como-criar-senhas-seguras.html"}
+    ],
+    "tools": [
+      {"title": "Gerador de Senha", "link": "/geradores/senha.html"},
+      {"title": "Validador de Email", "link": "/validadores/email.html"}
+    ]
+  },
+  {
+    "slug": "fibra-otica-vs-cabo-coaxial",
+    "title": "Fibra Otica vs Cabo Coaxial — Qual Internet e Melhor?",
+    "description": "Compare fibra otica e cabo coaxial. Velocidade, latencia, estabilidade, preco e disponibilidade por regiao.",
+    "keywords": ["fibra otica vs cabo", "melhor tipo internet", "fibra otica vantagens", "cabo coaxial internet", "internet fibra"],
+    "category": "Internet",
+    "emoji": "🔌",
+    "reading_time": "5 min",
+    "related": [
+      {"title": "Como Escolher Provedor", "link": "/blog/como-escolher-provedor-internet.html"},
+      {"title": "Como Testar Velocidade", "link": "/blog/como-testar-velocidade-internet.html"}
+    ],
+    "tools": [
+      {"title": "Teste de Velocidade", "link": "/teste-velocidade.html"},
+      {"title": "Meu IP", "link": "/meu-ip.html"}
+    ]
+  },
+  {
+    "slug": "como-usar-google-analytics",
+    "title": "Como Usar o Google Analytics 4 no seu Site — Guia Basico",
+    "description": "Aprenda a instalar e usar o Google Analytics 4. Relatorios, metricas essenciais e como interpretar os dados.",
+    "keywords": ["Google Analytics 4 tutorial", "como usar GA4", "instalar analytics", "metricas site", "visitantes site"],
+    "category": "Marketing",
+    "emoji": "📊",
+    "reading_time": "6 min",
+    "related": [
+      {"title": "Marketing Digital Gratis", "link": "/blog/como-fazer-mkt-digital-gratis.html"},
+      {"title": "Como Usar ChatGPT", "link": "/blog/como-usar-chatgpt-para-trabalho.html"}
+    ],
+    "tools": [
+      {"title": "Gerador de QR Code", "link": "/qr-code.html"},
+      {"title": "Editor de Texto", "link": "/geradores/editor-texto.html"}
+    ]
+  },
+  {
+    "slug": "o-que-e-cookie-navegador",
+    "title": "O que sao Cookies do Navegador? Entenda de uma Vez",
+    "description": "Cookies, sessoes, localStorage e sessionStorage explicados. O que os sites armazenam sobre voce e como limpar.",
+    "keywords": ["o que sao cookies", "cookies navegador", "limpar cookies", "cookies privacidade", "third party cookies"],
+    "category": "Tecnologia",
+    "emoji": "🍪",
+    "reading_time": "5 min",
+    "related": [
+      {"title": "Como Proteger sua Privacidade Online", "link": "/blog/como-proteger-sua-privacidade-online.html"},
+      {"title": "Navegadores Mais Seguros", "link": "/blog/guia-navegadores-seguros.html"}
+    ],
+    "tools": [
+      {"title": "Meu IP", "link": "/meu-ip.html"},
+      {"title": "Gerador de Token", "link": "/geradores/token.html"}
+    ]
+  },
+  {
+    "slug": "como-criar-site-gratis",
+    "title": "Como Criar um Site Gratis em 2024 — Guia Passo a Passo",
+    "description": "Crie seu site gratis com GitHub Pages, WordPress.com ou Wix. Comparativo e tutorial completo para iniciantes.",
+    "keywords": ["criar site gratis", "site gratis hospedagem", "GitHub Pages site", "Wix gratis", "site gratis passo a passo"],
+    "category": "Tecnologia",
+    "emoji": "🌐",
+    "reading_time": "7 min",
+    "related": [
+      {"title": "Marketing Digital Gratis", "link": "/blog/como-fazer-mkt-digital-gratis.html"},
+      {"title": "Como Abrir MEI", "link": "/blog/como-abrir-mei-passo-a-passo.html"}
+    ],
+    "tools": [
+      {"title": "Editor de Texto", "link": "/geradores/editor-texto.html"},
+      {"title": "Gerador de QR Code", "link": "/qr-code.html"}
+    ]
+  },
+  {
+    "slug": "o-que-e-dominio-dns-registro",
+    "title": "O que e Dominio, DNS e Registro BR? — Guia para Iniciantes",
+    "description": "Entenda como funciona um dominio (.com.br), DNS, nameservers, propagacao e como registrar seu dominio.",
+    "keywords": ["o que e dominio", "como registrar dominio", "DNS dominio", "registro BR", "configurar dominio"],
+    "category": "Internet",
+    "emoji": "🌐",
+    "reading_time": "5 min",
+    "related": [
+      {"title": "Como Funciona o DNS", "link": "/blog/como-funciona-dns.html"},
+      {"title": "Como Criar Site Gratis", "link": "/blog/como-criar-site-gratis.html"}
+    ],
+    "tools": [
+      {"title": "Meu IP", "link": "/meu-ip.html"},
+      {"title": "Conversor de Unidades", "link": "/conversor.html"}
+    ]
+  },
+  {
+    "slug": "como-recuperar-senhas-salvas",
+    "title": "Como Recuperar Senhas Salvas no Navegador",
+    "description": "Veja senhas salvas no Chrome, Firefox e Edge. Exporte, faca backup e migre para um gerenciador seguro.",
+    "keywords": ["ver senhas salvas Chrome", "recuperar senha navegador", "exportar senhas", "senhas salvas Firefox", "backup senhas"],
+    "category": "Tecnologia",
+    "emoji": "🔓",
+    "reading_time": "4 min",
+    "related": [
+      {"title": "Como Criar Senhas Seguras", "link": "/blog/como-criar-senhas-seguras.html"},
+      {"title": "Melhores Gerenciadores de Senhas", "link": "/blog/melhores-gerenciadores-de-senhas-2024.html"}
+    ],
+    "tools": [
+      {"title": "Gerador de Senha", "link": "/geradores/senha.html"},
+      {"title": "Validador de Senha", "link": "/validadores/senha.html"}
+    ]
+  },
+  {
+    "slug": "como-escolher-nome-empresa",
+    "title": "Como Escolher Nome para Empresa — Guia + Verificador Online",
+    "description": "Dicas para criar um nome de empresa memoravel. Verifique disponibilidade de dominio, redes sociais e Registro BR.",
+    "keywords": ["escolher nome empresa", "nome para empresa", "verificar nome empresa", "dominio empresa", "marca empresa"],
+    "category": "Empreendedorismo",
+    "emoji": "🏷️",
+    "reading_time": "5 min",
+    "related": [
+      {"title": "Como Abrir MEI", "link": "/blog/como-abrir-mei-passo-a-passo.html"},
+      {"title": "O que e CNPJ", "link": "/blog/o-que-e-cnpj.html"}
+    ],
+    "tools": [
+      {"title": "Gerador de CNPJ", "link": "/gerarcnpj.html"},
+      {"title": "Validar CNPJ", "link": "/validar-cnpj.html"}
+    ]
+  },
+  {
+    "slug": "o-que-e-criptografia-dados",
+    "title": "O que e Criptografia? Como Funciona a Protecao de Dados",
+    "description": "Criptografia simetrica vs assimetrica, SSL/TLS, HTTPS e criptografia de ponta a ponta. Entenda sem complicacao.",
+    "keywords": ["o que e criptografia", "criptografia dados", "SSL TLS", "HTTPS seguranca", "criptografia ponta a ponta"],
+    "category": "Seguranca",
+    "emoji": "🔏",
+    "reading_time": "6 min",
+    "related": [
+      {"title": "Como Proteger sua Privacidade Online", "link": "/blog/como-proteger-sua-privacidade-online.html"},
+      {"title": "O que e Proxy e VPN", "link": "/blog/o-que-e-proxy-e-vpn.html"}
+    ],
+    "tools": [
+      {"title": "Criptografia", "link": "/geradores/criptografia.html"},
+      {"title": "Gerador de Token", "link": "/geradores/token.html"}
+    ]
+  },
+  {
+    "slug": "como-usar-duas-internet-ao-mesmo-tempo",
+    "title": "Como Usar Duas Internet ao Mesmo Tempo — Bonding de Links",
+    "description": "Combine duas conexoes de internet para mais velocidade. Load balancing, failover e bonding explicados.",
+    "keywords": ["usar duas internet", "juntar internet", "load balancing", "bonding links", "duas conexoes internet"],
+    "category": "Internet",
+    "emoji": "🔗",
+    "reading_time": "5 min",
+    "related": [
+      {"title": "Como Testar Velocidade", "link": "/blog/como-testar-velocidade-internet.html"},
+      {"title": "Como Melhorar WiFi", "link": "/blog/como-melhorar-wifi-casa.html"}
+    ],
+    "tools": [
+      {"title": "Teste de Velocidade", "link": "/teste-velocidade.html"},
+      {"title": "Meu IP", "link": "/meu-ip.html"}
+    ]
+  },
+  {
+    "slug": "como-identificar-golpe-online",
+    "title": "Como Identificar Golpes Online — Guia de Seguranca 2024",
+    "description": "Aprenda a reconhecer os golpes mais comuns na internet. Pix falso, boleto falso, clone de WhatsApp e como se proteger.",
+    "keywords": ["golpes online", "como identificar golpe", "pix falso", "clone WhatsApp", "golpe internet"],
+    "category": "Seguranca",
+    "emoji": "⚠️",
+    "reading_time": "6 min",
+    "related": [
+      {"title": "O que e Phishing", "link": "/blog/o-que-e-phishing-como-evitar.html"},
+      {"title": "Como Proteger sua Privacidade", "link": "/blog/como-proteger-sua-privacidade-online.html"}
+    ],
+    "tools": [
+      {"title": "Validador de Email", "link": "/validadores/email.html"},
+      {"title": "Gerador de Senha", "link": "/geradores/senha.html"}
+    ]
+  },
+  {
+    "slug": "o-que-e-nft-criptomoedas",
+    "title": "O que sao NFTs e Criptomoedas? Guia para Iniciantes",
+    "description": "Entenda blockchain, Bitcoin, Ethereum e NFTs de forma simples. Riscos, oportunidades e como comecar com seguranca.",
+    "keywords": ["o que e NFT", "criptomoedas Brasil", "Bitcoin para iniciantes", "blockchain explicado", "Ethereum"],
+    "category": "Tecnologia",
+    "emoji": "₿",
+    "reading_time": "7 min",
+    "related": [
+      {"title": "O que e Criptografia", "link": "/blog/o-que-e-criptografia-dados.html"},
+      {"title": "Como Proteger sua Privacidade", "link": "/blog/como-proteger-sua-privacidade-online.html"}
+    ],
+    "tools": [
+      {"title": "Criptografia", "link": "/geradores/criptografia.html"},
+      {"title": "Conversor Numerico", "link": "/geradores/conversor-numerico.html"}
+    ]
+  },
+  {
+    "slug": "como-configurar-email-profissional",
+    "title": "Como Configurar Email Profissional com seu Dominio",
+    "description": "Crie email @suaempresa.com gratis com Zoho, Google Workspace ou Cloudflare. Guia passo a passo.",
+    "keywords": ["email profissional gratis", "email com dominio proprio", "Zoho Mail", "Google Workspace", "email empresa"],
+    "category": "Tecnologia",
+    "emoji": "📧",
+    "reading_time": "5 min",
+    "related": [
+      {"title": "O que e Dominio", "link": "/blog/o-que-e-dominio-dns-registro.html"},
+      {"title": "Como Criar Site Gratis", "link": "/blog/como-criar-site-gratis.html"}
+    ],
+    "tools": [
+      {"title": "Validador de Email", "link": "/validadores/email.html"},
+      {"title": "Gerador de Token", "link": "/geradores/token.html"}
+    ]
+  },
+  {
+    "slug": "como-criar-curriculo-online",
+    "title": "Como Criar Curriculo Online Gratis — Modelos e Dicas",
+    "description": "Crie um curriculo profissional online. Ferramentas gratuitas, dicas de conteudo e como se destacar no mercado.",
+    "keywords": ["criar curriculo online", "modelo curriculo gratis", "curriculo profissional", "fazer curriculo", "dicas curriculo"],
+    "category": "Produtividade",
+    "emoji": "📄",
+    "reading_time": "5 min",
+    "related": [
+      {"title": "Como Usar ChatGPT", "link": "/blog/como-usar-chatgpt-para-trabalho.html"},
+      {"title": "Como Abrir MEI", "link": "/blog/como-abrir-mei-passo-a-passo.html"}
+    ],
+    "tools": [
+      {"title": "Editor de Texto", "link": "/geradores/editor-texto.html"},
+      {"title": "Gerador de QR Code", "link": "/qr-code.html"}
+    ]
+  },
+  {
+    "slug": "o-que-e-cloud-computing",
+    "title": "O que e Cloud Computing? Guia para Iniciantes em 2024",
+    "description": "Entenda computacao em nuvem. IaaS, PaaS, SaaS, provedores (AWS, Azure, GCP) e como usar na sua empresa.",
+    "keywords": ["cloud computing", "computacao em nuvem", "o que e nuvem", "AWS Azure GCP", "nuvem para empresas"],
+    "category": "Tecnologia",
+    "emoji": "☁️",
+    "reading_time": "6 min",
+    "related": [
+      {"title": "Como Fazer Backup", "link": "/blog/como-fazer-backup-dados.html"},
+      {"title": "Como Criar Site Gratis", "link": "/blog/como-criar-site-gratis.html"}
+    ],
+    "tools": [
+      {"title": "Conversor de Unidades", "link": "/conversor.html"},
+      {"title": "Editor de Texto", "link": "/geradores/editor-texto.html"}
+    ]
+  },
+  {
+    "slug": "como-gerar-qrcode-profissional",
+    "title": "Como Gerar QR Code Profissional — Gratis e Personalizado",
+    "description": "Crie QR codes para WhatsApp, WiFi, cartao de visita e pagamentos. Ferramentas gratuitas e dicas de design.",
+    "keywords": ["gerar QR code", "QR code gratis", "QR code WhatsApp", "criar QR code", "QR code personalizado"],
+    "category": "Marketing",
+    "emoji": "📲",
+    "reading_time": "4 min",
+    "related": [
+      {"title": "Como Criar Link WhatsApp", "link": "/blog/como-criar-link-whatsapp.html"},
+      {"title": "Guia WhatsApp Business", "link": "/blog/guia-completo-whatsapp-business.html"}
+    ],
+    "tools": [
+      {"title": "Gerador de QR Code", "link": "/qr-code.html"},
+      {"title": "Link WhatsApp", "link": "/link-whatsapp.html"}
+    ]
+  },
+  {
+    "slug": "como-navegar-anonimo-internet",
+    "title": "Como Navegar Anonimo na Internet — Guia Pratico",
+    "description": "Modo anonimo, VPN, Tor e motores de busca privados. Como navegar sem deixar rastros na internet.",
+    "keywords": ["navegar anonimo", "internet anonima", "modo anonimo navegador", "busca privada", "navegar sem rastro"],
+    "category": "Seguranca",
+    "emoji": "🕵️",
+    "reading_time": "5 min",
+    "related": [
+      {"title": "O que e Proxy e VPN", "link": "/blog/o-que-e-proxy-e-vpn.html"},
+      {"title": "Navegadores Mais Seguros", "link": "/blog/guia-navegadores-seguros.html"}
+    ],
+    "tools": [
+      {"title": "Meu IP", "link": "/meu-ip.html"},
+      {"title": "Criptografia", "link": "/geradores/criptografia.html"}
+    ]
+  },
+  {
+    "slug": "como-fazer-home-office-produtivo",
+    "title": "Como Trabalhar em Home Office de Forma Produtiva",
+    "description": "Dicas praticas para ser produtivo trabalhando de casa. Rotina, ferramentas, ergonomia e evitar procrastinacao.",
+    "keywords": ["home office produtivo", "trabalhar em casa", "produtividade remoto", "ferramentas home office", "rotina home office"],
+    "category": "Produtividade",
+    "emoji": "🏠",
+    "reading_time": "6 min",
+    "related": [
+      {"title": "Como Usar ChatGPT", "link": "/blog/como-usar-chatgpt-para-trabalho.html"},
+      {"title": "Como Fazer Backup", "link": "/blog/como-fazer-backup-dados.html"}
+    ],
+    "tools": [
+      {"title": "Editor de Texto", "link": "/geradores/editor-texto.html"},
+      {"title": "Contador de Caracteres", "link": "/contador-caracteres.html"}
+    ]
+  },
+  {
+    "slug": "o-que-e-5g-como-funciona",
+    "title": "O que e 5G e Como Funciona no Brasil?",
+    "description": "Entenda a tecnologia 5G. Velocidades, latencia, cobertura no Brasil, frequencias e quando chegara na sua cidade.",
+    "keywords": ["o que e 5G", "5G Brasil", "cobertura 5G", "5G velocidade", "5G frequencia"],
+    "category": "Internet",
+    "emoji": "📡",
+    "reading_time": "5 min",
+    "related": [
+      {"title": "Como Acelerar Internet Celular", "link": "/blog/como-acelerar-internet-celular.html"},
+      {"title": "Fibra Otica vs Cabo", "link": "/blog/fibra-otica-vs-cabo-coaxial.html"}
+    ],
+    "tools": [
+      {"title": "Teste de Velocidade", "link": "/teste-velocidade.html"},
+      {"title": "Meu IP", "link": "/meu-ip.html"}
+    ]
+  },
+  {
+    "slug": "como-escolher-melhor-celular",
+    "title": "Como Escolher o Melhor Celular Custo-Beneficio em 2024",
+    "description": "Guia para escolher smartphone. Processador, RAM, camera, bateria, tela e os melhores modelos por faixa de preco.",
+    "keywords": ["melhor celular custo beneficio", "escolher smartphone", "celular 2024", "comprar celular", "smartphone barato bom"],
+    "category": "Tecnologia",
+    "emoji": "📱",
+    "reading_time": "6 min",
+    "related": [
+      {"title": "Como Acelerar Internet Celular", "link": "/blog/como-acelerar-internet-celular.html"},
+      {"title": "Como Fazer Backup", "link": "/blog/como-fazer-backup-dados.html"}
+    ],
+    "tools": [
+      {"title": "Conversor de Unidades", "link": "/conversor.html"},
+      {"title": "Meu IP", "link": "/meu-ip.html"}
+    ]
+  },
+  {
+    "slug": "o-que-e-inteligencia-artificial",
+    "title": "O que e Inteligencia Artificial? Guia Completo para Iniciantes",
+    "description": "IA, machine learning, deep learning e redes neurais explicados de forma simples. Aplicacoes no dia a dia.",
+    "keywords": ["o que e inteligencia artificial", "IA para iniciantes", "machine learning", "deep learning", "aplicacoes IA"],
+    "category": "Tecnologia",
+    "emoji": "🧠",
+    "reading_time": "7 min",
+    "related": [
+      {"title": "Como Usar ChatGPT", "link": "/blog/como-usar-chatgpt-para-trabalho.html"},
+      {"title": "O que e Cloud Computing", "link": "/blog/o-que-e-cloud-computing.html"}
+    ],
+    "tools": [
+      {"title": "Editor de Texto", "link": "/geradores/editor-texto.html"},
+      {"title": "Gerador de QR Code", "link": "/qr-code.html"}
+    ]
+  },
+  {
+    "slug": "como-organizar-financas-pessoais",
+    "title": "Como Organizar Financas Pessoais com Planilhas Gratis",
+    "description": "Controle gastos, faca orcamento e economize. Planilhas gratuitas, apps e metodo 50/30/20 explicado.",
+    "keywords": ["organizar financas pessoais", "planilha gastos", "controle financeiro", "orcamento pessoal", "economizar dinheiro"],
+    "category": "Produtividade",
+    "emoji": "💰",
+    "reading_time": "6 min",
+    "related": [
+      {"title": "Como Abrir MEI", "link": "/blog/como-abrir-mei-passo-a-passo.html"},
+      {"title": "Marketing Digital Gratis", "link": "/blog/como-fazer-mkt-digital-gratis.html"}
+    ],
+    "tools": [
+      {"title": "Conversor Numerico", "link": "/geradores/conversor-numerico.html"},
+      {"title": "Editor de Texto", "link": "/geradores/editor-texto.html"}
+    ]
+  },
+  {
+    "slug": "como-ler-contrato-internet",
+    "title": "Como Ler Contrato de Internet — Evite Ser Enganado",
+    "description": "Entenda as letras miudas do contrato de internet. Fruicao, taxa de instalacao, fidelidade e direitos do consumidor.",
+    "keywords": ["contrato internet", "fidelidade internet", "direitos consumidor internet", "taxa instalacao internet", "cancelar internet"],
+    "category": "Internet",
+    "emoji": "📑",
+    "reading_time": "5 min",
+    "related": [
+      {"title": "Como Escolher Provedor", "link": "/blog/como-escolher-provedor-internet.html"},
+      {"title": "Como Testar Velocidade", "link": "/blog/como-testar-velocidade-internet.html"}
+    ],
+    "tools": [
+      {"title": "Teste de Velocidade", "link": "/teste-velocidade.html"},
+      {"title": "Meu IP", "link": "/meu-ip.html"}
+    ]
+  },
+  {
+    "slug": "o-que-e-big-data",
+    "title": "O que e Big Data? Como os Dados Movimentam o Mundo",
+    "description": "Big Data, data science, analytics e business intelligence explicados. Como empresas usam dados para decidir.",
+    "keywords": ["o que e big data", "big data Brasil", "data science", "analytics", "business intelligence"],
+    "category": "Tecnologia",
+    "emoji": "📈",
+    "reading_time": "6 min",
+    "related": [
+      {"title": "O que e Inteligencia Artificial", "link": "/blog/o-que-e-inteligencia-artificial.html"},
+      {"title": "Como Usar Google Analytics", "link": "/blog/como-usar-google-analytics.html"}
+    ],
+    "tools": [
+      {"title": "Editor de Texto", "link": "/geradores/editor-texto.html"},
+      {"title": "Conversor Numerico", "link": "/geradores/conversor-numerico.html"}
+    ]
+  },
+  {
+    "slug": "como-criar-apresentacao-profissional",
+    "title": "Como Criar Apresentacao Profissional — Ferramentas Gratis",
+    "description": "Crie slides profissionais com Canva, Google Slides e PowerPoint online. Templates, dicas de design e storytelling.",
+    "keywords": ["criar apresentacao profissional", "slides gratis", "Canva apresentacao", "templates slides", "design apresentacao"],
+    "category": "Produtividade",
+    "emoji": "🎯",
+    "reading_time": "5 min",
+    "related": [
+      {"title": "Como Usar ChatGPT", "link": "/blog/como-usar-chatgpt-para-trabalho.html"},
+      {"title": "Como Criar Curriculo", "link": "/blog/como-criar-curriculo-online.html"}
+    ],
+    "tools": [
+      {"title": "Editor de Texto", "link": "/geradores/editor-texto.html"},
+      {"title": "Gerador de QR Code", "link": "/qr-code.html"}
+    ]
+  },
+  {
+    "slug": "como-fazer-live-streaming",
+    "title": "Como Fazer Live Streaming — Guia para Iniciantes",
+    "description": "Transmissao ao vivo no YouTube, Instagram, Twitch e TikTok. Equipamentos, softwares e dicas de engajamento.",
+    "keywords": ["fazer live", "live streaming", "transmissao ao vivo", "live YouTube", "comecar a fazer live"],
+    "category": "Marketing",
+    "emoji": "🎥",
+    "reading_time": "6 min",
+    "related": [
+      {"title": "Marketing Digital Gratis", "link": "/blog/como-fazer-mkt-digital-gratis.html"},
+      {"title": "Guia WhatsApp Business", "link": "/blog/guia-completo-whatsapp-business.html"}
+    ],
+    "tools": [
+      {"title": "Editor de Texto", "link": "/geradores/editor-texto.html"},
+      {"title": "Gerador de QR Code", "link": "/qr-code.html"}
+    ]
+  },
+  {
+    "slug": "o-que-e-rede-mesh-wifi",
+    "title": "O que e Rede Mesh WiFi? Resolva Pontos Cegos em Casa",
+    "description": "Rede mesh vs repetidor WiFi. Como funciona, melhores marcas, configuracao e quando vale a pena investir.",
+    "keywords": ["rede mesh wifi", "mesh vs repetidor", "melhor mesh wifi", "wifi mesh Brasil", "ponto cego wifi"],
+    "category": "Internet",
+    "emoji": "📶",
+    "reading_time": "5 min",
+    "related": [
+      {"title": "Como Melhorar WiFi", "link": "/blog/como-melhorar-wifi-casa.html"},
+      {"title": "Como Configurar Roteador", "link": "/blog/como-configurar-roteador-wifi.html"}
+    ],
+    "tools": [
+      {"title": "Teste de Velocidade", "link": "/teste-velocidade.html"},
+      {"title": "Meu IP", "link": "/meu-ip.html"}
+    ]
+  },
+  {
+    "slug": "como-proteger-contas-redes-sociais",
+    "title": "Como Proteger suas Contas de Redes Sociais — Guia de Seguranca",
+    "description": "Autenticacao de dois fatores, senhas fortes e configuracoes de privacidade. Proteja Instagram, Facebook e TikTok.",
+    "keywords": ["proteger Instagram", "seguranca redes sociais", "autenticacao dois fatores", "conta hackeada", "privacidade Instagram"],
+    "category": "Seguranca",
+    "emoji": "📱",
+    "reading_time": "5 min",
+    "related": [
+      {"title": "Como Identificar Golpes Online", "link": "/blog/como-identificar-golpe-online.html"},
+      {"title": "Como Criar Senhas Seguras", "link": "/blog/como-criar-senhas-seguras.html"}
+    ],
+    "tools": [
+      {"title": "Gerador de Senha", "link": "/geradores/senha.html"},
+      {"title": "Validador de Email", "link": "/validadores/email.html"}
+    ]
+  },
+  {
+    "slug": "como-escolher-plano-celular",
+    "title": "Como Escolher o Melhor Plano de Celular — Comparativo 2024",
+    "description": "Compare planos pre, pos e controle. Qual a melhor operadora? Dicas para pagar menos e usar mais internet.",
+    "keywords": ["melhor plano celular", "comparar plano celular", "plano pre pos controle", "operadora celular", "internet celular"],
+    "category": "Internet",
+    "emoji": "📞",
+    "reading_time": "6 min",
+    "related": [
+      {"title": "Como Acelerar Internet Celular", "link": "/blog/como-acelerar-internet-celular.html"},
+      {"title": "O que e 5G", "link": "/blog/o-que-e-5g-como-funciona.html"}
+    ],
+    "tools": [
+      {"title": "Teste de Velocidade", "link": "/teste-velocidade.html"},
+      {"title": "Meu IP", "link": "/meu-ip.html"}
+    ]
+  },
+  {
+    "slug": "como-usar-google-workspace-gratis",
+    "title": "Como Usar Google Workspace de Graca — Truques e Alternativas",
+    "description": "Use Gmail, Drive, Docs e Planilhas com dominio proprio sem pagar. Alternativas gratuitas ao Google Workspace.",
+    "keywords": ["Google Workspace gratis", "Gmail dominio proprio", "Google Drive gratis", "alternativa Google Workspace", "email gratis dominio"],
+    "category": "Tecnologia",
+    "emoji": "🔧",
+    "reading_time": "5 min",
+    "related": [
+      {"title": "Como Configurar Email Profissional", "link": "/blog/como-configurar-email-profissional.html"},
+      {"title": "O que e Cloud Computing", "link": "/blog/o-que-e-cloud-computing.html"}
+    ],
+    "tools": [
+      {"title": "Validador de Email", "link": "/validadores/email.html"},
+      {"title": "Editor de Texto", "link": "/geradores/editor-texto.html"}
+    ]
+  },
+  {
+    "slug": "como-fazer-seo-site",
+    "title": "Como Fazer SEO do Zero — Guia Completo para Iniciantes",
+    "description": "Aprenda SEO on-page, off-page, tecnico e local. Otimizacao de conteudo, keywords e backlinks explicados.",
+    "keywords": ["como fazer SEO", "SEO para iniciantes", "otimizacao site Google", "SEO tutorial", "ranquear no Google"],
+    "category": "Marketing",
+    "emoji": "🔍",
+    "reading_time": "8 min",
+    "related": [
+      {"title": "Marketing Digital Gratis", "link": "/blog/como-fazer-mkt-digital-gratis.html"},
+      {"title": "Como Usar Google Analytics", "link": "/blog/como-usar-google-analytics.html"}
+    ],
+    "tools": [
+      {"title": "Gerador de QR Code", "link": "/qr-code.html"},
+      {"title": "Editor de Texto", "link": "/geradores/editor-texto.html"}
+    ]
+  },
+  {
+    "slug": "o-que-e-internet-das-coisas",
+    "title": "O que e Internet das Coisas (IoT)? Casa Conectada Explicada",
+    "description": "IoT, casa inteligente, automacao residencial e dispositivos conectados. Exemplos praticos e seguranca.",
+    "keywords": ["Internet das Coisas", "IoT casa inteligente", "automatizacao residencial", "dispositivos conectados", "casa conectada"],
+    "category": "Tecnologia",
+    "emoji": "🏠",
+    "reading_time": "5 min",
+    "related": [
+      {"title": "Como Melhorar WiFi", "link": "/blog/como-melhorar-wifi-casa.html"},
+      {"title": "O que e 5G", "link": "/blog/o-que-e-5g-como-funciona.html"}
+    ],
+    "tools": [
+      {"title": "Teste de Velocidade", "link": "/teste-velocidade.html"},
+      {"title": "Meu IP", "link": "/meu-ip.html"}
+    ]
+  },
+  {
+    "slug": "como-criar-ebook-gratis",
+    "title": "Como Criar um Ebook Gratis — Do Rascunho a Publicacao",
+    "description": "Crie ebooks profissionais sem gastar nada. Ferramentas, formatos, capa e como distribuir na internet.",
+    "keywords": ["criar ebook gratis", "fazer ebook", "ebook PDF", "ferramenta ebook gratis", "publicar ebook"],
+    "category": "Marketing",
+    "emoji": "📖",
+    "reading_time": "6 min",
+    "related": [
+      {"title": "Marketing Digital Gratis", "link": "/blog/como-fazer-mkt-digital-gratis.html"},
+      {"title": "Como Usar ChatGPT", "link": "/blog/como-usar-chatgpt-para-trabalho.html"}
+    ],
+    "tools": [
+      {"title": "Editor de Texto", "link": "/geradores/editor-texto.html"},
+      {"title": "Gerador de QR Code", "link": "/qr-code.html"}
+    ]
+  },
+  {
+    "slug": "como-saber-se-site-e-seguro",
+    "title": "Como Saber se um Site e Seguro — 5 Verificacoes Rapidas",
+    "description": "HTTPS, certificado SSL, politica de privacidade e mais. Aprenda a identificar sites seguros e golpes online.",
+    "keywords": ["site seguro", "verificar site seguro", "HTTPS SSL", "certificado seguranca site", "site confiavel"],
+    "category": "Seguranca",
+    "emoji": "🔒",
+    "reading_time": "4 min",
+    "related": [
+      {"title": "O que e Phishing", "link": "/blog/o-que-e-phishing-como-evitar.html"},
+      {"title": "Como Identificar Golpes Online", "link": "/blog/como-identificar-golpe-online.html"}
+    ],
+    "tools": [
+      {"title": "Validador de Email", "link": "/validadores/email.html"},
+      {"title": "Meu IP", "link": "/meu-ip.html"}
+    ]
+  },
+  {
+    "slug": "o-que-e-realidade-virtual-aumentada",
+    "title": "Realidade Virtual e Aumentada — O que e e Como Funciona",
+    "description": "VR, AR e MR explicados. Oculos, aplicacoes, jogos e o futuro da experiencia imersiva no Brasil.",
+    "keywords": ["realidade virtual", "realidade aumentada", "VR AR", "oculos VR", "metaverso"],
+    "category": "Tecnologia",
+    "emoji": "🥽",
+    "reading_time": "5 min",
+    "related": [
+      {"title": "O que e Inteligencia Artificial", "link": "/blog/o-que-e-inteligencia-artificial.html"},
+      {"title": "O que e 5G", "link": "/blog/o-que-e-5g-como-funciona.html"}
+    ],
+    "tools": [
+      {"title": "Editor de Texto", "link": "/geradores/editor-texto.html"},
+      {"title": "Conversor Numerico", "link": "/geradores/conversor-numerico.html"}
+    ]
+  },
+  {
+    "slug": "como-denunciar-crime-digital",
+    "title": "Como Denunciar Crime na Internet — Passo a Passo",
+    "description": "Saiba onde e como denunciar crimes digitais. Cyberbullying, fraudes, injuria e os orgaos competentes no Brasil.",
+    "keywords": ["denunciar crime internet", "denuncia digital", "cyberbullying denuncia", "fraude online denunciar", "delegacia cybercrime"],
+    "category": "Seguranca",
+    "emoji": "🚨",
+    "reading_time": "5 min",
+    "related": [
+      {"title": "Como Identificar Golpes Online", "link": "/blog/como-identificar-golpe-online.html"},
+      {"title": "O que e Phishing", "link": "/blog/o-que-e-phishing-como-evitar.html"}
+    ],
+    "tools": [
+      {"title": "Validador de Email", "link": "/validadores/email.html"},
+      {"title": "Gerador de Senha", "link": "/geradores/senha.html"}
+    ]
+  },
+  {
+    "slug": "como-criar-graficos-planilhas",
+    "title": "Como Criar Graficos e Planilhas Profissionais — Gratis",
+    "description": "Crie graficos profissionais com Google Sheets e Excel Online. Dicas de visualizacao de dados e dashboards.",
+    "keywords": ["criar graficos planilha", "graficos Google Sheets", "planilha profissional", "dashboard gratis", "visualizacao dados"],
+    "category": "Produtividade",
+    "emoji": "📊",
+    "reading_time": "5 min",
+    "related": [
+      {"title": "Como Organizar Financas", "link": "/blog/como-organizar-financas-pessoais.html"},
+      {"title": "Como Usar Google Analytics", "link": "/blog/como-usar-google-analytics.html"}
+    ],
+    "tools": [
+      {"title": "Graficos", "link": "/geradores/graficos.html"},
+      {"title": "Conversor Numerico", "link": "/geradores/conversor-numerico.html"}
+    ]
+  },
+  {
+    "slug": "o-que-e-acessibilidade-digital",
+    "title": "O que e Acessibilidade Digital? Guia para Sites Inclusivos",
+    "description": "WCAG, leitores de tela, contraste e navegacao por teclado. Como tornar seu site acessivel a todos.",
+    "keywords": ["acessibilidade digital", "site acessivel", "WCAG", "inclusao digital", "deficiencia visual site"],
+    "category": "Tecnologia",
+    "emoji": "♿",
+    "reading_time": "5 min",
+    "related": [
+      {"title": "Como Criar Site Gratis", "link": "/blog/como-criar-site-gratis.html"},
+      {"title": "Como Fazer SEO", "link": "/blog/como-fazer-seo-site.html"}
+    ],
+    "tools": [
+      {"title": "Editor de Texto", "link": "/geradores/editor-texto.html"},
+      {"title": "Conversor de Cores", "link": "/geradores/conversor-cores.html"}
+    ]
+  },
+  {
+    "slug": "como-usar-tiktok-para-negocio",
+    "title": "Como Usar TikTok para Negocio — Estrategias que Funcionam",
+    "description": "TikTok para empresas. Criacao de conteudo, tendencias, hashtags e como converter visualizacoes em vendas.",
+    "keywords": ["TikTok negocio", "TikTok empresa", "vender pelo TikTok", "marketing TikTok", "TikTok Brasil"],
+    "category": "Marketing",
+    "emoji": "🎵",
+    "reading_time": "6 min",
+    "related": [
+      {"title": "Marketing Digital Gratis", "link": "/blog/como-fazer-mkt-digital-gratis.html"},
+      {"title": "Como Fazer Live Streaming", "link": "/blog/como-fazer-live-streaming.html"}
+    ],
+    "tools": [
+      {"title": "Gerador de QR Code", "link": "/qr-code.html"},
+      {"title": "Link WhatsApp", "link": "/link-whatsapp.html"}
+    ]
+  },
+  {
+    "slug": "como-economizar-dados-moveis",
+    "title": "Como Economizar Dados Moveis no Celular — 15 Dicas",
+    "description": "Reduza o consumo de internet do celular. Modo economia, limites de apps, compressao e operadoras com mais franquia.",
+    "keywords": ["economizar dados moveis", "reduzir consumo internet", "modo economia dados", "franquia internet", "dados moveis acabando"],
+    "category": "Internet",
+    "emoji": "📱",
+    "reading_time": "5 min",
+    "related": [
+      {"title": "Como Acelerar Internet Celular", "link": "/blog/como-acelerar-internet-celular.html"},
+      {"title": "Como Escolher Plano Celular", "link": "/blog/como-escolher-plano-celular.html"}
+    ],
+    "tools": [
+      {"title": "Teste de Velocidade", "link": "/teste-velocidade.html"},
+      {"title": "Meu IP", "link": "/meu-ip.html"}
+    ]
+  },
+  {
+    "slug": "o-que-e-api-como-funciona",
+    "title": "O que e API e Como Funciona? Guia para Nao Desenvolvedores",
+    "description": "APIs REST, JSON, endpoints e integracoes explicados com analogias simples. Como APIs conectam o mundo digital.",
+    "keywords": ["o que e API", "API como funciona", "API REST", "integracao API", "API para iniciantes"],
+    "category": "Tecnologia",
+    "emoji": "🔌",
+    "reading_time": "5 min",
+    "related": [
+      {"title": "O que e Cloud Computing", "link": "/blog/o-que-e-cloud-computing.html"},
+      {"title": "Como Criar Site Gratis", "link": "/blog/como-criar-site-gratis.html"}
+    ],
+    "tools": [
+      {"title": "Gerador de Token", "link": "/geradores/token.html"},
+      {"title": "Editor de Texto", "link": "/geradores/editor-texto.html"}
+    ]
+  },
+  {
+    "slug": "como-montar-pc-gamer-barato",
+    "title": "Como Montar um PC Gamer Barato em 2024 — Configuracoes",
+    "description": "Monte um PC gamer custo-beneficio. Processador, placa de video, memoria e SSD com as melhores opcoes por preco.",
+    "keywords": ["PC gamer barato", "montar PC gamer", "configuracao PC custo beneficio", "PC gamer 2024", "placa de video barata"],
+    "category": "Tecnologia",
+    "emoji": "🎮",
+    "reading_time": "7 min",
+    "related": [
+      {"title": "O que e Ping e Latencia", "link": "/blog/o-que-e-ping-e-latencia.html"},
+      {"title": "Como Melhorar WiFi", "link": "/blog/como-melhorar-wifi-casa.html"}
+    ],
+    "tools": [
+      {"title": "Conversor Numerico", "link": "/geradores/conversor-numerico.html"},
+      {"title": "Teste de Velocidade", "link": "/teste-velocidade.html"}
+    ]
+  },
+  {
+    "slug": "como-gerar-conteudo-com-ia",
+    "title": "Como Gerar Conteudo com IA — Ferramentas e Estrategias 2024",
+    "description": "Use IA para criar textos, imagens e ideias. ChatGPT, Gemini, Claude e melhores praticas para conteudo original.",
+    "keywords": ["gerar conteudo com IA", "IA para criar texto", "ChatGPT conteudo", "ferramentas IA gratis", "conteudo com inteligencia artificial"],
+    "category": "Produtividade",
+    "emoji": "🤖",
+    "reading_time": "6 min",
+    "related": [
+      {"title": "Como Usar ChatGPT", "link": "/blog/como-usar-chatgpt-para-trabalho.html"},
+      {"title": "Como Fazer SEO", "link": "/blog/como-fazer-seo-site.html"}
+    ],
+    "tools": [
+      {"title": "Editor de Texto", "link": "/geradores/editor-texto.html"},
+      {"title": "Gerador de Texto", "link": "/geradores/texto-aleatorio.html"}
+    ]
+  },
+  {
+    "slug": "como-criar-podcast-gratis",
+    "title": "Como Criar um Podcast do Zero — Gravacao, Edicao e Publicacao",
+    "description": "Crie seu podcast gratis. Equipamento basico, gravacao pelo celular, edicao e como publicar no Spotify e Apple.",
+    "keywords": ["criar podcast gratis", "como fazer podcast", "gravar podcast celular", "podcast Spotify", "editar podcast"],
+    "category": "Marketing",
+    "emoji": "🎙️",
+    "reading_time": "6 min",
+    "related": [
+      {"title": "Como Fazer Live Streaming", "link": "/blog/como-fazer-live-streaming.html"},
+      {"title": "Marketing Digital Gratis", "link": "/blog/como-fazer-mkt-digital-gratis.html"}
+    ],
+    "tools": [
+      {"title": "Editor de Texto", "link": "/geradores/editor-texto.html"},
+      {"title": "Gerador de QR Code", "link": "/qr-code.html"}
+    ]
+  },
+  {
+    "slug": "o-que-e-blockchain-como-funciona",
+    "title": "O que e Blockchain? A Tecnologia Atras das Criptomoedas",
+    "description": "Blockchain explicado de forma simples. Blocos, mineracao, smart contracts e aplicacoes alem das criptomoedas.",
+    "keywords": ["o que e blockchain", "blockchain como funciona", "tecnologia blockchain", "smart contracts", "blockchain aplicacoes"],
+    "category": "Tecnologia",
+    "emoji": "⛓️",
+    "reading_time": "6 min",
+    "related": [
+      {"title": "O que sao NFTs e Criptomoedas", "link": "/blog/o-que-e-nft-criptomoedas.html"},
+      {"title": "O que e Criptografia", "link": "/blog/o-que-e-criptografia-dados.html"}
+    ],
+    "tools": [
+      {"title": "Criptografia", "link": "/geradores/criptografia.html"},
+      {"title": "Gerador de Token", "link": "/geradores/token.html"}
+    ]
+  },
+  {
+    "slug": "como-trabalhar-como-freelancer",
+    "title": "Como Trabalhar como Freelancer na Internet — Guia Completo",
+    "description": "Comece a trabalhar freelance. Plataformas, precificacao, contratos e como conseguir seus primeiros clientes online.",
+    "keywords": ["trabalhar freelancer", "freelancer Brasil", "plataformas freelance", "home office freelancer", "ganhar dinheiro internet"],
+    "category": "Empreendedorismo",
+    "emoji": "💻",
+    "reading_time": "7 min",
+    "related": [
+      {"title": "Como Abrir MEI", "link": "/blog/como-abrir-mei-passo-a-passo.html"},
+      {"title": "Como Usar ChatGPT", "link": "/blog/como-usar-chatgpt-para-trabalho.html"}
+    ],
+    "tools": [
+      {"title": "Editor de Texto", "link": "/geradores/editor-texto.html"},
+      {"title": "Contador de Caracteres", "link": "/contador-caracteres.html"}
+    ]
+  },
+  {
+    "slug": "como-ler-codigo-barras-boleto",
+    "title": "Como Funciona o Codigo de Barras do Boleto Bancario",
+    "description": "Entenda a linha digitavel e codigo de barras de boletos. Como validar, estrutura e seguranca do documento.",
+    "keywords": ["codigo barras boleto", "linha digitavel boleto", "validar boleto", "como funciona boleto", "boleto bancario"],
+    "category": "Documentos",
+    "emoji": "💳",
+    "reading_time": "4 min",
+    "related": [
+      {"title": "O que e CPF", "link": "/blog/o-que-e-cpf.html"},
+      {"title": "O que e CNPJ", "link": "/blog/o-que-e-cnpj.html"}
+    ],
+    "tools": [
+      {"title": "Gerador de Codigo de Barras", "link": "/geradores/codigo-barras.html"},
+      {"title": "Conversor Numerico", "link": "/geradores/conversor-numerico.html"}
+    ]
+  }
+]

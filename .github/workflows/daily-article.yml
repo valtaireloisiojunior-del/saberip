@@ -1,0 +1,45 @@
+name: Daily Article Generator
+
+on:
+  schedule:
+    # Roda todo dia as 8h da manha (UTC-3 = 11h UTC)
+    - cron: '0 11 * * *'
+  workflow_dispatch:
+    inputs:
+      topic_index:
+        description: 'Indice do topico no banco (opcional)'
+        required: false
+        default: ''
+
+permissions:
+  contents: write
+
+jobs:
+  generate-and-publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Generate article
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          TOPIC_INDEX: ${{ github.event.inputs.topic_index }}
+        run: python scripts/article_generator.py
+
+      - name: Commit and push new article
+        run: |
+          git config user.name "Article Bot"
+          git config user.email "bot@seuip.org"
+          git add blog/
+          git diff --cached --quiet || git commit -m "$(cat scripts/.last_commit_msg 2>/dev/null || echo 'Add new daily article')"
+          git push
