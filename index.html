@@ -1,190 +1,101 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <title>Qual é meu IP? Descubra seu IP público agora</title>
-
-  <meta name="description" content="Veja seu IP público instantaneamente. Descubra IPv4, IPv6, localização, provedor e mais ferramentas online gratuitas.">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <style>
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #0b0b0b;
-      color: #ffffff;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-    }
-
-    .container {
-      width: 100%;
-      max-width: 900px;
-      padding: 20px;
-      text-align: center;
-    }
-
-    h1 {
-      font-size: 20px;
-      font-weight: normal;
-      color: #aaa;
-      margin-bottom: 10px;
-    }
-
-    .ip {
-      font-size: 42px;
-      font-weight: bold;
-      color: #00ff99;
-      margin: 10px 0;
-      word-break: break-all;
-    }
-
-    .geo {
-      font-size: 15px;
-      color: #bbb;
-      margin-bottom: 25px;
-    }
-
-    .actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      justify-content: center;
-      margin-bottom: 35px;
-    }
-
-    .btn {
-      background: #00ff99;
-      color: #000;
-      padding: 14px 22px;
-      border-radius: 10px;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 14px;
-      border: none;
-      cursor: pointer;
-      min-width: 160px;
-    }
-
-    .btn.secondary {
-      background: #1b1b1b;
-      color: #00ff99;
-      border: 1px solid #00ff99;
-    }
-
-    .btn:hover {
-      opacity: 0.85;
-    }
-
-    .tools {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 15px;
-    }
-
-    .tool {
-      background: #111;
-      padding: 18px;
-      border-radius: 12px;
-      text-decoration: none;
-      color: #fff;
-      border: 1px solid #1f1f1f;
-    }
-
-    .tool h3 {
-      margin: 0 0 6px 0;
-      color: #00ff99;
-      font-size: 16px;
-    }
-
-    .tool p {
-      margin: 0;
-      font-size: 13px;
-      color: #aaa;
-    }
-
-    footer {
-      margin-top: 30px;
-      font-size: 13px;
-      color: #666;
-    }
-
-    footer a {
-      color: #00ff99;
-      text-decoration: none;
-      margin: 0 6px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#00ff99">
+    <title>SEUIP.ORG | Todas as Ferramentas Online Grátis</title>
+    <meta name="description" content="Portal com 80+ ferramentas online 100% grátis: IP, CEP, CPF, CNPJ, Senhas, QR Code, WhatsApp e muito mais!">
+    <link rel="canonical" href="https://seuip.org/">
+    <meta property="og:title" content="SEUIP.ORG | Todas as Ferramentas Online Grátis">
+    <meta property="og:description" content="80+ ferramentas online gratuitas em um só lugar!">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://seuip.org/">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MCNWEQ8XMH"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-MCNWEQ8XMH');</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2713105320249369" crossorigin="anonymous"></script>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+        :root{--primary:#00ff99;--primary-dark:#00cc77;--bg:#0d0d0d;--bg-card:#1a1a1a;--text:#fff;--text-secondary:#aaa;--border:#333;--radius:12px;--radius-sm:8px;--shadow:0 8px 32px rgba(0,0,0,0.3);--transition:all 0.3s ease}
+        html{scroll-behavior:smooth}
+        body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh;overflow-x:hidden}
+        .main-header{text-align:center;padding:1.5rem 1rem;background:linear-gradient(180deg,rgba(0,255,153,0.1) 0%,transparent 100%);position:relative;overflow:hidden}
+        .main-header::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--primary),transparent);animation:shine 3s infinite}
+        @keyframes shine{0%{background-position:-200px 0}100%{background-position:calc(100% + 200px) 0}}
+        .logo{font-size:2.2rem;font-weight:900;color:var(--primary);text-decoration:none;display:block;margin-bottom:0.5rem;letter-spacing:-1px}
+        .tagline{color:var(--text-secondary);font-size:1rem;max-width:600px;margin:0 auto 1rem}
+        .live-badge{display:inline-flex;align-items:center;gap:0.5rem;background:rgba(0,255,153,0.1);color:var(--primary);padding:0.5rem 1rem;border-radius:100px;font-size:0.9rem;font-weight:600;border:1px solid rgba(0,255,153,0.3);margin:0.5rem 0}
+        .ip-display-container{background:var(--bg-card);border-radius:var(--radius);padding:1.5rem;margin:1.5rem auto;max-width:800px;border:1px solid var(--border);position:relative}
+        .ip-label{color:var(--primary);font-size:0.9rem;text-transform:uppercase;letter-spacing:1px;margin-bottom:0.5rem;display:flex;align-items:center;gap:0.5rem}
+        .ip-value{font-family:'Courier New',monospace;font-size:1.8rem;color:var(--primary);font-weight:700;word-break:break-all;padding:1rem;background:rgba(0,0,0,0.3);border-radius:var(--radius-sm);margin:1rem 0;text-align:center;animation:pulse 2s infinite}
+        @keyframes pulse{0%,100%{opacity:1}50%{opacity:0.8}}
+        .quick-actions{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:0.75rem;margin:1rem 0}
+        .quick-btn{background:rgba(0,255,153,0.1);color:var(--primary);border:1px solid rgba(0,255,153,0.3);border-radius:var(--radius-sm);padding:0.8rem;font-size:0.9rem;font-weight:600;text-decoration:none;display:flex;align-items:center;justify-content:center;gap:0.5rem;transition:var(--transition);text-align:center}
+        .quick-btn:hover,.quick-btn:active{background:rgba(0,255,153,0.2);transform:translateY(-2px)}
+        .quick-btn.primary{background:var(--primary);color:var(--bg);font-weight:700}
+        .search-container{max-width:600px;margin:1.5rem auto;position:relative}
+        .search-input{width:100%;padding:1rem 1rem 1rem 3rem;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);color:var(--text);font-size:1rem;transition:var(--transition)}
+        .search-input:focus{outline:none;border-color:var(--primary);box-shadow:0 0 0 3px rgba(0,255,153,0.1)}
+        .search-icon{position:absolute;left:1rem;top:50%;transform:translateY(-50%);color:var(--primary)}
+        .category-section{margin:2rem 0;padding:0 1rem}
+        .category-title{color:var(--primary);font-size:1.5rem;margin-bottom:1.5rem;display:flex;align-items:center;gap:0.5rem;padding-bottom:0.5rem;border-bottom:2px solid rgba(0,255,153,0.3)}
+        .tools-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1rem;margin-bottom:2rem}
+        @media(max-width:640px){.tools-grid{grid-template-columns:1fr}}
+        .tool-card{background:var(--bg-card);border-radius:var(--radius);padding:1.5rem;border:1px solid var(--border);transition:var(--transition);display:flex;flex-direction:column;position:relative}
+        .tool-card:hover{border-color:var(--primary);transform:translateY(-4px);box-shadow:0 12px 24px rgba(0,0,0,0.4)}
+        .tool-header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem}
+        .tool-icon{font-size:1.8rem;color:var(--primary);background:rgba(0,255,153,0.1);width:48px;height:48px;border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:center}
+        .tool-badge{background:rgba(255,68,68,0.2);color:#ff6b6b;font-size:0.7rem;font-weight:700;padding:0.25rem 0.75rem;border-radius:100px;text-transform:uppercase;letter-spacing:0.5px}
+        .tool-badge.new{background:rgba(0,255,153,0.2);color:var(--primary)}
+        .tool-title{font-size:1.2rem;font-weight:700;margin-bottom:0.5rem;line-height:1.3;flex:1}
+        .tool-desc{color:var(--text-secondary);font-size:0.9rem;margin-bottom:1rem;line-height:1.5;flex:1}
+        .tool-link{background:rgba(0,255,153,0.1);color:var(--primary);border:1px solid rgba(0,255,153,0.3);border-radius:var(--radius-sm);padding:0.8rem;font-weight:600;text-decoration:none;text-align:center;transition:var(--transition);display:flex;align-items:center;justify-content:center;gap:0.5rem;margin-top:auto}
+        .tool-link:hover{background:rgba(0,255,153,0.2)}
+        .highlight-section{background:linear-gradient(135deg,rgba(0,255,153,0.05) 0%,rgba(0,0,0,0) 100%);border-radius:var(--radius);padding:1.5rem;margin:2rem 1rem;border:1px solid rgba(0,255,153,0.1)}
+        .floating-btn{position:fixed;bottom:1.5rem;right:1.5rem;background:var(--primary);color:var(--bg);width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.5rem;text-decoration:none;box-shadow:0 8px 24px rgba(0,255,153,0.3);z-index:1000;transition:var(--transition);border:none;cursor:pointer}
+        .floating-btn:hover{transform:scale(1.1);box-shadow:0 12px 32px rgba(0,255,153,0.4)}
+        .main-footer{text-align:center;padding:2rem 1rem;margin-top:3rem;border-top:1px solid var(--border);color:var(--text-secondary);font-size:0.9rem}
+        .footer-links{display:flex;justify-content:center;flex-wrap:wrap;gap:1rem;margin:1.5rem 0}
+        .footer-links a{color:var(--primary);text-decoration:none;font-weight:600;padding:0.5rem 1rem;border-radius:var(--radius-sm);background:rgba(0,255,153,0.1);transition:var(--transition)}
+        .footer-links a:hover{background:rgba(0,255,153,0.2)}
+        .legal-notice{background:rgba(255,68,68,0.1);border-left:4px solid #ff4444;padding:1rem;border-radius:var(--radius-sm);margin:1.5rem auto;max-width:800px;text-align:left;font-size:0.85rem}
+        .toast{position:fixed;bottom:1rem;left:50%;transform:translateX(-50%) translateY(100px);background:var(--bg-card);color:var(--primary);padding:1rem 1.5rem;border-radius:var(--radius);border:1px solid rgba(0,255,153,0.3);box-shadow:0 8px 32px rgba(0,0,0,0.4);z-index:2000;display:flex;align-items:center;gap:0.75rem;transition:transform 0.4s cubic-bezier(0.68,-0.55,0.265,1.55);max-width:90vw}
+        .toast.show{transform:translateX(-50%) translateY(0)}
+        .loading{display:inline-block;width:20px;height:20px;border:2px solid rgba(0,255,153,0.3);border-radius:50%;border-top-color:var(--primary);animation:spin 1s linear infinite}
+        @keyframes spin{to{transform:rotate(360deg)}}
+        .container{max-width:1200px;margin:0 auto;padding:0 1rem}
+        @media(prefers-reduced-motion:reduce){*{animation-duration:0.01ms!important;animation-iteration-count:1!important;transition-duration:0.01ms!important}}
+    </style>
 </head>
 <body>
-
-<div class="container">
-
-  <h1>Seu IP público é:</h1>
-
-  <div class="ip" id="ip">Carregando...</div>
-
-  <div class="geo" id="geo">Obtendo localização...</div>
-
-  <div class="actions">
-    <button class="btn" onclick="copiarIP()">Copiar IP</button>
-    <a class="btn secondary" href="ip/ipv4.html">Ver IPv4</a>
-    <a class="btn secondary" href="ip/ipv6.html">Ver IPv6</a>
-  </div>
-
-  <div class="tools">
-    <a class="tool" href="ip/dns.html">
-      <h3>Meu DNS</h3>
-      <p>Veja seus servidores DNS</p>
-    </a>
-
-    <a class="tool" href="geradores/senha.html">
-      <h3>Gerador de Senha</h3>
-      <p>Crie senhas seguras</p>
-    </a>
-
-    <a class="tool" href="geradores/uuid.html">
-      <h3>Gerador de UUID</h3>
-      <p>Identificadores únicos</p>
-    </a>
-
-    <a class="tool" href="calculadoras/porcentagem.html">
-      <h3>Calculadora</h3>
-      <p>Cálculo rápido de porcentagem</p>
-    </a>
-  </div>
-
-  <footer>
-    <p>
-      <a href="sobre.html">Sobre</a> |
-      <a href="privacidade.html">Privacidade</a> |
-      <a href="contato.html">Contato</a>
-    </p>
-  </footer>
-
-</div>
-
-<script>
-  fetch("https://ipapi.co/json/")
-    .then(res => res.json())
-    .then(data => {
-      document.getElementById("ip").innerText = data.ip;
-      document.getElementById("geo").innerText =
-        `${data.city} - ${data.region} - ${data.country_name} • ${data.org}`;
-    });
-
-  function copiarIP() {
-    const ip = document.getElementById("ip").innerText;
-    navigator.clipboard.writeText(ip);
-    alert("IP copiado!");
-  }
-</script>
-
+    <header class="main-header"><div class="container"><a href="/" class="logo">🌐 SEUIP.ORG</a><p class="tagline">80+ ferramentas online 100% grátis</p><div class="live-badge"><span class="live-dot"></span><span id="userCount">2.5k+</span> usuários online</div></div></header>
+    <section class="container"><div class="ip-display-container"><div class="ip-label"><span>🌐</span>SEU ENDEREÇO IP</div><div class="ip-value" id="currentIp">Carregando...</div><div class="quick-actions"><button class="quick-btn primary" onclick="copyIP()"><span>📋</span>Copiar IP</button><a href="meu-ip.html" class="quick-btn"><span>🔍</span>Detalhes</a><a href="teste-velocidade.html" class="quick-btn"><span>🚀</span>Testar Velocidade</a><a href="geolocalizacao.html" class="quick-btn"><span>📍</span>Localização</a></div></div></section>
+    <section class="container"><div class="search-container"><div class="search-icon">🔍</div><input type="text" class="search-input" id="searchInput" placeholder="Pesquisar ferramenta..." aria-label="Pesquisar ferramentas"></div></section>
+    <section class="highlight-section container"><h2 class="category-title">⭐ Ferramentas em Destaque</h2><div class="tools-grid"><div class="tool-card"><div class="tool-header"><div class="tool-icon">📍</div><span class="tool-badge new">NOVO</span></div><h3 class="tool-title">Buscador de CEP</h3><p class="tool-desc">Encontre CEP por endereço com mapa e coordenadas</p><a href="geradores/buscar-cep.html" class="tool-link">Acessar</a></div><div class="tool-card"><div class="tool-header"><div class="tool-icon">🔢</div><span class="tool-badge new">VIP</span></div><h3 class="tool-title">Gerador de CPF</h3><p class="tool-desc">Gere CPFs válidos para testes e desenvolvimento</p><a href="geradores/cpf.html" class="tool-link">Gerar CPF</a></div><div class="tool-card"><div class="tool-header"><div class="tool-icon">💬</div></div><h3 class="tool-title">Link WhatsApp</h3><p class="tool-desc">Crie links wa.me com mensagem personalizada</p><a href="geradores/whatsapp-link.html" class="tool-link">Criar Link</a></div><div class="tool-card"><div class="tool-header"><div class="tool-icon">🔐</div></div><h3 class="tool-title">Gerador de Senha</h3><p class="tool-desc">Crie senhas fortes e seguras automaticamente</p><a href="geradores/senha.html" class="tool-link">Gerar Senha</a></div></div></section>
+    <main class="container">
+        <section class="category-section"><h2 class="category-title">🌐 IP & Rede</h2><div class="tools-grid"><div class="tool-card"><h3 class="tool-title">Meu IP Agora</h3><p class="tool-desc">IP público com localização e dados técnicos</p><a href="meu-ip.html" class="tool-link">Ver IP</a></div><div class="tool-card"><h3 class="tool-title">Rastrear IP</h3><p class="tool-desc">Informações detalhadas sobre qualquer IP</p><a href="rastreamento-ip.html" class="tool-link">Rastrear</a></div><div class="tool-card"><h3 class="tool-title">Rastrear IP (FBI)</h3><p class="tool-desc">Modo FBI para rastreamento avançado</p><a href="fbi-rastreamento-ip.html" class="tool-link">Modo FBI</a></div><div class="tool-card"><h3 class="tool-title">Consulta IPv4</h3><p class="tool-desc">Informações técnicas de endereços IPv4</p><a href="ipv4.html" class="tool-link">Consultar</a></div><div class="tool-card"><h3 class="tool-title">Geolocalização</h3><p class="tool-desc">Localização no mapa com coordenadas GPS</p><a href="geolocalizacao.html" class="tool-link">Ver Mapa</a></div><div class="tool-card"><h3 class="tool-title">Teste de Velocidade</h3><p class="tool-desc">Download, upload e ping em tempo real</p><a href="teste-velocidade.html" class="tool-link">Testar</a></div><div class="tool-card"><h3 class="tool-title">Mapa de Rede</h3><p class="tool-desc">Visualize sua conexão com servidores</p><a href="mapa-rede.html" class="tool-link">Ver Mapa</a></div></div></section>
+        <section class="category-section"><h2 class="category-title">🔧 Geradores</h2><div class="tools-grid"><div class="tool-card"><h3 class="tool-title">Gerador de CNPJ</h3><p class="tool-desc">CNPJs válidos com dígitos verificadores</p><a href="geradores/cnpj.html" class="tool-link">Gerar CNPJ</a></div><div class="tool-card"><h3 class="tool-title">Gerador de RG</h3><p class="tool-desc">Números de RG fictícios válidos</p><a href="geradores/rg.html" class="tool-link">Gerar RG</a></div><div class="tool-card"><h3 class="tool-title">Cartão de Crédito</h3><p class="tool-desc">Números de cartão válidos para testes</p><a href="geradores/cartao-credito.html" class="tool-link">Gerar Cartão</a></div><div class="tool-card"><h3 class="tool-title">Conta Bancária</h3><p class="tool-desc">Dados fictícios de conta bancária</p><a href="geradores/conta-bancaria.html" class="tool-link">Gerar Conta</a></div><div class="tool-card"><h3 class="tool-title">PIS/PASEP</h3><p class="tool-desc">Números de PIS/PASEP válidos</p><a href="geradores/pis-pasep.html" class="tool-link">Gerar PIS</a></div><div class="tool-card"><h3 class="tool-title">Lorem Ipsum</h3><p class="tool-desc">Texto Lorem Ipsum para projetos</p><a href="geradores/lorem-ipsum.html" class="tool-link">Gerar Texto</a></div></div></section>
+        <section class="category-section"><h2 class="category-title">📱 WhatsApp & Contato</h2><div class="tools-grid"><div class="tool-card"><h3 class="tool-title">Gerador de Telefone</h3><p class="tool-desc">Números de telefone válidos com DDD</p><a href="geradores/telefone.html" class="tool-link">Gerar Número</a></div><div class="tool-card"><h3 class="tool-title">E-mail Temporário</h3><p class="tool-desc">E-mails descartáveis instantâneos</p><a href="geradores/email-temporario.html" class="tool-link">Gerar E-mail</a></div><div class="tool-card"><h3 class="tool-title">IMEI Generator</h3><p class="tool-desc">Números IMEI válidos para celulares</p><a href="geradores/imei.html" class="tool-link">Gerar IMEI</a></div></div></section>
+        <section class="category-section"><h2 class="category-title">🔐 Segurança & Senhas</h2><div class="tools-grid"><div class="tool-card"><h3 class="tool-title">Criptografia</h3><p class="tool-desc">Criptografe textos com diversos algoritmos</p><a href="geradores/criptografia.html" class="tool-link">Criptografar</a></div><div class="tool-card"><h3 class="tool-title">Gerador de Token</h3><p class="tool-desc">Tokens aleatórios para autenticação</p><a href="geradores/token.html" class="tool-link">Gerar Token</a></div></div></section>
+        <section class="category-section"><h2 class="category-title">🎨 Design & QR Code</h2><div class="tools-grid"><div class="tool-card"><h3 class="tool-title">Gerador de QR Code</h3><p class="tool-desc">QR Codes personalizados para URLs</p><a href="geradores/qr-code.html" class="tool-link">Criar QR</a></div><div class="tool-card"><h3 class="tool-title">Paleta de Cores</h3><p class="tool-desc">Paletas de cores harmoniosas</p><a href="geradores/cores.html" class="tool-link">Gerar Cores</a></div><div class="tool-card"><h3 class="tool-title">Conversor de Cores</h3><p class="tool-desc">Converta entre HEX, RGB, HSL</p><a href="geradores/conversor-cores.html" class="tool-link">Converter</a></div></div></section>
+        <section class="category-section"><h2 class="category-title">👥 Pessoas & Dados</h2><div class="tools-grid"><div class="tool-card"><h3 class="tool-title">Gerador de Pessoas</h3><p class="tool-desc">Dados completos de pessoas fictícias</p><a href="geradores/pessoas.html" class="tool-link">Gerar Pessoa</a></div><div class="tool-card"><h3 class="tool-title">Contrato Fictício</h3><p class="tool-desc">Modelos de contratos para testes</p><a href="geradores/contrato.html" class="tool-link">Gerar Contrato</a></div><div class="tool-card"><h3 class="tool-title">Texto Aleatório</h3><p class="tool-desc">Textos aleatórios em português</p><a href="geradores/texto-aleatorio.html" class="tool-link">Gerar Texto</a></div></div></section>
+        <section class="category-section"><h2 class="category-title">🚗 Veículos</h2><div class="tools-grid"><div class="tool-card"><h3 class="tool-title">Gerador de Placa</h3><p class="tool-desc">Placas válidas Mercosul e antigo</p><a href="geradores/placa-veiculo.html" class="tool-link">Gerar Placa</a></div><div class="tool-card"><h3 class="tool-title">Gerador de RENAVAM</h3><p class="tool-desc">Números de RENAVAM válidos</p><a href="geradores/renavam.html" class="tool-link">Gerar RENAVAM</a></div><div class="tool-card"><h3 class="tool-title">Dados de Veículo</h3><p class="tool-desc">Dados completos de veículos fictícios</p><a href="geradores/veiculo.html" class="tool-link">Gerar Veículo</a></div></div></section>
+        <section class="category-section"><h2 class="category-title">🧮 Ferramentas Úteis</h2><div class="tools-grid"><div class="tool-card"><h3 class="tool-title">Calculadora Online</h3><p class="tool-desc">Calculadora completa com funções</p><a href="geradores/calculadora.html" class="tool-link">Abrir</a></div><div class="tool-card"><h3 class="tool-title">Cotação de Moedas</h3><p class="tool-desc">Cotações atualizadas em tempo real</p><a href="geradores/cotacao.html" class="tool-link">Ver</a></div><div class="tool-card"><h3 class="tool-title">Conversor de Unidades</h3><p class="tool-desc">Converta medidas, pesos, volumes</p><a href="geradores/conversor.html" class="tool-link">Converter</a></div><div class="tool-card"><h3 class="tool-title">Calendário Online</h3><p class="tool-desc">Calendário completo com feriados</p><a href="geradores/calendario.html" class="tool-link">Abrir</a></div><div class="tool-card"><h3 class="tool-title">Cronômetro</h3><p class="tool-desc">Cronômetro com lapsos avançados</p><a href="geradores/cronometro.html" class="tool-link">Iniciar</a></div><div class="tool-card"><h3 class="tool-title">Alarme Online</h3><p class="tool-desc">Configure alarmes com sons</p><a href="geradores/despertador.html" class="tool-link">Configurar</a></div></div></section>
+        <section class="category-section"><h2 class="category-title">✅ Validadores</h2><div class="tools-grid"><div class="tool-card"><h3 class="tool-title">Validador de CPF</h3><p class="tool-desc">Verifique se um CPF é válido</p><a href="validadores/cpf.html" class="tool-link">Validar</a></div><div class="tool-card"><h3 class="tool-title">Validador de CNPJ</h3><p class="tool-desc">Verifique se um CNPJ é válido</p><a href="validadores/cnpj.html" class="tool-link">Validar</a></div><div class="tool-card"><h3 class="tool-title">Validador de RG</h3><p class="tool-desc">Verifique se um RG é válido</p><a href="validadores/rg.html" class="tool-link">Validar</a></div><div class="tool-card"><h3 class="tool-title">Validador de CEP</h3><p class="tool-desc">Verifique se um CEP é válido</p><a href="validadores/cep.html" class="tool-link">Validar</a></div><div class="tool-card"><h3 class="tool-title">Validador de E-mail</h3><p class="tool-desc">Verifique formato de e-mail</p><a href="validadores/email.html" class="tool-link">Validar</a></div><div class="tool-card"><h3 class="tool-title">Validador de Senha</h3><p class="tool-desc">Verifique força de senhas</p><a href="validadores/senha.html" class="tool-link">Validar</a></div></div></section>
+        <section class="category-section"><h2 class="category-title">📊 Mais Ferramentas</h2><div class="tools-grid"><div class="tool-card"><h3 class="tool-title">Gerador de PDF</h3><p class="tool-desc">Converta textos para PDF online</p><a href="geradores/pdf.html" class="tool-link">Gerar</a></div><div class="tool-card"><h3 class="tool-title">Gráficos Online</h3><p class="tool-desc">Crie gráficos personalizados</p><a href="geradores/graficos.html" class="tool-link">Criar</a></div><div class="tool-card"><h3 class="tool-title">Gerador de Tabelas</h3><p class="tool-desc">Crie tabelas HTML/CSS rapidamente</p><a href="geradores/tabelas.html" class="tool-link">Criar</a></div><div class="tool-card"><h3 class="tool-title">Editor de Texto</h3><p class="tool-desc">Editor online com formatação</p><a href="geradores/editor-texto.html" class="tool-link">Abrir</a></div><div class="tool-card"><h3 class="tool-title">Gerador Aleatório</h3><p class="tool-desc">Gere números, textos, cores</p><a href="geradores/aleatorio.html" class="tool-link">Gerar</a></div><div class="tool-card"><h3 class="tool-title">Conversor Numérico</h3><p class="tool-desc">Converta decimal, binário, hex</p><a href="geradores/conversor-numerico.html" class="tool-link">Converter</a></div></div></section>
+    </main>
+    <footer class="main-footer"><div class="container"><div class="footer-links"><a href="index.html">Início</a><a href="sobre.html">Sobre</a><a href="privacidade.html">Privacidade</a><a href="contato.html">Contato</a><a href="termos.html">Termos</a></div><div class="legal-notice"><strong>⚠️ AVISO LEGAL:</strong> Todas as ferramentas são para fins educacionais e de teste. Proibido uso para atividades ilegais. Nenhum dado real é armazenado.</div><p>© 2024 SEUIP.ORG | 80+ ferramentas online grátis</p><p style="margin-top:0.5rem;color:var(--text-secondary);font-size:0.8rem">Desenvolvido com 💚 para a comunidade brasileira</p></div></footer>
+    <a href="#top" class="floating-btn" aria-label="Voltar ao topo">↑</a>
+    <div id="toastContainer" aria-live="polite" aria-atomic="true"></div>
+    <script>
+        async function detectIP(){const e=document.getElementById('currentIp');try{const r=await fetch('https://api.ipify.org?format=json');const d=await r.json();e.textContent=d.ip;showToast('✅ IP detectado: '+d.ip)}catch(t){e.textContent='Não detectado';e.style.color='#ff6b6b';showToast('❌ Erro ao detectar IP','error')}}
+        async function copyIP(){const e=document.getElementById('currentIp').textContent;if(e==='Carregando...'||e==='Não detectado'){showToast('Aguarde o IP carregar','warning');return}try{await navigator.clipboard.writeText(e);showToast('📋 IP copiado: '+e)}catch(t){showToast('❌ Erro ao copiar','error')}}
+        function showToast(m,t='info'){const c=document.getElementById('toastContainer'),d=document.createElement('div');d.className='toast';const i={success:'✅',error:'❌',warning:'⚠️',info:'💡'};d.innerHTML=(i[t]||i.info)+'<span>'+m+'</span>';c.appendChild(d);setTimeout(()=>d.classList.add('show'),10);setTimeout(()=>{d.classList.remove('show');setTimeout(()=>d.remove(),400)},3000)}
+        function setupSearch(){const s=document.getElementById('searchInput');if(!s)return;s.addEventListener('input',debounce(function(){const t=this.value.toLowerCase().trim();document.querySelectorAll('.tool-card').forEach(c=>{const n=c.querySelector('.tool-title').textContent.toLowerCase(),d=c.querySelector('.tool-desc').textContent.toLowerCase();c.style.display=(t===''||n.includes(t)||d.includes(t))?'flex':'none'})},300));document.addEventListener('keydown',e=>{if((e.ctrlKey||e.metaKey)&&e.key==='k'){e.preventDefault();s.focus()}})}
+        function animateUserCounter(){const e=document.getElementById('userCount');if(!e)return;let c=2500;setInterval(()=>{c=Math.max(2000,c+Math.floor(Math.random()*10)-3);e.textContent=c.toLocaleString('pt-BR')+'+'},5000)}
+        function debounce(f,w){let t;return function(...a){clearTimeout(t);t=setTimeout(()=>f.apply(this,a),w)}}
+        function setupMobileOptimizations(){let l=0;document.addEventListener('touchend',e=>{const n=Date.now();if(n-l<=300)e.preventDefault();l=n},false);document.addEventListener('touchstart',()=>{},{passive:true});if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent))document.body.classList.add('mobile')}
+        document.addEventListener('DOMContentLoaded',()=>{detectIP();setupSearch();setupMobileOptimizations();animateUserCounter();setTimeout(()=>showToast('🚀 Bem-vindo ao SEUIP.ORG!'),1000)});
+    </script>
 </body>
 </html>
