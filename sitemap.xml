@@ -1,21 +1,302 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-<url><loc>https://seuip.org/</loc><changefreq>daily</changefreq><priority>1.0</priority></url>
-<url><loc>https://seuip.org/blog/</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
-<url><loc>https://seuip.org/blog/como-descobrir-meu-ip.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-<url><loc>https://seuip.org/blog/como-gerar-cpf-valido.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-<url><loc>https://seuip.org/blog/como-criar-link-whatsapp.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-<url><loc>https://seuip.org/blog/como-testar-velocidade-internet.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-<url><loc>https://seuip.org/blog/o-que-e-cpf.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-<url><loc>https://seuip.org/blog/o-que-e-cnpj.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-<url><loc>https://seuip.org/monetizacao.html</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
-<url><loc>https://seuip.org/meu-ip.html</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
-<url><loc>https://seuip.org/teste-velocidade.html</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-<url><loc>https://seuip.org/geradores/cpf.html</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
-<url><loc>https://seuip.org/geradores/cnpj.html</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-<url><loc>https://seuip.org/geradores/whatsapp-link.html</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
-<url><loc>https://seuip.org/geradores/senha.html</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
-<url><loc>https://seuip.org/geradores/qr-code.html</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-<url><loc>https://seuip.org/validadores/cpf.html</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-<url><loc>https://seuip.org/validadores/cnpj.html</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+
+  <!-- ======================== -->
+  <!-- PÁGINA PRINCIPAL         -->
+  <!-- ======================== -->
+  <url>
+    <loc>https://seuip.org/</loc>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- ======================== -->
+  <!-- BLOG                     -->
+  <!-- ======================== -->
+  <url>
+    <loc>https://seuip.org/blog/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://seuip.org/blog/como-descobrir-meu-ip.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://seuip.org/blog/como-gerar-cpf-valido.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://seuip.org/blog/como-criar-link-whatsapp.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://seuip.org/blog/como-testar-velocidade-internet.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://seuip.org/blog/o-que-e-cpf.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://seuip.org/blog/o-que-e-cnpj.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- ======================== -->
+  <!-- MONETIZAÇÃO              -->
+  <!-- ======================== -->
+  <url>
+    <loc>https://seuip.org/monetizacao.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <!-- ======================== -->
+  <!-- IP & REDE                -->
+  <!-- ======================== -->
+  <url>
+    <loc>https://seuip.org/meu-ip.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://seuip.org/rastrear-ip.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://seuip.org/rastrear-ip-fbi.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://seuip.org/consulta-ipv4.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://seuip.org/geolocalizacao.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://seuip.org/teste-velocidade.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://seuip.org/mapa-rede.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- ======================== -->
+  <!-- GERADORES                -->
+  <!-- ======================== -->
+  <url>
+    <loc>https://seuip.org/geradores/cpf.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://seuip.org/geradores/cnpj.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://seuip.org/geradores/rg.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://seuip.org/geradores/cartao-credito.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://seuip.org/geradores/conta-bancaria.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://seuip.org/geradores/pis-pasep.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://seuip.org/geradores/lorem-ipsum.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://seuip.org/geradores/telefone.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://seuip.org/geradores/email-temporario.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://seuip.org/geradores/imei.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://seuip.org/geradores/senha.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://seuip.org/geradores/token.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://seuip.org/geradores/qr-code.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://seuip.org/geradores/pessoa.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://seuip.org/geradores/texto-aleatorio.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://seuip.org/geradores/placa.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://seuip.org/geradores/veiculo.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- ======================== -->
+  <!-- FERRAMENTAS ÚTEIS        -->
+  <!-- ======================== -->
+  <url>
+    <loc>https://seuip.org/ferramentas/calculadora.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://seuip.org/ferramentas/cotacao-moedas.html</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://seuip.org/ferramentas/conversor-unidades.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://seuip.org/ferramentas/calendario.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://seuip.org/ferramentas/cronometro.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://seuip.org/ferramentas/alarme.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://seuip.org/ferramentas/paleta-cores.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://seuip.org/ferramentas/conversor-cores.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://seuip.org/ferramentas/criptografia.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://seuip.org/ferramentas/gerador-pdf.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://seuip.org/ferramentas/graficos.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://seuip.org/ferramentas/tabelas.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://seuip.org/ferramentas/editor-texto.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://seuip.org/ferramentas/gerador-aleatorio.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://seuip.org/ferramentas/conversor-numerico.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- ======================== -->
+  <!-- VALIDADORES              -->
+  <!-- ======================== -->
+  <url>
+    <loc>https://seuip.org/validadores/cpf.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://seuip.org/validadores/cnpj.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://seuip.org/validadores/rg.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://seuip.org/validadores/cep.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://seuip.org/validadores/email.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://seuip.org/validadores/senha.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
 </urlset>
